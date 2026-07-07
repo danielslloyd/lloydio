@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+import { SITE_TITLE, SITE_DESCRIPTION, SHOW_DRAFTS } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Set on pages with markdown content to enable sidenotes/popups. */
+  article?: boolean;
+}
+const { title, description = SITE_DESCRIPTION, article = false } = Astro.props;
+const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href="/rss.xml" />
+    <script is:inline>
+      // Set theme before first paint to avoid a flash.
+      (function () {
+        var t = localStorage.getItem('theme');
+        if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav>
+        <a href="/" class="site-title">{SITE_TITLE}</a>
+        <a href="/notes">notes</a>
+        <a href="/essays">essays</a>
+        <a href="/apps">apps</a>
+        <a href="/search">search</a>
+        {SHOW_DRAFTS && <a href="/capture" class="owner-only">capture</a>}
+        <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">◐</button>
+      </nav>
+      {SHOW_DRAFTS && <p class="draft-banner">owner mode — drafts visible</p>}
+    </header>
+    <main class:list={[{ article }]}>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <a href="/rss.xml">RSS</a>
+      <span>·</span>
+      <a href={`https://github.com/danielslloyd/lloydio`}>source</a>
+    </footer>
+    <script is:inline>
+      document.getElementById('theme-toggle').addEventListener('click', function () {
+        var root = document.documentElement;
+        var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        localStorage.setItem('theme', next);
+      });
+      if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+    </script>
+    {article && <script src="../scripts/sidenotes.js"></script>}
+    {article && <script src="../scripts/popups.js"></script>}
+  </body>
+</html>

@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { SHOW_DRAFTS, editUrl, formatDate } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const showDrafts = process.env.DRAFTS === '1';
+  const essays = await getCollection('essays', (e) => showDrafts || !e.data.draft);
+  return essays.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<Base title={entry.data.title} description={entry.data.description} article={true}>
+  <h1 class="page-title">{entry.data.title}</h1>
+  <p class="meta">
+    {formatDate(entry.data.date)}
+    {entry.data.updated && ` · updated ${formatDate(entry.data.updated)}`}
+    {entry.data.tags.map((t) => (
+      <a class="tag-chip" href={`/tags/${t}`}> #{t}</a>
+    ))}
+    {entry.data.draft && <span class="draft-chip">draft</span>}
+    {SHOW_DRAFTS && entry.filePath && (
+      <a class="edit-link" href={editUrl(entry.filePath)}>edit</a>
+    )}
+  </p>
+  <div class="essay-body">
+    <Content />
+  </div>
+</Base>

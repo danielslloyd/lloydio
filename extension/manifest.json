@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "lloydio capture",
+  "version": "0.1.0",
+  "description": "Capture the current tab to lloydio",
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Capture to lloydio"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  }
+}

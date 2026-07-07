@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Search">
+  <h1 class="page-title">Search</h1>
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  <div id="search"></div>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.PagefindUI) {
+        new PagefindUI({ element: '#search', showSubResults: true });
+      } else {
+        document.getElementById('search').textContent =
+          'Search index not available in dev mode — run a full build.';
+      }
+    });
+  </script>
+</Base>

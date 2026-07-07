@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body { font-family: Georgia, serif; width: 320px; padding: 10px; margin: 0; }
+      label { display: block; margin-top: 8px; font-variant: small-caps; color: #555; }
+      input, textarea, button { width: 100%; box-sizing: border-box; font-family: inherit; padding: 4px 6px; }
+      button { margin-top: 10px; cursor: pointer; }
+      #status { font-size: 0.85em; color: #555; min-height: 1.2em; }
+      a { color: #555; font-size: 0.8em; }
+    </style>
+  </head>
+  <body>
+    <label>title</label>
+    <input id="title" type="text" />
+    <label>note</label>
+    <textarea id="note" rows="3"></textarea>
+    <label>tags (comma-separated)</label>
+    <input id="tags" type="text" />
+    <button id="save">save to lloydio</button>
+    <p id="status"></p>
+    <a href="#" id="open-options">settings (endpoint & token)</a>
+    <script src="popup.js"></script>
+  </body>
+</html>

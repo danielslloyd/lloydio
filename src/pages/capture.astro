@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Capture">
+  <h1 class="page-title">Capture</h1>
+  <p class="meta">quick-add a link or note · saved as a commit to the repo</p>
+
+  <form id="capture-form">
+    <label for="url">url (optional)</label>
+    <input type="url" id="url" name="url" placeholder="https://…" />
+
+    <label for="title">title</label>
+    <input type="text" id="title" name="title" placeholder="What is it?" />
+
+    <label for="note">note</label>
+    <textarea id="note" name="note" rows="5" placeholder="Why it's interesting…"></textarea>
+
+    <label for="tags">tags (comma-separated)</label>
+    <input type="text" id="tags" name="tags" placeholder="ai, reading" />
+
+    <label><input type="checkbox" id="draft" style="width:auto" /> draft (owner-mode only)</label>
+
+    <label for="token">capture token</label>
+    <input type="password" id="token" name="token" placeholder="stored in this browser" />
+
+    <button class="btn" type="submit">save</button>
+    <p id="status" class="meta" role="status"></p>
+  </form>
+
+  <script is:inline>
+    const $ = (id) => document.getElementById(id);
+
+    // Pre-fill from PWA share-target / bookmarklet query params.
+    const params = new URLSearchParams(location.search);
+    let sharedUrl = params.get('url') || '';
+    let sharedText = params.get('text') || '';
+    // Android often puts the URL in `text`.
+    if (!sharedUrl && /^https?:\/\/\S+$/.test(sharedText.trim())) {
+      sharedUrl = sharedText.trim();
+      sharedText = '';
+    }
+    $('url').value = sharedUrl;
+    $('title').value = params.get('title') || '';
+    $('note').value = sharedText;
+
+    // Token persists per-browser.
+    $('token').value = localStorage.getItem('captureToken') || '';
+
+    $('capture-form').addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      const token = $('token').value.trim();
+      localStorage.setItem('captureToken', token);
+      $('status').textContent = 'saving…';
+      try {
+        const res = await fetch('/api/capture', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            url: $('url').value.trim() || undefined,
+            title: $('title').value.trim() || undefined,
+            note: $('note').value.trim() || undefined,
+            tags: $('tags').value.split(',').map((t) => t.trim()).filter(Boolean),
+            draft: $('draft').checked,
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+        $('status').textContent = 'saved ✓ — live after the next build (~1 min)';
+        $('url').value = $('title').value = $('note').value = $('tags').value = '';
+      } catch (err) {
+        $('status').textContent = `failed: ${err.message}`;
+      }
+    });
+  </script>
+
+  <details>
+    <summary>desktop bookmarklet</summary>
+    <p>
+      Drag this to your bookmarks bar to capture whatever page you're on:
+      <a id="bookmarklet" href="#">capture→lloydio</a>
+    </p>
+    <p class="meta">Or use the browser extension in <code>extension/</code> for a nicer flow.</p>
+    <script is:inline>
+      document.getElementById('bookmarklet').href =
+        `javascript:void(open('${location.origin}/capture?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title),'_blank','width=520,height=640'))`;
+    </script>
+  </details>
+</Base>

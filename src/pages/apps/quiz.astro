@@ -1,0 +1,120 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Quiz">
+  <h1 class="page-title">Quiz</h1>
+  <p class="meta">
+    flashcard self-quizzer with light spaced repetition ·
+    add decks as JSON files in <code>public/decks/</code>
+  </p>
+
+  <div id="deck-picker">
+    <label for="deck">deck</label>
+    <select id="deck"></select>
+    <button class="btn" id="start">start</button>
+    <p id="deck-info" class="meta"></p>
+  </div>
+
+  <div id="card-area" hidden style="text-align:center; margin:2rem 0;">
+    <div id="question" style="font-size:1.4rem; min-height:4rem;"></div>
+    <div id="answer" style="font-size:1.2rem; min-height:3rem; color:var(--muted);" hidden></div>
+    <p>
+      <button class="btn" id="flip">show answer</button>
+      <span id="grade-buttons" hidden>
+        <button class="btn" id="again">again</button>
+        <button class="btn" id="good">good</button>
+      </span>
+    </p>
+    <p class="meta"><span id="remaining-count"></span> due · <button class="btn" id="quit">back to decks</button></p>
+  </div>
+
+  <script is:inline>
+    // Scheduling: SM-2-lite. Each card stores {interval (days), due (ISO date)}
+    // in localStorage under quiz-<deckId>. "good" doubles the interval
+    // (starting at 1 day); "again" resets it and requeues the card now.
+    const $ = (id) => document.getElementById(id);
+    let deck = null, deckId = null, queue = [], current = null;
+
+    const storeKey = () => 'quiz-' + deckId;
+    const loadState = () => JSON.parse(localStorage.getItem(storeKey()) || '{}');
+    const saveState = (s) => localStorage.setItem(storeKey(), JSON.stringify(s));
+    const today = () => new Date().toISOString().slice(0, 10);
+
+    async function init() {
+      try {
+        const res = await fetch('/decks/index.json');
+        const decks = await res.json();
+        for (const d of decks) {
+          const opt = document.createElement('option');
+          opt.value = d.file;
+          opt.textContent = d.name;
+          $('deck').appendChild(opt);
+        }
+      } catch {
+        $('deck-info').textContent = 'No decks found — add JSON files under public/decks/.';
+      }
+    }
+
+    $('start').addEventListener('click', async () => {
+      deckId = $('deck').value;
+      if (!deckId) return;
+      deck = await (await fetch('/decks/' + deckId)).json();
+      const state = loadState();
+      queue = deck.cards
+        .map((c, i) => ({ ...c, i }))
+        .filter((c) => !state[c.i] || state[c.i].due <= today());
+      if (queue.length === 0) {
+        $('deck-info').textContent = 'Nothing due today ✓';
+        return;
+      }
+      queue.sort(() => Math.random() - 0.5);
+      $('deck-picker').hidden = true;
+      $('card-area').hidden = false;
+      next();
+    });
+
+    function next() {
+      if (queue.length === 0) {
+        $('question').textContent = 'Done for today ✓';
+        $('answer').hidden = true;
+        $('flip').hidden = true;
+        $('grade-buttons').hidden = true;
+        $('remaining-count').textContent = '0';
+        return;
+      }
+      current = queue.shift();
+      $('question').textContent = current.q;
+      $('answer').textContent = current.a;
+      $('answer').hidden = true;
+      $('flip').hidden = false;
+      $('grade-buttons').hidden = true;
+      $('remaining-count').textContent = String(queue.length + 1);
+    }
+
+    $('flip').addEventListener('click', () => {
+      $('answer').hidden = false;
+      $('flip').hidden = true;
+      $('grade-buttons').hidden = false;
+    });
+
+    function grade(good) {
+      const state = loadState();
+      const prev = state[current.i] || { interval: 0 };
+      if (good) {
+        const interval = Math.max(1, prev.interval * 2);
+        const due = new Date(Date.now() + interval * 86400e3).toISOString().slice(0, 10);
+        state[current.i] = { interval, due };
+      } else {
+        state[current.i] = { interval: 0, due: today() };
+        queue.push(current); // see it again this session
+      }
+      saveState(state);
+      next();
+    }
+    $('again').addEventListener('click', () => grade(false));
+    $('good').addEventListener('click', () => grade(true));
+    $('quit').addEventListener('click', () => location.reload());
+
+    init();
+  </script>
+</Base>

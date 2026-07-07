@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body { font-family: Georgia, serif; padding: 12px; min-width: 320px; }
+      label { display: block; margin-top: 8px; font-variant: small-caps; color: #555; }
+      input, button { width: 100%; box-sizing: border-box; font-family: inherit; padding: 4px 6px; }
+      button { margin-top: 10px; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <label>site origin (e.g. https://lloydio.pages.dev)</label>
+    <input id="endpoint" type="url" />
+    <label>capture token</label>
+    <input id="token" type="password" />
+    <button id="save">save</button>
+    <p id="status"></p>
+    <script src="options.js"></script>
+  </body>
+</html>

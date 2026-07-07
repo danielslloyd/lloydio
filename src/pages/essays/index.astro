@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { SHOW_DRAFTS, formatDate } from '../../lib/site';
+
+const essays = (await getCollection('essays', (e) => SHOW_DRAFTS || !e.data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Base title="Essays">
+  <h1 class="page-title">Essays</h1>
+  <ul class="entry-list">
+    {essays.map((e) => (
+      <li>
+        <span class="entry-date">{formatDate(e.data.date)}</span>
+        <span>
+          <a href={`/essays/${e.id}`}>{e.data.title}</a>
+          {e.data.draft && <span class="draft-chip">draft</span>}
+          {e.data.description && <span class="meta"> — {e.data.description}</span>}
+        </span>
+      </li>
+    ))}
+  </ul>
+</Base>

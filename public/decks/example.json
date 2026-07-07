@@ -1,0 +1,8 @@
+{
+  "name": "Example: gwern.net features",
+  "cards": [
+    { "q": "What are sidenotes?", "a": "Footnotes displayed in the page margin on wide screens instead of at the bottom." },
+    { "q": "What is transclusion?", "a": "Embedding the content of one page (or part of it) inside another page." },
+    { "q": "What does gwern.net do about link rot?", "a": "Preemptively archives every external link and serves local mirrors; this site submits links to the Wayback Machine instead." }
+  ]
+}

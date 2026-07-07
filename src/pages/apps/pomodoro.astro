@@ -1,0 +1,87 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Pomodoro">
+  <h1 class="page-title">Pomodoro</h1>
+  <div style="text-align:center; margin:3rem 0;">
+    <div id="clock" style="font-size:5rem; font-variant-numeric:tabular-nums;">25:00</div>
+    <div id="phase" class="meta" style="margin:0.5rem 0;">focus</div>
+    <p>
+      <button class="btn" id="startpause">start</button>
+      <button class="btn" id="reset">reset</button>
+      <button class="btn" id="skip">skip phase</button>
+    </p>
+    <p class="meta"><span id="count">0</span> pomodoros today</p>
+  </div>
+
+  <script is:inline>
+    const FOCUS = 25 * 60, BREAK = 5 * 60, LONG_BREAK = 15 * 60;
+    const $ = (id) => document.getElementById(id);
+    let phase = 'focus';       // 'focus' | 'break'
+    let remaining = FOCUS;
+    let timer = null;
+
+    const todayKey = () => 'pomodoro-' + new Date().toISOString().slice(0, 10);
+    const getCount = () => Number(localStorage.getItem(todayKey()) || 0);
+    const render = () => {
+      const m = String(Math.floor(remaining / 60)).padStart(2, '0');
+      const s = String(remaining % 60).padStart(2, '0');
+      $('clock').textContent = `${m}:${s}`;
+      $('phase').textContent = phase;
+      $('count').textContent = getCount();
+      document.title = `${m}:${s} · ${phase} · lloydio`;
+    };
+
+    function beep() {
+      try {
+        const ctx = new AudioContext();
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.connect(g); g.connect(ctx.destination);
+        o.frequency.value = 660;
+        g.gain.setValueAtTime(0.2, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.8);
+        o.start(); o.stop(ctx.currentTime + 0.8);
+      } catch {}
+    }
+
+    function nextPhase() {
+      beep();
+      if (phase === 'focus') {
+        const n = getCount() + 1;
+        localStorage.setItem(todayKey(), String(n));
+        phase = 'break';
+        remaining = n % 4 === 0 ? LONG_BREAK : BREAK;
+      } else {
+        phase = 'focus';
+        remaining = FOCUS;
+      }
+      render();
+    }
+
+    function tick() {
+      remaining -= 1;
+      if (remaining <= 0) nextPhase();
+      else render();
+    }
+
+    $('startpause').addEventListener('click', () => {
+      if (timer) {
+        clearInterval(timer); timer = null;
+        $('startpause').textContent = 'start';
+      } else {
+        timer = setInterval(tick, 1000);
+        $('startpause').textContent = 'pause';
+      }
+    });
+    $('reset').addEventListener('click', () => {
+      clearInterval(timer); timer = null;
+      phase = 'focus'; remaining = FOCUS;
+      $('startpause').textContent = 'start';
+      render();
+    });
+    $('skip').addEventListener('click', () => { remaining = 1; tick(); });
+
+    render();
+  </script>
+</Base>
