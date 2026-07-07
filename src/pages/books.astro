@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { SHOW_DRAFTS, editUrl, formatDate } from '../lib/site';
+
+const books = (await getCollection('books', (e) => SHOW_DRAFTS || !e.data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const order = { reading: 0, 'to-read': 1, finished: 2 };
+books.sort((a, b) => order[a.data.status] - order[b.data.status]);
+---
+<Base title="Books">
+  <h1 class="page-title">Books</h1>
+  <p class="meta">the book reading list, distilled from the note dump</p>
+
+  {books.length === 0 && <p>No books yet.</p>}
+  {books.length > 0 && (
+    <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>title</th><th>author</th><th>status</th><th>links</th><th>added</th></tr>
+        </thead>
+        <tbody>
+          {books.map((b) => (
+            <tr>
+              <td>
+                {b.data.title}
+                {SHOW_DRAFTS && b.filePath && <a class="edit-link" href={editUrl(b.filePath)}>edit</a>}
+              </td>
+              <td>{b.data.author ?? ''}</td>
+              <td class="meta">{b.data.status}</td>
+              <td>
+                {b.data.links.goodreads && <a href={b.data.links.goodreads}>goodreads</a>}{' '}
+                {b.data.links.amazon && <a href={b.data.links.amazon}>amazon</a>}{' '}
+                {b.data.links.audible && <a href={b.data.links.audible}>audible</a>}
+              </td>
+              <td class="entry-date">{formatDate(b.data.date)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+</Base>

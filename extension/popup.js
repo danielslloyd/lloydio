@@ -30,6 +30,7 @@ $('save').addEventListener('click', async () => {
         title: $('title').value.trim() || undefined,
         note: $('note').value.trim() || undefined,
         tags: $('tags').value.split(',').map((t) => t.trim()).filter(Boolean),
+        podcast: $('podcast').checked,
       }),
     });
     const data = await res.json().catch(() => ({}));

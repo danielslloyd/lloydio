@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getReadingItems } from '../../lib/reading';
+import { formatDate } from '../../lib/site';
+
+const items = await getReadingItems();
+const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' };
+---
+<Base title="Reading">
+  <h1 class="page-title">Reading</h1>
+  <p class="meta">
+    articles queued for reading/listening · flag a capture with the podcast
+    checkbox to queue it · <a href="/api/podcast-queue.json">queue.json</a>
+  </p>
+
+  {items.length === 0 && <p>Nothing queued yet.</p>}
+  {items.length > 0 && (
+    <div style="overflow-x:auto">
+      <table class="reading-table">
+        <thead>
+          <tr><th>added</th><th>title</th><th>original</th><th>listen</th><th>read</th><th>status</th></tr>
+        </thead>
+        <tbody>
+          {items.map((i) => (
+            <tr>
+              <td class="entry-date">{formatDate(i.date)}</td>
+              <td>{i.title}</td>
+              <td><a href={i.url}>↗</a></td>
+              <td>{i.audio ? <a href={i.audio}>▶</a> : '—'}</td>
+              <td>{i.hasArticle ? <a href={`/reading/${i.slug}`}>text</a> : '—'}</td>
+              <td class="meta">{statusMark[i.status]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+</Base>

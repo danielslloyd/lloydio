@@ -40,6 +40,8 @@ export async function onRequestPost(context) {
   const note = typeof body.note === 'string' ? body.note.trim() : '';
   const tags = Array.isArray(body.tags) ? body.tags.map(clean).filter(Boolean).slice(0, 10) : [];
   const draft = body.draft === true;
+  // "podcast" flags the link for BacklogCast (see .github/workflows/backlogcast.yml)
+  if (body.podcast === true && url && !tags.includes('podcast')) tags.push('podcast');
 
   if (!url && !title && !note) return json({ error: 'empty capture' }, 400);
 
@@ -60,6 +62,8 @@ export async function onRequestPost(context) {
     `date: ${now.toISOString()}`,
     tags.length ? `tags: [${tags.map((t) => JSON.stringify(t)).join(', ')}]` : null,
     draft ? 'draft: true' : null,
+    'inbox: true',
+    'source: capture',
     '---',
     '',
     note,

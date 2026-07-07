@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import NoteCard from './NoteCard.astro';
+import { getCollection } from 'astro:content';
+import { SHOW_DRAFTS } from '../lib/site';
+
+interface Props {
+  tag: string;
+  title: string;
+  blurb: string;
+}
+const { tag, title, blurb } = Astro.props;
+
+const notes = (
+  await getCollection('notes', (e) => e.data.tags.includes(tag) && (SHOW_DRAFTS || !e.data.draft))
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Base title={title} article={true}>
+  <h1 class="page-title">{title}</h1>
+  <p class="meta">{blurb}</p>
+  {notes.length === 0 && <p>Nothing here yet — tag notes with <code>#{tag}</code>.</p>}
+  {notes.map((n) => <NoteCard note={n} />)}
+</Base>

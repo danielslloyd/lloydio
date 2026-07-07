@@ -9,17 +9,57 @@ phone (PWA share sheet) or desktop (browser extension / bookmarklet) are
 committed straight to this repo as markdown files, which triggers a rebuild.
 Everything you capture is a plain text file you own, versioned in git forever.
 
+Captured notes flow through a lightweight lifecycle: they arrive in an
+**inbox** (`inbox: true`), get processed — by you, or by Claude
+Code/Cowork sessions following the repo's skills — into categorized,
+cleaned-up entries, and links flagged with the **podcast** checkbox are
+narrated into episodes on a private feed by the built-in BacklogCast
+pipeline (see `docs/BACKLOGCAST.md`).
+
 ## Layout
 
 ```
 src/content/essays/   long-form pages (markdown + front-matter)
 src/content/notes/    the link/note dump — one file per capture
+src/content/articles/ article reading list — written by the BacklogCast pipeline
+src/content/books/    book reading list — extracted from notes by process-inbox
 src/pages/apps/       small personal tools (pomodoro, quiz) — localStorage only
-public/media/         audio/text from other projects, served as-is
+public/media/         audio/text from other projects; episodes in media/audio/
 public/decks/         quiz decks (JSON) — add a file + list it in index.json
 functions/api/        the capture endpoint (Cloudflare Pages Function)
 extension/            desktop browser extension (load unpacked)
+pipeline/             BacklogCast: flagged link → clean markdown + TTS episode
+scripts/              ingest-keep (Google Keep import) + inbox lister
+.claude/skills/       processing instructions for Claude Code/Cowork sessions
 ```
+
+## The processing loop
+
+- **Capture** all day (phone share sheet, extension, bookmarklet). Everything
+  lands in `/notes` immediately and carries `inbox: true`.
+- **Process** whenever: open the repo in Claude Code/Cowork and say
+  "process the inbox" — the `process-inbox` skill categorizes items
+  (books → `/books` with store links, quotes → `/commonplace`, visuals →
+  `/beautiful` and `/infographics`), cleans them up, and clears the inbox
+  flag. `npm run inbox` shows what's pending; owner mode has an `/inbox` page.
+- **Listen**: anything captured with the podcast checkbox is picked up by the
+  `backlogcast` GitHub Action (daily + after captures), which fetches the
+  article, extracts clean text, narrates it with edge-tts, and commits both.
+  `/reading` shows the table (original ↗ · listen ▶ · clean text · status);
+  the private RSS feed lives at `/podcast/<FEED_TOKEN>.xml`.
+
+## Seeding from Google Keep
+
+Export from https://takeout.google.com (Keep only), then:
+
+```sh
+npm run ingest-keep -- path/to/Takeout/Keep
+```
+
+Every Keep note becomes an inbox item (draft, owner-mode-only until
+processed); labels become tags; attachments are copied to
+`public/media/keep/`. Then run the `process-inbox` skill to sort the junk
+drawer into the categories above. See `.claude/skills/ingest-keep/`.
 
 ## Local development
 
@@ -65,6 +105,7 @@ the secrets):
 | `GH_TOKEN`      | GitHub fine-grained PAT, this repo only, **Contents: write** |
 | `GH_REPO`       | `danielslloyd/lloydio`                                        |
 | `GH_BRANCH`     | `main`                                                        |
+| `FEED_TOKEN`    | another long random string — makes the private podcast feed URL (`/podcast/<FEED_TOKEN>.xml`) unguessable |
 
 Each capture becomes `src/content/notes/<date>-<time>-<slug>.md`, the commit
 triggers a rebuild (~1 min to live), and the linked URL is submitted to the

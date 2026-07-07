@@ -18,6 +18,8 @@ import Base from '../layouts/Base.astro';
     <label for="tags">tags (comma-separated)</label>
     <input type="text" id="tags" name="tags" placeholder="ai, reading" />
 
+    <label><input type="checkbox" id="podcast" style="width:auto" /> queue for podcast (BacklogCast narrates it)</label>
+
     <label><input type="checkbox" id="draft" style="width:auto" /> draft (owner-mode only)</label>
 
     <label for="token">capture token</label>
@@ -63,6 +65,7 @@ import Base from '../layouts/Base.astro';
             title: $('title').value.trim() || undefined,
             note: $('note').value.trim() || undefined,
             tags: $('tags').value.split(',').map((t) => t.trim()).filter(Boolean),
+            podcast: $('podcast').checked,
             draft: $('draft').checked,
           }),
         });
@@ -70,6 +73,7 @@ import Base from '../layouts/Base.astro';
         if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
         $('status').textContent = 'saved ✓ — live after the next build (~1 min)';
         $('url').value = $('title').value = $('note').value = $('tags').value = '';
+        $('podcast').checked = $('draft').checked = false;
       } catch (err) {
         $('status').textContent = `failed: ${err.message}`;
       }

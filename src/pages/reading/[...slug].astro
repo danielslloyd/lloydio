@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { articleSlug } from '../../lib/reading';
+import { SHOW_DRAFTS, editUrl, formatDate } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const showDrafts = process.env.DRAFTS === '1';
+  const articles = await getCollection('articles', (e) => showDrafts || !e.data.draft);
+  return articles.map((entry) => ({
+    params: { slug: articleSlug(entry.data.title, entry.data.url) },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<Base title={entry.data.title} article={true}>
+  <h1 class="page-title">{entry.data.title}</h1>
+  <p class="meta">
+    added {formatDate(entry.data.date)} ·
+    <a href={entry.data.url}>original ↗</a>
+    {entry.data.status && ` · ${entry.data.status}`}
+    {SHOW_DRAFTS && entry.filePath && <a class="edit-link" href={editUrl(entry.filePath)}>edit</a>}
+  </p>
+  {entry.data.audio && <audio controls preload="none" src={entry.data.audio}></audio>}
+  {entry.body?.trim() ? (
+    <div class="essay-body">
+      <Content />
+    </div>
+  ) : (
+    <p class="meta">Clean text not generated yet — BacklogCast will fill this in.</p>
+  )}
+</Base>

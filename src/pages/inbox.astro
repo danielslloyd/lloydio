@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import NoteCard from '../components/NoteCard.astro';
+import { getCollection } from 'astro:content';
+import { SHOW_DRAFTS } from '../lib/site';
+
+const inbox = (
+  await getCollection('notes', (e) => e.data.inbox && (SHOW_DRAFTS || !e.data.draft))
+).sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+---
+<Base title="Inbox" article={true}>
+  <h1 class="page-title">Inbox</h1>
+  <p class="meta">
+    {inbox.length} unprocessed item{inbox.length === 1 ? '' : 's'} · run the
+    <code>process-inbox</code> skill (or <code>node scripts/inbox.mjs</code>) to work through them
+  </p>
+  {inbox.length === 0 && <p>Inbox zero ✓</p>}
+  {inbox.map((n) => <NoteCard note={n} />)}
+</Base>

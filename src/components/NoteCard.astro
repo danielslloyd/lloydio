@@ -1,0 +1,33 @@
+---
+import { render } from 'astro:content';
+import { SHOW_DRAFTS, editUrl } from '../lib/site';
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+const hasBody = Boolean(note.body?.trim());
+---
+<article class="note" id={note.id}>
+  <div class="note-title">
+    {note.data.url ? (
+      <a href={note.data.url}>{note.data.title ?? note.data.url}</a>
+    ) : (
+      (note.data.title ?? null)
+    )}
+    {note.data.archive && <a class="archive-link" href={note.data.archive}>[archive]</a>}
+    {note.data.draft && <span class="draft-chip">draft</span>}
+    {note.data.inbox && SHOW_DRAFTS && <span class="draft-chip">inbox</span>}
+    {SHOW_DRAFTS && note.filePath && <a class="edit-link" href={editUrl(note.filePath)}>edit</a>}
+  </div>
+  {hasBody && (
+    <div class="note-body">
+      <Content />
+    </div>
+  )}
+  {note.data.tags.length > 0 && (
+    <div class="meta">
+      {note.data.tags.map((t) => (
+        <a class="tag-chip" href={`/tags/${t}`}>#{t}</a>
+      ))}
+    </div>
+  )}
+</article>

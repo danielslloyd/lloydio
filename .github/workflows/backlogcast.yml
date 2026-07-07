@@ -1,0 +1,52 @@
+# BacklogCast: narrate podcast-flagged links into private feed episodes.
+# Runs daily, on demand, and shortly after new captures land.
+# Commits results (article markdown + mp3) back to main, which triggers
+# the normal site rebuild.
+name: backlogcast
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 6 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/notes/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: backlogcast
+  cancel-in-progress: false
+
+jobs:
+  narrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install edge-tts
+      - name: Generate episodes
+        run: node pipeline/backlogcast.mjs
+        env:
+          EDGE_TTS_VOICE: en-US-ChristopherNeural
+      - name: Commit results
+        run: |
+          git config user.name "backlogcast"
+          git config user.email "backlogcast@users.noreply.github.com"
+          git add src/content/articles public/media/audio
+          if git diff --cached --quiet; then
+            echo "nothing new"
+          else
+            git commit -m "backlogcast: new episodes"
+            git pull --rebase origin main
+            git push
+          fi
