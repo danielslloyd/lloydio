@@ -2,18 +2,25 @@
 
 Follow in order. Time: ~45 min active, plus DNS propagation wait.
 
-## 0. Create `main`
+## 0. Rename the branch to `main`
 
-The deploys, the capture function, and the Action all target `main`,
-which doesn't exist yet:
+The deploys, the capture function, and the Action all target `main`.
+The working branch is the repo's default (and only) branch, so just
+rename it: GitHub → **Branches** → pencil icon next to
+`claude/personal-website-gwern-93ldui` → rename to `main`. GitHub
+updates the default branch and redirects old URLs automatically.
+
+In any local clone made before the rename:
 
 ```sh
-git clone https://github.com/danielslloyd/lloydio && cd lloydio
-git checkout claude/personal-website-gwern-93ldui
-git checkout -b main && git push -u origin main
+git branch -m claude/personal-website-gwern-93ldui main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
 ```
 
-Then on GitHub: **Settings → General → Default branch → `main`**.
+(If you haven't cloned yet: `git clone https://github.com/danielslloyd/lloydio`
+after renaming and you're done.)
 Also consider **making the repo private** — drafts and unprocessed Keep
 imports are hidden on the public site but fully visible in a public repo.
 Cloudflare Pages deploys private repos fine.
