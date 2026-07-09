@@ -39,6 +39,7 @@ const counts = books.reduce((m, b) => ((m[b.data.status] = (m[b.data.status] ?? 
               status={b.data.status}
               rating={b.data.rating}
               date={b.data.date}
+              cover={b.data.cover}
               links={b.data.links}
             />
           ))}
