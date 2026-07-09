@@ -56,17 +56,27 @@ write**. Longest expiration; set a renewal reminder. This is `GH_TOKEN`.
    build command `npm run build` · output directory `dist`.
 4. Environment variables (Production):
 
-   | var | value |
-   | --- | --- |
-   | `NODE_VERSION` | `22` |
-   | `CAPTURE_TOKEN` | secret from step 1 (encrypt) |
-   | `GH_TOKEN` | the PAT (encrypt) |
-   | `GH_REPO` | `danielslloyd/lloydio` |
-   | `GH_BRANCH` | `main` |
-   | `FEED_TOKEN` | secret from step 1 (encrypt) |
+   | var | value | type |
+   | --- | --- | --- |
+   | `NODE_VERSION` | `22` | plaintext |
+   | `CAPTURE_TOKEN` | secret from step 1 | Secret 🔒 |
+   | `GH_TOKEN` | the PAT | Secret 🔒 |
+   | `GH_REPO` | `danielslloyd/lloydio` | plaintext |
+   | `GH_BRANCH` | `main` | plaintext |
+   | `FEED_TOKEN` | secret from step 1 | Secret 🔒 |
+
+   > The **Encrypt / "Secret" type** control may not appear in the initial
+   > setup wizard. That's fine: add the values as plaintext now, deploy,
+   > then **Settings → Variables and Secrets**, set each of the three
+   > secrets' **Type → Secret**, and **redeploy** (env changes only apply
+   > on the next build). Once a value is a Secret it shows as `••••••` and
+   > can't be read back. Encrypt `GH_TOKEN` for sure — it can write to your
+   > repo.
 
 5. Deploy → you get `https://<project>.pages.dev`. Sanity-check `/`,
    `/reading`, `/api/podcast-queue.json`.
+   (Before `FEED_TOKEN` is set, the feed is at `/podcast/feed.xml`; it
+   moves to the secret URL after you add the token and redeploy.)
 
 ## 3. Owner-mode site (drafts + edit links)
 
