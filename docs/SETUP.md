@@ -39,10 +39,21 @@ write**. Longest expiration; set a renewal reminder. This is `GH_TOKEN`.
 
 ## 2. Public site on Cloudflare Pages
 
+> ⚠️ **Use the Pages door, not "Import a repository."** In Workers & Pages
+> the big **"Import a repository"** button is the *Workers* flow — it runs
+> `wrangler deploy` and fails for this static site with
+> `A Worker named "…" already exists`. You want the **Pages** tab/section
+> instead. A Pages project has a `.pages.dev` URL and a globe/document
+> icon; a Worker has a `.workers.dev` URL and a `<>` diamond icon. If you
+> accidentally made a Worker, delete it and recreate via Pages — the repo
+> is untouched. Direct link if the Pages option is hidden:
+> `https://dash.cloudflare.com/?to=/:account/workers-and-pages/create/pages`
+
 1. Sign up at dash.cloudflare.com (free plan).
-2. **Workers & Pages → Create → Pages → Connect to Git** → authorize
+2. **Workers & Pages → Create → Pages tab → Connect to Git** → authorize
    GitHub → pick `danielslloyd/lloydio`. Production branch: `main`.
-3. Build command `npm run build` · output directory `dist`.
+3. Framework preset **Astro** (auto-fills the next two):
+   build command `npm run build` · output directory `dist`.
 4. Environment variables (Production):
 
    | var | value |
@@ -59,8 +70,11 @@ write**. Longest expiration; set a renewal reminder. This is `GH_TOKEN`.
 
 ## 3. Owner-mode site (drafts + edit links)
 
-1. Second Pages project, same repo, name it e.g. `lloydio-owner`.
-   Same build settings + `NODE_VERSION=22`, plus **`DRAFTS=1`**.
+1. Second Pages project (same **Pages** door as above, not "Import a
+   repository"), same repo, name it e.g. `lloydio-owner` — if Cloudflare
+   says that name "already exists" from an earlier failed attempt, just
+   use a new name like `lloydio-drafts`. Same build settings +
+   `NODE_VERSION=22`, plus **`DRAFTS=1`**.
 2. Protect it: **Zero Trust** (one-time: pick a team name, Free plan) →
    **Access → Applications → Add → Self-hosted**. Application domain:
    `lloydio-owner.pages.dev` (add `*.lloydio-owner.pages.dev` too for
