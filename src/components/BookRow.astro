@@ -62,16 +62,7 @@ const isSpecificLink = (url: string, type: 'goodreads' | 'amazon' | 'audible') =
 
 <tr class="book-row">
   <td class="book-cover">
-    {getPrimaryCoverUrl() && (
-      <img
-        src={getPrimaryCoverUrl()}
-        alt={title}
-        loading="lazy"
-        class="cover-image"
-        data-fallbacks={JSON.stringify(getFallbackCoverUrls())}
-        onerror="handleCoverError(this)"
-      />
-    )}
+    {/* Cover image loading disabled - leave blank for now */}
   </td>
   <td class="book-title-author">
     <div class="title">{truncateTitle(title)}</div>
