@@ -1,13 +1,18 @@
 {
   "manifest_version": 3,
   "name": "lloydio capture",
-  "version": "0.1.0",
-  "description": "Capture the current tab to lloydio",
-  "permissions": ["activeTab", "storage"],
+  "version": "0.2.0",
+  "description": "Send links, selections, images, and pages to lloyd.studio",
+  "permissions": ["activeTab", "storage", "contextMenus", "notifications"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Capture to lloydio"
+    "default_title": "Capture to lloyd.studio",
+    "default_icon": { "128": "icon-128.png" }
   },
+  "icons": { "128": "icon-128.png" },
   "options_ui": {
     "page": "options.html",
     "open_in_tab": false

@@ -149,7 +149,15 @@ type there. (A Shortcuts automation can wrap it later.)
    **Developer mode** → **Load unpacked** → select the `extension/` folder.
 3. Click the extension icon → **settings** → site origin
    `https://lloyd.studio` + `CAPTURE_TOKEN` → save.
-4. Zero-install alternative: open `/capture` on the site and drag the
+4. Two ways to capture (see `extension/README.md`):
+   - **Right-click → "Send to lloyd.studio"** — one click on a page,
+     selected text, a link, or an image. Success shows a ✓ badge on the
+     toolbar icon and a toast. (Chrome controls where this item sits in the
+     menu relative to other extensions like Keep — position isn't
+     controllable, but it's in the same menu.)
+   - **Toolbar button** — a popup for adding a note, tags, or the *queue for
+     podcast* flag before saving.
+5. Zero-install alternative: open `/capture` on the site and drag the
    **capture→lloydio** bookmarklet (under "desktop bookmarklet") to the
    bookmarks bar.
 
