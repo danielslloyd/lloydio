@@ -26,11 +26,11 @@ const truncateTitle = (str: string, maxLen: number = 40) => {
   return truncated + '…';
 };
 
-// Try to find cover image - will use onerror handlers to fallback
+// Try to find cover image - only from specific links
 const getPrimaryCoverUrl = () => {
-  // Use Bookwyrm or similar service with Goodreads ID
-  if (id) {
-    return `https://images.bookshop.org/images/9780?h=300`;
+  // Only fetch images if we have a specific product link (Goodreads)
+  if (links.goodreads && isSpecificLink(links.goodreads, 'goodreads') && id) {
+    return `https://api.bookcovers.io/public/books/goodreads?goodreads_id=${id}`;
   }
   return null;
 };
