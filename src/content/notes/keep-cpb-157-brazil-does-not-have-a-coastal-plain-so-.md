@@ -2,7 +2,6 @@
 title: "Brazil does not have a coastal plain, so much of the produce from the interior is shi…"
 date: 2026-05-13T14:00:38.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "The Norse \"vic\" and the English \"wic\" both can mean bay or inlet, surviving in Englis…"
 date: 2026-05-13T13:59:01.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

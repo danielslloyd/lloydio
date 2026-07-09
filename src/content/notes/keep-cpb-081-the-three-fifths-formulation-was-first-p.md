@@ -2,7 +2,6 @@
 title: "The \"three-fifths\" formulation was first proposed by James Madison in an amendment to…"
 date: 2026-05-13T14:01:54.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

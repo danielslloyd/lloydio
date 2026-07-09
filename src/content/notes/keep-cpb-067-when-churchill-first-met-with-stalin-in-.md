@@ -2,7 +2,6 @@
 title: "\"When [Churchill] first met with Stalin, in August 1942, he tried to justify his focu…"
 date: 2026-05-13T14:02:08.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

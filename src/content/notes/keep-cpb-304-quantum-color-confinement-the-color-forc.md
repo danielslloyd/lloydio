@@ -2,7 +2,6 @@
 title: "Quantum \"color confinement\": the \"color force\" (gluon field) between two quarks has a…"
 date: 2026-05-13T13:58:11.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

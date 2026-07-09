@@ -2,7 +2,6 @@
 title: "The term \"opiate\" refers to naturally derived narcotics, while \"opioid\" can be used e…"
 date: 2026-05-13T14:00:55.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

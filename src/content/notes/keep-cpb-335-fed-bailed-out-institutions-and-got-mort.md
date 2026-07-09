@@ -2,7 +2,6 @@
 title: "Fed bailed out institutions and got mortgage-backed securities as collateral."
 date: 2026-05-13T13:57:40.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

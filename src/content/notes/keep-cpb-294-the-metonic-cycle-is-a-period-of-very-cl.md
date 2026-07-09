@@ -2,7 +2,6 @@
 title: "The Metonic cycle is a period of very close to 19 years that is nearly a common multi…"
 date: 2026-05-13T13:58:21.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

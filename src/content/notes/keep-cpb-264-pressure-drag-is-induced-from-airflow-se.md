@@ -2,7 +2,6 @@
 title: "Pressure drag is induced from airflow separation - a low-pressure zone is created beh…"
 date: 2026-05-13T13:58:51.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

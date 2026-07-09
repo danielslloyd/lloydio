@@ -2,7 +2,6 @@
 title: "\"In 19th-century Germany, the Napoleonic conquests led to a cultural defensiveness as…"
 date: 2026-05-13T14:00:42.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

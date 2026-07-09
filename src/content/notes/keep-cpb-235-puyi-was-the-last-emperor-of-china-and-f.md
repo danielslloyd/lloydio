@@ -2,7 +2,6 @@
 title: "Puyi was the last emperor of China and final Qing dynasty ruler, becoming emperor at…"
 date: 2026-05-13T13:59:20.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

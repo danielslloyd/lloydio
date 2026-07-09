@@ -2,7 +2,6 @@
 title: "The Articles of Confederation were drafted shortly after the Declaration of Independe…"
 date: 2026-05-13T14:00:39.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

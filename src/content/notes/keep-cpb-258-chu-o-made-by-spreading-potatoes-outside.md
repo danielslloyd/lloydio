@@ -2,7 +2,6 @@
 title: "\"chuño, made by spreading potatoes outside to freeze on cold nights."
 date: 2026-05-13T13:58:57.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

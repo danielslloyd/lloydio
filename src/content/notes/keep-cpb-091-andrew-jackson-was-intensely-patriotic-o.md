@@ -2,7 +2,6 @@
 title: "Andrew Jackson was intensely patriotic (opposing nullification and hints of secession…"
 date: 2026-05-13T14:01:44.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

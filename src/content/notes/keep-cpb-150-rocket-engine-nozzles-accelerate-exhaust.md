@@ -2,7 +2,6 @@
 title: "Rocket engine nozzles accelerate exhaust gasses and direct them straight back so that…"
 date: 2026-05-13T14:00:45.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

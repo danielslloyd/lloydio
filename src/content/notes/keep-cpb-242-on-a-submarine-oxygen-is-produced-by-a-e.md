@@ -2,7 +2,6 @@
 title: "On a submarine, oxygen is produced by A) electrolysis and B) oxygen candles, which cr…"
 date: 2026-05-13T13:59:13.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

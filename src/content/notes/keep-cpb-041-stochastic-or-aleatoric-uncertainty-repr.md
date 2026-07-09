@@ -2,7 +2,6 @@
 title: "\"Stochastic\", or \"aleatoric\" uncertainty represents the inherent randomness in a syst…"
 date: 2026-05-13T14:02:34.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

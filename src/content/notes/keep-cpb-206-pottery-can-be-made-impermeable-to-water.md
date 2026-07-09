@@ -2,7 +2,6 @@
 title: "Pottery can be made impermeable to water by glazing or by \"vitrification\", the partia…"
 date: 2026-05-13T13:59:49.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

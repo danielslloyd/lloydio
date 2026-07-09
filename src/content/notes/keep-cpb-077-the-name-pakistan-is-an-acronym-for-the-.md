@@ -2,7 +2,6 @@
 title: "The name Pakistan is an acronym for the names of several regions, combined with the s…"
 date: 2026-05-13T14:01:58.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

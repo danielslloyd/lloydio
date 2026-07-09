@@ -2,7 +2,6 @@
 title: "Christmas is dated on Dec 25th because of a traditional belief that Jesus died on the…"
 date: 2026-05-13T13:59:06.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

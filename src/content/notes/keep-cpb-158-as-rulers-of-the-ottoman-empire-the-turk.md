@@ -2,7 +2,6 @@
 title: "As rulers of the Ottoman Empire the Turks saw a rugged, mountainous area dominated by…"
 date: 2026-05-13T14:00:37.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

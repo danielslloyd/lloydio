@@ -2,7 +2,6 @@
 title: "Many antireflective coatings consist of transparent thin film structures with alterna…"
 date: 2026-05-13T14:02:28.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

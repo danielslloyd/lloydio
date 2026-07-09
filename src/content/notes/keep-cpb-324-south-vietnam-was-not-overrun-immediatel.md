@@ -2,7 +2,6 @@
 title: "South Vietnam was not overrun immediately after US ground troops withdrew."
 date: 2026-05-13T13:57:51.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "Spot is immediate delivery at today's price (e.g., buying physical silver or an ETF)."
 date: 2026-05-13T14:02:57.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "In a rocket engine, fuel and oxidizer must be forced into the engine at very high pre…"
 date: 2026-05-13T13:59:15.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

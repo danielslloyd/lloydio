@@ -2,7 +2,6 @@
 title: "Shelley believed the use of poetry for moral refinement in its readers."
 date: 2026-05-13T14:00:02.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

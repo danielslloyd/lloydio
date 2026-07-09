@@ -2,7 +2,6 @@
 title: "The earliest known wheel was locked to its axle and the entire assembly rotated in a…"
 date: 2026-05-13T14:01:34.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

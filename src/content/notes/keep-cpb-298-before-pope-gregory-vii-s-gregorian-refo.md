@@ -2,7 +2,6 @@
 title: "Before Pope Gregory VII's ”Gregorian Reforms\" Catholic priests could buy clerical app…"
 date: 2026-05-13T13:58:17.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

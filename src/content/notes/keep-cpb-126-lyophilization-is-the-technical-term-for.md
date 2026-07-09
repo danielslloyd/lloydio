@@ -2,7 +2,6 @@
 title: "\"Lyophilization\" is the technical term for freeze drying, whereby a product is frozen…"
 date: 2026-05-13T14:01:09.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

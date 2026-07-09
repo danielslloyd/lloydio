@@ -2,7 +2,6 @@
 title: "Cleisthenes was an Athenian statesman who, around 508–507 BCE, overhauled Athens' pol…"
 date: 2026-05-13T14:02:50.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "\"Ashkenazi\" Jews came from Central/Eastern Europe and represent the largest group (~7…"
 date: 2026-05-13T14:02:54.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

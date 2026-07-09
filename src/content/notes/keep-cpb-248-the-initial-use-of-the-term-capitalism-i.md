@@ -2,7 +2,6 @@
 title: "The initial use of the term \"capitalism\" in its modern sense is attributed to French…"
 date: 2026-05-13T13:59:07.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

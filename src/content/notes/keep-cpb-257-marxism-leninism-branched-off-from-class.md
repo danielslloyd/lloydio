@@ -2,7 +2,6 @@
 title: "Marxism-Leninism branched off from \"classical\" Marxism in the early twentieth-century…"
 date: 2026-05-13T13:58:58.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

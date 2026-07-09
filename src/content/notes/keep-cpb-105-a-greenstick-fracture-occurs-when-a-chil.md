@@ -2,7 +2,6 @@
 title: "A greenstick fracture occurs when a child breaks a long bone and the fracture travels…"
 date: 2026-05-13T14:01:30.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

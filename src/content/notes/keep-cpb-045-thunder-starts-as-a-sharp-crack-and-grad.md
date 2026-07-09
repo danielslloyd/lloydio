@@ -2,7 +2,6 @@
 title: "Thunder starts as a sharp crack and gradually gets lower because the higher frequency…"
 date: 2026-05-13T14:02:30.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

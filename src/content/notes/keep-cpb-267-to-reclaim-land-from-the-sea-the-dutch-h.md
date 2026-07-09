@@ -2,7 +2,6 @@
 title: "To reclaim land from the sea, the Dutch had to build a dyke, pump out the sea water,…"
 date: 2026-05-13T13:58:48.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

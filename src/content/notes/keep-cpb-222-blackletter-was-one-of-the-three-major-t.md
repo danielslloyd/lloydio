@@ -2,7 +2,6 @@
 title: "\"Blackletter\" was one of the three major typefaces in early Western typography, along…"
 date: 2026-05-13T13:59:33.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "Galileo was allowed to speculate that the earth revolves around the sun, but was forb…"
 date: 2026-05-13T13:59:34.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "Rousseau theorized that \"amour de soi-meme\" (self love) was the basic instincts and s…"
 date: 2026-05-13T14:00:04.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

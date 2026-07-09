@@ -2,7 +2,6 @@
 title: "Categorical (or qualitative) variables describe kinds rather than amounts:"
 date: 2026-05-13T14:03:08.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

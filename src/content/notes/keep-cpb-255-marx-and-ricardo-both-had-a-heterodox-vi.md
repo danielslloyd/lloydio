@@ -2,7 +2,6 @@
 title: "Marx and Ricardo both had a heterodox view of \"real wages\" such that Marx would say w…"
 date: 2026-05-13T13:59:00.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

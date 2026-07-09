@@ -2,7 +2,6 @@
 title: "At the time of the First Crusade, the Fatimid fleet was overseen by the emir of the s…"
 date: 2026-05-13T13:59:26.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

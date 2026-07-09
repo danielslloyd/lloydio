@@ -2,7 +2,6 @@
 title: "The statute of pleading (1364?) established English as the language of the courts of…"
 date: 2026-05-13T13:59:55.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

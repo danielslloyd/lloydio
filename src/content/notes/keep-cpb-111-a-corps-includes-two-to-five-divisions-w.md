@@ -2,7 +2,6 @@
 title: "A \"corps\" includes two to five divisions with anywhere between 20,000 and 45,000 sold…"
 date: 2026-05-13T14:01:24.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

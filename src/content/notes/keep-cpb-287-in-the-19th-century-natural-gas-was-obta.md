@@ -2,7 +2,6 @@
 title: "In the 19th century, natural gas was obtained as a by-product of producing oil, since…"
 date: 2026-05-13T13:58:28.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

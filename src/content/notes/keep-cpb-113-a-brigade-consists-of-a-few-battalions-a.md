@@ -2,7 +2,6 @@
 title: "A \"brigade\" consists of a few battalions and anywhere from 3,000 to 5,000 soldiers, g…"
 date: 2026-05-13T14:01:22.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

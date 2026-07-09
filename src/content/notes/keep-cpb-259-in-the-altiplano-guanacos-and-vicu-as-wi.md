@@ -2,7 +2,6 @@
 title: "\"In the altiplano, guanacos and vicuñas (wild relatives of the llama) lick clay befor…"
 date: 2026-05-13T13:58:56.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

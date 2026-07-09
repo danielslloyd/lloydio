@@ -2,7 +2,6 @@
 title: "\"Eskimo\" is an umbrella term used to refer to two groups of indigenous peoples: the I…"
 date: 2026-05-13T14:00:52.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

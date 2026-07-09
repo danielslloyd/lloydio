@@ -2,7 +2,6 @@
 title: "In Old English, \"man\" was the generic term for a human, with \"wif\" and \"wer\" designat…"
 date: 2026-05-13T13:59:43.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

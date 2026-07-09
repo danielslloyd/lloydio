@@ -2,7 +2,6 @@
 title: "The custom of putting one's hands together began as an element of the homage ceremony…"
 date: 2026-05-13T14:01:25.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

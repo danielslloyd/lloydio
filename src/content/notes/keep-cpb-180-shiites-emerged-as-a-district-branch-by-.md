@@ -2,7 +2,6 @@
 title: "Shiites emerged as a district branch by rebelling against the Umayyad caliphate about…"
 date: 2026-05-13T14:00:15.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

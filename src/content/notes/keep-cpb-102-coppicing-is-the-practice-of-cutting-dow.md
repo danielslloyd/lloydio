@@ -2,7 +2,6 @@
 title: "\"Coppicing\" is the practice of cutting down a tree while leaving the stump to regrow…"
 date: 2026-05-13T14:01:33.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

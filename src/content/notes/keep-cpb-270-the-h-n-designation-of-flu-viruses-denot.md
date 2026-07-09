@@ -2,7 +2,6 @@
 title: "The H#N# designation of flu viruses denotes the combination of surface proteins Hemag…"
 date: 2026-05-13T13:58:45.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

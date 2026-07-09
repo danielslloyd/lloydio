@@ -2,7 +2,6 @@
 title: "In ancient times, the cup bearer would taste the king's drink before the king did, bu…"
 date: 2026-05-13T13:59:22.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

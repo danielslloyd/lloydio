@@ -2,7 +2,6 @@
 title: "The most energy efficient method to stop an orbit and crash a satellite into a larger…"
 date: 2026-05-13T13:58:16.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

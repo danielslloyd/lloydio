@@ -2,7 +2,6 @@
 title: "Due to fire code restrictions, most households in Dickensian London did not have an o…"
 date: 2026-05-13T13:59:21.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

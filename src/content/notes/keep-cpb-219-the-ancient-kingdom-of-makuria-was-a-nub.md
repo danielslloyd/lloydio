@@ -2,7 +2,6 @@
 title: "The ancient kingdom of Makuria was a Nubian Christian kingdom that extended from Nort…"
 date: 2026-05-13T13:59:36.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

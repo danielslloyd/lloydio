@@ -2,7 +2,6 @@
 title: "The Latin Rite (containing the Latin/Roman Catholic Church), Alexandrian Rite (Coptic…"
 date: 2026-05-13T14:00:21.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

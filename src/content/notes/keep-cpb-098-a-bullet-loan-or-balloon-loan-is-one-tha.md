@@ -2,7 +2,6 @@
 title: "A \"bullet loan\" or \"balloon loan\" is one that does not amortize fully over the length…"
 date: 2026-05-13T14:01:37.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "Piles of sand come in 2 distinct size regimes: small ripples and massive dunes, with…"
 date: 2026-05-13T14:00:48.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

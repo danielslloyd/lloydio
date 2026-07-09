@@ -2,7 +2,6 @@
 title: "Osama bin Laden made himself odious in Sudan and was forced out and ended up in Afgha…"
 date: 2026-05-13T14:02:10.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

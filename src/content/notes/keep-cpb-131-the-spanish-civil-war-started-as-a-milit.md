@@ -2,7 +2,6 @@
 title: "The Spanish Civil War started as a military coup against the newly established Second…"
 date: 2026-05-13T14:01:04.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

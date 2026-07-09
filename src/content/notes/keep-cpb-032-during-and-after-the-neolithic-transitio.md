@@ -2,7 +2,6 @@
 title: "During and after the Neolithic transition (roughly 6000–2000 BC), several skin-lighte…"
 date: 2026-05-13T14:02:43.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

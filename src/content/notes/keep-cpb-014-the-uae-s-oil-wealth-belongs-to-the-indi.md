@@ -2,7 +2,6 @@
 title: "The UAE's oil wealth belongs to the individual emirates, with ~96% in Abu Dhabi."
 date: 2026-05-13T14:03:01.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

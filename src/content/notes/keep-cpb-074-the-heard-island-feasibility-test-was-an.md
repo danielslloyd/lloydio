@@ -2,7 +2,6 @@
 title: "The Heard Island Feasibility Test was an experiment in 1991 that transmitted very low…"
 date: 2026-05-13T14:02:01.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

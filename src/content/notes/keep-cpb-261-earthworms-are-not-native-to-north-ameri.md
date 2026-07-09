@@ -2,7 +2,6 @@
 title: "Earthworms are not native to North America, and were brought over by colonists."
 date: 2026-05-13T13:58:54.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

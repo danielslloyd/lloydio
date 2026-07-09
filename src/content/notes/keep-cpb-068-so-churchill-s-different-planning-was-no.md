@@ -2,7 +2,6 @@
 title: "\"So Churchill's different planning was not nearly as erratic as it seemed to those ar…"
 date: 2026-05-13T14:02:07.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

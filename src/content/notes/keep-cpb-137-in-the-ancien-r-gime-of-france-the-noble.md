@@ -2,7 +2,6 @@
 title: "In the Ancien Régime of France, the \"noblesse de robe\" (Nobles of the Robe) held purc…"
 date: 2026-05-13T14:00:58.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

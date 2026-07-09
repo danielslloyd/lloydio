@@ -2,7 +2,6 @@
 title: "\"Ensiling\" preserves nutritional quality better than field-drying but requires airtig…"
 date: 2026-05-13T14:02:47.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

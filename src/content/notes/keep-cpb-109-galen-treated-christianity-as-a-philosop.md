@@ -2,7 +2,6 @@
 title: "Galen treated Christianity as a philosophy rather than a superstition because of the…"
 date: 2026-05-13T14:01:26.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

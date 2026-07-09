@@ -2,7 +2,6 @@
 title: "\"Kerogen\" is solid, insoluble organic matter in sedimentary rocks."
 date: 2026-05-13T14:01:35.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

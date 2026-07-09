@@ -2,7 +2,6 @@
 title: "In the Roman era, copper was mined principally on Cyprus, the origin of the name of t…"
 date: 2026-05-13T13:58:53.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

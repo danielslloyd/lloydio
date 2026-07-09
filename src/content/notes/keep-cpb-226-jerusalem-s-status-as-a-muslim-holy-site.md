@@ -2,7 +2,6 @@
 title: "Jerusalem's status as a Muslim holy site was greatly enhanced after the conflict with…"
 date: 2026-05-13T13:59:29.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

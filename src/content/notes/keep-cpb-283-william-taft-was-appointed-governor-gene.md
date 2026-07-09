@@ -2,7 +2,6 @@
 title: "William Taft was appointed governor general of the Philippines shortly after they wer…"
 date: 2026-05-13T13:58:32.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

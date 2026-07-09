@@ -2,7 +2,6 @@
 title: "The U.S. freight rail system is much more dominant than Europe's, moving much more ca…"
 date: 2026-05-13T14:02:53.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

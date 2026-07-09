@@ -2,7 +2,6 @@
 title: "The term \"white noise\" is used to describe noise with equal intensity at different fr…"
 date: 2026-05-13T13:59:32.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

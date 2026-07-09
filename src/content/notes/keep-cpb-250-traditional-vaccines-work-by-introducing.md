@@ -2,7 +2,6 @@
 title: "Traditional vaccines work by introducing the actual virus, or part of it, into the bo…"
 date: 2026-05-13T13:59:05.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

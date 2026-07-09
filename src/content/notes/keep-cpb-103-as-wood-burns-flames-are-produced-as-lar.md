@@ -2,7 +2,6 @@
 title: "As wood burns, flames are produced as large polymers break down into smaller molecule…"
 date: 2026-05-13T14:01:32.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

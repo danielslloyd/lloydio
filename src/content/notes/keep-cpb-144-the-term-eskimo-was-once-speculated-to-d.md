@@ -2,7 +2,6 @@
 title: "The term \"Eskimo\" was once speculated to derive from an Algonquian phrase meaning \"ea…"
 date: 2026-05-13T14:00:51.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

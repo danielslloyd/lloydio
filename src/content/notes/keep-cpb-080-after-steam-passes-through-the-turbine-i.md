@@ -2,7 +2,6 @@
 title: "After steam passes through the turbine in a power plant, it is not reused directly, b…"
 date: 2026-05-13T14:01:55.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

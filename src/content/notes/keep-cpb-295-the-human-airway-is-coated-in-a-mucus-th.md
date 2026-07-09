@@ -2,7 +2,6 @@
 title: "The human airway is coated in a mucus that traps foreign particles before they reach…"
 date: 2026-05-13T13:58:20.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

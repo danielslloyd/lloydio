@@ -2,7 +2,6 @@
 title: "Call options are the right to buy and are profitable when the spot price rises above…"
 date: 2026-05-13T14:03:00.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

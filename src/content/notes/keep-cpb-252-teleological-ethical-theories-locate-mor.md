@@ -2,7 +2,6 @@
 title: "teleological ethical theories locate moral goodness in the consequences of our action…"
 date: 2026-05-13T13:59:03.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

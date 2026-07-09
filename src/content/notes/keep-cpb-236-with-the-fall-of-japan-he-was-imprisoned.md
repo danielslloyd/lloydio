@@ -2,7 +2,6 @@
 title: "With the fall of Japan, he was imprisoned as a war criminal by Stalin, who refused ex…"
 date: 2026-05-13T13:59:19.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

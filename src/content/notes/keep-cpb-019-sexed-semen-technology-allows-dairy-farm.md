@@ -2,7 +2,6 @@
 title: "Sexed semen technology allows dairy farmers to breed \"beef-on-dairy\" crossbred calves…"
 date: 2026-05-13T14:02:56.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

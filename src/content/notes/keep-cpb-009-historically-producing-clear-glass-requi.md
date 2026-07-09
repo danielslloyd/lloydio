@@ -2,7 +2,6 @@
 title: "Historically, producing clear glass required careful management of iron content in th…"
 date: 2026-05-13T14:03:06.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

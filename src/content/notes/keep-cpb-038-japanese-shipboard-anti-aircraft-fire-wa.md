@@ -2,7 +2,6 @@
 title: "Japanese shipboard anti-aircraft fire was very ineffective in WW2 - their doctrine re…"
 date: 2026-05-13T14:02:37.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "\"Effective Translational Lift (ETL)\" happens in helicopters when forward movement (\"t…"
 date: 2026-05-13T14:01:36.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

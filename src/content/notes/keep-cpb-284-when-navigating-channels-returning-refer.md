@@ -2,7 +2,6 @@
 title: "When navigating channels, \"returning\" refers to moving from a larger body of water to…"
 date: 2026-05-13T13:58:31.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

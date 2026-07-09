@@ -2,7 +2,6 @@
 title: "Human antibodies (suffix \"-umab\") are produced using transgenic mice - mice with huma…"
 date: 2026-05-13T14:01:10.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

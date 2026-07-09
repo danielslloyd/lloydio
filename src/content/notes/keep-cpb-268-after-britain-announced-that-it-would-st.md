@@ -2,7 +2,6 @@
 title: "After Britain announced that it would stop supporting the Greek government against Co…"
 date: 2026-05-13T13:58:47.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

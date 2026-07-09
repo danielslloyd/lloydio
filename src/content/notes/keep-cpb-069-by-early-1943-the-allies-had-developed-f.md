@@ -2,7 +2,6 @@
 title: "By early 1943, the Allies had developed \"FIDO\", an acoustic homing torpedo that could…"
 date: 2026-05-13T14:02:06.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

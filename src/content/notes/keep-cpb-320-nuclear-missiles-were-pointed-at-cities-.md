@@ -2,7 +2,6 @@
 title: "Nuclear missiles were pointed at cities rather than silos as a gesture of defensive i…"
 date: 2026-05-13T13:57:55.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

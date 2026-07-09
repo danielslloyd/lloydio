@@ -2,7 +2,6 @@
 title: "Specie scarcity in 18th-century Massachusetts led first to taxes being paid in-kind w…"
 date: 2026-05-13T14:01:51.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

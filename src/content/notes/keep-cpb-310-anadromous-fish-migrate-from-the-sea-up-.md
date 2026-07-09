@@ -2,7 +2,6 @@
 title: "\"Anadromous\" fish migrate from the sea up (Greek: ἀνά ana, \"up\" and δρόμος dromos, \"c…"
 date: 2026-05-13T13:58:05.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

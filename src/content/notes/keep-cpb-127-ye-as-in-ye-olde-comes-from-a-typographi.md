@@ -2,7 +2,6 @@
 title: "Ye as in ye olde comes from a typographic substitute for the Old English letter thorn…"
 date: 2026-05-13T14:01:08.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

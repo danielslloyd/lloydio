@@ -2,7 +2,6 @@
 title: "Sedentarism preceded agriculture — people settled into permanent or semi-permanent co…"
 date: 2026-05-13T14:03:04.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

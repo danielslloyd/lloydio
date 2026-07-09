@@ -2,7 +2,6 @@
 title: "Molten salt reactors (MSRs) fall into two classes: salt-cooled reactors, in which the…"
 date: 2026-05-13T13:58:08.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "\"Cash flow hedges\" smooth out variations in cash flow."
 date: 2026-05-13T14:01:53.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

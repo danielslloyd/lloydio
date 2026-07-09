@@ -2,7 +2,6 @@
 title: "Heading into the 1860 Republican National Convention, Lincoln was not considered a li…"
 date: 2026-05-13T13:58:19.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

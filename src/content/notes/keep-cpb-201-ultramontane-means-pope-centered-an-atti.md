@@ -2,7 +2,6 @@
 title: "“Ultramontane means pope-centered, an attitude toward church affairs characterized by…"
 date: 2026-05-13T13:59:54.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

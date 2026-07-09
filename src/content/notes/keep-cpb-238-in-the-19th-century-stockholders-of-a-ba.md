@@ -2,7 +2,6 @@
 title: "In the 19th century stockholders of a bankrupt company could be dunned for the compan…"
 date: 2026-05-13T13:59:17.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

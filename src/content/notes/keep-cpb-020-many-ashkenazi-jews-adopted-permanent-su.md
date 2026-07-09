@@ -2,7 +2,6 @@
 title: "Many Ashkenazi Jews adopted permanent surnames in the late 1700s–1800s as required by…"
 date: 2026-05-13T14:02:55.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

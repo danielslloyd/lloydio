@@ -2,7 +2,6 @@
 title: "When a rocket flies above its optimal altitude, the exhaust exits the nozzle at a hig…"
 date: 2026-05-13T14:00:46.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "In the early 600s, decades-long war between the Byzantines and Sassanids (itself comi…"
 date: 2026-05-13T14:00:16.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

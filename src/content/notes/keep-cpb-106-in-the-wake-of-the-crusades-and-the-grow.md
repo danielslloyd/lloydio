@@ -2,7 +2,6 @@
 title: "In the wake of the Crusades and the growing influence of the Church, knighthood was r…"
 date: 2026-05-13T14:01:29.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

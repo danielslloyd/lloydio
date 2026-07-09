@@ -2,7 +2,6 @@
 title: "\"Orthonasal olfaction\" is the standard way we smell things (e.g., by sniffing), \"gust…"
 date: 2026-05-13T13:59:53.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

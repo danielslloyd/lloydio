@@ -2,7 +2,6 @@
 title: "Blood types are determined by the presence or absence of two antigens (A and B) and a…"
 date: 2026-05-13T13:58:27.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

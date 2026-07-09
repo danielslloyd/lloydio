@@ -2,7 +2,6 @@
 title: "Rubisco is a plant enzyme that grabs either CO2 or O2 indisciminately, leading to eit…"
 date: 2026-05-13T13:58:10.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "The shape of an ECG wave is broken into 5 points: P is the top of the first gentle up…"
 date: 2026-05-13T13:59:58.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

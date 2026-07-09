@@ -2,7 +2,6 @@
 title: "Retrieval-Augmented Generation (\"RAG\") is a technique that enhances AI models by comb…"
 date: 2026-05-13T14:02:42.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

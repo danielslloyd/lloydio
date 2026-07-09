@@ -2,7 +2,6 @@
 title: "The naming convention for Soviet small arms consisted of the weapon class/description…"
 date: 2026-05-13T13:59:25.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

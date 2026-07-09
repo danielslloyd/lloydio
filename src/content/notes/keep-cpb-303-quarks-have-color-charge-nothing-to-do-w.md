@@ -2,7 +2,6 @@
 title: "Quarks have \"color charge\" (nothing to do with visual color or light), which is like…"
 date: 2026-05-13T13:58:12.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

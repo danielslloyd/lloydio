@@ -2,7 +2,6 @@
 title: "Uranium 235 is the fissile isotope, 238 is the non fissile isotope."
 date: 2026-05-13T13:58:07.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

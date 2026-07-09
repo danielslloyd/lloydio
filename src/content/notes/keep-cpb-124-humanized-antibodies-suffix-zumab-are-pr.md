@@ -2,7 +2,6 @@
 title: "Humanized antibodies (suffix \"-zumab\") are produced by grafting murine hypervariable…"
 date: 2026-05-13T14:01:11.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

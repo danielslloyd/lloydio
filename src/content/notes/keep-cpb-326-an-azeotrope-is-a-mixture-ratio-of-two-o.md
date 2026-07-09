@@ -2,7 +2,6 @@
 title: "An \"azeotrope\" is a mixture ratio of two or more chemicals such that the mixture cann…"
 date: 2026-05-13T13:57:49.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

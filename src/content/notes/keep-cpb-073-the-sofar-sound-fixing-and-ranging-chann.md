@@ -2,7 +2,6 @@
 title: "The SOFAR (SOund Fixing And Ranging) channel is a layer of the ocean where the speed…"
 date: 2026-05-13T14:02:02.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

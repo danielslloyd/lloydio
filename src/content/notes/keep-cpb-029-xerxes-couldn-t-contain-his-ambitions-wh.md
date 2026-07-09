@@ -2,7 +2,6 @@
 title: "\"Xerxes couldn't contain his ambitions while Artabanus couldn't conquer his fears; bo…"
 date: 2026-05-13T14:02:46.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

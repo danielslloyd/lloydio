@@ -2,7 +2,6 @@
 title: "Sound does not efficiently travel from water to air or vice versa."
 date: 2026-05-13T14:01:59.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

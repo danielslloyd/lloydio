@@ -2,7 +2,6 @@
 title: "“Corbettian” and “Mahanian” are used as shorthand terms for the core principles of tw…"
 date: 2026-05-13T13:59:23.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "Classical Liberalism means minimal social and economic regimentation."
 date: 2026-05-13T14:01:49.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

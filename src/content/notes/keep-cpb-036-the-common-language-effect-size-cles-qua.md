@@ -2,7 +2,6 @@
 title: "The \"Common Language Effect Size\" (CLES) quantifies the probability that a randomly s…"
 date: 2026-05-13T14:02:39.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

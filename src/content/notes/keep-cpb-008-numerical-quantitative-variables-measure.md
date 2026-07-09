@@ -2,7 +2,6 @@
 title: "Numerical (quantitative) variables measure amounts and support arithmetic to varying…"
 date: 2026-05-13T14:03:07.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

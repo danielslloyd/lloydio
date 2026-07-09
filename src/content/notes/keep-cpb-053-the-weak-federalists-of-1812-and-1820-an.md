@@ -2,7 +2,6 @@
 title: "\"The weak Federalists of 1812 and 1820 and the proper Whigs of the 1830s and 1840s to…"
 date: 2026-05-13T14:02:22.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

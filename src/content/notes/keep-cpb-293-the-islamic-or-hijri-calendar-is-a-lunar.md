@@ -2,7 +2,6 @@
 title: "The Islamic, or Hijri calendar is a lunar calendar consisting of 12 lunar months in a…"
 date: 2026-05-13T13:58:22.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

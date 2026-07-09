@@ -2,7 +2,6 @@
 title: "A \"company\" consists of three or four platoons and is generally commanded by a captain."
 date: 2026-05-13T14:01:20.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

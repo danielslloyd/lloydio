@@ -2,7 +2,6 @@
 title: "Marx reasoned that since profits come out of the sale price of goods and services, th…"
 date: 2026-05-13T14:01:38.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

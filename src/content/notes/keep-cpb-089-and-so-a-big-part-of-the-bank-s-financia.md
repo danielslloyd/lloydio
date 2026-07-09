@@ -2,7 +2,6 @@
 title: "\"And so a big part of the bank’s financial engineering operation is optimizing risk-b…"
 date: 2026-05-13T14:01:46.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

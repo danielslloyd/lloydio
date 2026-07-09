@@ -2,7 +2,6 @@
 title: "The \"ouzo effect\" happens when a strongly hydrophobic essential oil is dissolved in h…"
 date: 2026-05-13T14:02:29.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

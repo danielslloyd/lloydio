@@ -2,7 +2,6 @@
 title: "Horses, unlike cows, will break through a crust of snow to forage in the winter."
 date: 2026-05-13T14:01:43.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

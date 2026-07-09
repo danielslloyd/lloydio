@@ -2,7 +2,6 @@
 title: "In typography, the \"x height\" is the top of a typical lowercase letter, while the \"ca…"
 date: 2026-05-13T14:00:57.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

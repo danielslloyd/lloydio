@@ -2,7 +2,6 @@
 title: "The \"in-law\" suffix is short for \"in Canon law\", referring to the Catholic Church's p…"
 date: 2026-05-13T14:00:59.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

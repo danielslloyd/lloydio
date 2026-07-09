@@ -2,7 +2,6 @@
 title: "The founding fathers were influenced by theories of \"anacyclosis\", specifically Polyb…"
 date: 2026-05-13T13:59:18.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

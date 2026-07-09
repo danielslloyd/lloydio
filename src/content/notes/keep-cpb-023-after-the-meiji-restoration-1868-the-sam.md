@@ -2,7 +2,6 @@
 title: "After the Meiji Restoration (1868), the samurai class was quickly dismantled."
 date: 2026-05-13T14:02:52.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

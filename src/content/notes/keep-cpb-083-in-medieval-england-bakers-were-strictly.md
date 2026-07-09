@@ -2,7 +2,6 @@
 title: "In medieval England, bakers were strictly regulated on the price and weight of loaves…"
 date: 2026-05-13T14:01:52.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

@@ -2,7 +2,6 @@
 title: "\"Even more important to the functioning of the French government than the provincial…"
 date: 2026-05-13T13:59:40.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

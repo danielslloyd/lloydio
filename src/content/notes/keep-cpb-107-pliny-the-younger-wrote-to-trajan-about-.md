@@ -2,7 +2,6 @@
 title: "Pliny the Younger wrote to Trajan about his persecution of Christians, who were an un…"
 date: 2026-05-13T14:01:28.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

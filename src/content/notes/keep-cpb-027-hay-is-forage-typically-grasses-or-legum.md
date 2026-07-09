@@ -2,7 +2,6 @@
 title: "\"Hay\" is forage (typically grasses or legumes like alfalfa) that has been cut and fie…"
 date: 2026-05-13T14:02:48.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

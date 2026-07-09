@@ -2,7 +2,6 @@
 title: "Options are described as in-the-money (ITM) or out-of-the-money (OTM) based on the re…"
 date: 2026-05-13T14:02:59.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

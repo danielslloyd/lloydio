@@ -2,7 +2,6 @@
 title: "Wealthy Romans were expected to give back to their cities in lavish displays of  (\"\"…"
 date: 2026-05-13T13:59:57.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

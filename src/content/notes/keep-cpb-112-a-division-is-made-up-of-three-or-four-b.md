@@ -2,7 +2,6 @@
 title: "A \"division\" is made up of three or four brigades and includes 10,000 to 15,000 soldi…"
 date: 2026-05-13T14:01:23.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 

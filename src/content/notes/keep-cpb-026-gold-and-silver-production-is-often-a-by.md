@@ -2,7 +2,6 @@
 title: "Gold and silver production is often a byproduct of base metal mining."
 date: 2026-05-13T14:02:49.658Z
 tags: ["commonplace"]
-draft: true
 source: keep
 ---
 
