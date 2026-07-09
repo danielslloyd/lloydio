@@ -1,0 +1,182 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+// Load commonplace items as flash cards
+const commonplace = await getCollection('notes', ({ data }) =>
+  data.tags.includes('commonplace') && !data.draft
+);
+
+// Import question bank (multiple choice questions)
+import questionBank from '../../data/flashcard-questions.json';
+---
+
+<Base title="Flash Cards">
+  <h1 class="page-title">Flash Cards</h1>
+
+  <div style="margin-bottom: 2rem;">
+    <label>
+      <select id="deck-select" style="padding: 0.5rem; font-size: 1rem; background: var(--bg); color: var(--fg); border: 1px solid var(--border); cursor: pointer;">
+        <option value="commonplace">Commonplace excerpts</option>
+        <option value="questions">Multiple choice questions</option>
+      </select>
+    </label>
+  </div>
+
+  <div id="card-container" style="min-height: 12rem; perspective: 1000px;">
+    <div id="card" style="
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      min-height: 10rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    ">
+      <div id="card-front">
+        <p style="margin: 0; color: var(--muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">
+          <span id="card-count">1</span> / <span id="total-cards">1</span>
+        </p>
+        <p id="card-content" style="margin: 0; font-size: 1.1rem; line-height: 1.6;"></p>
+        <p style="margin: 1.5rem 0 0; color: var(--faint); font-size: 0.85rem; text-align: center;">click to reveal</p>
+      </div>
+      <div id="card-back" style="display: none;">
+        <div id="answer-content" style="margin-bottom: 1.5rem;"></div>
+        <div id="options-container"></div>
+        <p style="margin: 1.5rem 0 0; color: var(--faint); font-size: 0.85rem; text-align: center;">click to hide</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+    <button id="prev-btn" class="btn" style="padding: 0.5rem 1rem;">← Previous</button>
+    <button id="next-btn" class="btn" style="padding: 0.5rem 1rem;">Next →</button>
+  </div>
+
+  <style>
+    .btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .btn:hover {
+      background: var(--fg);
+      color: var(--bg);
+    }
+  </style>
+
+  <script define:vars={{ commonplaceItems: commonplace, questions: questionBank }} is:inline>
+    const $ = (id) => document.getElementById(id);
+    const deckSelect = $('deck-select');
+    const cardEl = $('card');
+    const cardFront = document.getElementById('card-front');
+    const cardBack = document.getElementById('card-back');
+    const cardContent = $('card-content');
+    const answerContent = $('answer-content');
+    const optionsContainer = $('options-container');
+    const cardCountEl = $('card-count');
+    const totalCardsEl = $('total-cards');
+
+    let currentDeck = 'commonplace';
+    let currentIndex = 0;
+    let isFlipped = false;
+
+    // Convert markdown/HTML to plain text
+    function cleanText(html) {
+      const div = document.createElement('div');
+      div.innerHTML = html.replace(/\n/g, '<br>');
+      return div.textContent || div.innerText || '';
+    }
+
+    function buildDecks() {
+      return {
+        commonplace: commonplaceItems.map(item => ({
+          front: item.data.title || 'Untitled',
+          back: item.body ? cleanText(item.body).substring(0, 500) : ''
+        })),
+        questions: questions.map(q => ({
+          front: q.question,
+          back: q.answer,
+          options: q.options,
+          isMultipleChoice: !!q.options
+        }))
+      };
+    }
+
+    const decks = buildDecks();
+
+    function renderCard() {
+      const deck = decks[currentDeck];
+      if (!deck || deck.length === 0) {
+        cardContent.textContent = 'No cards in this deck';
+        optionsContainer.innerHTML = '';
+        totalCardsEl.textContent = '0';
+        return;
+      }
+
+      const card = deck[currentIndex];
+      cardCountEl.textContent = currentIndex + 1;
+      totalCardsEl.textContent = deck.length;
+
+      // Front
+      cardContent.textContent = card.front;
+
+      // Back
+      if (card.isMultipleChoice) {
+        answerContent.innerHTML = `<strong>Answer:</strong> ${card.back}`;
+        optionsContainer.innerHTML = card.options.map((opt, i) =>
+          `<div style="padding: 0.5rem 0; border-top: 1px solid var(--border);">${String.fromCharCode(65 + i)}. ${opt}</div>`
+        ).join('');
+      } else {
+        answerContent.textContent = card.back;
+        optionsContainer.innerHTML = '';
+      }
+
+      isFlipped = false;
+      cardFront.style.display = 'block';
+      cardBack.style.display = 'none';
+      cardEl.style.transform = 'rotateY(0deg)';
+    }
+
+    function flipCard() {
+      isFlipped = !isFlipped;
+      if (isFlipped) {
+        cardFront.style.display = 'none';
+        cardBack.style.display = 'block';
+      } else {
+        cardFront.style.display = 'block';
+        cardBack.style.display = 'none';
+      }
+    }
+
+    deckSelect.addEventListener('change', (e) => {
+      currentDeck = e.target.value;
+      currentIndex = 0;
+      renderCard();
+    });
+
+    cardEl.addEventListener('click', flipCard);
+
+    $('prev-btn').addEventListener('click', () => {
+      const deck = decks[currentDeck];
+      currentIndex = (currentIndex - 1 + deck.length) % deck.length;
+      renderCard();
+    });
+
+    $('next-btn').addEventListener('click', () => {
+      const deck = decks[currentDeck];
+      currentIndex = (currentIndex + 1) % deck.length;
+      renderCard();
+    });
+
+    renderCard();
+  </script>
+</Base>

@@ -2,86 +2,110 @@
 import Base from '../../layouts/Base.astro';
 ---
 <Base title="Pomodoro">
-  <h1 class="page-title">Pomodoro</h1>
-  <div style="text-align:center; margin:3rem 0;">
-    <div id="clock" style="font-size:5rem; font-variant-numeric:tabular-nums;">25:00</div>
-    <div id="phase" class="meta" style="margin:0.5rem 0;">focus</div>
-    <p>
-      <button class="btn" id="startpause">start</button>
-      <button class="btn" id="reset">reset</button>
-      <button class="btn" id="skip">skip phase</button>
-    </p>
-    <p class="meta"><span id="count">0</span> pomodoros today</p>
+  <h1 class="page-title">Pomodoro Schedule</h1>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin: 2rem 0;">
+    <div style="font-size: 2.5rem; font-variant-numeric: tabular-nums;" id="clock">00:00</div>
+    <div style="display: flex; gap: 0.5rem;">
+      <label><input type="checkbox" id="chime-half" checked /> chime at :00 & :30</label>
+      <label><input type="checkbox" id="chime-quarter" /> tick at :10, :20, :40, :50</label>
+    </div>
   </div>
 
+  <table style="width: 100%; border-collapse: collapse; margin: 2rem 0;">
+    <thead>
+      <tr style="border-bottom: 2px solid var(--border);">
+        <th style="text-align: left; padding: 0.5rem; font-weight: 600;">Time</th>
+        <th style="text-align: left; padding: 0.5rem; font-weight: 600;">Task</th>
+      </tr>
+    </thead>
+    <tbody id="schedule-grid"></tbody>
+  </table>
+
+  <style>
+    table tr { border-bottom: 1px solid var(--border); }
+    table td { padding: 0.75rem 0.5rem; }
+    table input { width: 100%; padding: 0.4rem; border: 1px solid var(--border); background: var(--bg); color: var(--fg); font-family: inherit; }
+    table input:focus { outline: 2px solid var(--fg); outline-offset: -1px; }
+  </style>
+
   <script is:inline>
-    const FOCUS = 25 * 60, BREAK = 5 * 60, LONG_BREAK = 15 * 60;
     const $ = (id) => document.getElementById(id);
-    let phase = 'focus';       // 'focus' | 'break'
-    let remaining = FOCUS;
-    let timer = null;
+    const clockEl = $('clock');
+    const gridEl = $('schedule-grid');
+    const chimeHalf = $('chime-half');
+    const chimeQuarter = $('chime-quarter');
 
-    const todayKey = () => 'pomodoro-' + new Date().toISOString().slice(0, 10);
-    const getCount = () => Number(localStorage.getItem(todayKey()) || 0);
-    const render = () => {
-      const m = String(Math.floor(remaining / 60)).padStart(2, '0');
-      const s = String(remaining % 60).padStart(2, '0');
-      $('clock').textContent = `${m}:${s}`;
-      $('phase').textContent = phase;
-      $('count').textContent = getCount();
-      document.title = `${m}:${s} · ${phase} · lloydio`;
-    };
+    let lastMinute = -1;
+    let lastChimeTime = -1;
 
-    function beep() {
+    // Generate schedule grid (00:00 to 23:30, half-hourly)
+    function generateGrid() {
+      gridEl.innerHTML = '';
+      for (let h = 0; h < 24; h++) {
+        for (let m = 0; m < 60; m += 30) {
+          const timeStr = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
+          const key = 'pomo-task-' + timeStr;
+          const savedTask = localStorage.getItem(key) || '';
+
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td style="text-align: right; color: var(--muted); font-size: 0.9rem;">${timeStr}</td>
+            <td><input type="text" class="task-input" data-time="${timeStr}" value="${savedTask}" placeholder="Task..." /></td>
+          `;
+          gridEl.appendChild(tr);
+        }
+      }
+
+      // Save on input
+      document.querySelectorAll('.task-input').forEach(input => {
+        input.addEventListener('change', (e) => {
+          const time = e.target.getAttribute('data-time');
+          const val = e.target.value;
+          localStorage.setItem('pomo-task-' + time, val);
+        });
+      });
+    }
+
+    function playChime(freq = 660, duration = 0.8) {
       try {
-        const ctx = new AudioContext();
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
         const o = ctx.createOscillator();
         const g = ctx.createGain();
         o.connect(g); g.connect(ctx.destination);
-        o.frequency.value = 660;
-        g.gain.setValueAtTime(0.2, ctx.currentTime);
-        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.8);
-        o.start(); o.stop(ctx.currentTime + 0.8);
+        o.frequency.value = freq;
+        g.gain.setValueAtTime(0.15, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+        o.start();
+        o.stop(ctx.currentTime + duration);
       } catch {}
     }
 
-    function nextPhase() {
-      beep();
-      if (phase === 'focus') {
-        const n = getCount() + 1;
-        localStorage.setItem(todayKey(), String(n));
-        phase = 'break';
-        remaining = n % 4 === 0 ? LONG_BREAK : BREAK;
-      } else {
-        phase = 'focus';
-        remaining = FOCUS;
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      clockEl.textContent = `${h}:${m}:${s}`;
+
+      const minute = now.getMinutes();
+      const second = now.getSeconds();
+
+      // Half-hourly chimes (at :00 and :30, when seconds roll over from 59→00)
+      if (chimeHalf.checked && second === 0 && (minute === 0 || minute === 30) && lastChimeTime !== minute) {
+        lastChimeTime = minute;
+        playChime(660, 0.8);
       }
-      render();
+
+      // Quarter-hour ticks (at :10, :20, :40, :50, when seconds roll over)
+      if (chimeQuarter.checked && second === 0 && [10, 20, 40, 50].includes(minute) && lastChimeTime !== minute) {
+        lastChimeTime = minute;
+        playChime(880, 0.3);
+      }
     }
 
-    function tick() {
-      remaining -= 1;
-      if (remaining <= 0) nextPhase();
-      else render();
-    }
-
-    $('startpause').addEventListener('click', () => {
-      if (timer) {
-        clearInterval(timer); timer = null;
-        $('startpause').textContent = 'start';
-      } else {
-        timer = setInterval(tick, 1000);
-        $('startpause').textContent = 'pause';
-      }
-    });
-    $('reset').addEventListener('click', () => {
-      clearInterval(timer); timer = null;
-      phase = 'focus'; remaining = FOCUS;
-      $('startpause').textContent = 'start';
-      render();
-    });
-    $('skip').addEventListener('click', () => { remaining = 1; tick(); });
-
-    render();
+    generateGrid();
+    setInterval(updateClock, 100);
+    updateClock();
   </script>
 </Base>

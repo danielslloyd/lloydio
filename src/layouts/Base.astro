@@ -64,6 +64,15 @@ const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
         localStorage.setItem('theme', next);
       });
       if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+
+      // External links open in new tab
+      document.querySelectorAll('a').forEach(function (link) {
+        var href = link.getAttribute('href') || '';
+        if (href.startsWith('http://') || href.startsWith('https://')) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
     </script>
     {article && <script src="../scripts/sidenotes.js"></script>}
     {article && <script src="../scripts/popups.js"></script>}
