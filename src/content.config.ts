@@ -1,5 +1,10 @@
 import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { glob, file } from 'astro/loaders';
+import YAML from 'yaml';
+
+// Explicit YAML parser so the file() loader works regardless of built-in
+// format support. Each entry in the array must carry a unique `id`.
+const yamlParser = (text: string) => YAML.parse(text);
 
 const essays = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/essays' }),
@@ -13,13 +18,13 @@ const essays = defineCollection({
   }),
 });
 
-// One file per captured link/note. The capture endpoint and the Keep
-// ingester write these; you can also create them by hand.
+// One file per captured link/note — the daily dump + one-offs. The capture
+// endpoint and the Keep ingester write these; you can also create them by hand.
 //
-// Lifecycle: items arrive with `inbox: true` and get processed by the
-// `process-inbox` skill (categorized via tags, cleaned up, inbox flag
-// removed). Category tags with top-level pages: books, commonplace,
-// beautiful, infographics. The `podcast` tag flags a link for BacklogCast.
+// Lifecycle: items arrive with `inbox: true`. The `process-inbox` skill triages
+// them: curated items are appended to a category doc (`docs/*.md`), a row in
+// `books.yaml`, or parked in `drafts.yaml`, and the note file is deleted;
+// genuine one-offs stay here. The `podcast` tag flags a link for BacklogCast.
 const notes = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/notes' }),
   schema: z.object({
@@ -50,10 +55,11 @@ const articles = defineCollection({
   }),
 });
 
-// The book reading list, fed by the process-inbox skill when notes
-// mention books. Body = personal notes on the book.
+// The book reading list — one consolidated YAML file (edit/reorder in one
+// place). Each entry needs a unique `id`. Fed by the process-inbox skill and
+// by bulk goodreads imports.
 const books = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/books' }),
+  loader: file('src/content/books.yaml', { parser: yamlParser }),
   schema: z.object({
     title: z.string(),
     author: z.string().optional(),
@@ -73,4 +79,28 @@ const books = defineCollection({
   }),
 });
 
-export const collections = { essays, notes, articles, books };
+// Curated single-file category docs (edit each as one document). Rendered
+// with sidenotes/popups. Slugs: commonplace, beautiful, infographics.
+const docs = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/docs' }),
+  schema: z.object({
+    title: z.string(),
+    blurb: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+// Owner-only triage bucket: discrete items pulled out of a category, waiting
+// to be sorted/finished. Shown only in DRAFTS builds. One YAML file.
+const drafts = defineCollection({
+  loader: file('src/content/drafts.yaml', { parser: yamlParser }),
+  schema: z.object({
+    // `id` is promoted to the entry id by the loader, not part of `data`.
+    category: z.string(),
+    text: z.string(),
+    note: z.string().optional(),
+    source: z.string().optional(),
+  }),
+});
+
+export const collections = { essays, notes, articles, books, docs, drafts };

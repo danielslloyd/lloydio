@@ -18,11 +18,16 @@ pipeline (see `docs/BACKLOGCAST.md`).
 
 ## Layout
 
+Curated categories are **one file each** (edit/reorder in one place);
+captured/streaming content stays **one file per item**.
+
 ```
-src/content/essays/   long-form pages (markdown + front-matter)
-src/content/notes/    the link/note dump — one file per capture
+src/content/docs/     curated category docs — commonplace.md, beautiful.md, infographics.md
+src/content/books.yaml  book reading list — one consolidated file
+src/content/drafts.yaml owner-only triage bucket (held-back/unsorted items)
+src/content/notes/    the link/note dump + one-offs — one file per capture
 src/content/articles/ article reading list — written by the BacklogCast pipeline
-src/content/books/    book reading list — extracted from notes by process-inbox
+src/content/essays/   long-form pages (markdown + front-matter)
 src/pages/apps/       small personal tools (pomodoro, quiz) — localStorage only
 public/media/         audio/text from other projects; episodes in media/audio/
 public/decks/         quiz decks (JSON) — add a file + list it in index.json
@@ -38,10 +43,11 @@ scripts/              ingest-keep (Google Keep import) + inbox lister
 - **Capture** all day (phone share sheet, extension, bookmarklet). Everything
   lands in `/notes` immediately and carries `inbox: true`.
 - **Process** whenever: open the repo in Claude Code/Cowork and say
-  "process the inbox" — the `process-inbox` skill categorizes items
-  (books → `/books` with store links, quotes → `/commonplace`, visuals →
-  `/beautiful` and `/infographics`), cleans them up, and clears the inbox
-  flag. `npm run inbox` shows what's pending; owner mode has an `/inbox` page.
+  "process the inbox" — the `process-inbox` skill files each note into the
+  right consolidated file (books → `books.yaml`, quotes → `commonplace.md`,
+  visuals → `beautiful.md` / `infographics.md`, unsure → `drafts.yaml`) and
+  deletes the note. `npm run inbox` shows what's pending; owner mode has an
+  `/inbox` page.
 - **Listen**: anything captured with the podcast checkbox is picked up by the
   `backlogcast` GitHub Action (daily + after captures), which fetches the
   article, extracts clean text, narrates it with edge-tts, and commits both.

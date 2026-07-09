@@ -6,15 +6,27 @@ pipeline. Read `README.md` for the human-facing overview and
 
 ## Map
 
-- `src/content/notes/` — the dump. Frontmatter flags: `inbox` (unprocessed),
-  `draft` (owner-mode only), `source` (capture|keep|manual), tag `podcast`
-  (queued for narration). Category tags with top-level pages: `books`,
-  `commonplace`, `beautiful`, `infographics`.
+Curated content is **consolidated into single files**; streaming/machine-written
+content stays **per-file**.
+
+- `src/content/notes/` — the dump + one-offs (per-file). Frontmatter flags:
+  `inbox` (unprocessed), `draft` (owner-mode only), `source`
+  (capture|keep|manual), tag `podcast` (queued for narration). The
+  `process-inbox` skill files these into the consolidated docs below and
+  deletes the note.
+- `src/content/docs/` — the curated category docs: `commonplace.md`,
+  `beautiful.md`, `infographics.md`. **One editable markdown file per
+  category**; rendered by `src/components/CategoryDoc.astro` at
+  `/commonplace` etc.
+- `src/content/books.yaml` — book reading list, one file (`file()` loader).
+  Each entry needs a unique `id`. Rendered by `src/pages/books.astro`.
+- `src/content/drafts.yaml` — owner-only triage bucket (held-back/unsorted
+  items, `category` per row); shown only in `DRAFTS=1` builds under each
+  category doc.
 - `src/content/articles/` — article reading list; **written by the
   BacklogCast pipeline, don't hand-edit bodies** (frontmatter tweaks like
   `status: read` are fine).
-- `src/content/books/` — book reading list (see process-inbox skill for shape).
-- `src/content/essays/` — long-form writing.
+- `src/content/essays/` — long-form writing (per-file).
 - `pipeline/backlogcast.mjs` — link → clean markdown + TTS mp3; runs via
   `.github/workflows/backlogcast.yml`.
 - `functions/api/capture.js` — Cloudflare Pages Function; commits captures.
@@ -33,15 +45,17 @@ npm run backlogcast -- --dry-run   # show the podcast queue
 
 ## Skills
 
-- `process-inbox` — triage/categorize the note dump. Follow it exactly;
-  it defines the categorization rules and hard rules (no invented links,
-  keep-when-unsure, drafts stay drafts when personal).
+- `process-inbox` — triage the note dump into the consolidated category
+  docs / `books.yaml` / `drafts.yaml`, deleting each note once filed.
+  Follow it exactly (no invented links, park-when-unsure in drafts.yaml).
 - `ingest-keep` — import a Google Keep export.
 
 ## Conventions
 
 - Content schema lives in `src/content.config.ts`; run a build after
-  changing any frontmatter shape.
+  changing any frontmatter shape. Curated = one file (docs/*.md, books.yaml,
+  drafts.yaml); streaming = per-file (notes, articles). Don't point machine
+  writers at the consolidated files — they'd conflict.
 - Slug logic for articles is duplicated in `src/lib/reading.ts` and
   `pipeline/backlogcast.mjs` — keep them in sync.
 - Commit messages: `capture:` (machine), `backlogcast:` (machine),

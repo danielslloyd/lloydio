@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import { getEntry, getCollection, render } from 'astro:content';
+import { SHOW_DRAFTS, editUrl } from '../lib/site';
+
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
+
+const entry = await getEntry('docs', slug);
+if (!entry) throw new Error(`Missing category doc: src/content/docs/${slug}.md`);
+const { Content } = await render(entry);
+
+// Owner-only triage items for this category (from drafts.yaml).
+const draftItems = SHOW_DRAFTS
+  ? (await getCollection('drafts', (d) => d.data.category === slug)).sort((a, b) =>
+      a.id.localeCompare(b.id)
+    )
+  : [];
+---
+<Base title={entry.data.title} article={true}>
+  <h1 class="page-title">{entry.data.title}</h1>
+  {entry.data.blurb && <p class="meta">{entry.data.blurb}</p>}
+  <div class="essay-body">
+    <Content />
+  </div>
+
+  {SHOW_DRAFTS && draftItems.length > 0 && (
+    <section class="drafts-bucket">
+      <h2 class="day-header">
+        unsorted <span class="draft-chip">{draftItems.length}</span>
+      </h2>
+      <p class="meta">
+        held-back items to sort into the doc above (from
+        <a href={editUrl('src/content/drafts.yaml')}>drafts.yaml</a>)
+      </p>
+      {draftItems.map((d) => (
+        <div class="note">
+          <div class="note-body">{d.data.text}</div>
+          {d.data.note && <div class="meta"><a href={d.data.note}>{d.data.note}</a></div>}
+        </div>
+      ))}
+    </section>
+  )}
+</Base>
