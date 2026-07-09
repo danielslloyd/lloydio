@@ -1,29 +1,22 @@
 # Setup: from zero to a working end-to-end capture loop
 
-Follow in order. Time: ~45 min active, plus DNS propagation wait.
+This is the recipe that produced the live site:
 
-## 0. Rename the branch to `main`
+- **Public site:** `lloyd.studio` (+ `www.lloyd.studio`) — open to the world.
+- **Owner-mode site:** `drafts.lloyd.studio` — same repo built with `DRAFTS=1`,
+  gated behind a Cloudflare Access email login (drafts, `/inbox`, edit links).
 
-The deploys, the capture function, and the Action all target `main`.
-The working branch is the repo's default (and only) branch, so just
-rename it: GitHub → **Branches** → pencil icon next to
-`claude/personal-website-gwern-93ldui` → rename to `main`. GitHub
-updates the default branch and redirects old URLs automatically.
+Both are Cloudflare Pages projects deploying from this repo's `main` branch.
+Time: ~45 min active, plus DNS propagation wait. Follow in order.
 
-In any local clone made before the rename:
+## 0. Branch
 
-```sh
-git branch -m claude/personal-website-gwern-93ldui main
-git fetch origin
-git branch -u origin/main main
-git remote set-head origin -a
-```
-
-(If you haven't cloned yet: `git clone https://github.com/danielslloyd/lloydio`
-after renaming and you're done.)
-Also consider **making the repo private** — drafts and unprocessed Keep
-imports are hidden on the public site but fully visible in a public repo.
-Cloudflare Pages deploys private repos fine.
+The default branch is **`main`**, and every deploy, the capture function
+(`GH_BRANCH=main`), and the BacklogCast Action all target it. A fresh
+`git clone` lands you on `main` — nothing to do. Consider **making the repo
+private**: drafts and unprocessed Keep imports are hidden on the public
+*site* but fully visible in a public *repo*. Cloudflare Pages deploys
+private repos fine.
 
 ## 1. Generate secrets (keep in a password manager)
 
@@ -39,14 +32,14 @@ write**. Longest expiration; set a renewal reminder. This is `GH_TOKEN`.
 
 ## 2. Public site on Cloudflare Pages
 
-> ⚠️ **Use the Pages door, not "Import a repository."** In Workers & Pages
-> the big **"Import a repository"** button is the *Workers* flow — it runs
-> `wrangler deploy` and fails for this static site with
-> `A Worker named "…" already exists`. You want the **Pages** tab/section
-> instead. A Pages project has a `.pages.dev` URL and a globe/document
-> icon; a Worker has a `.workers.dev` URL and a `<>` diamond icon. If you
-> accidentally made a Worker, delete it and recreate via Pages — the repo
-> is untouched. Direct link if the Pages option is hidden:
+> ⚠️ **Use the Pages door, NOT "Import a repository."** In Workers & Pages
+> the prominent **"Import a repository"** button is the *Workers* flow — it
+> runs `wrangler deploy` and fails for this static site with
+> `A Worker named "…" already exists`. You want **Pages**. Tells them apart:
+> a Pages project has a `.pages.dev` URL and a globe/document icon; a Worker
+> has a `.workers.dev` URL and a `<>` diamond icon. If you accidentally made
+> a Worker, delete it and recreate via Pages — the repo is untouched.
+> Direct link if the Pages option is buried:
 > `https://dash.cloudflare.com/?to=/:account/workers-and-pages/create/pages`
 
 1. Sign up at dash.cloudflare.com (free plan).
@@ -78,69 +71,89 @@ write**. Longest expiration; set a renewal reminder. This is `GH_TOKEN`.
    (Before `FEED_TOKEN` is set, the feed is at `/podcast/feed.xml`; it
    moves to the secret URL after you add the token and redeploy.)
 
-## 3. Owner-mode site (drafts + edit links)
+## 3. Domain on Cloudflare
 
-1. Second Pages project (same **Pages** door as above, not "Import a
-   repository"), same repo, name it e.g. `lloydio-owner` — if Cloudflare
-   says that name "already exists" from an earlier failed attempt, just
-   use a new name like `lloydio-drafts`. Same build settings +
-   `NODE_VERSION=22`, plus **`DRAFTS=1`**.
-2. Protect it: **Zero Trust** (one-time: pick a team name, Free plan) →
-   **Access → Applications → Add → Self-hosted**. Application domain:
-   `lloydio-owner.pages.dev` (add `*.lloydio-owner.pages.dev` too for
-   preview URLs). Policy: Allow → Include → Emails →
-   `danielslloyd@gmail.com`. Login method: one-time PIN is on by default.
-3. Visit it: you should get an email-PIN gate, then the site with the
-   "owner mode" banner, the draft essay, `/inbox`, and edit links.
+Cloudflare Access and clean apex domains both want the domain to be an
+**active zone in your Cloudflare account** — not just DNS records at your
+registrar. (Apex `CNAME`s to Pages don't work on Squarespace/registrar DNS
+anyway; Cloudflare's own DNS flattens them for you.)
 
-## 4. Domain (purchased at Squarespace)
+1. Cloudflare dashboard → **Add a site** → `lloyd.studio` → **Free** plan.
+   Cloudflare shows you two nameservers (e.g. `xxx.ns.cloudflare.com`).
+2. At your registrar (Squarespace, etc.) → the domain's **nameservers** →
+   replace with Cloudflare's two → save. Wait for Cloudflare's **"site is
+   active"** email — this is the step people skip; adding the site is not
+   enough, the nameservers must actually point at Cloudflare.
+3. Confirm the zone shows **Active** (green) on its overview page. Until it
+   does, custom domains below stay stuck on "Verifying."
+4. Public Pages project → **Custom domains → Set up a domain** →
+   `lloyd.studio` (repeat for `www.lloyd.studio`). Because the zone is on
+   Cloudflare, it **auto-creates the DNS records** — ignore any "add this
+   CNAME at your provider" fallback text. Status flips Verifying → Active in
+   minutes. (If it sticks: the zone isn't Active yet, or a leftover apex
+   `A`/parking record is blocking it — delete that under the zone's
+   **DNS → Records**.)
 
-Move DNS to Cloudflare (Squarespace keeps the registration; apex CNAMEs
-to Pages don't work on Squarespace DNS):
+## 4. Owner-mode site + login gate
 
-1. Cloudflare dashboard → **Add a site** → your domain → **Free** plan.
-   Cloudflare shows two nameservers (e.g. `ada.ns.cloudflare.com`).
-2. Squarespace: **Domains → your domain → DNS → Nameservers → Use custom
-   nameservers** → paste both → save. Wait for Cloudflare's "site active"
-   email (minutes to hours).
-3. Public Pages project → **Custom domains → Add** → `yourdomain.com`
-   (and `www.yourdomain.com` if you want) → Cloudflare creates the records.
-4. Optional: give owner mode a subdomain — add `drafts.yourdomain.com` as
-   a custom domain on the owner project, and change the Access
-   application's domain to match.
-5. Update the code to the real domain, commit, push:
+1. **Second Pages project**, same **Pages** door, same repo. Name it
+   `lloydio-drafts`. Same build settings + `NODE_VERSION=22`, **plus
+   `DRAFTS=1`**. Deploy.
+   > Do **not** put `DRAFTS=1` on the public project — that leaks drafts and
+   > shows the "owner mode — drafts visible" banner to the world. It belongs
+   > on this project only.
+2. Give it the subdomain: this project → **Custom domains → Set up a
+   domain** → `drafts.lloyd.studio` (auto-wired, same as step 3.4).
+3. **Gate it with Access** — do this on the real subdomain, not the
+   `.pages.dev` URL. **Zero Trust** (first time: pick a team name, Free
+   plan) → **Access → Applications → Add an application**:
+   - **Self-hosted and private** → sub-tab **Public DNS** → Continue.
+     (*Not* "Private destinations" — that's for internal apps via a Tunnel
+     and needs the WARP client.)
+   - Name `lloydio drafts`; session duration ~**1 month**.
+   - Public hostname: subdomain `drafts`, domain `lloyd.studio`, path blank.
+     ⚠️ Confirm it reads `drafts.lloyd.studio` — never `lloyd.studio`
+     (that's your public site; gating it locks everyone out).
+   - Policy: name `Allow me`, action **Allow**, Include → **Emails** →
+     `danielslloyd@gmail.com`.
+   - Login method: leave **One-time PIN** on (emails you a code; no Google/
+     IdP setup needed). Save.
+4. Test in an **incognito** tab: `drafts.lloyd.studio` should show a
+   Cloudflare login → email → PIN → then the site with the "owner mode"
+   banner, the draft essay, `/inbox`, and edit links. `lloyd.studio` should
+   stay open with none of that.
 
-   ```sh
-   # astro.config.mjs → site: 'https://yourdomain.com'
-   git commit -am "config: set production domain" && git push
-   ```
+## 5. Point the code at the real domain
 
-   (Absolute URLs in the RSS and podcast feeds come from this.)
+`astro.config.mjs` already has `site: 'https://lloyd.studio'`, which is
+where the RSS and podcast feeds build their absolute URLs from. If you ever
+change domains, edit that line, then `git commit -am "config: domain" &&
+git push`.
 
-## 5. Phone capture (PWA)
+## 6. Phone capture (PWA)
 
-**Android/Chrome:** visit the site → ⋮ → **Add to Home screen → Install**.
-Open the app once, go to `/capture`, paste your `CAPTURE_TOKEN` into the
-token field (it's remembered), save a test note. After install, the app
-appears in the system **Share** sheet — share from any browser/app and the
-form is pre-filled.
+**Android/Chrome:** visit `https://lloyd.studio` → ⋮ → **Add to Home screen
+→ Install**. Open the app once, go to `/capture`, paste your `CAPTURE_TOKEN`
+into the token field (remembered per-browser), save a test note. After
+install, the app appears in the system **Share** sheet — share from any
+browser/app and the form is pre-filled.
 
 **iPhone/Safari:** Share → **Add to Home Screen**. iOS doesn't support PWA
-share targets, so the home-screen icon opens `/capture` directly — paste
-or type there. (A Shortcuts automation can wrap it later.)
+share targets, so the home-screen icon opens `/capture` directly — paste or
+type there. (A Shortcuts automation can wrap it later.)
 
-## 6. Desktop capture (Chrome/Edge extension + bookmarklet)
+## 7. Desktop capture (Chrome/Edge extension + bookmarklet)
 
-1. You need the `extension/` folder locally (you cloned the repo in step 0).
+1. Clone the repo locally so you have the `extension/` folder.
 2. Chrome: `chrome://extensions` · Edge: `edge://extensions` → enable
    **Developer mode** → **Load unpacked** → select the `extension/` folder.
 3. Click the extension icon → **settings** → site origin
-   (`https://yourdomain.com`) + `CAPTURE_TOKEN` → save.
+   `https://lloyd.studio` + `CAPTURE_TOKEN` → save.
 4. Zero-install alternative: open `/capture` on the site and drag the
    **capture→lloydio** bookmarklet (under "desktop bookmarklet") to the
    bookmarks bar.
 
-## 7. End-to-end test — one capture of each type
+## 8. End-to-end test — one capture of each type
 
 Before testing, delete the placeholder sample episode so the pipeline runs
 for real:
@@ -164,14 +177,14 @@ seconds and appear on the site after the ~1 min rebuild.
 | 6 | an infographic link, tag `infographics` | any | appears on `/infographics` |
 | 7 | "read <book> by <author>", tag `books` | any | sits in inbox until processing (next step) turns it into a `/books` row |
 
-Podcast app test: copy `https://yourdomain.com/podcast/<FEED_TOKEN>.xml`
+Podcast app test: copy `https://lloyd.studio/podcast/<FEED_TOKEN>.xml`
 into any app that supports "add by URL" (Pocket Casts, Overcast,
 AntennaPod) and the episode from #3 should download and play.
 
-## 8. Local test run
+## 9. Local test run
 
 ```sh
-git pull                       # get the machine commits from step 7
+git pull                       # get the machine commits from step 8
 npm install
 npm run build                  # must pass; DRAFTS=1 npm run build for owner view
 npm run dev                    # http://localhost:4321
@@ -188,6 +201,16 @@ published, and `npm run inbox` returns to zero.
 
 ## Troubleshooting
 
+- **Public site shows an "owner mode — drafts visible" banner** — `DRAFTS=1`
+  is set on the public project. Delete that variable (Settings → Variables
+  and Secrets) and redeploy. It belongs only on `lloydio-drafts`.
+- **`drafts.lloyd.studio` loads without asking for a password** — the Access
+  application isn't gating it. Check the app's public hostname is exactly
+  `drafts.lloyd.studio` and the policy Includes your email (§4.3). No Access
+  app = no gate.
+- **Custom domain stuck on "Verifying"** — the zone isn't Active yet
+  (finish the nameserver switch, §3.2) or a leftover apex `A`/parking record
+  is blocking the auto-created CNAME (delete it under the zone's DNS).
 - **Capture returns 401** — token in the app/extension doesn't match
   `CAPTURE_TOKEN`; re-paste, watch for trailing whitespace.
 - **Capture returns 502 `github 401/403`** — `GH_TOKEN` wrong, expired, or

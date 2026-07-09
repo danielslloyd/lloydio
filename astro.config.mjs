@@ -1,9 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// Set this to your real domain once you have one.
+// Production domain — RSS and podcast feed absolute URLs build from this.
 export default defineConfig({
-  site: 'https://lloydio.pages.dev',
+  site: 'https://lloyd.studio',
   trailingSlash: 'never',
   markdown: {
     shikiConfig: {
