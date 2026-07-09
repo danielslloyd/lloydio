@@ -59,6 +59,7 @@ const books = defineCollection({
     author: z.string().optional(),
     date: z.coerce.date(), // when added
     status: z.enum(['to-read', 'reading', 'finished']).default('to-read'),
+    rating: z.number().min(0).max(5).optional(), // personal 1–5 stars; 0/undefined = unrated
     links: z
       .object({
         amazon: z.string().url().optional(),
@@ -68,6 +69,7 @@ const books = defineCollection({
       .default({}),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    source: z.string().optional(), // 'goodreads' | 'manual'
   }),
 });
 

@@ -8,17 +8,23 @@ const books = (await getCollection('books', (e) => SHOW_DRAFTS || !e.data.draft)
 );
 const order = { reading: 0, 'to-read': 1, finished: 2 };
 books.sort((a, b) => order[a.data.status] - order[b.data.status]);
+
+const counts = books.reduce((m, b) => ((m[b.data.status] = (m[b.data.status] ?? 0) + 1), m), {});
+const stars = (n?: number) => (n ? '★'.repeat(n) + '☆'.repeat(5 - n) : '');
 ---
 <Base title="Books">
   <h1 class="page-title">Books</h1>
-  <p class="meta">the book reading list, distilled from the note dump</p>
+  <p class="meta">
+    reading list · {counts.finished ?? 0} read · {counts['to-read'] ?? 0} to read
+    {counts.reading ? ` · ${counts.reading} reading` : ''}
+  </p>
 
   {books.length === 0 && <p>No books yet.</p>}
   {books.length > 0 && (
     <div style="overflow-x:auto">
       <table>
         <thead>
-          <tr><th>title</th><th>author</th><th>status</th><th>links</th><th>added</th></tr>
+          <tr><th>title</th><th>author</th><th>rating</th><th>status</th><th>links</th><th>added</th></tr>
         </thead>
         <tbody>
           {books.map((b) => (
@@ -28,6 +34,7 @@ books.sort((a, b) => order[a.data.status] - order[b.data.status]);
                 {SHOW_DRAFTS && b.filePath && <a class="edit-link" href={editUrl(b.filePath)}>edit</a>}
               </td>
               <td>{b.data.author ?? ''}</td>
+              <td title={b.data.rating ? `${b.data.rating}/5` : 'unrated'}>{stars(b.data.rating)}</td>
               <td class="meta">{b.data.status}</td>
               <td>
                 {b.data.links.goodreads && <a href={b.data.links.goodreads}>goodreads</a>}{' '}
