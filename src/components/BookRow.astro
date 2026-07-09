@@ -1,0 +1,204 @@
+---
+import { formatDate } from '../lib/site';
+
+interface Props {
+  id: string;
+  title: string;
+  author: string;
+  status: 'to-read' | 'reading' | 'finished';
+  rating?: number;
+  date: Date;
+  links: {
+    goodreads?: string;
+    amazon?: string;
+    audible?: string;
+  };
+}
+
+const { id, title, author, status, rating, date, links } = Astro.props;
+
+const stars = (n?: number) => (n ? '★'.repeat(n) + '☆'.repeat(5 - n) : '');
+
+// Truncate title if too long
+const truncateTitle = (str: string, maxLen: number = 40) => {
+  if (str.length <= maxLen) return str;
+  const truncated = str.slice(0, maxLen - 1);
+  return truncated + '…';
+};
+
+// Try to find cover image - will use onerror handlers to fallback
+const getPrimaryCoverUrl = () => {
+  // Use Bookwyrm or similar service with Goodreads ID
+  if (id) {
+    return `https://images.bookshop.org/images/9780?h=300`;
+  }
+  return null;
+};
+
+const getFallbackCoverUrls = () => {
+  const urls: string[] = [];
+  // Try different services in order of preference
+  if (id) {
+    // Try bookcovers.io
+    urls.push(`https://api.bookcovers.io/public/books/goodreads?goodreads_id=${id}`);
+    // Try Open Library with a direct Goodreads ID pattern
+    urls.push(`https://covers.openlibrary.org/b/ID/${id}-M.jpg`);
+    // Try a generic placeholder
+    urls.push(`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='135'%3E%3Crect fill='%23ddd' width='90' height='135'/%3E%3Ctext x='45' y='67' font-size='10' text-anchor='middle' fill='%23999' dy='.3em'%3ENo cover%3C/text%3E%3C/svg%3E`);
+  }
+  return urls;
+};
+
+const showStars = status !== 'to-read' && status !== 'reading';
+
+// Determine if a link is a specific product link or a search link
+const isSpecificLink = (url: string, type: 'goodreads' | 'amazon' | 'audible') => {
+  if (type === 'goodreads') return url.includes('/book/show/');
+  if (type === 'amazon') return !url.includes('/s?k=');
+  if (type === 'audible') return !url.includes('/search?keywords=');
+  return true;
+};
+---
+
+<tr class="book-row">
+  <td class="book-cover">
+    {getPrimaryCoverUrl() && (
+      <img
+        src={getPrimaryCoverUrl()}
+        alt={title}
+        loading="lazy"
+        class="cover-image"
+        data-fallbacks={JSON.stringify(getFallbackCoverUrls())}
+        onerror="handleCoverError(this)"
+      />
+    )}
+  </td>
+  <td class="book-title-author">
+    <div class="title">{truncateTitle(title)}</div>
+    <div class="author">{author}</div>
+  </td>
+  <td class="book-status" title={`Added ${formatDate(date)}`}>
+    {showStars ? (
+      <span class="stars">{stars(rating)}</span>
+    ) : (
+      <span class="status">{status}</span>
+    )}
+  </td>
+  <td class="book-links">
+    {links.goodreads && (
+      <a href={links.goodreads} title="Goodreads" class:list={['link-icon', { 'search-link': !isSpecificLink(links.goodreads, 'goodreads') }]}>
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-label="Goodreads">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
+          <text x="12" y="15" text-anchor="middle" font-size="10" font-weight="bold">Gr</text>
+        </svg>
+      </a>
+    )}
+    {links.amazon && (
+      <a href={links.amazon} title="Amazon" class:list={['link-icon', { 'search-link': !isSpecificLink(links.amazon, 'amazon') }]}>
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-label="Amazon">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
+          <text x="12" y="15" text-anchor="middle" font-size="8" font-weight="bold">Am</text>
+        </svg>
+      </a>
+    )}
+    {links.audible && (
+      <a href={links.audible} title="Audible" class:list={['link-icon', { 'search-link': !isSpecificLink(links.audible, 'audible') }]}>
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-label="Audible">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
+          <text x="12" y="15" text-anchor="middle" font-size="8" font-weight="bold">Au</text>
+        </svg>
+      </a>
+    )}
+  </td>
+</tr>
+
+<script define:vars={{ fallbacks: getFallbackCoverUrls() }}>
+  // Global function for image error handling
+  window.handleCoverError = function(img) {
+    const fallbacks = JSON.parse(img.dataset.fallbacks || '[]');
+    if (fallbacks.length > 0) {
+      const nextUrl = fallbacks.shift();
+      img.src = nextUrl;
+      img.dataset.fallbacks = JSON.stringify(fallbacks);
+    } else {
+      img.style.display = 'none';
+    }
+  };
+</script>
+
+<style>
+  .book-row {
+    height: auto;
+  }
+
+  .book-cover {
+    width: 50px;
+    padding: 0.3em 0.3em !important;
+    text-align: center;
+  }
+
+  .cover-image {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: cover;
+  }
+
+  .book-title-author {
+    text-align: left;
+    word-break: break-word;
+  }
+
+  .title {
+    font-weight: 600;
+    line-height: 1.3;
+    word-break: break-word;
+  }
+
+  .author {
+    color: var(--muted);
+    font-size: 0.9em;
+    margin-top: 0.15em;
+  }
+
+  .book-status {
+    text-align: center;
+    font-size: 0.9em;
+  }
+
+  .stars {
+    display: inline-block;
+    letter-spacing: -0.15em;
+  }
+
+  .status {
+    color: var(--muted);
+    font-variant: small-caps;
+  }
+
+  .book-links {
+    white-space: nowrap;
+    padding: 0.3em 0.6em !important;
+    text-align: center;
+  }
+
+  .link-icon {
+    display: inline-block;
+    margin: 0 0.2em;
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .icon {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
+  }
+
+  .link-icon.search-link {
+    opacity: 0.5;
+  }
+
+  .link-icon.search-link .icon {
+    color: var(--faint);
+  }
+</style>
