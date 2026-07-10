@@ -5692,16 +5692,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71ajpIbSZfL._SY300_.jpg
-- id: "B088G137HS"
-  title: A Short Account of the History of Mathematics
-  author: W. W. Rouse Ball
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B088G137HS
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81BdyRz4xXL._SY300_.jpg
 - id: "B000F3T968"
   title: Black Rednecks and White Liberals
   author: Thomas Sowell
