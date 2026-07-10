@@ -21,26 +21,164 @@ const draftItems = SHOW_DRAFTS
 ---
 <Base title={entry.data.title} article={true}>
   <h1 class="page-title">{entry.data.title}</h1>
-  {entry.data.blurb && <p class="meta">{entry.data.blurb}</p>}
-  <div class="essay-body">
-    <Content />
+  {(entry.data.blurb || SHOW_DRAFTS) && (
+    <p class="meta">
+      {entry.data.blurb}
+      {SHOW_DRAFTS && (
+        <button id="doc-edit-toggle" class="edit-toggle" type="button">edit</button>
+      )}
+    </p>
+  )}
+
+  <div class="doc-rendered">
+    <div class="essay-body">
+      <Content />
+    </div>
+
+    {SHOW_DRAFTS && draftItems.length > 0 && (
+      <section class="drafts-bucket">
+        <h2 class="day-header">
+          unsorted <span class="draft-chip">{draftItems.length}</span>
+        </h2>
+        <p class="meta">
+          held-back items to sort into the doc above (from
+          <a href={editUrl('src/content/drafts.yaml')}>drafts.yaml</a>)
+        </p>
+        {draftItems.map((d) => (
+          <div class="note">
+            <div class="note-body">{d.data.text}</div>
+            {d.data.note && <div class="meta"><a href={d.data.note}>{d.data.note}</a></div>}
+          </div>
+        ))}
+      </section>
+    )}
   </div>
 
-  {SHOW_DRAFTS && draftItems.length > 0 && (
-    <section class="drafts-bucket">
-      <h2 class="day-header">
-        unsorted <span class="draft-chip">{draftItems.length}</span>
-      </h2>
-      <p class="meta">
-        held-back items to sort into the doc above (from
-        <a href={editUrl('src/content/drafts.yaml')}>drafts.yaml</a>)
-      </p>
-      {draftItems.map((d) => (
-        <div class="note">
-          <div class="note-body">{d.data.text}</div>
-          {d.data.note && <div class="meta"><a href={d.data.note}>{d.data.note}</a></div>}
-        </div>
-      ))}
-    </section>
+  {SHOW_DRAFTS && (
+    <div class="doc-editor" data-slug={slug} hidden>
+      <div class="doc-editor-bar">
+        <button class="ed-act" data-ed="save" type="button">save</button>
+        <button class="ed-act" data-ed="discard" type="button">discard</button>
+        <span class="ed-sep" aria-hidden="true"></span>
+        <button class="ed-act" data-ed="undo" type="button">undo</button>
+        <button class="ed-act" data-ed="redo" type="button">redo</button>
+        <span class="doc-editor-status" role="status" aria-live="polite"></span>
+      </div>
+      <div class="doc-editor-panes">
+        <textarea class="doc-editor-input" spellcheck="false" aria-label="Markdown source">{entry.body}</textarea>
+        <div class="doc-editor-preview essay-body" aria-label="Live preview"></div>
+      </div>
+    </div>
+  )}
+
+  {SHOW_DRAFTS && (
+    <script>
+      import { initDocEditor } from '../scripts/doc-editor.js';
+      initDocEditor();
+    </script>
   )}
 </Base>
+
+<style>
+  .edit-toggle {
+    font-family: inherit;
+    font-size: 0.85em;
+    font-variant: small-caps;
+    margin-left: 0.6em;
+    padding: 0.05em 0.55em;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    vertical-align: baseline;
+  }
+  .edit-toggle:hover { border-color: var(--muted); color: var(--fg); }
+
+  /* The editor breaks out of the narrow reading column so the source and the
+     preview can sit side by side; it stays centered on the viewport. */
+  .doc-editor {
+    margin: 1.5rem 0 2rem;
+  }
+  @media (min-width: 60rem) {
+    .doc-editor {
+      width: min(94vw, 1500px);
+      margin-left: calc(50% - min(94vw, 1500px) / 2);
+    }
+  }
+
+  .doc-editor-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+  }
+  .ed-act {
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-variant: small-caps;
+    padding: 0.15em 0.7em;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--fg);
+    cursor: pointer;
+  }
+  .ed-act:hover:not([disabled]) { border-color: var(--muted); }
+  .ed-act[data-ed='save']:not([disabled]) { border-color: var(--muted); font-weight: 600; }
+  .ed-act[disabled] { opacity: 0.4; cursor: default; }
+  .ed-sep {
+    width: 1px;
+    align-self: stretch;
+    background: var(--border);
+    margin: 0 0.2rem;
+  }
+  .doc-editor-status {
+    font-size: 0.85rem;
+    font-variant: small-caps;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  .doc-editor-status[data-kind='dirty'] { color: var(--fg); }
+  .doc-editor-status[data-kind='error'] { color: #b00020; }
+  .doc-editor-status[data-kind='busy'] { color: var(--muted); font-style: italic; }
+
+  .doc-editor-panes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 60rem) {
+    .doc-editor-panes {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+  .doc-editor-input {
+    width: 100%;
+    min-height: 70vh;
+    resize: vertical;
+    padding: 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--fg);
+    font-family: 'Iosevka', 'SF Mono', Consolas, Menlo, monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    tab-size: 2;
+  }
+  .doc-editor-preview {
+    min-height: 70vh;
+    max-height: 82vh;
+    overflow-y: auto;
+    padding: 0.2rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  /* On wide screens keep the two panes independently scrollable and aligned. */
+  @media (min-width: 60rem) {
+    .doc-editor-input { position: sticky; top: 5rem; }
+  }
+</style>

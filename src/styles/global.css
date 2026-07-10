@@ -45,10 +45,14 @@ main {
 /* ---- header / footer ---- */
 .site-header {
   max-width: var(--content-width);
-  margin: 0 auto;
+  margin: 0 auto 2rem;
   padding: 1rem;
   border-bottom: 1px solid var(--border);
-  margin-bottom: 2rem;
+  /* Keep the nav pinned to the top of the viewport while scrolling. */
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
 }
 .site-header nav {
   display: flex;
@@ -57,11 +61,15 @@ main {
   flex-wrap: wrap;
 }
 .site-title {
-  font-variant: small-caps;
-  font-weight: bold;
-  font-size: 1.3rem;
   margin-right: auto;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.wordmark {
+  height: 1.35rem;
+  width: auto;
+  display: block;
 }
 .site-header nav a {
   color: var(--fg);
@@ -166,8 +174,8 @@ th { font-variant: small-caps; }
   border-top: 1px solid var(--border);
 }
 
-/* ---- dropcap on essays ---- */
-.essay-body > p:first-of-type::first-letter {
+/* ---- dropcap on essays only ---- */
+.essay-dropcap > p:first-of-type::first-letter {
   float: left;
   font-size: 3.6em;
   line-height: 0.85;

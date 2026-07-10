@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Wordmark from '../components/Wordmark.astro';
 import { SITE_TITLE, SITE_DESCRIPTION, SHOW_DRAFTS } from '../lib/site';
 
 interface Props {
@@ -42,7 +43,7 @@ const getNavLabel = (href: string) => {
   <body>
     <header class="site-header">
       <nav>
-        <a href="/" class="site-title">{SITE_TITLE}</a>
+        <a href="/" class="site-title" aria-label={SITE_TITLE}><Wordmark /></a>
         <a href="/notes" class:list={{ active: getNavLabel('/notes') }}>notes</a>
         <a href="/reading" class:list={{ active: getNavLabel('/reading') }}>reading</a>
         <a href="/books" class:list={{ active: getNavLabel('/books') }}>books</a>
