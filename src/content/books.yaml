@@ -4845,11 +4845,11 @@
   title: "Usborne Book of the Ancient World: Combined Volume : Early Civilization/the Greeks/the Romans/ (Illustrated World History)"
   author: J. Chisolm
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/0746012330
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/61ANSZYMRAL._SY300_.jpg
 - id: "1836051387"
   title: "See Inside The Ancient World: A Fascinating Flap Book About Egyptian Temples, Roman Armies, and Greek City-States for Kids (Ages 6-9)"
