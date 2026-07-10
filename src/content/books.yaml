@@ -7581,15 +7581,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81MfG1NEyrL._SY300_.jpg
-- id: "0385494165"
-  title: Your Wife Is Not Your Momma
-  author: Wellington Boone
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0385494165
-  source: amazon
-  draft: true
 - id: "0199757534"
   title: "The New Testament: A Historical Introduction to the Early Christian Writings"
   author: Bart D. Ehrman
