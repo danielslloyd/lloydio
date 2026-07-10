@@ -4885,11 +4885,11 @@
   title: "Teach Your Child to Read in 100 Easy Lessons: Revised and Updated Second Edition"
   author: Siegfried Engelmann
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/0671631985
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/71D4O-88T7L._SY300_.jpg
 - id: "B0028MK7QU"
   title: The Wisdom of Father Brown
