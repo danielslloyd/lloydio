@@ -6868,11 +6868,11 @@
   title: "A History of Russia: From Peter the Great to Gorbachev"
   author: Mark Steinberg
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B00DTNW3QY
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81WubJz5e-L._SY300_.jpg
 - id: "B00DTO3U3S"
   title: Great Minds of the Western Intellectual Tradition, 3rd Edition
