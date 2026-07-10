@@ -6927,11 +6927,11 @@
   title: The History of the United States, 2nd Edition
   author: The Great Courses
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B00DTO57ES
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/812iRJbKg5L._SY300_.jpg
 - id: "B01K4ZMZJY"
   title: An Economic History of the World since 1400
