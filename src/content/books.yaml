@@ -7910,16 +7910,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71VnDIlqlCL._SY300_.jpg
-- id: "0316010669"
-  title: "Blink: The Power of Thinking Without Thinking"
-  author: Malcolm Gladwell
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0316010669
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71KxNe+Y3IL._SY300_.jpg
 - id: "1433522063"
   title: "Note to Self: The Discipline of Preaching to Yourself"
   author: Joe Thorn
