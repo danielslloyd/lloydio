@@ -7121,16 +7121,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/91l3fm4OqFL._SY300_.jpg
-- id: "B07QSXHK2F"
-  title: Olio Live
-  author: Tyehimba Jess
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07QSXHK2F
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91sptmscinL._SY300_.jpg
 - id: "B012HJK542"
   title: "D DAY Through German Eyes - More hidden stories from June 6th 1944: Book Two (D DAY - Through German Eyes 2)"
   author: Holger Eckhertz
