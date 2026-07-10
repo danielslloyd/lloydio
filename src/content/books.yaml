@@ -6913,16 +6913,6 @@
     amazon: https://www.amazon.com/dp/B06VWQTBZ9
   source: amazon
   cover: https://m.media-amazon.com/images/I/91+1oeuP-eL._SY300_.jpg
-- id: "B07FHLQ2DD"
-  title: The Coming Storm
-  author: Michael Lewis
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07FHLQ2DD
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81Cd8hIyalL._SY300_.jpg
 - id: "B077PCDXVN"
   title: "A River in Darkness: One Man's Escape from North Korea"
   author: Masaji Ishikawa
