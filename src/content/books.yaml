@@ -5615,11 +5615,11 @@
   title: The Story of Human Language
   author: John McWhorter
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/B00DTO69D6
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91rQ0XhCRrL._SY300_.jpg
 - id: "B01N1V2RQC"
   title: "Killing the Bismarck: Destroying the Pride of Hitler's Fleet"
