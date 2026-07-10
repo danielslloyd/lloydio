@@ -4605,7 +4605,6 @@
   links:
     amazon: https://www.amazon.com/dp/0802801161
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81QblPD7nGL._SY300_.jpg
 - id: "1578561108"
   title: "How Children Raise Parents: The Art of Listening to Your Family"
@@ -4615,7 +4614,6 @@
   links:
     amazon: https://www.amazon.com/dp/1578561108
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/414M9PZ2WJL._SY300_.jpg
 - id: "B0FPZHFD72"
   title: "Last Branch Standing: A Potentially Surprising, Occasionally Witty Journey Inside Today's Supreme Court"
@@ -5692,16 +5690,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71ajpIbSZfL._SY300_.jpg
-- id: "B088G137HS"
-  title: A Short Account of the History of Mathematics
-  author: W. W. Rouse Ball
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B088G137HS
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81BdyRz4xXL._SY300_.jpg
 - id: "B000F3T968"
   title: Black Rednecks and White Liberals
   author: Thomas Sowell
@@ -6114,11 +6102,11 @@
   title: The One Year Bible Story Book
   author: Virginia Muir
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/0842326316
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/51syW+0pwhL._SY300_.jpg
 - id: "1557482640"
   title: 365 Read-Aloud Bedtime Bible Stories
@@ -6180,16 +6168,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/91B4rLXzBUL._SY300_.jpg
-- id: "B011D53EDK"
-  title: "Oh Crap! Potty Training: Everything Modern Parents Need to Know to Do It Once and Do It Right"
-  author: Jamie Glowacki
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B011D53EDK
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81w6u2TRweL._SY300_.jpg
 - id: "B096MWJLNW"
   title: Will
   author: Will Smith
@@ -6440,11 +6418,11 @@
   title: The Story of Marriage
   author: John Bevere
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 3
   links:
     amazon: https://www.amazon.com/dp/193318597X
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/61aZ+jl6ZvL._SY300_.jpg
 - id: "1426328435"
   title: "National Geographic Kids Look & Learn: Birds"
@@ -6480,11 +6458,11 @@
   title: Greenlights
   author: Matthew McConaughey
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B08HLW2JXD
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81z6Yc8fi7L._SY300_.jpg
 - id: "163149905X"
   title: "Jesus and John Wayne: How White Evangelicals Corrupted a Faith and Fractured a Nation"
@@ -6506,16 +6484,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71KQoPBE2iL._SY300_.jpg
-- id: "B08TX585RN"
-  title: "The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma"
-  author: Bessel van der Kolk M.D.
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B08TX585RN
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/41ubqX+ZoAL._SY300_.jpg
 - id: "1530693144"
   title: "The Blue Book: A Devotional Guide for Every Season of Your Life"
   author: Jim Branch
@@ -6795,76 +6763,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81ESXsDDZhL._SY300_.jpg
-- id: "B07SYBZJTS"
-  title: "The Space Race: An Audible Original"
-  author: Colin Brake
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07SYBZJTS
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81CB+m0vupL._SY300_.jpg
-- id: "B07QV32DZP"
-  title: "The Real Sherlock: An Audible Original"
-  author: Lucinda Hawksley
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07QV32DZP
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71JtM+hC88L._SY300_.jpg
-- id: "B0829CYCKH"
-  title: History of Bourbon
-  author: Ken Albala
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B0829CYCKH
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81zj02-tyAL._SY300_.jpg
-- id: "B088TYZLSV"
-  title: "Nut Jobs: Cracking California's Strangest $10 Million Dollar Heist: An Audible Original"
-  author: Marc Fennell
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B088TYZLSV
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/915PpssKCLL._SY300_.jpg
-- id: "B0842X63DF"
-  title: How to Build Meaningful Relationships Through Conversation
-  author: Carol Ann Lloyd
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B0842X63DF
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81nFgynQxQL._SY300_.jpg
-- id: "B084GB3VCY"
-  title: Tell Me Lies
-  author: J. P. Pomare
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B084GB3VCY
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81gYv6T+SSL._SY300_.jpg
-- id: "B07WH3W69R"
-  title: Blood Territory
-  author: Mark Whittaker
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07WH3W69R
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/915e9dFrgFL._SY300_.jpg
 - id: "B00I3P36ZU"
   title: "The House of Morgan: An American Banking Dynasty and the Rise of Modern Finance"
   author: Ron Chernow
@@ -6895,16 +6793,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/A1UL-szt4OL._SY300_.jpg
-- id: "1581345615"
-  title: "I Don't Have Enough Faith to Be an Atheist"
-  author: Norman L. Geisler
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1581345615
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71RtBv-jj5L._SY300_.jpg
 - id: "B07BRB8V7D"
   title: "We Were Soldiers Once... and Young: Ia Drang - The Battle That Changed the War in Vietnam"
   author: Harold G. Moore
@@ -6924,36 +6812,6 @@
     amazon: https://www.amazon.com/dp/B01GSO8F26
   source: amazon
   cover: https://m.media-amazon.com/images/I/A10iMAE42lL._SY300_.jpg
-- id: "1625275773"
-  title: "The Alliance: Managing Talent in the Networked Age"
-  author: Reid Hoffman
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1625275773
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61M+KUpCeQL._SY300_.jpg
-- id: "B07WX3VPDC"
-  title: "Body of Proof: An Audible Original"
-  author: Darrell Brown
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07WX3VPDC
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91Yprg5J8CL._SY300_.jpg
-- id: "B074P73N5V"
-  title: "The Home Front: Life in America During World War II"
-  author: Dan Gediman
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B074P73N5V
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91GOyxC7TgL._SY300_.jpg
 - id: "B071WQPBKP"
   title: "Treasure Island: An Audible Original Drama"
   author: Robert Louis Stevenson
@@ -6978,11 +6836,11 @@
   title: "A History of Russia: From Peter the Great to Gorbachev"
   author: Mark Steinberg
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B00DTNW3QY
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81WubJz5e-L._SY300_.jpg
 - id: "B00DTO3U3S"
   title: Great Minds of the Western Intellectual Tradition, 3rd Edition
@@ -7023,16 +6881,6 @@
     amazon: https://www.amazon.com/dp/B06VWQTBZ9
   source: amazon
   cover: https://m.media-amazon.com/images/I/91+1oeuP-eL._SY300_.jpg
-- id: "B07FHLQ2DD"
-  title: The Coming Storm
-  author: Michael Lewis
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07FHLQ2DD
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81Cd8hIyalL._SY300_.jpg
 - id: "B077PCDXVN"
   title: "A River in Darkness: One Man's Escape from North Korea"
   author: Masaji Ishikawa
@@ -7047,11 +6895,11 @@
   title: The History of the United States, 2nd Edition
   author: The Great Courses
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B00DTO57ES
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/812iRJbKg5L._SY300_.jpg
 - id: "B01K4ZMZJY"
   title: An Economic History of the World since 1400
@@ -7093,16 +6941,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/61fk8BSnIsL._SY300_.jpg
-- id: "1118615778"
-  title: Investment Banking For Dummies (For Dummies Series)
-  author: Matthew Krantz
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1118615778
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81pbNEmG9QL._SY300_.jpg
 - id: "0812971833"
   title: Olive Kitteridge
   author: Elizabeth Strout
@@ -7220,16 +7058,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/7192L6O8teL._SY300_.jpg
-- id: "0373892861"
-  title: "Too Cute Puppies: Animal Planet's Most Impossibly Adorable Puppies"
-  author: Animal Planet
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0373892861
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81HRdBjH16L._SY300_.jpg
 - id: "0310286700"
   title: "Systematic Theology: An Introduction to Biblical Doctrine"
   author: Wayne Grudem
@@ -7250,16 +7078,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71bGvfWlBlL._SY300_.jpg
-- id: "0062351729"
-  title: Shake Puppies
-  author: Carli Davidson
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0062351729
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71dc6vwVHZL._SY300_.jpg
 - id: "074327704X"
   title: "Last Call: The Rise and Fall of Prohibition"
   author: Daniel Okrent
@@ -7422,11 +7240,11 @@
   title: "Lewis, Michael) The Big Short: Inside the Doomsday Machine"
   author: Michael Lewis
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B00ANYJ3NI
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/41vvmXp3IRL._SY300_.jpg
 - id: "1433533340"
   title: "The Hole in Our Holiness: Filling the Gap between Gospel Passion and the Pursuit of Godliness"
