@@ -6973,16 +6973,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/61fk8BSnIsL._SY300_.jpg
-- id: "1118615778"
-  title: Investment Banking For Dummies (For Dummies Series)
-  author: Matthew Krantz
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1118615778
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81pbNEmG9QL._SY300_.jpg
 - id: "0812971833"
   title: Olive Kitteridge
   author: Elizabeth Strout
