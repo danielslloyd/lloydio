@@ -6506,16 +6506,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71KQoPBE2iL._SY300_.jpg
-- id: "B08TX585RN"
-  title: "The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma"
-  author: Bessel van der Kolk M.D.
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B08TX585RN
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/41ubqX+ZoAL._SY300_.jpg
 - id: "1530693144"
   title: "The Blue Book: A Devotional Guide for Every Season of Your Life"
   author: Jim Branch
