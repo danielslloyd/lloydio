@@ -7780,16 +7780,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71Tr-cGNxhS._SY300_.jpg
-- id: "1585167290"
-  title: "Holy Bible: English Standard Version"
-  author: American Bible Society
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1585167290
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/41C0R6NV85L._SY300_.jpg
 - id: "0310293359"
   title: "The Emotionally Healthy Church, Expanded Edition: A Strategy for Discipleship That Actually Changes Lives"
   author: Peter Scazzero
