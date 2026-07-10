@@ -4559,7 +4559,6 @@
   links:
     amazon: https://www.amazon.com/dp/B0CLFQ4KP4
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91S1I9OKWAL._SY300_.jpg
 - id: "1523500387"
   title: "Paint by Sticker Kids (Official): Under the Sea: Create 10 Pictures One Sticker at a Time!"
@@ -4579,27 +4578,24 @@
   links:
     amazon: https://www.amazon.com/dp/0195069056
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/711wbXUQ1uL._SY300_.jpg
 - id: "0306825554"
   title: "Sword and Scimitar: Fourteen Centuries of War between Islam and the West"
   author: Raymond Ibrahim
   date: 2026-07-10
-  status: to-read
+  status: reading
   links:
     amazon: https://www.amazon.com/dp/0306825554
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/A1mvFqIVwiL._SY300_.jpg
 - id: "0802438202"
   title: "Authentic Masculinity: Leaving Behind the Counterfeits for God's Design"
   author: Seth Troutt
   date: 2026-07-10
-  status: to-read
+  status: reading
   links:
     amazon: https://www.amazon.com/dp/0802438202
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81ESV30eIfL._SY300_.jpg
 - id: "0802801161"
   title: "Like Dew Your Youth: Growing Up with Your Teenager"
@@ -4625,11 +4621,11 @@
   title: "Last Branch Standing: A Potentially Surprising, Occasionally Witty Journey Inside Today's Supreme Court"
   author: Sarah Isgur
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/B0FPZHFD72
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/71i9e9ib85L._SY300_.jpg
 - id: "0140556125"
   title: "Paul Revere's Ride"
@@ -4669,57 +4665,54 @@
   links:
     amazon: https://www.amazon.com/dp/B0CD8V9SHD
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81ZlzetToSL._SY300_.jpg
 - id: "B009RFHBA6"
   title: "The Finish: The Killing of Osama bin Laden"
   author: Mark Bowden
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 3
   links:
     amazon: https://www.amazon.com/dp/B009RFHBA6
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81fsrR0WmgL._SY300_.jpg
 - id: "1783271205"
   title: The Cistercians in the Middle Ages (Monastic Orders, 4)
   author: Janet Burton
   date: 2026-07-10
-  status: to-read
+  status: reading
   links:
     amazon: https://www.amazon.com/dp/1783271205
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/71Kz-2t9MJL._SY300_.jpg
 - id: "0310156327"
   title: "What It Means to Be Protestant: The Case for an Always-Reforming Church"
   author: Gavin Ortlund
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/0310156327
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81Ivp1BphyL._SY300_.jpg
 - id: "B0BBXP7G78"
   title: "To the End of the Earth: The US Army and the Downfall of Japan, 1945"
   author: John C. McManus
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B0BBXP7G78
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81iKLh9rQTL._SY300_.jpg
 - id: "B091WLWB4X"
   title: "The Bright Ages: A New History of Medieval Europe"
   author: Matthew Gabriele
   date: 2026-07-10
-  status: to-read
+  status: reading
   links:
     amazon: https://www.amazon.com/dp/B091WLWB4X
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/A1+Y-VQgzaL._SY300_.jpg
 - id: "B0FQLJFWZH"
   title: "The Ultimate Book of Interesting Facts for Kids: An Epic Collection of Fun, Weird, and Awesome Trivia for Curious Kids Who Love to Learn Cool Stuff"
@@ -4789,7 +4782,6 @@
   links:
     amazon: https://www.amazon.com/dp/B07QGGSS3S
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/71KX3Z-3zoL._SY300_.jpg
 - id: "B0FYRFT3WV"
   title: Tiny Tina Super Ballerina
@@ -4815,51 +4807,51 @@
   title: Can We Trust the Gospels?
   author: Peter J. Williams
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/1433552957
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/916oeghfz2L._SY300_.jpg
 - id: "0316587508"
   title: "Knight Owl's Little Christmas (The Knight Owl Series)"
   author: Christopher Denise
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/0316587508
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91FUzighKuL._SY300_.jpg
 - id: "0316564524"
   title: Knight Owl and Early Bird (The Knight Owl Series, 2)
   author: Christopher Denise
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/0316564524
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91kJsBZ-9-L._SY300_.jpg
 - id: "0746012330"
   title: "Usborne Book of the Ancient World: Combined Volume : Early Civilization/the Greeks/the Romans/ (Illustrated World History)"
   author: J. Chisolm
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/0746012330
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/61ANSZYMRAL._SY300_.jpg
 - id: "1836051387"
   title: "See Inside The Ancient World: A Fascinating Flap Book About Egyptian Temples, Roman Armies, and Greek City-States for Kids (Ages 6-9)"
   author: Rob Lloyd Jones
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/1836051387
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/71CcAEZxFsL._SY300_.jpg
 - id: "B0CY8W5DFX"
   title: RED VOLCANO - THE RING OF FIRE
@@ -4885,11 +4877,11 @@
   title: "Teach Your Child to Read in 100 Easy Lessons: Revised and Updated Second Edition"
   author: Siegfried Engelmann
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/0671631985
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/71D4O-88T7L._SY300_.jpg
 - id: "B0028MK7QU"
   title: The Wisdom of Father Brown
@@ -4939,7 +4931,6 @@
   links:
     amazon: https://www.amazon.com/dp/B07RCZ69GP
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/71h4m1aLPuL._SY300_.jpg
 - id: "B0BYBB7C77"
   title: "Weavers, Scribes, and Kings: A New History of the Ancient Near East"
@@ -4949,7 +4940,6 @@
   links:
     amazon: https://www.amazon.com/dp/B0BYBB7C77
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91s6yusPqOL._SY300_.jpg
 - id: "B0C1TLFKR4"
   title: "The Thirty Years War: Europe's Tragedy"
@@ -4959,18 +4949,7 @@
   links:
     amazon: https://www.amazon.com/dp/B0C1TLFKR4
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81iZrWCxIlL._SY300_.jpg
-- id: "0143126563"
-  title: "Getting Things Done: The Art of Stress-Free Productivity"
-  author: David Allen
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0143126563
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61Loe8brBXL._SY300_.jpg
 - id: "B08RF19SJD"
   title: "The Wages of Destruction: The Making and Breaking of the Nazi Economy"
   author: Adam Tooze
@@ -4979,7 +4958,6 @@
   links:
     amazon: https://www.amazon.com/dp/B08RF19SJD
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91ACQrm8SHL._SY300_.jpg
 - id: "B074T2W1MR"
   title: "Lenin: The Man, the Dictator, and the Master of Terror"
@@ -4989,7 +4967,6 @@
   links:
     amazon: https://www.amazon.com/dp/B074T2W1MR
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/71KTnYV+koL._SY300_.jpg
 - id: "B0772V8X6T"
   title: "The Three Lives of James Madison: Genius, Partisan, President"
@@ -5019,7 +4996,6 @@
   links:
     amazon: https://www.amazon.com/dp/B0176KPPD8
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/819pY0LR2pL._SY300_.jpg
 - id: "B07G2R62L2"
   title: "The Battle of Arnhem: The Deadliest Airborne Operation of World War II"
@@ -5035,21 +5011,21 @@
   title: "Fire and Fortitude: The US Army in the Pacific War, 1941-1943"
   author: John C. McManus
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B07RQ1KGFZ
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91vyosa3V9L._SY300_.jpg
 - id: "B092KRS1XG"
   title: "Island Infernos: The US Army's Pacific War Odyssey, 1944"
   author: John C. McManus
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B092KRS1XG
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91M16N5FjXL._SY300_.jpg
 - id: "B08WRMQTNH"
   title: C. S. Lewis Essential Audio Library
@@ -5389,7 +5365,6 @@
   links:
     amazon: https://www.amazon.com/dp/B001KJ6YFU
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/A1kQFKsy8OL._SY300_.jpg
 - id: "B000054795"
   title: "The Personal Memoirs of U.S. Grant, Part 3: Wilderness Campaign, Appomattox, Death of Lincoln (Unabr.)"
@@ -5429,7 +5404,6 @@
   links:
     amazon: https://www.amazon.com/dp/B002CJ1FAG
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/61wo4Z4sPFL._SY300_.jpg
 - id: "B001P93GME"
   title: "Long Obedience in the Same Direction: Discipleship in an Instant Society"
@@ -5615,11 +5589,11 @@
   title: The Story of Human Language
   author: John McWhorter
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/B00DTO69D6
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91rQ0XhCRrL._SY300_.jpg
 - id: "B01N1V2RQC"
   title: "Killing the Bismarck: Destroying the Pride of Hitler's Fleet"
@@ -5629,7 +5603,6 @@
   links:
     amazon: https://www.amazon.com/dp/B01N1V2RQC
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81GN375FryL._SY300_.jpg
 - id: "B005EWCECQ"
   title: The Death of Ivan Ilyich
@@ -5689,7 +5662,6 @@
   links:
     amazon: https://www.amazon.com/dp/0452298601
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/71NjRQL4ySL._SY300_.jpg
 - id: "0961392185"
   title: "Artful Sentences: Syntax as Style"
@@ -5699,7 +5671,6 @@
   links:
     amazon: https://www.amazon.com/dp/0961392185
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/41BR46EdNAL._SY300_.jpg
 - id: "1838665471"
   title: 1000 Design Classics
@@ -5779,7 +5750,6 @@
   links:
     amazon: https://www.amazon.com/dp/B0BYTKB813
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/A1oLATqorfL._SY300_.jpg
 - id: "B08GL19Z4H"
   title: "Reading While Black: African American Biblical Interpretation as an Exercise in Hope"
@@ -5809,7 +5779,6 @@
   links:
     amazon: https://www.amazon.com/dp/B000OCZ2MA
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/811UkTEVz4L._SY300_.jpg
 - id: "B0018C4M9E"
   title: Economic Facts and Fallacies
@@ -6035,11 +6004,11 @@
   title: "Desiring God, Revised Edition: Meditations of a Christian Hedonist"
   author: John Piper
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/1601423101
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/61WckdMQX3L._SY300_.jpg
 - id: "1604338105"
   title: "Aesop's Fables Hardcover: The Classic Edition by acclaimed illustrator, Charles Santore (Charles Santore Children's Classics)"
@@ -6085,11 +6054,11 @@
   title: "Blood Meridian: Or the Evening Redness in the West"
   author: Cormac McCarthy
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/B000QUEM6M
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81o0agy5gLL._SY300_.jpg
 - id: "B00MY9ZZGY"
   title: "Augustus: First Emperor of Rome"
@@ -6201,16 +6170,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81azWCyzkKL._SY300_.jpg
-- id: "1668000016"
-  title: "Sex Talks: The Five Conversations That Will Transform Your Love Life"
-  author: Vanessa Marin
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1668000016
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61zVBOChqeL._SY300_.jpg
 - id: "B089KTSWBZ"
   title: "Hercule Poirot: The Complete Short Stories: A Hercule Poirot Mystery: The Official Authorized Edition"
   author: Agatha Christie
@@ -6255,11 +6214,11 @@
   title: "Empire: How Britain Made the Modern World"
   author: Niall Ferguson
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 3
   links:
     amazon: https://www.amazon.com/dp/B075VG9PZ2
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81NBSoy3j7L._SY300_.jpg
 - id: "B09VJY7G62"
   title: "Strange New World: How Thinkers and Activists Redefined Identity and Sparked the Sexual Revolution"
@@ -6275,21 +6234,21 @@
   title: "Russia: Revolution and Civil War, 1917-1921"
   author: Antony Beevor
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B09XBXW6DQ
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91n3DOTRuHL._SY300_.jpg
 - id: "B07L5T55D7"
   title: "The House of Rothschild: Volume 1: Money's Prophets: 1798-1848"
   author: Niall Ferguson
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B07L5T55D7
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91TMwy3eJgL._SY300_.jpg
 - id: "B00DTO5O8W"
   title: Turning Points in Modern History
@@ -6369,7 +6328,6 @@
   links:
     amazon: https://www.amazon.com/dp/1541697464
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81fYsX2dQWL._SY300_.jpg
 - id: "B004QIWIUC"
   title: Knowing God
@@ -6399,7 +6357,6 @@
   links:
     amazon: https://www.amazon.com/dp/B07N7VKJM6
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/917gt8kL3CL._SY300_.jpg
 - id: "B09251KMQ2"
   title: "The Anglo-Saxons: A History of the Beginnings of England: 400 - 1066"
@@ -6409,7 +6366,6 @@
   links:
     amazon: https://www.amazon.com/dp/B09251KMQ2
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/A1C8vmsDNNL._SY300_.jpg
 - id: "0241471664"
   title: Q is for Quokka (The Animal Alphabet Library)
@@ -6435,11 +6391,11 @@
   title: "Viral: The Search for the Origin of Covid-19"
   author: Matt Ridley
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B097CLV3QP
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/919+snpCfSL._SY300_.jpg
 - id: "0358653037"
   title: The Lord of the Rings Illustrated
@@ -6469,7 +6425,6 @@
   links:
     amazon: https://www.amazon.com/dp/B078NCGTD7
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81c0Cs6UvmL._SY300_.jpg
 - id: "B0721TLZKT"
   title: "Hue 1968: A Turning Point of the American War in Vietnam"
@@ -6681,16 +6636,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/51DZ1yRBjnL._SY300_.jpg
-- id: "B07WJHSGCK"
-  title: "Your Move: What Board Games Teach Us About Life"
-  author: Jonathan Kay
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07WJHSGCK
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71-rknDTRLL._SY300_.jpg
 - id: "0736979441"
   title: "Jesus Heals: An Anatomy Primer (Baby Believer)"
   author: Danielle Hitchen
@@ -6701,26 +6646,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71pyjgtXofL._SY300_.jpg
-- id: "030797586X"
-  title: "The Little Blue Boxed Set of 4 Bright and Early Board Books: Hop on Pop; Oh, the Thinks You Can Think!; Ten Apples Up On Top!; The Shape of Me and Other Stuff"
-  author: Dr. Seuss
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/030797586X
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81pWrorY36L._SY300_.jpg
-- id: "0375812156"
-  title: "Put Me In the Zoo (Bright & Early Board Books)"
-  author: Robert Lopshire
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0375812156
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61eM+ksvByL._SY300_.jpg
 - id: "B06VX4GGFT"
   title: "I Can't Make This Up: Life Lessons"
   author: Neil Strauss - contributor
@@ -6745,11 +6670,11 @@
   title: The Hobbit
   author: J. R. R. Tolkien
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/B08C8XFQMN
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91Q00mYqCFL._SY300_.jpg
 - id: "B08HGH9JMF"
   title: A Promised Land
@@ -6761,16 +6686,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71tiDmszIJL._SY300_.jpg
-- id: "1790133637"
-  title: "Nobody Told Me About That: The First 6 Weeks"
-  author: Ginger Breedlove
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1790133637
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/41bfr5HXuxL._SY300_.jpg
 - id: "1566635055"
   title: "Life at the Bottom: The Worldview That Makes the Underclass"
   author: Theodore Dalrymple
@@ -6835,11 +6750,10 @@
   title: The Chronicles of Narnia Complete Audio Collection
   author: C. S. Lewis
   date: 2026-07-10
-  status: to-read
+  status: reading
   links:
     amazon: https://www.amazon.com/dp/B0835YQDTQ
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91g0X50qJRL._SY300_.jpg
 - id: "B00DTO4GHC"
   title: "Masters of War: History's Greatest Strategic Thinkers"
@@ -6891,16 +6805,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81CB+m0vupL._SY300_.jpg
-- id: "B07T3HC7BC"
-  title: "A Grown-Up Guide to Dinosaurs: An Audible Original"
-  author: Ben Garrod
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07T3HC7BC
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91tmGGLJYGL._SY300_.jpg
 - id: "B07QV32DZP"
   title: "The Real Sherlock: An Audible Original"
   author: Lucinda Hawksley
@@ -6965,11 +6869,11 @@
   title: "The House of Morgan: An American Banking Dynasty and the Rise of Modern Finance"
   author: Ron Chernow
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/B00I3P36ZU
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81okSOsghfL._SY300_.jpg
 - id: "B07TS51R9B"
   title: The Russian Revolution
@@ -7009,38 +6913,17 @@
   links:
     amazon: https://www.amazon.com/dp/B07BRB8V7D
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91i4guwxlEL._SY300_.jpg
 - id: "B01GSO8F26"
   title: The English and Their History
   author: Robert Tombs
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B01GSO8F26
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/A10iMAE42lL._SY300_.jpg
-- id: "0739360388"
-  title: Harry Potter and the Deathly Hallows
-  author: J.K. Rowling
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0739360388
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81kPK9ECveL._SY300_.jpg
-- id: "B07XQJBSRW"
-  title: Midnight Son
-  author: James Dommek Jr.
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07XQJBSRW
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91IesTZ7A7L._SY300_.jpg
 - id: "1625275773"
   title: "The Alliance: Managing Talent in the Networked Age"
   author: Reid Hoffman
@@ -7051,16 +6934,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/61M+KUpCeQL._SY300_.jpg
-- id: "B00PWE81VE"
-  title: "Strategic Storytelling: How to Create Persuasive Business Presentations"
-  author: Dave McKinsey
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B00PWE81VE
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/610K8yvxhoL._SY300_.jpg
 - id: "B07WX3VPDC"
   title: "Body of Proof: An Audible Original"
   author: Darrell Brown
@@ -7121,36 +6994,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/91l3fm4OqFL._SY300_.jpg
-- id: "B07QSXHK2F"
-  title: Olio Live
-  author: Tyehimba Jess
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07QSXHK2F
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91sptmscinL._SY300_.jpg
-- id: "B07PJW49Y1"
-  title: Riley Mack and the Other Known Troublemakers
-  author: Neil Hellegers
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07PJW49Y1
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91H3QBd1uNL._SY300_.jpg
-- id: "B01D0L9USS"
-  title: "Elizabeth II: Life of a Monarch: An Audible Original"
-  author: Ruth Cowen
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B01D0L9USS
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81+jVc617KL._SY300_.jpg
 - id: "B012HJK542"
   title: "D DAY Through German Eyes - More hidden stories from June 6th 1944: Book Two (D DAY - Through German Eyes 2)"
   author: Holger Eckhertz
@@ -7159,7 +7002,6 @@
   links:
     amazon: https://www.amazon.com/dp/B012HJK542
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/71s04foboyL._SY300_.jpg
 - id: "B009LRWWMM"
   title: The Complete Stories (FSG Classics)
@@ -7175,11 +7017,11 @@
   title: "Sherlock Holmes: The Definitive Collection"
   author: Arthur Conan Doyle
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/B06VWQTBZ9
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91+1oeuP-eL._SY300_.jpg
 - id: "B07FHLQ2DD"
   title: The Coming Storm
@@ -7195,22 +7037,12 @@
   title: "A River in Darkness: One Man's Escape from North Korea"
   author: Masaji Ishikawa
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 3
   links:
     amazon: https://www.amazon.com/dp/B077PCDXVN
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81Zsmnh-+hL._SY300_.jpg
-- id: "0310262895"
-  title: "Wounded by God's People: Discovering How God’s Love Heals Our Hearts"
-  author: Anne Graham Lotz
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0310262895
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71F9Sjh7sKL._SY300_.jpg
 - id: "B00DTO57ES"
   title: The History of the United States, 2nd Edition
   author: The Great Courses
@@ -7251,16 +7083,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/9156v9R332L._SY300_.jpg
-- id: "0986210706"
-  title: "The Seven Principles of Professional Services: A field guide for successfully walking the consulting tightrope"
-  author: Shane Anastasi
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0986210706
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71D-F5SEuiL._SY300_.jpg
 - id: "0330447262"
   title: THE COMPLETE JAMES HERRIOT Box Set 1-8
   author: james-herriot
@@ -7271,16 +7093,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/61fk8BSnIsL._SY300_.jpg
-- id: "0062407805"
-  title: "Never Split the Difference: Negotiating As If Your Life Depended On It―Unlock Your Persuasion Potential in Professional and Personal Life"
-  author: Chris Voss
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0062407805
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81PPq8CP4sL._SY300_.jpg
 - id: "1118615778"
   title: Investment Banking For Dummies (For Dummies Series)
   author: Matthew Krantz
@@ -7291,26 +7103,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81pbNEmG9QL._SY300_.jpg
-- id: "0399533745"
-  title: "The F-Factor Diet: Discover the Secret to Permanent Weight Loss"
-  author: Tanya Zuckerbrot
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0399533745
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71nYZW2G9qL._SY300_.jpg
-- id: "0446585041"
-  title: "Seriously...I'm Kidding"
-  author: Ellen DeGeneres
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0446585041
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71X7tT9P+gL._SY300_.jpg
 - id: "0812971833"
   title: Olive Kitteridge
   author: Elizabeth Strout
@@ -7359,7 +7151,6 @@
   links:
     amazon: https://www.amazon.com/dp/B00GCG55EM
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81umW6FOYBL._SY300_.jpg
 - id: "1416591060"
   title: "Empire of the Summer Moon: Quanah Parker and the Rise and Fall of the Comanches, the Most Powerful Indian Tribe in American History"
@@ -7369,7 +7160,6 @@
   links:
     amazon: https://www.amazon.com/dp/1416591060
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81ErjQ9Z0QL._SY300_.jpg
 - id: "0486270785"
   title: "The Moscow Puzzles: 359 Mathematical Recreations (Dover Math Games & Puzzles)"
@@ -7401,16 +7191,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71Eyi7fx7NL._SY300_.jpg
-- id: "0199536589"
-  title: "Jacob's Room (Oxford World's Classics)"
-  author: Virginia Woolf
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0199536589
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81lIZlZuQ5L._SY300_.jpg
 - id: "0060891548"
   title: "On Writing Well: The Essential Guide to Mastering Nonfiction Writing and Effective Communication"
   author: William Zinsser
@@ -7419,28 +7199,7 @@
   links:
     amazon: https://www.amazon.com/dp/0060891548
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/71bIiz4wX0L._SY300_.jpg
-- id: "1433519461"
-  title: ESV Share the Good News Outreach New Testament
-  author: ESV Bibles by Crossway
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1433519461
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71d0bGbCisL._SY300_.jpg
-- id: "B0052DYEUW"
-  title: "Speaking of Jesus: The Art of Not-Evangelism"
-  author: Carl Medearis
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B0052DYEUW
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61SFPmMVQEL._SY300_.jpg
 - id: "0307463745"
   title: Rework
   author: Jason Fried
@@ -7509,7 +7268,6 @@
   links:
     amazon: https://www.amazon.com/dp/074327704X
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91yR7fE70qL._SY300_.jpg
 - id: "1423411137"
   title: "Pride and Prejudice - Music from the Motion Picture Soundtrack | Piano Solo Book Music by Dario Marianelli | Film Score Sheet Music for Intermediate Pianists | Romantic Movie Piano Songbook"
@@ -7521,36 +7279,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71VCEz5TdDL._SY300_.jpg
-- id: "B00GUTB3JW"
-  title: "Yawning at Tigers: You Can't Tame God, So Stop Trying"
-  author: Drew Dyck
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B00GUTB3JW
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91lIoZxlJvL._SY300_.jpg
-- id: "007235044X"
-  title: "An Introduction to Combustion: Concepts and Applications w/Software"
-  author: Stephen Turns
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/007235044X
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/413rZk+d8VL._SY300_.jpg
-- id: "0547144180"
-  title: The Country Bunny and the Little Gold Shoes
-  author: Dubose Heyward
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0547144180
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91H66OKioFL._SY300_.jpg
 - id: "B00IYOXEW0"
   title: "When I Don't Desire God: How to Fight For Joy"
   author: John Piper
@@ -7569,27 +7297,7 @@
   links:
     amazon: https://www.amazon.com/dp/0374102414
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81F0JGZ1z5L._SY300_.jpg
-- id: "B00F5KX90S"
-  title: "Marriage Matters: Extraordinary Change through Ordinary Moments"
-  author: Winston T. Smith
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B00F5KX90S
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81MfG1NEyrL._SY300_.jpg
-- id: "0385494165"
-  title: Your Wife Is Not Your Momma
-  author: Wellington Boone
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0385494165
-  source: amazon
-  draft: true
 - id: "0199757534"
   title: "The New Testament: A Historical Introduction to the Early Christian Writings"
   author: Bart D. Ehrman
@@ -7780,26 +7488,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71Tr-cGNxhS._SY300_.jpg
-- id: "1585167290"
-  title: "Holy Bible: English Standard Version"
-  author: American Bible Society
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1585167290
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/41C0R6NV85L._SY300_.jpg
-- id: "0071771328"
-  title: Crucial Conversations Tools for Talking When Stakes Are High, Second Edition
-  author: Kerry Patterson
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0071771328
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61sC5vFyRHL._SY300_.jpg
 - id: "0310293359"
   title: "The Emotionally Healthy Church, Expanded Edition: A Strategy for Discipleship That Actually Changes Lives"
   author: Peter Scazzero
@@ -7830,26 +7518,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/61CR46p70HL._SY300_.jpg
-- id: "1591844495"
-  title: "Currency Wars: The Making of the Next Global Crisis"
-  author: James Rickards
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1591844495
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71I0cPStE4L._SY300_.jpg
-- id: "0060935936"
-  title: "Losing the Race: Self-Sabotage in Black America"
-  author: John McWhorter
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0060935936
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61uw5MGqVQL._SY300_.jpg
 - id: "1433673126"
   title: "Gospel: Recovering the Power that Made Christianity Revolutionary"
   author: J.D. Greear
@@ -7860,16 +7528,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71Hn86EvXNL._SY300_.jpg
-- id: "B001G8WPP8"
-  title: "Winning the Race: Beyond the Crisis in Black America"
-  author: John McWhorter
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B001G8WPP8
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/51dr7z4Ra2L._SY300_.jpg
 - id: "0199764506"
   title: "Drugs and Drug Policy: What Everyone Needs to Know®"
   author: Mark A.R. Kleiman
@@ -7880,16 +7538,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71W2OS5bQ2L._SY300_.jpg
-- id: "0805091203"
-  title: "Reckless Endangerment: How Outsized Ambition, Greed, and Corruption Led to Economic Armageddon"
-  author: Gretchen Morgenson
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0805091203
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/51j6aif212L._SY300_.jpg
 - id: "1433528525"
   title: "Bloodlines: Race, Cross, and the Christian"
   author: John Piper
@@ -7900,36 +7548,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/51i518AAOxL._SY300_.jpg
-- id: "047004523X"
-  title: Sex for Dummies
-  author: Ruth K. Westheimer
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/047004523X
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71VnDIlqlCL._SY300_.jpg
-- id: "0316010669"
-  title: "Blink: The Power of Thinking Without Thinking"
-  author: Malcolm Gladwell
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0316010669
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71KxNe+Y3IL._SY300_.jpg
-- id: "0316346624"
-  title: "The Tipping Point: How Little Things Can Make a Big Difference"
-  author: Malcolm Gladwell
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0316346624
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71vzpPj921L._SY300_.jpg
 - id: "1433522063"
   title: "Note to Self: The Discipline of Preaching to Yourself"
   author: Joe Thorn
@@ -7940,56 +7558,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81TmG2tr1jL._SY300_.jpg
-- id: "1601421451"
-  title: "Enemies of the Heart: Breaking Free from the Four Emotions That Control You"
-  author: Andy Stanley
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1601421451
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/7127twLa1ZL._SY300_.jpg
-- id: "0310282926"
-  title: "Tactics: A Game Plan for Discussing Your Christian Convictions"
-  author: Gregory Koukl
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0310282926
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61pguUVcdJL._SY300_.jpg
-- id: "1590523652"
-  title: "Stop Dating the Church!: Fall in Love with the Family of God (LifeChange Books)"
-  author: Joshua Harris
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1590523652
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71QrmV6WxaL._SY300_.jpg
-- id: "031026345X"
-  title: "Velvet Elvis: Repainting The Christian Faith"
-  author: Rob Bell
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/031026345X
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/31AWSqQtFSL._SY300_.jpg
-- id: "0310278422"
-  title: "Jesus for President: Politics for Ordinary Radicals"
-  author: Shane Claiborne
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0310278422
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81VMliWxu2L._SY300_.jpg
 - id: "0830838457"
   title: "A Place for Truth: Leading Thinkers Explore Life's Hardest Questions"
   author: Dallas Willard
@@ -8000,83 +7568,3 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81dIrUGRvLL._SY300_.jpg
-- id: "1400202752"
-  title: Searching for God Knows What
-  author: Donald Miller
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1400202752
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81WZPRgyE-L._SY300_.jpg
-- id: "1433520710"
-  title: "Think: The Life of the Mind and the Love of God"
-  author: John Piper
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1433520710
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71PI692Xl4L._SY300_.jpg
-- id: "0415949343"
-  title: Playing Sick? (Routledge Mental Health Classic Editions)
-  author: Marc D. Feldman
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0415949343
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61UumpbeU1L._SY300_.jpg
-- id: "0764574124"
-  title: Excel VBA Programming For Dummies
-  author: John Walkenbach
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0764574124
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61kAQpwdloL._SY300_.jpg
-- id: "0781805961"
-  title: "Bosnian-English/English-Bosnian Dictionary and Phrasebook (Dictionary & Phrasebooks Backlist)"
-  author: Susan Kroll
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0781805961
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71HJ+kmp7kL._SY300_.jpg
-- id: "0486285421"
-  title: Coral Reef Coloring Book (Dover Sea Life Coloring Books)
-  author: Ruth Soffer
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0486285421
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/910x0esTL-L._SY300_.jpg
-- id: "0486456897"
-  title: Great Barrier Reef Coloring Book (Dover Sea Life Coloring Books)
-  author: Ruth Soffer
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0486456897
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81w3iEfF4yL._SY300_.jpg
-- id: "0742552527"
-  title: "Why We Whisper: Restoring Our Right to Say It's Wrong"
-  author: Jim DeMint
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0742552527
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61gcuXLFRJL._SY300_.jpg
