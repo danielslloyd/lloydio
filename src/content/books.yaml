@@ -6864,16 +6864,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/61M+KUpCeQL._SY300_.jpg
-- id: "B07WX3VPDC"
-  title: "Body of Proof: An Audible Original"
-  author: Darrell Brown
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07WX3VPDC
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91Yprg5J8CL._SY300_.jpg
 - id: "B071WQPBKP"
   title: "Treasure Island: An Audible Original Drama"
   author: Robert Louis Stevenson
