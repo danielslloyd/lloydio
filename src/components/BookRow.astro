@@ -32,7 +32,9 @@ const showStars = status !== 'to-read' && status !== 'reading';
 const isSpecific = (url: string, kind: 'goodreads' | 'amazon' | 'audible') => {
   if (kind === 'goodreads') return url.includes('/book/show/');
   if (kind === 'amazon') return url.includes('/dp/') || url.includes('/gp/');
-  if (kind === 'audible') return /\/pd\//.test(url);
+  // Audiobook edition: audible.com/pd/… or the Amazon "Audible Audio Edition"
+  // page (…/dp/…). Anything with a keyword query is just a search.
+  if (kind === 'audible') return !/[?&]keywords=|\/search\b/.test(url);
   return false;
 };
 
