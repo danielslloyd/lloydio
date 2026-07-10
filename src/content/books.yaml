@@ -7043,16 +7043,6 @@
     amazon: https://www.amazon.com/dp/B077PCDXVN
   source: amazon
   cover: https://m.media-amazon.com/images/I/81Zsmnh-+hL._SY300_.jpg
-- id: "0310262895"
-  title: "Wounded by God's People: Discovering How God’s Love Heals Our Hearts"
-  author: Anne Graham Lotz
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0310262895
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71F9Sjh7sKL._SY300_.jpg
 - id: "B00DTO57ES"
   title: The History of the United States, 2nd Edition
   author: The Great Courses
