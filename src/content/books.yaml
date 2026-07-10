@@ -4960,16 +4960,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81iZrWCxIlL._SY300_.jpg
-- id: "0143126563"
-  title: "Getting Things Done: The Art of Stress-Free Productivity"
-  author: David Allen
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0143126563
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61Loe8brBXL._SY300_.jpg
 - id: "B08RF19SJD"
   title: "The Wages of Destruction: The Making and Breaking of the Nazi Economy"
   author: Adam Tooze
