@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import BookRow from '../components/BookRow.astro';
 import { getCollection } from 'astro:content';
-import { SHOW_DRAFTS, editUrl, formatDate } from '../lib/site';
+import { SHOW_DRAFTS, editUrl } from '../lib/site';
 
 // books now live in one src/content/books.yaml (file loader).
 const BOOKS_FILE = 'src/content/books.yaml';
@@ -10,10 +10,15 @@ const BOOKS_FILE = 'src/content/books.yaml';
 const books = (await getCollection('books', (e) => SHOW_DRAFTS || !e.data.draft)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
-const order = { reading: 0, 'to-read': 1, finished: 2 };
-books.sort((a, b) => order[a.data.status] - order[b.data.status]);
 
 const counts = books.reduce((m, b) => ((m[b.data.status] = (m[b.data.status] ?? 0) + 1), m), {});
+
+// Collapsible sections, in reading-order.
+const sections = [
+  { status: 'reading', label: 'reading' },
+  { status: 'to-read', label: 'to read' },
+  { status: 'finished', label: 'read' },
+] as const;
 ---
 <Base title="Books">
   <h1 class="page-title">Books</h1>
@@ -24,28 +29,58 @@ const counts = books.reduce((m, b) => ((m[b.data.status] = (m[b.data.status] ?? 
   </p>
 
   {books.length === 0 && <p>No books yet.</p>}
-  {books.length > 0 && (
-    <div style="overflow-x:auto">
-      <table>
-        <thead>
-          <tr><th></th><th>title</th><th>rating</th><th>links</th></tr>
-        </thead>
-        <tbody>
-          {books.map((b) => (
-            <BookRow
-              id={b.id}
-              title={b.data.title}
-              author={b.data.author}
-              status={b.data.status}
-              rating={b.data.rating}
-              date={b.data.date}
-              cover={b.data.cover}
-              review={b.data.review}
-              links={b.data.links}
-            />
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )}
+
+  {sections.map(({ status, label }) => {
+    const group = books.filter((b) => b.data.status === status);
+    if (group.length === 0) return null;
+    return (
+      <details class="book-section" open>
+        <summary>
+          {label} <span class="count">{group.length}</span>
+        </summary>
+        <div style="overflow-x:auto">
+          <table>
+            <tbody>
+              {group.map((b) => (
+                <BookRow
+                  id={b.id}
+                  title={b.data.title}
+                  author={b.data.author}
+                  status={b.data.status}
+                  rating={b.data.rating}
+                  date={b.data.date}
+                  cover={b.data.cover}
+                  review={b.data.review}
+                  links={b.data.links}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+    );
+  })}
 </Base>
+
+<style>
+  .book-section {
+    border: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .book-section > summary {
+    cursor: pointer;
+    font-variant: small-caps;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.2rem;
+    list-style: none;
+  }
+  .book-section > summary::-webkit-details-marker { display: none; }
+  .book-section > summary::before { content: '▸ '; color: var(--muted); font-size: 0.8em; }
+  .book-section[open] > summary::before { content: '▾ '; }
+  .book-section > summary .count { color: var(--faint); font-size: 0.85rem; }
+  .book-section table { margin-top: 0.4rem; }
+</style>
