@@ -66,6 +66,7 @@ const books = defineCollection({
     date: z.coerce.date(), // when added
     status: z.enum(['to-read', 'reading', 'finished']).default('to-read'),
     rating: z.number().min(0).max(5).optional(), // personal 1–5 stars; 0/undefined = unrated
+    review: z.string().optional(), // optional personal review; shown in a collapsible per-book
     cover: z.string().url().optional(), // live cover URL from an Amazon/Goodreads CDN (never self-hosted)
     links: z
       .object({

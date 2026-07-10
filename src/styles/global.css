@@ -149,6 +149,23 @@ table { border-collapse: collapse; font-size: 0.92em; }
 th, td { border: 1px solid var(--border); padding: 0.3em 0.6em; }
 th { font-variant: small-caps; }
 
+/* ---- quote/commonplace attributions + entry separators ---- */
+.quote-src {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}
+.quote-src a {
+  display: inline-block;
+  color: var(--faint);
+  font-size: 0.8em;
+  word-break: break-all;
+}
+.essay-body hr {
+  margin: 1.4rem 0;
+  border-top: 1px solid var(--border);
+}
+
 /* ---- dropcap on essays ---- */
 .essay-body > p:first-of-type::first-letter {
   float: left;

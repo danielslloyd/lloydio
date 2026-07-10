@@ -9,6 +9,7 @@ interface Props {
   rating?: number;
   date: Date;
   cover?: string;
+  review?: string;
   links: {
     goodreads?: string;
     amazon?: string;
@@ -16,7 +17,7 @@ interface Props {
   };
 }
 
-const { title, author, status, rating, date, cover, links } = Astro.props;
+const { title, author, status, rating, date, cover, review, links } = Astro.props;
 
 const stars = (n?: number) => (n ? '★'.repeat(n) + '☆'.repeat(5 - n) : '');
 
@@ -63,6 +64,12 @@ const shops = (['goodreads', 'amazon', 'audible'] as const)
   <td class="book-title-author">
     <div class="title" title={title}>{truncateTitle(title)}</div>
     <div class="author">{author}</div>
+    {review && (
+      <details class="book-review">
+        <summary>review</summary>
+        <div class="review-body">{review}</div>
+      </details>
+    )}
   </td>
   <td class="book-status" title={`Added ${formatDate(date)}`}>
     {showStars ? (
@@ -109,6 +116,30 @@ const shops = (['goodreads', 'amazon', 'audible'] as const)
     color: var(--muted);
     font-size: 0.9em;
     margin-top: 0.1em;
+  }
+  .book-review {
+    margin: 0.35em 0 0;
+    border: none;
+    padding: 0;
+  }
+  .book-review summary {
+    cursor: pointer;
+    color: var(--faint);
+    font-size: 0.8em;
+    font-variant: small-caps;
+    letter-spacing: 0.03em;
+    list-style: none;
+  }
+  .book-review summary::-webkit-details-marker { display: none; }
+  .book-review summary::before { content: '▸ '; }
+  .book-review[open] summary::before { content: '▾ '; }
+  .book-review[open] summary { color: var(--muted); }
+  .review-body {
+    margin-top: 0.35em;
+    font-size: 0.9em;
+    color: var(--fg);
+    font-weight: 400;
+    line-height: 1.5;
   }
 
   .book-status {
