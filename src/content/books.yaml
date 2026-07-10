@@ -7401,16 +7401,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71Eyi7fx7NL._SY300_.jpg
-- id: "0199536589"
-  title: "Jacob's Room (Oxford World's Classics)"
-  author: Virginia Woolf
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0199536589
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81lIZlZuQ5L._SY300_.jpg
 - id: "0060891548"
   title: "On Writing Well: The Essential Guide to Mastering Nonfiction Writing and Effective Communication"
   author: William Zinsser
