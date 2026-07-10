@@ -6114,11 +6114,11 @@
   title: The One Year Bible Story Book
   author: Virginia Muir
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/0842326316
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/51syW+0pwhL._SY300_.jpg
 - id: "1557482640"
   title: 365 Read-Aloud Bedtime Bible Stories
