@@ -7110,16 +7110,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71bGvfWlBlL._SY300_.jpg
-- id: "0062351729"
-  title: Shake Puppies
-  author: Carli Davidson
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0062351729
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71dc6vwVHZL._SY300_.jpg
 - id: "074327704X"
   title: "Last Call: The Rise and Fall of Prohibition"
   author: Daniel Okrent
