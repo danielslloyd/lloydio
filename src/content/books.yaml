@@ -7175,11 +7175,11 @@
   title: "Sherlock Holmes: The Definitive Collection"
   author: Arthur Conan Doyle
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/B06VWQTBZ9
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/91+1oeuP-eL._SY300_.jpg
 - id: "B07FHLQ2DD"
   title: The Coming Storm
