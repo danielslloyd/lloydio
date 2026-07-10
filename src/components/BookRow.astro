@@ -237,6 +237,9 @@ const shops = (['goodreads', 'amazon', 'audible'] as const)
     font-size: 0.85em;
   }
   .book-actions select {
+    /* Override the global `width:100%` form rule so each control is only as
+       wide as its content. */
+    width: auto;
     font-size: 0.85em;
     padding: 0.05em 0.2em;
     margin-right: 0.25em;

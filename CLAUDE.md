@@ -61,3 +61,12 @@ npm run backlogcast -- --dry-run   # show the podcast queue
 - Commit messages: `capture:` (machine), `backlogcast:` (machine),
   `process:` (inbox triage), `ingest:` (bulk imports).
 - Never commit secrets; tokens live in Cloudflare/GitHub settings.
+- Owner-mode write endpoints (Pages Functions that back the `DRAFTS=1`
+  site, e.g. `functions/api/books.js`) authenticate via the **Cloudflare
+  Access JWT** — that deployment sits behind Zero Trust Access, so verify
+  the `Cf-Access-Jwt-Assertion` header / `CF_Authorization` cookie against
+  the team JWKS instead of requiring a hand-typed token. Don't make
+  `CAPTURE_TOKEN` the primary auth for owner-only actions; keep it only as
+  a fallback (the public `/api/capture` endpoint isn't behind Access, so it
+  still uses the token). Client code shouldn't prompt for a token up front —
+  rely on the Access cookie and only fall back on a 401.

@@ -111,26 +111,28 @@ const sections = [
       const API = '/api/books';
       const TOKEN_KEY = 'lloydio_owner_token';
 
-      function getToken() {
-        let t = localStorage.getItem(TOKEN_KEY);
-        if (!t) {
-          t = prompt('Owner token (CAPTURE_TOKEN):') || '';
-          if (t) localStorage.setItem(TOKEN_KEY, t.trim());
-        }
-        return (t || '').trim();
+      function post(payload, token) {
+        const headers = { 'Content-Type': 'application/json' };
+        if (token) headers.Authorization = 'Bearer ' + token;
+        // Same-origin: the Cloudflare Access cookie rides along, so on the
+        // owner site the request authenticates itself — no token to type.
+        return fetch(API, { method: 'POST', headers, body: payload, credentials: 'include' });
       }
 
       async function send(ops) {
-        const token = getToken();
-        if (!token) throw new Error('no token');
-        const res = await fetch(API, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
-          body: JSON.stringify(ops.length === 1 ? ops[0] : { ops }),
-        });
+        const payload = JSON.stringify(ops.length === 1 ? ops[0] : { ops });
+        let res = await post(payload, localStorage.getItem(TOKEN_KEY) || '');
         if (res.status === 401) {
+          // Not signed in via Access — fall back to the shared token, once.
           localStorage.removeItem(TOKEN_KEY);
-          throw new Error('unauthorized — token cleared, try again');
+          const t = (prompt('Not authenticated. Owner token (CAPTURE_TOKEN):') || '').trim();
+          if (!t) throw new Error('unauthorized');
+          localStorage.setItem(TOKEN_KEY, t);
+          res = await post(payload, t);
+          if (res.status === 401) {
+            localStorage.removeItem(TOKEN_KEY);
+            throw new Error('unauthorized — token rejected');
+          }
         }
         const data = await res.json().catch(() => ({}));
         if (!res.ok) throw new Error(data.error || 'request failed (' + res.status + ')');
@@ -234,6 +236,18 @@ const sections = [
     border: 1px dashed var(--border);
     border-radius: 8px;
     background: color-mix(in srgb, var(--muted) 6%, transparent);
+  }
+  /* Break out of the narrow reading column so every column is visible
+     without a horizontal scroll; stays centered on the viewport. */
+  @media (min-width: 60rem) {
+    .drafts-section {
+      width: min(94vw, 1400px);
+      margin-left: calc(50% - min(94vw, 1400px) / 2);
+    }
+  }
+  /* Size columns to their content — no wider than necessary. */
+  .drafts-section table {
+    width: auto;
   }
   .drafts-section > summary { color: var(--muted); }
   .drafts-help {

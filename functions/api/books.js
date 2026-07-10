@@ -7,11 +7,19 @@
 // a rebuild. Edits are line-scoped so the diff stays minimal and the rest of
 // the hand-authored file is preserved verbatim.
 //
-// Auth + environment mirror functions/api/capture.js:
-//   CAPTURE_TOKEN — shared owner secret (sent as `Bearer <token>`)
-//   GH_TOKEN      — fine-grained GitHub PAT with contents:write on this repo
-//   GH_REPO       — e.g. "danielslloyd/lloydio"
-//   GH_BRANCH     — e.g. "main"
+// Auth: the owner-mode site (DRAFTS=1) sits behind Cloudflare Zero Trust
+// Access, so a request that arrives already carries a signed Access JWT —
+// being signed in as the owner is the authentication, no token to type. We
+// verify that JWT (issuer/expiry/audience/signature) and, failing that, fall
+// back to the shared bearer token (used off the Access-protected host).
+//
+// Environment (owner-mode Pages project):
+//   CF_ACCESS_TEAM_DOMAIN — e.g. "myteam.cloudflareaccess.com" (enables JWT auth)
+//   CF_ACCESS_AUD         — the Access application AUD tag (recommended)
+//   GH_TOKEN              — fine-grained GitHub PAT with contents:write on this repo
+//   GH_REPO               — e.g. "danielslloyd/lloydio"
+//   GH_BRANCH             — e.g. "main"
+//   CAPTURE_TOKEN         — optional shared secret fallback (`Bearer <token>`)
 
 const FILE = 'src/content/books.yaml';
 const STATUSES = new Set(['to-read', 'reading', 'finished']);
@@ -29,8 +37,7 @@ export async function onRequestOptions() {
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  const auth = request.headers.get('Authorization') || '';
-  if (!env.CAPTURE_TOKEN || auth !== `Bearer ${env.CAPTURE_TOKEN}`) {
+  if (!(await authorized(request, env))) {
     return json({ error: 'unauthorized' }, 401);
   }
 
@@ -156,6 +163,74 @@ function applyOp(text, op) {
 
   const out = [...lines.slice(0, from), ...block, ...lines.slice(to)];
   return out.join('\n');
+}
+
+// ---- Authorization ------------------------------------------------------
+async function authorized(request, env) {
+  // 1) Cloudflare Access JWT — the owner is already signed in to the
+  //    Access-protected owner-mode site; no app token required.
+  if (await verifyAccessJwt(request, env)) return true;
+  // 2) Fallback: shared bearer token (public host / scripts).
+  const auth = request.headers.get('Authorization') || '';
+  if (env.CAPTURE_TOKEN && auth === `Bearer ${env.CAPTURE_TOKEN}`) return true;
+  return false;
+}
+
+async function verifyAccessJwt(request, env) {
+  const teamDomain = env.CF_ACCESS_TEAM_DOMAIN;
+  if (!teamDomain) return false; // JWT auth not configured
+  const token =
+    request.headers.get('Cf-Access-Jwt-Assertion') || getCookie(request, 'CF_Authorization');
+  if (!token) return false;
+  try {
+    const [h, p, s] = token.split('.');
+    if (!h || !p || !s) return false;
+    const header = JSON.parse(b64urlToStr(h));
+    if (header.alg !== 'RS256') return false;
+    const payload = JSON.parse(b64urlToStr(p));
+    const now = Math.floor(Date.now() / 1000);
+    if (payload.exp && now >= payload.exp) return false;
+    if (payload.nbf && now < payload.nbf) return false;
+    const issuer = `https://${teamDomain}`;
+    if (payload.iss && payload.iss !== issuer) return false;
+    if (env.CF_ACCESS_AUD) {
+      const auds = Array.isArray(payload.aud) ? payload.aud : [payload.aud];
+      if (!auds.includes(env.CF_ACCESS_AUD)) return false;
+    }
+    const certs = await fetch(`${issuer}/cdn-cgi/access/certs`).then((r) => r.json());
+    const jwk = (certs.keys || []).find((k) => k.kid === header.kid);
+    if (!jwk) return false;
+    const key = await crypto.subtle.importKey(
+      'jwk',
+      jwk,
+      { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' },
+      false,
+      ['verify']
+    );
+    const data = new TextEncoder().encode(`${h}.${p}`);
+    return await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, b64urlToBytes(s), data);
+  } catch {
+    return false;
+  }
+}
+
+function getCookie(request, name) {
+  const c = request.headers.get('Cookie') || '';
+  const m = c.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]+)'));
+  return m ? decodeURIComponent(m[1]) : null;
+}
+
+function b64urlToBytes(str) {
+  let s = str.replace(/-/g, '+').replace(/_/g, '/');
+  if (s.length % 4) s += '='.repeat(4 - (s.length % 4));
+  const bin = atob(s);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return bytes;
+}
+
+function b64urlToStr(str) {
+  return new TextDecoder().decode(b64urlToBytes(str));
 }
 
 function fromBase64(b64) {

@@ -92,6 +92,14 @@ private "owner mode" site:
      email. You log in with a one-time code or Google; nobody else gets in.
    - This deployment shows drafts, draft chips, and per-page **edit** links
      that jump straight to editing the file on GitHub.
+   - The owner-only **drafts** section on `/books` publishes or discards
+     draft books in one click via `/api/books`. Give this project the same
+     `GH_TOKEN` / `GH_REPO` / `GH_BRANCH` as the capture endpoint (so it can
+     commit), plus `CF_ACCESS_TEAM_DOMAIN` (e.g. `yourteam.cloudflareaccess.com`)
+     and `CF_ACCESS_AUD` (the Access application's **Application Audience
+     (AUD) Tag**, from the app's Overview). Those let your Access login
+     authorize the writes — nothing to type. Without the `CF_ACCESS_*` vars
+     it falls back to prompting for `CAPTURE_TOKEN`.
 3. **Custom domain** — add it to the public project, then set `site` in
    `astro.config.mjs` to match.
 
