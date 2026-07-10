@@ -4,11 +4,9 @@ blurb: quotes, facts, and passages worth keeping
 ---
 
 
-> The first principle is that you must not fool yourself — and you are the
-> easiest person to fool.
->
-> — Richard Feynman, *Surely You're Joking, Mr. Feynman!* (commencement
-> address version, Caltech 1974)
+> The first principle is that you must not fool yourself — and you are the easiest person to fool.
+
+<p class="quote-src">— Richard Feynman, “Surely You're Joking, Mr. Feynman!” (commencement address version, Caltech 1974)</p>
 
 ---
 
@@ -45,7 +43,7 @@ At the end of the Younger Dryas (~9600 BC), Greenland temperatures rose roughly 
 
 ---
 
-"Terminal value" is the estimated value of a business’s cash flows beyond an explicit forecast period in a discounted cash flow (DCF) model. It typically captures the majority of total valuation by assuming the company continues generating cash indefinitely at a stable growth rate.
+**Terminal value** is the estimated value of a business’s cash flows beyond an explicit forecast period in a discounted cash flow (DCF) model. It typically captures the majority of total valuation by assuming the company continues generating cash indefinitely at a stable growth rate.
 
 ---
 
@@ -69,7 +67,7 @@ Spot is immediate delivery at today's price (e.g., buying physical silver or an 
 
 ---
 
-Sexed semen technology allows dairy farmers to breed "beef-on-dairy" crossbred calves after they have bred enough replacement heifers. These crosses can qualify for premium labels like Certified Angus Beef, perform competitively in feedlots, and are indistinguishable to consumers from conventional beef, making them worth significantly more than purebred dairy bull calves. Dairies are now supplying premium cuts, not just ground beef: beef-on-dairy crosses may represent ~15% of total U.S. cattle slaughter in 2026.
+Sexed semen technology allows dairy farmers to breed **beef-on-dairy** crossbred calves after they have bred enough replacement heifers. These crosses can qualify for premium labels like Certified Angus Beef, perform competitively in feedlots, and are indistinguishable to consumers from conventional beef, making them worth significantly more than purebred dairy bull calves. Dairies are now supplying premium cuts, not just ground beef: beef-on-dairy crosses may represent ~15% of total U.S. cattle slaughter in 2026.
 
 ---
 
@@ -77,7 +75,7 @@ Many Ashkenazi Jews adopted permanent surnames in the late 1700s–1800s as requ
 
 ---
 
-"Ashkenazi" Jews came from Central/Eastern Europe and represent the largest group (~75% of modern world Jewry). "Sephardi" Jews were expelled from the Iberian Peninsula in 1492 and settled in the Ottoman Empire, North Africa, and Netherlands. "Mizrahi" Jews never left the ancient diaspora and were indigenous to Middle East and North Africa (Iraq, Iran, Yemen, Egypt, etc.).
+**Ashkenazi** Jews came from Central/Eastern Europe and represent the largest group (~75% of modern world Jewry). **Sephardi** Jews were expelled from the Iberian Peninsula in 1492 and settled in the Ottoman Empire, North Africa, and Netherlands. **Mizrahi** Jews never left the ancient diaspora and were indigenous to Middle East and North Africa (Iraq, Iran, Yemen, Egypt, etc.).
 
 ---
 
@@ -101,24 +99,25 @@ Gold and silver production is often a byproduct of base metal mining. While 70�
 
 ---
 
-"Hay" is forage (typically grasses or legumes like alfalfa) that has been cut and field-dried to roughly 15–20% moisture before baling. Hay is shelf-stable and does not need to be wrapped. "Haylage" is cut forage baled and wrapped in plastic at a higher moisture content (40–60%). Anaerobic fermentation preserves the crop, and it retains more digestible energy, protein, and vitamins than dry hay. "Hay silage" (or simply "silage" when referring to ensiled hay-type crops) is cut and wrapped at even higher moisture levels of (60–70+%), which allows for more rapid and thorough anaerobic fermentation and better long-term stability when sealed.
+**Hay** is forage (typically grasses or legumes like alfalfa) that has been cut and field-dried to roughly 15–20% moisture before baling. Hay is shelf-stable and does not need to be wrapped. **Haylage** is cut forage baled and wrapped in plastic at a higher moisture content (40–60%). Anaerobic fermentation preserves the crop, and it retains more digestible energy, protein, and vitamins than dry hay. **Hay silage** (or simply **silage** when referring to ensiled hay-type crops) is cut and wrapped at even higher moisture levels of (60–70+%), which allows for more rapid and thorough anaerobic fermentation and better long-term stability when sealed.
 
 ---
 
-"Ensiling" preserves nutritional quality better than field-drying but requires airtight storage infrastructure and carries risk of spoilage if improperly sealed. "Silos" store silage in anaerobic conditions, while grain bins store dry, low-moisture grain aerobically with ventilation to prevent spoilage. With the advent of plastic, the traditional tower silo became largely obsolete for many operations, replaced by wrapped and bagged silage that requires far less capital investment, offers more flexibility in field location, and scales better for smaller farms.
+**Ensiling** preserves nutritional quality better than field-drying but requires airtight storage infrastructure and carries risk of spoilage if improperly sealed. **Silos** store silage in anaerobic conditions, while grain bins store dry, low-moisture grain aerobically with ventilation to prevent spoilage. With the advent of plastic, the traditional tower silo became largely obsolete for many operations, replaced by wrapped and bagged silage that requires far less capital investment, offers more flexibility in field location, and scales better for smaller farms.
 
 ---
 
-"Xerxes couldn't contain his ambitions while Artabanus couldn't conquer his fears; both yielded, if in different ways, to intemperance. Pericles shifted from tolerance to repression in a single speech, and Athens soon followed. Octavian rose by teaching himself self-control; Antony sank by forgetting it. Augustine and Machiavelli bequeathed the heavy and light hands with which Philip and Elizabeth shaped different new worlds. Napoleon lost his empire by confusing aspirations with capabilities; Lincoln saved his country by not doing so. Wilson the builder disappointed his generation; Roosevelt the juggler surpassed the expectations of his."
--John Lewis Gaddis, "On Grand Strategy"
+> Xerxes couldn't contain his ambitions while Artabanus couldn't conquer his fears; both yielded, if in different ways, to intemperance. Pericles shifted from tolerance to repression in a single speech, and Athens soon followed. Octavian rose by teaching himself self-control; Antony sank by forgetting it. Augustine and Machiavelli bequeathed the heavy and light hands with which Philip and Elizabeth shaped different new worlds. Napoleon lost his empire by confusing aspirations with capabilities; Lincoln saved his country by not doing so. Wilson the builder disappointed his generation; Roosevelt the juggler surpassed the expectations of his.
+
+<p class="quote-src">— John Lewis Gaddis, “On Grand Strategy”</p>
 
 ---
 
-In finance, a "beat" refers to a company exceeding analyst expectations for either revenue or earnings per share (EPS). A "double beat" occurs when a company surpasses consensus estimates for both revenue and earnings.
+In finance, a **beat** refers to a company exceeding analyst expectations for either revenue or earnings per share (EPS). A **double beat** occurs when a company surpasses consensus estimates for both revenue and earnings.
 
 ---
 
-The “price return” of an investment refers to returns from the change in the market price of the asset only, while “total return” encompasses the full economic return to an investor, including dividends and distributions (usually assumed to be reinvested). For example, if an index starts at $1,000 and ends at $1,080, the price return would be 8%, but if $30 of dividends were paid, the total return would be ≈11%.
+The **price return** of an investment refers to returns from the change in the market price of the asset only, while **total return** encompasses the full economic return to an investor, including dividends and distributions (usually assumed to be reinvested). For example, if an index starts at $1,000 and ends at $1,080, the price return would be 8%, but if $30 of dividends were paid, the total return would be ≈11%.
 
 ---
 
@@ -126,11 +125,11 @@ During and after the Neolithic transition (roughly 6000–2000 BC), several skin
 
 ---
 
-Retrieval-Augmented Generation ("RAG") is a technique that enhances AI models by combining them with external information retrieval - e.g., querying a database or document repository. This can give an AI access to current, specific, or private information beyond its training data, reducing hallucinations by grounding responses in real sources and enabling source citation.
+Retrieval-Augmented Generation (**RAG**) is a technique that enhances AI models by combining them with external information retrieval - e.g., querying a database or document repository. This can give an AI access to current, specific, or private information beyond its training data, reducing hallucinations by grounding responses in real sources and enabling source citation.
 
 ---
 
-The "ouroboros" is an ancient symbol of a snake or dragon eating its own tail, representing the eternal cycle of death and rebirth, wholeness, and infinity. In modern usage, it also refers to anything that forms a self-consuming, circular process.
+The **ouroboros** is an ancient symbol of a snake or dragon eating its own tail, representing the eternal cycle of death and rebirth, wholeness, and infinity. In modern usage, it also refers to anything that forms a self-consuming, circular process.
 
 ---
 
@@ -138,7 +137,7 @@ Diocese is a leftover term from an administrative unit established by the empero
 
 ---
 
-The "Common Language Effect Size" (CLES) quantifies the probability that a randomly selected observation from one group will be greater than a randomly selected observation from another group, expressing the difference in understandable, plain language. For example, a CLES of 0.8 means that in 80% of random pairings, the observation from the first group will be higher.
+The **Common Language Effect Size** (CLES) quantifies the probability that a randomly selected observation from one group will be greater than a randomly selected observation from another group, expressing the difference in understandable, plain language. For example, a CLES of 0.8 means that in 80% of random pairings, the observation from the first group will be higher.
 
 ---
 
@@ -158,12 +157,12 @@ Infrared, although it carries ~49% of solar energy, plays a relatively small rol
 
 ---
 
-"Stochastic", or "aleatoric" uncertainty represents the inherent randomness in a system or process. This uncertainty exists because the world itself contains genuine randomness that cannot be reduced, no matter how much data is collected.
-"Epistemic" uncertainty comes from having incomplete information, limited data, or imperfect models. Unlike stochastic uncertainty, epistemic uncertainty can be reduced by gathering more data, improving models, or gaining better understanding of underlying processes.
+**Stochastic**, or **aleatoric** uncertainty represents the inherent randomness in a system or process. This uncertainty exists because the world itself contains genuine randomness that cannot be reduced, no matter how much data is collected.
+**Epistemic** uncertainty comes from having incomplete information, limited data, or imperfect models. Unlike stochastic uncertainty, epistemic uncertainty can be reduced by gathering more data, improving models, or gaining better understanding of underlying processes.
 
 ---
 
-"Corruptio optimi pessima" is a Latin phrase that translates to "the corruption of the best is the worst".
+**Corruptio optimi pessima** is a Latin phrase that translates to "the corruption of the best is the worst".
 
 ---
 
@@ -179,7 +178,7 @@ Thunder starts as a sharp crack and gradually gets lower because the higher freq
 
 ---
 
-The "ouzo effect" happens when a strongly hydrophobic essential oil is dissolved in high-alcohol solution, then mixed with more water. Once the concentration of ethanol gets below a certain point, the oil precipitates from the solution and spontaneously forms an emulsion with the remaining ethanol-water mixture. When this happens, the mixture transforms from a clear appearance to cloudy.
+The **ouzo effect** happens when a strongly hydrophobic essential oil is dissolved in high-alcohol solution, then mixed with more water. Once the concentration of ethanol gets below a certain point, the oil precipitates from the solution and spontaneously forms an emulsion with the remaining ethanol-water mixture. When this happens, the mixture transforms from a clear appearance to cloudy.
 
 ---
 
@@ -187,8 +186,9 @@ Many antireflective coatings consist of transparent thin film structures with al
 
 ---
 
-"Gerunds look like participles but are different in that gerunds are nouns while participles are used in verbs. Participle: I have been thinking about you. Gerund: Thinking about you makes me happy."
--Kevin D. Williamson
+> Gerunds look like participles but are different in that gerunds are nouns while participles are used in verbs. Participle: I have been thinking about you. Gerund: Thinking about you makes me happy.
+
+<p class="quote-src">— Kevin D. Williamson</p>
 
 ---
 
@@ -196,7 +196,7 @@ During the Holocaust, many countries sent large numbers of rural, unassimilated 
 
 ---
 
-The worm-like structures that drop from pine and oak trees in the spring are male cones, called "catkins".
+The worm-like structures that drop from pine and oak trees in the spring are male cones, called **catkins**.
 
 ---
 
@@ -208,11 +208,11 @@ One-hot encoding is a machine learning technique that converts categorical data 
 
 ---
 
-"The weak Federalists of 1812 and 1820 and the proper Whigs of the 1830s and 1840s too often would seem to oppose the frontier, westward expansion, and war, a collectively unappealing platform. Slaveholders, by contrast, made the frontier an ally. ... During the early decades of the nineteenth century, the Democratic Party, usually southern-led, was Indian-fighting, anti-British, and strongly favorable to U.S. expansion. This put it in tune with popular opinion and slavery hitched a thirty-year ride."
+> The weak Federalists of 1812 and 1820 and the proper Whigs of the 1830s and 1840s too often would seem to oppose the frontier, westward expansion, and war, a collectively unappealing platform. Slaveholders, by contrast, made the frontier an ally. ... During the early decades of the nineteenth century, the Democratic Party, usually southern-led, was Indian-fighting, anti-British, and strongly favorable to U.S. expansion. This put it in tune with popular opinion and slavery hitched a thirty-year ride.
 
 ---
 
-"In Britain, expansionism was imperial, Tory, and aristocraric-led. In the United States, the embrace of manifest destiny was republican, egalitarian, and Democratic-led in its politics."
+> In Britain, expansionism was imperial, Tory, and aristocraric-led. In the United States, the embrace of manifest destiny was republican, egalitarian, and Democratic-led in its politics.
 
 ---
 
@@ -224,7 +224,9 @@ Tories who stayed in the new United States tended strongly towards the Federalis
 
 ---
 
-"The acquisition of India and the loss of America both helped to strengthen the class system in Britain: the former made status more numinous; the latter made middle-class radicalism unpatriotic." J. H. Plumb
+> The acquisition of India and the loss of America both helped to strengthen the class system in Britain: the former made status more numinous; the latter made middle-class radicalism unpatriotic.
+
+<p class="quote-src">— J. H. Plumb</p>
 
 ---
 
@@ -232,7 +234,7 @@ More than half of Harvard graduates from the 1640s went to England during the En
 
 ---
 
-The word "company" is derived from Latin roots "com" (with) and "pan" (bread), referring to people you break bread with.
+The word **company** is derived from Latin roots **com** (with) and **pan** (bread), referring to people you break bread with.
 
 ---
 
@@ -244,20 +246,20 @@ Only 3 percent of the Soviet 18-year-olds mobilized in 1941 were still alive in 
 
 ---
 
-A "takfir" is a declaration of apostacy against a Muslim (the accuser is called a "takfiri"). While most Muslims regard this as extremely weighty (an ill-founded takfir is haram), radical Islamists have used them extravagantly as rationalizations for killing any Muslims who disagree with them.
+A **takfir** is a declaration of apostacy against a Muslim (the accuser is called a **takfiri**). While most Muslims regard this as extremely weighty (an ill-founded takfir is haram), radical Islamists have used them extravagantly as rationalizations for killing any Muslims who disagree with them.
 
 ---
 
-In Islamic jurisprudence, the "five rulings" are:
-- "fardh" (فرض) – compulsory
-- "mustahabb" (مستحب) – desirable
-- "mubah" (مباح) – permissible
-- "makruh" (مكروه) – discouraged
-- "haram" (حرام) – prohibited
+In Islamic jurisprudence, the **five rulings** are:
+- **fardh** (فرض) – compulsory
+- **mustahabb** (مستحب) – desirable
+- **mubah** (مباح) – permissible
+- **makruh** (مكروه) – discouraged
+- **haram** (حرام) – prohibited
 
 ---
 
-Sayyid Qutb was an Egyptian writer and influential Islamist. He was critical of secularism and materialism in the West but rejected Communism as an alternative. He saw Sharia law as the only solution and argued that any secular government was "jahiliyyah" (an Arabic word roughly equivalent to “ignorance” and referring to the period before Islam). Qutb's writings were very influential for later Islamists, and he has been called "the father of Salafi jihadism".
+Sayyid Qutb was an Egyptian writer and influential Islamist. He was critical of secularism and materialism in the West but rejected Communism as an alternative. He saw Sharia law as the only solution and argued that any secular government was **jahiliyyah** (an Arabic word roughly equivalent to “ignorance” and referring to the period before Islam). Qutb's writings were very influential for later Islamists, and he has been called "the father of Salafi jihadism".
 
 ---
 
@@ -269,15 +271,19 @@ Arab mujahideen were relatively minor players in the Soviet invasion of Afghanis
 
 ---
 
-"When [Churchill] first met with Stalin, in August 1942, he tried to justify his focus on the Mediterranean by telling the Soviet dictator that it would open up new areas from which to attack German air power, including the strategic bombing of German production. By the second half of 1943, however, this argument had mostly disappeared and he talked almost entirely in a battle-centric manner about the need to divert German divisions from the Eastern Front and France." -Phillips Payson O'Brien, "How the War Was Won"
+> When [Churchill] first met with Stalin, in August 1942, he tried to justify his focus on the Mediterranean by telling the Soviet dictator that it would open up new areas from which to attack German air power, including the strategic bombing of German production. By the second half of 1943, however, this argument had mostly disappeared and he talked almost entirely in a battle-centric manner about the need to divert German divisions from the Eastern Front and France.
+
+<p class="quote-src">— Phillips Payson O'Brien, “How the War Was Won”</p>
 
 ---
 
-"So Churchill's different planning was not nearly as erratic as it seemed to those around him. He was looking for campaigns that Britain could fight with air and sea weaponry primarily. If the ideas seemed disconnected, it was in their location and number, not their intention." -Phillips Payson O'Brien, "How the War Was Won"
+> So Churchill's different planning was not nearly as erratic as it seemed to those around him. He was looking for campaigns that Britain could fight with air and sea weaponry primarily. If the ideas seemed disconnected, it was in their location and number, not their intention.
+
+<p class="quote-src">— Phillips Payson O'Brien, “How the War Was Won”</p>
 
 ---
 
-By early 1943, the Allies had developed "FIDO", an acoustic homing torpedo that could be dropped from low-flying aircraft. Though referred to as a mine to conceal its fire-and-forget capability, it had a very high success rate - 204 torpedoes fired sank or damaged 55 enemy submarines.
+By early 1943, the Allies had developed **FIDO**, an acoustic homing torpedo that could be dropped from low-flying aircraft. Though referred to as a mine to conceal its fire-and-forget capability, it had a very high success rate - 204 torpedoes fired sank or damaged 55 enemy submarines.
 
 ---
 
@@ -309,21 +315,21 @@ Sound does not efficiently travel from water to air or vice versa. The human inn
 
 ---
 
-The name Pakistan is an acronym for the names of several regions, combined with the suffix "-stan" which means "land":
+The name Pakistan is an acronym for the names of several regions, combined with the suffix **-stan** which means "land":
 Punjab
 Afghania
 Kashmir
 Indus-Sind
-Baluchistan: (represented by the "-tan" suffix) 
-The name was coined in 1933 by Choudhry Rahmat Ali, a young Muslim student and activist in the Pakistan Movement, in his pamphlet Now or Never, Are We to Live or Perish Forever?. In Persian and Urdu, Pakistan can also be translated as "the land of the pure". The word "pak" means "pure" in Persian or Pashto, while the Persian suffix "-stan" means "place of" or "country".
+Baluchistan: (represented by the **-tan** suffix) 
+The name was coined in 1933 by Choudhry Rahmat Ali, a young Muslim student and activist in the Pakistan Movement, in his pamphlet Now or Never, Are We to Live or Perish Forever?. In Persian and Urdu, Pakistan can also be translated as "the land of the pure". The word **pak** means "pure" in Persian or Pashto, while the Persian suffix **-stan** means "place of" or "country".
 
 ---
 
-A "phatic" word or phrase is one which adds little meaning and is mainly used for social purposes.
+A **phatic** word or phrase is one which adds little meaning and is mainly used for social purposes.
 
 ---
 
-In a siege, a "circumvallation" is a fortification that faces inwards towards the focus of the siege, as opposed to a "contravallation", which faces outwards to defend the besiegers against relief attempts.
+In a siege, a **circumvallation** is a fortification that faces inwards towards the focus of the siege, as opposed to a **contravallation**, which faces outwards to defend the besiegers against relief attempts.
 
 ---
 
@@ -331,15 +337,15 @@ After steam passes through the turbine in a power plant, it is not reused direct
 
 ---
 
-The "three-fifths" formulation was first proposed by James Madison in an amendment to the Articles of Confederation and was an implicit recognition of the fact that free labor was much more productive than slave labor.
+The **three-fifths** formulation was first proposed by James Madison in an amendment to the Articles of Confederation and was an implicit recognition of the fact that free labor was much more productive than slave labor.
 
 ---
 
-"Cash flow hedges" smooth out variations in cash flow. For example, if a company issues debt with a floating interest rate, they might set up a swap with a counterparty in which they purchase debt at that same floating rate in exchange for fixed rate debt. Other examples include buying futures contracts to hedge against fluctuating commodity prices or entering into an interest rate swap to lock in a fixed interest rate for expected future debt issuance. "Net investment hedges" mitigate exposure to changes in the value of a foreign investment from exchange rate fluctuations.
+**Cash flow hedges** smooth out variations in cash flow. For example, if a company issues debt with a floating interest rate, they might set up a swap with a counterparty in which they purchase debt at that same floating rate in exchange for fixed rate debt. Other examples include buying futures contracts to hedge against fluctuating commodity prices or entering into an interest rate swap to lock in a fixed interest rate for expected future debt issuance. **Net investment hedges** mitigate exposure to changes in the value of a foreign investment from exchange rate fluctuations.
 
 ---
 
-In medieval England, bakers were strictly regulated on the price and weight of loaves and were subject to harsh penalties, including flogging. As bread dried, it constantly lost moisture and thus weight. To ensure that they were selling the correct weight of bread, bakers would often throw in an extra loaf - the origin of the term "baker's dozen".
+In medieval England, bakers were strictly regulated on the price and weight of loaves and were subject to harsh penalties, including flogging. As bread dried, it constantly lost moisture and thus weight. To ensure that they were selling the correct weight of bread, bakers would often throw in an extra loaf - the origin of the term **baker's dozen**.
 
 ---
 
@@ -355,16 +361,17 @@ Classical Liberalism means minimal social and economic regimentation. Fascism me
 
 ---
 
-"Handicap" comes from the old English arbitration game Hand-in-cap. When two players want to trade possessions, an umpire determines the difference in value, if any. Both players and the umpire then put some forfeit money in a cap. The players put their hands in the cap, then simultaneously remove them either open (to signal agreement with the valuation) or closed (to signal disagreement). If both players agree, the difference in valuation is paid, the items are traded, and the umpire collects the forfeit. If both players disagree, the items are not traded, and the umpire collects the forfeit. If one player agrees and the other does not, the items are not traded, and the player who agreed to the valuation collects the forfeit.
+**Handicap** comes from the old English arbitration game Hand-in-cap. When two players want to trade possessions, an umpire determines the difference in value, if any. Both players and the umpire then put some forfeit money in a cap. The players put their hands in the cap, then simultaneously remove them either open (to signal agreement with the valuation) or closed (to signal disagreement). If both players agree, the difference in valuation is paid, the items are traded, and the umpire collects the forfeit. If both players disagree, the items are not traded, and the umpire collects the forfeit. If one player agrees and the other does not, the items are not traded, and the player who agreed to the valuation collects the forfeit.
 
 ---
 
-A "pidgin" language is one that has been stripped down, usually for use in trade, and sometimes consisting of a blend of multiple parent languages. If spoken natively, a pidgin language will evolve into a "creole", with more grammar and room for subtlety.
+A **pidgin** language is one that has been stripped down, usually for use in trade, and sometimes consisting of a blend of multiple parent languages. If spoken natively, a pidgin language will evolve into a **creole**, with more grammar and room for subtlety.
 
 ---
 
-"And so a big part of the bank’s financial engineering operation is optimizing risk-based capital. For instance: If a bank has $100 of stuff that gets a 100% risk weight, and can somehow split it into $80 of stuff with a 0% risk weight and $20 of stuff with a 300% risk weight, then that’s good, that’s what it wants, that reduces its risk-weighted assets from $100 to $60, which reduces its capital requirements, which increases its ability to return money to shareholders. And this is the explanation for capital relief trades, and also in some loose sense the explanation for the 2008 financial crisis: If you slice your risky thing exactly right, you will end up with a collection of new things that look less risky, to capital regulators, than the original thing."
--Matt Levine, "Money Stuff: Financial Engineering for Green Energy", 1/29/24
+> And so a big part of the bank’s financial engineering operation is optimizing risk-based capital. For instance: If a bank has $100 of stuff that gets a 100% risk weight, and can somehow split it into $80 of stuff with a 0% risk weight and $20 of stuff with a 300% risk weight, then that’s good, that’s what it wants, that reduces its risk-weighted assets from $100 to $60, which reduces its capital requirements, which increases its ability to return money to shareholders. And this is the explanation for capital relief trades, and also in some loose sense the explanation for the 2008 financial crisis: If you slice your risky thing exactly right, you will end up with a collection of new things that look less risky, to capital regulators, than the original thing.
+
+<p class="quote-src">— Matt Levine, “Money Stuff: Financial Engineering for Green Energy”, 1/29/24</p>
 
 ---
 
@@ -396,20 +403,21 @@ At the Battle of Pulo Aura during the Napoleonic Wars, Commodore Nathaniel Dance
 
 ---
 
-Marx reasoned that since profits come out of the sale price of goods and services, the wage earners who produce the goods and services can't afford, in the aggregate, to buy all they produce. This inexorably leads to overproduction, he said, followed by collapse of both prices and employment. He thought the built-in discrepancy between wages and prices, by creating a demand gap, led to periodic cyclic crises of unemployment and price collapse, and must also lead before long to a final insurmountable crisis of capitalism, to be followed by socialism, which would eliminate the demand gap by eliminating private profits.
--Jane Jacobs, "Cities and the Wealth of Nations"
+> Marx reasoned that since profits come out of the sale price of goods and services, the wage earners who produce the goods and services can't afford, in the aggregate, to buy all they produce. This inexorably leads to overproduction, he said, followed by collapse of both prices and employment. He thought the built-in discrepancy between wages and prices, by creating a demand gap, led to periodic cyclic crises of unemployment and price collapse, and must also lead before long to a final insurmountable crisis of capitalism, to be followed by socialism, which would eliminate the demand gap by eliminating private profits.
+
+<p class="quote-src">— Jane Jacobs, “Cities and the Wealth of Nations”</p>
 
 ---
 
-A "bullet loan" or "balloon loan" is one that does not amortize fully over the length of the loan term, such that most of the principle is repaid in a large payment due at the end.
+A **bullet loan** or **balloon loan** is one that does not amortize fully over the length of the loan term, such that most of the principle is repaid in a large payment due at the end.
 
 ---
 
-"Effective Translational Lift (ETL)" happens in helicopters when forward movement ("translation") brings the rotors in contact with undisturbed air. At 16 to 24 knots, the rotor system outruns the recirculation of old vortices and begins to work in undisturbed air. This effect can allow overloaded helicopters to take off by accelerating forward on the ground, then lifting off once ETL is achieved.
+**Effective Translational Lift (ETL)** happens in helicopters when forward movement ("translation") brings the rotors in contact with undisturbed air. At 16 to 24 knots, the rotor system outruns the recirculation of old vortices and begins to work in undisturbed air. This effect can allow overloaded helicopters to take off by accelerating forward on the ground, then lifting off once ETL is achieved.
 
 ---
 
-"Kerogen" is solid, insoluble organic matter in sedimentary rocks. "Labile" kerogen breaks down to generate principally liquid hydrocarbons (i.e., oil), "refractory" kerogen breaks down to generate principally gaseous hydrocarbons, and "inert" kerogen generates no hydrocarbons but forms graphite.
+**Kerogen** is solid, insoluble organic matter in sedimentary rocks. **Labile** kerogen breaks down to generate principally liquid hydrocarbons (i.e., oil), **refractory** kerogen breaks down to generate principally gaseous hydrocarbons, and **inert** kerogen generates no hydrocarbons but forms graphite.
 
 ---
 
@@ -417,7 +425,7 @@ The earliest known wheel was locked to its axle and the entire assembly rotated 
 
 ---
 
-"Coppicing" is the practice of cutting down a tree while leaving the stump to regrow shoots. This regrowth is more efficient than seedlings because it uses the mature root system. When the cuts are performed above grazing height, it is known as "pollarding".
+**Coppicing** is the practice of cutting down a tree while leaving the stump to regrow shoots. This regrowth is more efficient than seedlings because it uses the mature root system. When the cuts are performed above grazing height, it is known as **pollarding**.
 
 ---
 
@@ -441,7 +449,7 @@ Pliny the Younger wrote to Trajan about his persecution of Christians, who were 
 
 ---
 
-Roman piety was very externally oriented and civically focused - a common criticism of early Christians was that they were unsocial because they did not participate in civic ritual. This sort of belief was seen as a "superstition" (and seen as inferior to true, civic religion) because it detracted from public unity and order.
+Roman piety was very externally oriented and civically focused - a common criticism of early Christians was that they were unsocial because they did not participate in civic ritual. This sort of belief was seen as a **superstition** (and seen as inferior to true, civic religion) because it detracted from public unity and order.
 
 ---
 
@@ -453,31 +461,31 @@ The custom of putting one's hands together began as an element of the homage cer
 
 ---
 
-A "corps" includes two to five divisions with anywhere between 20,000 and 45,000 soldiers. A lieutenant general is in command. The current active corps are I Corps at Fort Lewis, Washington; III Corps at Fort Hood, Texas; and XVIII Airborne Corps at Fort Bragg, North Carolina. Levels of command higher than corps are concerned with administration rather than operations.
+A **corps** includes two to five divisions with anywhere between 20,000 and 45,000 soldiers. A lieutenant general is in command. The current active corps are I Corps at Fort Lewis, Washington; III Corps at Fort Hood, Texas; and XVIII Airborne Corps at Fort Bragg, North Carolina. Levels of command higher than corps are concerned with administration rather than operations.
 
 ---
 
-A "division" is made up of three or four brigades and includes 10,000 to 15,000 soldiers, usually commanded by a major general. There are currently 15 infantry, 3 airborne, 1 armored, 1 cavalry, and 1 mountain divisions. Each can conduct major tactical operations and sustained battlefield operations.
+A **division** is made up of three or four brigades and includes 10,000 to 15,000 soldiers, usually commanded by a major general. There are currently 15 infantry, 3 airborne, 1 armored, 1 cavalry, and 1 mountain divisions. Each can conduct major tactical operations and sustained battlefield operations.
 
 ---
 
-A "brigade" consists of a few battalions and anywhere from 3,000 to 5,000 soldiers, generally commanded by a colonel. An equivalent armor or Ranger unit is called a "regiment", and an equivalent Special Forces unit is called a "group".
+A **brigade** consists of a few battalions and anywhere from 3,000 to 5,000 soldiers, generally commanded by a colonel. An equivalent armor or Ranger unit is called a **regiment**, and an equivalent Special Forces unit is called a **group**.
 
 ---
 
-A "battalion" consists of four to six companies and can include up to about 1,000 soldiers, usually commanded by a lieutenant colonel. An armor or air cavalry unit of equivalent size is known as a "squadron".
+A **battalion** consists of four to six companies and can include up to about 1,000 soldiers, usually commanded by a lieutenant colonel. An armor or air cavalry unit of equivalent size is known as a **squadron**.
 
 ---
 
-A "company" consists of three or four platoons and is generally commanded by a captain. It can also go by different names, depending on the function: Company-sized artillery units are called "batteries", while in armor and air cavalry units, they are called "troops".
+A **company** consists of three or four platoons and is generally commanded by a captain. It can also go by different names, depending on the function: Company-sized artillery units are called **batteries**, while in armor and air cavalry units, they are called **troops**.
 
 ---
 
-"Potash" is a general term for potassium salts (and the source of the word "potassium"), historically produced from wood ashes by a process of leaching and evaporation.
+**Potash** is a general term for potassium salts (and the source of the word **potassium**), historically produced from wood ashes by a process of leaching and evaporation.
 
 ---
 
-"Lime" is a general term for inorganic substances that are high in calcium. Quicklime (calcium oxide) is produced by burning (calcinating) limestone, chalk, and other calcium-rich minerals.
+**Lime** is a general term for inorganic substances that are high in calcium. Quicklime (calcium oxide) is produced by burning (calcinating) limestone, chalk, and other calcium-rich minerals.
 
 ---
 
@@ -485,11 +493,11 @@ A "company" consists of three or four platoons and is generally commanded by a c
 
 ---
 
-In a machine learning context, a "regressor" model predicts the value of a continuous variable, while a "classifier" model predicts the probability of a binary outcome.
+In a machine learning context, a **regressor** model predicts the value of a continuous variable, while a **classifier** model predicts the probability of a binary outcome.
 
 ---
 
-The "F1 Score" of a model is the harmonic mean of Precision (true positives / predicted positives) and Recall (true positives / total positives), given by: 2 * (precision * recall) / (precision + recall)
+The **F1 Score** of a model is the harmonic mean of Precision (true positives / predicted positives) and Recall (true positives / total positives), given by: 2 * (precision * recall) / (precision + recall)
 
 ---
 
@@ -497,27 +505,27 @@ Monoclonal antibodies fall into four categories (murine, chimeric, humanized and
 
 ---
 
-Murine antibodies (suffix "-omab") are from mice or rats, and have largely been replaced.
+Murine antibodies (suffix **-omab**) are from mice or rats, and have largely been replaced.
 
 ---
 
-Chimeric antibodies (suffix "-ximab") are composed of murine variable regions fused onto human constant regions. This reduces immunogenicity (i.e., trigger less immune response in humans), and thus increases serum half-life.
+Chimeric antibodies (suffix **-ximab**) are composed of murine variable regions fused onto human constant regions. This reduces immunogenicity (i.e., trigger less immune response in humans), and thus increases serum half-life.
 
 ---
 
-Humanized antibodies (suffix "-zumab") are produced by grafting murine hypervariable regions on amino acid domains into human antibodies. This results in a molecule of approximately 95% human origin.
+Humanized antibodies (suffix **-zumab**) are produced by grafting murine hypervariable regions on amino acid domains into human antibodies. This results in a molecule of approximately 95% human origin.
 
 ---
 
-Human antibodies (suffix "-umab") are produced using transgenic mice - mice with human immunoglobulin genes. When these mice are vaccinated against the desired antigen, they produce fully human antibodies.
+Human antibodies (suffix **-umab**) are produced using transgenic mice - mice with human immunoglobulin genes. When these mice are vaccinated against the desired antigen, they produce fully human antibodies.
 
 ---
 
-"Lyophilization" is the technical term for freeze drying, whereby a product is frozen, subjected to very low pressures to sublimate the water content, then brought back to room temperatures.
+**Lyophilization** is the technical term for freeze drying, whereby a product is frozen, subjected to very low pressures to sublimate the water content, then brought back to room temperatures.
 
 ---
 
-Ye as in ye olde comes from a typographic substitute for the Old English letter thorn ("þ"). Thorn fell out of use (replaced by the digraph "th") and when printers began using movable type imported from Belgium and the Netherlands, their type sets did not include thorn, so they used "Y" instead.
+Ye as in ye olde comes from a typographic substitute for the Old English letter thorn (**þ**). Thorn fell out of use (replaced by the digraph **th**) and when printers began using movable type imported from Belgium and the Netherlands, their type sets did not include thorn, so they used **Y** instead.
 
 ---
 
@@ -525,7 +533,7 @@ Thorn (Þ, þ), along with Eth (Ð ð) were often used in Old English instead of
 
 ---
 
-The words "pupil", "puppy", and "puppet" all derive from Latin word for doll - "pupa". The pupil of an eye referred to the small (doll-like) reflection of a person you saw when looking into someone's eyes.
+The words **pupil**, **puppy**, and **puppet** all derive from Latin word for doll - **pupa**. The pupil of an eye referred to the small (doll-like) reflection of a person you saw when looking into someone's eyes.
 
 ---
 
@@ -541,39 +549,39 @@ Anti-Catholic and anti-Nationalist atrocities and purges, often exaggerated, wer
 
 ---
 
-While Soviet military sales were a major lifeline to the Republicans (financed by the 73% of Spain's gold reserves that were absconded to Moscow - the "Moscow Gold"), Communist maneuvering behind the scenes helped fragment support for the Republic. Multiple major offensives were pushed on after obvious failure because of propaganda commitments, and many successes stalled out when Republicans stopped to besiege small strongholds rather than sustaining momentum.
+While Soviet military sales were a major lifeline to the Republicans (financed by the 73% of Spain's gold reserves that were absconded to Moscow - the **Moscow Gold**), Communist maneuvering behind the scenes helped fragment support for the Republic. Multiple major offensives were pushed on after obvious failure because of propaganda commitments, and many successes stalled out when Republicans stopped to besiege small strongholds rather than sustaining momentum.
 
 ---
 
-The word "clue" originally referred to a ball of yarn - it acquired the modern usage in reference to the legend of Theseus, who used a ball of thread to find his way through the Labyrinth. The original meaning survives as the (archaic) spelling "clew".
+The word **clue** originally referred to a ball of yarn - it acquired the modern usage in reference to the legend of Theseus, who used a ball of thread to find his way through the Labyrinth. The original meaning survives as the (archaic) spelling **clew**.
 
 ---
 
-The word "posh" is popularly believed to have originated as an acronym for "port out, starboard home", referring to the more desirable cabins (which got morning sun and afternoon shade) on ocean liners travelling from Britain to the Indian Ocean.
+The word **posh** is popularly believed to have originated as an acronym for **port out, starboard home**, referring to the more desirable cabins (which got morning sun and afternoon shade) on ocean liners travelling from Britain to the Indian Ocean.
 
 ---
 
-The "in-law" suffix is short for "in Canon law", referring to the Catholic Church's prohibitions on incest, the definition of which was gradually expanded beginning in the 4th century.
+The **in-law** suffix is short for **in Canon law**, referring to the Catholic Church's prohibitions on incest, the definition of which was gradually expanded beginning in the 4th century.
 
 ---
 
-In the Ancien Régime of France, the "noblesse de robe" (Nobles of the Robe) held purchased titles, generally attached to a function or office for which they had studied, while "noblesse d'épée" (Nobles of the Sword) held titles earned by their ancestors for military service and generally attached to a fiefdom.
+In the Ancien Régime of France, the **noblesse de robe** (Nobles of the Robe) held purchased titles, generally attached to a function or office for which they had studied, while **noblesse d'épée** (Nobles of the Sword) held titles earned by their ancestors for military service and generally attached to a fiefdom.
 
 ---
 
-In typography, the "x height" is the top of a typical lowercase letter, while the "cap height" is the typical height of an uppercase letter. When rendering on screen, higher x heights allocate more pixels for the more distinctive portions of a glyph, increasing legibility at small sizes.
+In typography, the **x height** is the top of a typical lowercase letter, while the **cap height** is the typical height of an uppercase letter. When rendering on screen, higher x heights allocate more pixels for the more distinctive portions of a glyph, increasing legibility at small sizes.
 
 ---
 
-"Infidel" is a catch all term for non believers, while "heathen" or "pagan" refer specifically to followers of non-Abrahamic religions
+**Infidel** is a catch all term for non believers, while **heathen** or **pagan** refer specifically to followers of non-Abrahamic religions
 
 ---
 
-The term "opiate" refers to naturally derived narcotics, while "opioid" can be used either for synthetic narcotics or as an umbrella term to encompass both categories.
+The term **opiate** refers to naturally derived narcotics, while **opioid** can be used either for synthetic narcotics or as an umbrella term to encompass both categories.
 
 ---
 
-"Original Antigenic Sin" refers to the human body's tendency to deploy existing immune responses when re-infected with a pathogen, even when the re-infection comes from a mutated version of the pathogen that could be more effectively fought by a new, different response. This "memory" can cause the immune response to be "trapped" in a sub-optimal immune response.
+**Original Antigenic Sin** refers to the human body's tendency to deploy existing immune responses when re-infected with a pathogen, even when the re-infection comes from a mutated version of the pathogen that could be more effectively fought by a new, different response. This "memory" can cause the immune response to be "trapped" in a sub-optimal immune response.
 
 ---
 
@@ -581,15 +589,15 @@ After Sumter, a few slave states (including Virginia) seemed poised to remain in
 
 ---
 
-"Eskimo" is an umbrella term used to refer to two groups of indigenous peoples: the Inuit (of northern Alaska, Nunavut, and Greenland) and the Yupik (of eastern Siberia and southern Alaska). The term appears to come from the Innu-aimun (of eastern Quebec and Labrador) word "ayas̆kimew", meaning "a person who laces a snowshoe", and shares an etymology with the "husky" dog breed.
+**Eskimo** is an umbrella term used to refer to two groups of indigenous peoples: the Inuit (of northern Alaska, Nunavut, and Greenland) and the Yupik (of eastern Siberia and southern Alaska). The term appears to come from the Innu-aimun (of eastern Quebec and Labrador) word **ayas̆kimew**, meaning "a person who laces a snowshoe", and shares an etymology with the **husky** dog breed.
 
 ---
 
-The term "Eskimo" was once speculated to derive from an Algonquian phrase meaning "eaters of raw meat". "Eskimo" is now seen by many Canadians as offensive due to this speculative etymology, and Canada has adopted the term "Inuit" (the plural form of "inuk", meaning "human being") instead, and "Eskimo" is now seen by many Canadians as offensive due to this speculative etymology. The usage of "Inuit" to refer to both Inuit and Yupik is less common in Alaska, where Yup'ik people predominate.
+The term **Eskimo** was once speculated to derive from an Algonquian phrase meaning "eaters of raw meat". **Eskimo** is now seen by many Canadians as offensive due to this speculative etymology, and Canada has adopted the term **Inuit** (the plural form of **inuk**, meaning "human being") instead, and **Eskimo** is now seen by many Canadians as offensive due to this speculative etymology. The usage of **Inuit** to refer to both Inuit and Yupik is less common in Alaska, where Yup'ik people predominate.
 
 ---
 
-In divided Germany, "Checkpoint Alpha" was between West and East Germany, "Checkpoint Bravo" was between East Germany and West Berlin, and the famous "Checkpoint Charlie" was between West and East Berlin
+In divided Germany, **Checkpoint Alpha** was between West and East Germany, **Checkpoint Bravo** was between East Germany and West Berlin, and the famous **Checkpoint Charlie** was between West and East Berlin
 
 ---
 
@@ -605,7 +613,7 @@ English common law relied on juries to convict of crimes, while Roman law requir
 
 ---
 
-When a rocket flies above its optimal altitude, the exhaust exits the nozzle at a higher pressure than ambient air (under-expanded), so the exhaust forms a widening cone behind the rocket as it spreads out. If a rocket is flying below its optimal altitude, the exhaust is exiting the nozzle at a lower pressure than the surrounding air (over-expanded), so the exhaust forms a narrowing cone behind the rocket as it is pushed back down to local pressure. This also causes the appearance of "shock diamonds" as the exhaust repeatedly bounces back outwards and collapses back in.
+When a rocket flies above its optimal altitude, the exhaust exits the nozzle at a higher pressure than ambient air (under-expanded), so the exhaust forms a widening cone behind the rocket as it spreads out. If a rocket is flying below its optimal altitude, the exhaust is exiting the nozzle at a lower pressure than the surrounding air (over-expanded), so the exhaust forms a narrowing cone behind the rocket as it is pushed back down to local pressure. This also causes the appearance of **shock diamonds** as the exhaust repeatedly bounces back outwards and collapses back in.
 
 ---
 
@@ -613,26 +621,31 @@ Rocket engine nozzles accelerate exhaust gasses and direct them straight back so
 
 ---
 
-A rocket's "throat" constricts the flow of high-pressure gas to accelerate it up to the local speed of sound (at high temperature, this can be much higher than sea level). Any further constriction would begin to limit flow.
+A rocket's **throat** constricts the flow of high-pressure gas to accelerate it up to the local speed of sound (at high temperature, this can be much higher than sea level). Any further constriction would begin to limit flow.
 
 ---
 
-"The philosopher Karl Popper held that any scientific proposition must be falsifiable, in other words it must at least be possible to imagine some reproducible experiment or observation whose outcome would disprove the hypothesis." -Wikipedia
+> The philosopher Karl Popper held that any scientific proposition must be falsifiable, in other words it must at least be possible to imagine some reproducible experiment or observation whose outcome would disprove the hypothesis.
+
+<p class="quote-src">— Wikipedia</p>
 
 ---
 
-"In 19th-century Germany, the Napoleonic conquests led to a cultural defensiveness associated with Romanticism. Instead of universal values, and French rationalism, people chose to value the German “spirit”—the beauty of the native soil, the soul of the German language, and so on. It was quite deliberately a provincial reaction to a global conceit."
--Ian Buruma, "Racism & Enlightenment" Persuasion, Feb 22, 2021
+> In 19th-century Germany, the Napoleonic conquests led to a cultural defensiveness associated with Romanticism. Instead of universal values, and French rationalism, people chose to value the German “spirit”—the beauty of the native soil, the soul of the German language, and so on. It was quite deliberately a provincial reaction to a global conceit.
+
+<p class="quote-src">— Ian Buruma, “Racism & Enlightenment”, Persuasion, Feb 22, 2021</p>
 
 ---
 
-"The [interest coverage] ratio is calculated by dividing a company's earnings before interest and taxes (EBIT) by the company's interest expenses for the same period. The lower the ratio, the more the company is burdened by debt expense. When a company's interest coverage ratio is only 1.5 or lower, its ability to meet interest expenses may be questionable."
-"A widely accepted definition of a zombie is a business with an interest coverage ratio of less than 1 for three years."
--Investopedia
+> The [interest coverage] ratio is calculated by dividing a company's earnings before interest and taxes (EBIT) by the company's interest expenses for the same period. The lower the ratio, the more the company is burdened by debt expense. When a company's interest coverage ratio is only 1.5 or lower, its ability to meet interest expenses may be questionable.
+>
+> A widely accepted definition of a zombie is a business with an interest coverage ratio of less than 1 for three years.
+
+<p class="quote-src">— Investopedia</p>
 
 ---
 
-"Tanzania" comes from Tanganyika and Zanzibar, which were independent states that merged in the 1960s shortly after gaining independence (from Britain and the Sultanate of Zanzibar, respectively).
+**Tanzania** comes from Tanganyika and Zanzibar, which were independent states that merged in the 1960s shortly after gaining independence (from Britain and the Sultanate of Zanzibar, respectively).
 
 ---
 
@@ -644,11 +657,13 @@ Brazil does not have a coastal plain, so much of the produce from the interior i
 
 ---
 
-As rulers of the Ottoman Empire the Turks saw a rugged, mountainous area dominated by Kurds, then, as the mountains fell away into the flatlands leading toward Baghdad and west to what is now Syria, they saw a place where the majority of people were Sunni Arabs. Finally, after the two great rivers of the Tigris and the Euphrates merged and ran down to the Shatt al-Arab waterway, the marsh lands, and the city of Basra, they saw more Arabs, most of whom were Shia. They ruled this space accordingly, dividing it into three administrative regions: Mosul, Baghdad, and Basra. In antiquity, the regions very roughly corresponding to the above were known as Assyria, Babylonia, and Sumer. When the Persians controlled the space they divide it in a similar way, as did Alexander the Great, and later the Umayyad dynasty. "Prisoners of geography" pp146-7
+> As rulers of the Ottoman Empire the Turks saw a rugged, mountainous area dominated by Kurds, then, as the mountains fell away into the flatlands leading toward Baghdad and west to what is now Syria, they saw a place where the majority of people were Sunni Arabs. Finally, after the two great rivers of the Tigris and the Euphrates merged and ran down to the Shatt al-Arab waterway, the marsh lands, and the city of Basra, they saw more Arabs, most of whom were Shia. They ruled this space accordingly, dividing it into three administrative regions: Mosul, Baghdad, and Basra. In antiquity, the regions very roughly corresponding to the above were known as Assyria, Babylonia, and Sumer. When the Persians controlled the space they divide it in a similar way, as did Alexander the Great, and later the Umayyad dynasty.
+
+<p class="quote-src">— “Prisoners of Geography”, pp. 146–7</p>
 
 ---
 
-Sensitivity and Specificity: when meaning the performance of binary classification tests, "Sensitivity" measures the proportion of positives that are correctly identified (e.g., the percentage of sick people who are correctly identified as having some illness), and "Specificity" measures the proportion of negatives that are correctly identified (e.g., the percentage of healthy people who are correctly identified as not having some illness).
+Sensitivity and Specificity: when meaning the performance of binary classification tests, **Sensitivity** measures the proportion of positives that are correctly identified (e.g., the percentage of sick people who are correctly identified as having some illness), and **Specificity** measures the proportion of negatives that are correctly identified (e.g., the percentage of healthy people who are correctly identified as not having some illness).
 
 ---
 
@@ -656,7 +671,7 @@ In 1956, Kruschev denounced Stalin in a 4-hour speech that was distributed aroun
 
 ---
 
-Switzerland's international abbreviations (CH and CHE) are derived from its Latin name: "Confoederatio Helvetica"
+Switzerland's international abbreviations (CH and CHE) are derived from its Latin name: **Confoederatio Helvetica**
 
 ---
 
@@ -664,11 +679,11 @@ Alpha (α) is the amount of a fund's return that can not be attributed to the ov
 
 ---
 
-The "narthex" of traditional Christian churches is the end closest to the entrance and opposite the altar.
+The **narthex** of traditional Christian churches is the end closest to the entrance and opposite the altar.
 
 ---
 
-"Uncopyrightable" is the longest English word that does not repeat letters, along with "dermatoglyphics"
+**Uncopyrightable** is the longest English word that does not repeat letters, along with **dermatoglyphics**
 
 ---
 
@@ -676,7 +691,7 @@ Because church and state were separated in the US, political turnover didn't dir
 
 ---
 
-The Roman Catholic Church is just one of 24 "sui iuris" churches contained in 6 "rites", all under the pastoral government of the Roman Pontiff:
+The Roman Catholic Church is just one of 24 **sui iuris** churches contained in 6 **rites**, all under the pastoral government of the Roman Pontiff:
 
 The Latin Rite (containing the Latin/Roman Catholic Church), Alexandrian Rite (Coptic, Eritrean, and Ethiopian),  West Syrian/Antiochene Rite (Maronite, Syriac, and Syro-Malankara), Armenian Rite (Armenian), East Syrian/Chaldean Rite (Chaldean and Syro-Malabar), and Constantinopolitan/Byzantine Rite (Albanian)
 
@@ -706,15 +721,15 @@ The dome of the rock originally marked the spot where god himself has ascended t
 
 ---
 
-Samaritan articles of faith begin with the statements "Allah Wahid" (God is one), "Musa Nabiyah" (Moses is His prophet).
+Samaritan articles of faith begin with the statements **Allah Wahid** (God is one), **Musa Nabiyah** (Moses is His prophet).
 
 ---
 
-Freud did not see sexual repression as a purely negative thing - he saw sublimated sexual desires as responsible (and necessary) for civilization itself, and he viewed everything from art to music to politics as expressions of these desires. However, he viewed the repression of his day as excessive, and argued in his most famous essay, "Civilization and Its Discontents", that (inevitable) unfulfilled sexual desires led to unhappiness.
+Freud did not see sexual repression as a purely negative thing - he saw sublimated sexual desires as responsible (and necessary) for civilization itself, and he viewed everything from art to music to politics as expressions of these desires. However, he viewed the repression of his day as excessive, and argued in his most famous essay, **Civilization and Its Discontents**, that (inevitable) unfulfilled sexual desires led to unhappiness.
 
 ---
 
-Rousseau theorized that "amour de soi-meme" (self love) was the basic instincts and simple desires of man, but that society imposed status and competition, leading to "amore propre", which corrupts by complicating desires and causing people mask their feelings in search of status. Returning to the simpler, natural state involves peeling back the layers of civilization that have corrupted man's fundamentally good and pure nature.
+Rousseau theorized that **amour de soi-meme** (self love) was the basic instincts and simple desires of man, but that society imposed status and competition, leading to **amore propre**, which corrupts by complicating desires and causing people mask their feelings in search of status. Returning to the simpler, natural state involves peeling back the layers of civilization that have corrupted man's fundamentally good and pure nature.
 
 ---
 
@@ -730,7 +745,7 @@ The shape of an ECG wave is broken into 5 points: P is the top of the first gent
 
 ---
 
-Wealthy Romans were expected to give back to their cities in lavish displays of  ("" love for one's city) civic generosity, in the form of public works, monuments, and games. The citizens of each city ("populus") did not think of themselves as beggars receiving charity - they jealously guarded their status and the proofs of their citizenship (only citizens were eligible for grain doles, for example). To skip over the populus and give to the truly destitute and immigrants, as Christian charity demanded, was an affront to the social order.
+Wealthy Romans were expected to give back to their cities in lavish displays of  ("" love for one's city) civic generosity, in the form of public works, monuments, and games. The citizens of each city (**populus**) did not think of themselves as beggars receiving charity - they jealously guarded their status and the proofs of their citizenship (only citizens were eligible for grain doles, for example). To skip over the populus and give to the truly destitute and immigrants, as Christian charity demanded, was an affront to the social order.
 
 ---
 
@@ -738,15 +753,17 @@ After Muhammed, the Rashidun ("rightly guided") Caliphate ruled, first by Muhamm
 
 ---
 
-The statute of pleading (1364?) established English as the language of the courts of England, in order to make proceedings intelligible to the people. Many legal terms and phrases in English (and later, American) law are derived from pairing newly mandated English translations with the corresponding French terms previously in use, eg: "law and order", "breaking and entering", "fit and proper", "free and clear", and "sale and transfer"
+The statute of pleading (1364?) established English as the language of the courts of England, in order to make proceedings intelligible to the people. Many legal terms and phrases in English (and later, American) law are derived from pairing newly mandated English translations with the corresponding French terms previously in use, eg: **law and order**, **breaking and entering**, **fit and proper**, **free and clear**, and **sale and transfer**
 
 ---
 
-“Ultramontane means pope-centered, an attitude toward church affairs characterized by extraordinary deference to the pope and his prerogatives. (Ultramontanism was born in France, from which point of view the Vatican is “beyond the mountains,” hence ultramontane.)” -Kevin D. Williamson, “Against Fanaticism”, National Review Online, August 16, 2022
+> Ultramontane means pope-centered, an attitude toward church affairs characterized by extraordinary deference to the pope and his prerogatives. (Ultramontanism was born in France, from which point of view the Vatican is “beyond the mountains,” hence ultramontane.)
+
+<p class="quote-src">— Kevin D. Williamson, “Against Fanaticism”, National Review Online, August 16, 2022</p>
 
 ---
 
-"Orthonasal olfaction" is the standard way we smell things (e.g., by sniffing), "gustation" is tasting, and "retronasal olfaction" is when scents pass through the oral cavity and are sensed in the back of the nasal cavity
+**Orthonasal olfaction** is the standard way we smell things (e.g., by sniffing), **gustation** is tasting, and **retronasal olfaction** is when scents pass through the oral cavity and are sensed in the back of the nasal cavity
 
 ---
 
@@ -762,7 +779,7 @@ Yeltsin's government allowed state-owned businesses to be sold for fractions of 
 
 ---
 
-Pottery can be made impermeable to water by glazing or by "vitrification", the partial fusion of the clay by firing at high temperatures. "Earthenware" refers to unvitrified pottery, "Stoneware" may be vitrified or semi-vitrified, and "Porcelain" is vitrified and impermeable even without glaze. All ancient Greek and Roman pottery was earthenware, as vitrification requires much higher temperatures than their potters used.
+Pottery can be made impermeable to water by glazing or by **vitrification**, the partial fusion of the clay by firing at high temperatures. **Earthenware** refers to unvitrified pottery, **Stoneware** may be vitrified or semi-vitrified, and **Porcelain** is vitrified and impermeable even without glaze. All ancient Greek and Roman pottery was earthenware, as vitrification requires much higher temperatures than their potters used.
 
 ---
 
@@ -770,7 +787,7 @@ Algiers was invaded in 1830 as a campaign stunt
 
 ---
 
-In Old English, "man" was the generic term for a human, with "wif" and "wer" designating women and men, respectively. While "wif-man" mutated into "woman", "wer" disappeared (surviving in the word "werewolf"), and men came to be referred to with the generic "man". Similarly, "girl" was the generic term for children, with "knave girl" and "gay girl" denoting male and female children, respectively. Over time, "girl" came to refer to female children only.
+In Old English, **man** was the generic term for a human, with **wif** and **wer** designating women and men, respectively. While **wif-man** mutated into **woman**, **wer** disappeared (surviving in the word **werewolf**), and men came to be referred to with the generic **man**. Similarly, **girl** was the generic term for children, with **knave girl** and **gay girl** denoting male and female children, respectively. Over time, **girl** came to refer to female children only.
 
 ---
 
@@ -778,11 +795,11 @@ The Pereiaslav Agreement of 1654 between Cossacks and the Tsar politically unifi
 
 ---
 
-"Boxing Day" is believed to be named from the tradition of distributing the contents of the alms boxes in the narthex of Christian churches. The holiday is coincident with the Feast of Saint Stephen, one of the earliest deacons charged with caring for the poor.
+**Boxing Day** is believed to be named from the tradition of distributing the contents of the alms boxes in the narthex of Christian churches. The holiday is coincident with the Feast of Saint Stephen, one of the earliest deacons charged with caring for the poor.
 
 ---
 
-"Even more important to the functioning of the French government than the provincial estates were the sovereign courts, of which the most significant were the thirteen parlements that met in Paris and the main provincial capitals. Tracing their origins to the thirteenth century-the Parlement of Paris had been established in 1278-these courts heard appeals from lower courts throughout the realm. More importantly, they insisted that it was their duty to verify that royal laws and edicts did not violate the fundamental rights of the king's subjects, which each French monarch solemnly swore to uphold when he was crowned. The parlements asserted the right to send the king remontrances (remonstrances) containing their criticisms and objections to new laws, and the right to delay registering laws until their complaints had been dealt with."
+> Even more important to the functioning of the French government than the provincial estates were the sovereign courts, of which the most significant were the thirteen parlements that met in Paris and the main provincial capitals. Tracing their origins to the thirteenth century-the Parlement of Paris had been established in 1278-these courts heard appeals from lower courts throughout the realm. More importantly, they insisted that it was their duty to verify that royal laws and edicts did not violate the fundamental rights of the king's subjects, which each French monarch solemnly swore to uphold when he was crowned. The parlements asserted the right to send the king remontrances (remonstrances) containing their criticisms and objections to new laws, and the right to delay registering laws until their complaints had been dealt with.
 
 ---
 
@@ -798,19 +815,19 @@ Galileo was allowed to speculate that the earth revolves around the sun, but was
 
 ---
 
-"Blackletter" was one of the three major typefaces in early Western typography, along with Italic and Roman types. Most of Western Europe shifted to Roman types by the 16th century, but Blackletter stayed prominent in German printing until Hitler (who considered it Jewish-influenced) mandated a shift to Antiqua, a Roman font.
+**Blackletter** was one of the three major typefaces in early Western typography, along with Italic and Roman types. Most of Western Europe shifted to Roman types by the 16th century, but Blackletter stayed prominent in German printing until Hitler (who considered it Jewish-influenced) mandated a shift to Antiqua, a Roman font.
 
 ---
 
-The term "white noise" is used to describe noise with equal intensity at different frequencies, analogous to white light, which was thought to have a similarly flat power spectrum. Different "colors" of noise represent different distributions of frequencies.
+The term **white noise** is used to describe noise with equal intensity at different frequencies, analogous to white light, which was thought to have a similarly flat power spectrum. Different **colors** of noise represent different distributions of frequencies.
 
 ---
 
-The word "barrel" refers generally to casks of all sizes, but was originally used for a specific size of cask (32 gallons)
+The word **barrel** refers generally to casks of all sizes, but was originally used for a specific size of cask (32 gallons)
 
 ---
 
-"Police power" refers to the generalized power to regulate, as distinct from "enumerated powers"
+**Police power** refers to the generalized power to regulate, as distinct from **enumerated powers**
 
 ---
 
@@ -826,19 +843,19 @@ The Roman province of Lusitania consisted mainly of present-day Portugal plus pa
 
 ---
 
-At the time of the First Crusade, the Fatimid fleet was overseen by the emir of the sea, or “emir al-bahr" (the source of the English word "admiral").
+At the time of the First Crusade, the Fatimid fleet was overseen by the emir of the sea, or **emir al-bahr** (the source of the English word **admiral**).
 
 ---
 
-The naming convention for Soviet small arms consisted of the weapon class/description followed by the weapon designer's name and year of introduction. For instance, the AK-47 was the "Avtomat Kalashnikova 47" (automatic rifle designed by Kalashnikov in 1947), and the PPS-43 was the "Pistolet-pulemyot Sudayeva 43" (the submachine-gun designed by Sudayev in 1943)
+The naming convention for Soviet small arms consisted of the weapon class/description followed by the weapon designer's name and year of introduction. For instance, the AK-47 was the **Avtomat Kalashnikova 47** (automatic rifle designed by Kalashnikov in 1947), and the PPS-43 was the **Pistolet-pulemyot Sudayeva 43** (the submachine-gun designed by Sudayev in 1943)
 
 ---
 
-"Sprezzatura" is a studied carelessness, especially as a style of art, fashion, or literature.
+**Sprezzatura** is a studied carelessness, especially as a style of art, fashion, or literature.
 
 ---
 
-“Corbettian” and “Mahanian” are used as shorthand terms for the core principles of two masters of naval strategic thought. 
+**Corbettian** and **Mahanian** are used as shorthand terms for the core principles of two masters of naval strategic thought. 
 Mahanian (after Alfred Thayer Mahan) refers to the massing of capital ships (battleships or carriers) for a decisive fleet-on-fleet battle in order to achieve near-total command of the sea. Corbettian (after Sir Julian Stafford Corbett) is shorthand for a strategy of cumulative effects, in which capital ships are deployed in an elastic configuration across a broader but still mutually supporting front and in which naval actions are integrated with amphibious landings.
 -Masters of War: History’s Greatest Strategic Thinkers, by Andrew R. Wilson, US Naval War College
 
@@ -848,7 +865,7 @@ In ancient times, the cup bearer would taste the king's drink before the king di
 
 ---
 
-Due to fire code restrictions, most households in Dickensian London did not have an oven, so they would send their food off to the baker. The children's "patty cake" rhyme describes marking one's food with an initial so that it can be identified after baking in communal ovens
+Due to fire code restrictions, most households in Dickensian London did not have an oven, so they would send their food off to the baker. The children's **patty cake** rhyme describes marking one's food with an initial so that it can be identified after baking in communal ovens
 
 ---
 
@@ -860,7 +877,7 @@ With the fall of Japan, he was imprisoned as a war criminal by Stalin, who refus
 
 ---
 
-The founding fathers were influenced by theories of "anacyclosis", specifically Polybius' sequence of monarchy > kingship > tyranny > aristocracy > oligarchy > democracy > ochlocracy. In the early 1800s, the Federalists were called "Anti-Republicans" by the Republicans, who were called "Democrats" (initially as an insult) in turn.
+The founding fathers were influenced by theories of **anacyclosis**, specifically Polybius' sequence of monarchy > kingship > tyranny > aristocracy > oligarchy > democracy > ochlocracy. In the early 1800s, the Federalists were called **Anti-Republicans** by the Republicans, who were called **Democrats** (initially as an insult) in turn.
 
 ---
 
@@ -872,7 +889,7 @@ Pharma Decile = 10 - FLOOR(10* (sum(<metric>) over (order by <metric> DESC ROWS 
 
 ---
 
-In a rocket engine, fuel and oxidizer must be forced into the engine at very high pressures, so a "pre-burner" engine is used to push them in (somewhat like a turbocharger in a car). An "open-cycle" pre-burner exhausts out into the air, while a closed cycle pre-burner sends the exhaust into the main engine. A "full flow" closed cycle pre burner send all of the fuel through a pre-burner (but only part of the oxidizer)
+In a rocket engine, fuel and oxidizer must be forced into the engine at very high pressures, so a **pre-burner** engine is used to push them in (somewhat like a turbocharger in a car). An **open-cycle** pre-burner exhausts out into the air, while a closed cycle pre-burner sends the exhaust into the main engine. A **full flow** closed cycle pre burner send all of the fuel through a pre-burner (but only part of the oxidizer)
 
 ---
 
@@ -880,11 +897,11 @@ The Glass-Steagall act of 1933 separated commercial (deposits and loans) from in
 
 ---
 
-On a submarine, oxygen is produced by A) electrolysis and B) oxygen candles, which create heat from burning small amounts of iron to release oxygen from sodium chlorate (NaClO3), resulting in a net production of oxygen. Carbon dioxide is scrubbed from the air using A) a monoethanolamine (MEA) cycle, which involves spraying "lean" MEA onto a flow of air, where it becomes "rich" by absorbing CO2, then boiling the solution in another chamber to release the CO2, and B) lithium hydroxide (LiOH), which passively absorbs CO2
+On a submarine, oxygen is produced by A) electrolysis and B) oxygen candles, which create heat from burning small amounts of iron to release oxygen from sodium chlorate (NaClO3), resulting in a net production of oxygen. Carbon dioxide is scrubbed from the air using A) a monoethanolamine (MEA) cycle, which involves spraying **lean** MEA onto a flow of air, where it becomes **rich** by absorbing CO2, then boiling the solution in another chamber to release the CO2, and B) lithium hydroxide (LiOH), which passively absorbs CO2
 
 ---
 
-The Levantine port of Byblos (about 15 miles north of Beirut) was a major trading destination for Egypt and an important source of papyrus for the Greeks, so much so that it gave its name to the Greek word for book, and in turn, the "Bible".
+The Levantine port of Byblos (about 15 miles north of Beirut) was a major trading destination for Egypt and an important source of papyrus for the Greeks, so much so that it gave its name to the Greek word for book, and in turn, the **Bible**.
 
 ---
 
@@ -904,7 +921,7 @@ SONAR = SOund NAvigation and Ranging
 
 ---
 
-The initial use of the term "capitalism" in its modern sense is attributed to French socialist Louis Blanc in 1850: "What I call 'capitalism' that is to say the appropriation of capital by some to the exclusion of others."
+The initial use of the term **capitalism** in its modern sense is attributed to French socialist Louis Blanc in 1850: "What I call 'capitalism' that is to say the appropriation of capital by some to the exclusion of others."
 
 ---
 
@@ -918,7 +935,7 @@ Messenger RNA (mRNA) vaccines don’t use an actual virus – just instructions 
 
 ---
 
-The name "coronavirus" is derived from Latin corona, meaning "crown" or "wreath", and refers to the characteristic appearance created by the viral spike proteins on the surface of the virus.
+The name **coronavirus** is derived from Latin corona, meaning "crown" or "wreath", and refers to the characteristic appearance created by the viral spike proteins on the surface of the virus.
 
 ---
 
@@ -930,24 +947,29 @@ Penicillin was initially so costly to manufacture that it was recycled. Between 
 
 ---
 
-The Norse "vic" and the English "wic" both can mean bay or inlet, surviving in English in placenames such as Greenwich — linguistically if not socioeconomically equivalent to Green Bay — and in the name of the Icelandic capital, Reykjavik, the “smoking bay.”
--Kevin D Williamson, ‘Print the Legend’, NR Online, August 24, 2021
+> The Norse "vic" and the English "wic" both can mean bay or inlet, surviving in English in placenames such as Greenwich — linguistically if not socioeconomically equivalent to Green Bay — and in the name of the Icelandic capital, Reykjavik, the “smoking bay.”
+
+<p class="quote-src">— Kevin D Williamson, ‘Print the Legend’, NR Online, August 24, 2021</p>
 
 ---
 
-Marx and Ricardo both had a heterodox view of "real wages" such that Marx would say workers real wages fell if they got a smaller proportion of profit from their labor, even if they were much better off in absolute terms... Sowell, chapter 7
+Marx and Ricardo both had a heterodox view of **real wages** such that Marx would say workers real wages fell if they got a smaller proportion of profit from their labor, even if they were much better off in absolute terms... Sowell, chapter 7
 
 ---
 
-Marxism-Leninism branched off from "classical" Marxism in the early twentieth-century as a way to explain why the working class, instead of descending into grinding poverty and developing a "revolutionary consciousness" as predicted by Marx and Engels, was growing increasingly wealthy and adopting "bourgeois" values. Lenin theorized that the imperialist powers had temporarily circumvented Marx's Laws of Economic Movement by claiming the wealth and raw materials of their colonies, and providing their workers with just enough benefits to keep them docile. To counter this, a "vanguard" of highly-trained revolutionaries was needed, rather than relying on a broad uprising of revolutionary consciousness to overthrow the capitalists. (New World Encyclopedia)... This changed the ideal of Communism from an uprising of the will of the people into something that needed to be imposed on the masses - by brutal oppression if necessary.
+Marxism-Leninism branched off from **classical** Marxism in the early twentieth-century as a way to explain why the working class, instead of descending into grinding poverty and developing a **revolutionary consciousness** as predicted by Marx and Engels, was growing increasingly wealthy and adopting **bourgeois** values. Lenin theorized that the imperialist powers had temporarily circumvented Marx's Laws of Economic Movement by claiming the wealth and raw materials of their colonies, and providing their workers with just enough benefits to keep them docile. To counter this, a **vanguard** of highly-trained revolutionaries was needed, rather than relying on a broad uprising of revolutionary consciousness to overthrow the capitalists. (New World Encyclopedia)... This changed the ideal of Communism from an uprising of the will of the people into something that needed to be imposed on the masses - by brutal oppression if necessary.
 
 ---
 
-"chuño, made by spreading potatoes outside to freeze on cold nights. As it expands, the ice inside potato cells ruptures cell walls. The potatoes are thawed by morning sun, then frozen again the next night. Repeated freeze thaw cycles transform the spuds into soft, juicy blobs. Farmers squeeze out the water to produce chuño: stiff, Styrofoam-like nodules about two-thirds smaller and lighter than the original tubers. Long exposure to the sun turns them gray-black; cooked into a spicy Andean stew, they resemble gnocchi, the potato-flour dumplings favored in central Italy. Chuño can be kept for years without refrigeration, meaning that it can be stored as insurance against bad harvests. It was the food that sustained the conquering Inka armies." Charles Mann, 1493
+> chuño, made by spreading potatoes outside to freeze on cold nights. As it expands, the ice inside potato cells ruptures cell walls. The potatoes are thawed by morning sun, then frozen again the next night. Repeated freeze thaw cycles transform the spuds into soft, juicy blobs. Farmers squeeze out the water to produce chuño: stiff, Styrofoam-like nodules about two-thirds smaller and lighter than the original tubers. Long exposure to the sun turns them gray-black; cooked into a spicy Andean stew, they resemble gnocchi, the potato-flour dumplings favored in central Italy. Chuño can be kept for years without refrigeration, meaning that it can be stored as insurance against bad harvests. It was the food that sustained the conquering Inka armies.
+
+<p class="quote-src">— Charles Mann, “1493”</p>
 
 ---
 
-"In the altiplano, guanacos and vicuñas (wild relatives of the llama) lick clay before eating poisonous plants. The toxins in the foliage stick - more technically, "adsorb" - to the fine clay particles. Bound to dirt, the harmful substances pass through the animals' digestive system without affecting it." Charles Mann, 1493
+> In the altiplano, guanacos and vicuñas (wild relatives of the llama) lick clay before eating poisonous plants. The toxins in the foliage stick - more technically, "adsorb" - to the fine clay particles. Bound to dirt, the harmful substances pass through the animals' digestive system without affecting it.
+
+<p class="quote-src">— Charles Mann, “1493”</p>
 
 ---
 
@@ -959,7 +981,7 @@ Earthworms are not native to North America, and were brought over by colonists. 
 
 ---
 
-In the Roman era, copper was mined principally on Cyprus, the origin of the name of the metal, from "aes сyprium" (metal of Cyprus), later corrupted to сuprum
+In the Roman era, copper was mined principally on Cyprus, the origin of the name of the metal, from **aes сyprium** (metal of Cyprus), later corrupted to сuprum
 
 ---
 
@@ -971,7 +993,7 @@ Pressure drag is induced from airflow separation - a low-pressure zone is create
 
 ---
 
-"Wend" and "go" were interchangeable in Old English, with past tenses "went" and "gaed", respectively. Ultimately, "went" survived as the irregular past tense of "go", while "wend" and "gaed" fell by the wayside.
+**Wend** and **go** were interchangeable in Old English, with past tenses **went** and **gaed**, respectively. Ultimately, **went** survived as the irregular past tense of **go**, while **wend** and **gaed** fell by the wayside.
 
 ---
 
@@ -987,7 +1009,7 @@ After Britain announced that it would stop supporting the Greek government again
 
 ---
 
-"supine" means face up and "prone" is face down
+**supine** means face up and **prone** is face down
 
 ---
 
@@ -1027,7 +1049,7 @@ In 1939, after stamping out a major Arab revolt and facing the prospect of war i
 
 ---
 
-In 1946, against the backdrop of terrorist activities by hardline Jewish paramilitary groups (e.g., the Irgun / IZL and Lehi / Stern Gang), the 12-person "Anglo-American Committee" recommended placing Palestine under UN trusteeship (with an eventual goal of either a 1- or 2-state solution) and increasing Jewish immigration. This recommendation was vehemently rejected by the Arab community, leading Britain to ask the UN for help in April 1947
+In 1946, against the backdrop of terrorist activities by hardline Jewish paramilitary groups (e.g., the Irgun / IZL and Lehi / Stern Gang), the 12-person **Anglo-American Committee** recommended placing Palestine under UN trusteeship (with an eventual goal of either a 1- or 2-state solution) and increasing Jewish immigration. This recommendation was vehemently rejected by the Arab community, leading Britain to ask the UN for help in April 1947
 
 ---
 
@@ -1043,11 +1065,11 @@ William Taft was appointed governor general of the Philippines shortly after the
 
 ---
 
-When navigating channels, "returning" refers to moving from a larger body of water to a smaller (going "upstream"). Red lights are placed near the shore such that they will be on a boater's right side when heading upstream, leading to the mnemonic "red right returning".
+When navigating channels, **returning** refers to moving from a larger body of water to a smaller (going **upstream**). Red lights are placed near the shore such that they will be on a boater's right side when heading upstream, leading to the mnemonic **red right returning**.
 
 ---
 
-The Greek word "metis" meant a quality that combined wisdom and cunning, considered to be highly admirable, and embodied by the hero Odysseus. This quality was opposed to Βία (meaning "power, force, might"), embodied by Achilles.
+The Greek word **metis** meant a quality that combined wisdom and cunning, considered to be highly admirable, and embodied by the hero Odysseus. This quality was opposed to Βία (meaning "power, force, might"), embodied by Achilles.
 
 ---
 
@@ -1055,11 +1077,11 @@ British presence in India was confined to trading posts until the mid 1770s, whe
 
 ---
 
-In the 19th century, natural gas was obtained as a by-product of producing oil, since the small, light gas carbon chains came out of solution as the extracted fluids underwent pressure reduction on the way to the surface, similar to uncapping a soft drink bottle where the carbon dioxide "effervesces" (the escape of gas from an aqueous solution and the resulting foaming or fizzing). Natural gas is comprised of a mixture of gasses, including methane and propane. Refined propane has a higher energy density
+In the 19th century, natural gas was obtained as a by-product of producing oil, since the small, light gas carbon chains came out of solution as the extracted fluids underwent pressure reduction on the way to the surface, similar to uncapping a soft drink bottle where the carbon dioxide **effervesces** (the escape of gas from an aqueous solution and the resulting foaming or fizzing). Natural gas is comprised of a mixture of gasses, including methane and propane. Refined propane has a higher energy density
 
 ---
 
-Blood types are determined by the presence or absence of two antigens (A and B) and a protein called the "Rh factor" (+ and -) on the surface of red blood cells. Each person can have either (A / B), neither (O), or both (AB) antigens, and the Rh factor can be either present (+) or absent (–), creating the 8 most common blood types (A+, A-,  B+, B-,  O+, O-,  AB+, AB-). Blood transfusions will be accepted only if the donor blood does not contain antigens or Rh factor foreign to the recipient. O- blood, having neither antigen and no Rh factor, is the universal donor. AB+ blood, having both antigens and an Rh factor, is the universal recipient.
+Blood types are determined by the presence or absence of two antigens (A and B) and a protein called the **Rh factor** (+ and -) on the surface of red blood cells. Each person can have either (A / B), neither (O), or both (AB) antigens, and the Rh factor can be either present (+) or absent (–), creating the 8 most common blood types (A+, A-,  B+, B-,  O+, O-,  AB+, AB-). Blood transfusions will be accepted only if the donor blood does not contain antigens or Rh factor foreign to the recipient. O- blood, having neither antigen and no Rh factor, is the universal donor. AB+ blood, having both antigens and an Rh factor, is the universal recipient.
 
 ---
 
@@ -1067,7 +1089,7 @@ Blood types are determined by the presence or absence of two antigens (A and B) 
 
 ---
 
-John D Rockefeller's father ("Big Bill") was a traveling snake oil salesmen and bigamist who abandoned his first family
+John D Rockefeller's father (**Big Bill**) was a traveling snake oil salesmen and bigamist who abandoned his first family
 
 ---
 
@@ -1079,11 +1101,11 @@ Edith Rockefeller went to Switzerland and became a benefactor and devotee of Car
 
 ---
 
-The Islamic, or Hijri calendar is a lunar calendar consisting of 12 lunar months in a year of 354 or 355 days.  The Hebrew lunar year is about eleven days shorter than the solar year, so the Hebrew calendar is "lunisolar" and uses the 19-year Metonic cycle to bring it into line with the solar year, with the addition of an "intercalary" month every two or three years, for a total of seven times per 19 years.
+The Islamic, or Hijri calendar is a lunar calendar consisting of 12 lunar months in a year of 354 or 355 days.  The Hebrew lunar year is about eleven days shorter than the solar year, so the Hebrew calendar is **lunisolar** and uses the 19-year Metonic cycle to bring it into line with the solar year, with the addition of an **intercalary** month every two or three years, for a total of seven times per 19 years.
 
 ---
 
-The Metonic cycle is a period of very close to 19 years that is nearly a common multiple of the solar year and the "synodic" (lunar) month. The Greek astronomer Meton of Athens (fifth century BC) observed that a period of 19 years is almost exactly equal to 235 synodic months and, rounded to full days, counts 6,940 days. The difference between the two periods (of 19 solar years and 235 synodic months) is only a few hours, depending on the definition of the year.
+The Metonic cycle is a period of very close to 19 years that is nearly a common multiple of the solar year and the **synodic** (lunar) month. The Greek astronomer Meton of Athens (fifth century BC) observed that a period of 19 years is almost exactly equal to 235 synodic months and, rounded to full days, counts 6,940 days. The difference between the two periods (of 19 solar years and 235 synodic months) is only a few hours, depending on the definition of the year.
 
 ---
 
@@ -1095,7 +1117,7 @@ Heading into the 1860 Republican National Convention, Lincoln was not considered
 
 ---
 
-"Electrum" is a naturally occurring gold/silver alloy
+**Electrum** is a naturally occurring gold/silver alloy
 
 ---
 
@@ -1119,23 +1141,23 @@ Up quarks have +2/3 electric charge, Down quarks have -1/3 charge; this is why p
 
 ---
 
-Quarks have "color charge" (nothing to do with visual color or light), which is like electric charge, but not intrinsic (it can be traded around) and there are three different "axes" of charge (red, green, blue), each of which can be positive or negative, and also red+green+blue = 0. Within a proton or neutron, there is one each of red, green, and blue, and they're all positive or all negative, so that total charge = 0. The assignment color charge to quarks randomly changes as it is passed back and forth with smaller particles called "gluons".
+Quarks have **color charge** (nothing to do with visual color or light), which is like electric charge, but not intrinsic (it can be traded around) and there are three different "axes" of charge (red, green, blue), each of which can be positive or negative, and also red+green+blue = 0. Within a proton or neutron, there is one each of red, green, and blue, and they're all positive or all negative, so that total charge = 0. The assignment color charge to quarks randomly changes as it is passed back and forth with smaller particles called **gluons**.
 
 ---
 
-Quantum "color confinement": the "color force" (gluon field) between two quarks has a weird property: as two quarks are separated, the color force, unlike electric charge, increases linearly (like a spring) rather than falling off. At small distances (atomic scale), the force becomes great enough that the potential energy of the bond spontaneously converts into a new quark-antiquark pair. So if you pulled an Up quark out of a proton, very soon it would "pop out" an additional Up/Anti-up pair, the new Up would go back into the proton, and the new Anti-up would spin off with the old Up to form a new kind of particle called a "meson". Bottom line: it's impossible to observe an individual quark except at ridiculous energies (cosmic rays, particle collider), and then only very briefly.
+Quantum **color confinement**: the **color force** (gluon field) between two quarks has a weird property: as two quarks are separated, the color force, unlike electric charge, increases linearly (like a spring) rather than falling off. At small distances (atomic scale), the force becomes great enough that the potential energy of the bond spontaneously converts into a new quark-antiquark pair. So if you pulled an Up quark out of a proton, very soon it would "pop out" an additional Up/Anti-up pair, the new Up would go back into the proton, and the new Anti-up would spin off with the old Up to form a new kind of particle called a **meson**. Bottom line: it's impossible to observe an individual quark except at ridiculous energies (cosmic rays, particle collider), and then only very briefly.
 
 ---
 
-Rubisco is a plant enzyme that grabs either CO2 or O2 indisciminately, leading to either "carboxylation" or "oxygenation", respectively of RuBP. If carboxylation happens, then the Calvin cycle proceeds, but if oxygenation happens, "photorespiration" occurs, and is much less efficient as the plant needs to detox the resulting ammonia. Researchers have engineered a new, more efficient pathway for photorespiration, boosting plant growth. Corn, sugar cane, and a few other plants are called "C4" plants - they shield the Rubisco enzyme from the open air and a secondary enzyme pumps CO2 to it, massively reducing the "error rate" of the Rubisco enzyme. Thus corn and sugar cane grow very efficiently.
+Rubisco is a plant enzyme that grabs either CO2 or O2 indisciminately, leading to either **carboxylation** or **oxygenation**, respectively of RuBP. If carboxylation happens, then the Calvin cycle proceeds, but if oxygenation happens, **photorespiration** occurs, and is much less efficient as the plant needs to detox the resulting ammonia. Researchers have engineered a new, more efficient pathway for photorespiration, boosting plant growth. Corn, sugar cane, and a few other plants are called **C4** plants - they shield the Rubisco enzyme from the open air and a secondary enzyme pumps CO2 to it, massively reducing the "error rate" of the Rubisco enzyme. Thus corn and sugar cane grow very efficiently.
 
 ---
 
-Quantum computing uses particles "entangled" together in discrete ways. E.g., if two particles are linked, their individual spins may be unknown, but they are known to be opposite of each other. If you carefully build a chain out of these interactions (with each known link serving as a logical operator of sorts), you can then measure the value of one particle and know the value of all the other particles, similar to how differential equations can be modeled using electrical circuits of known resistance: set up the problem using a physical analogue, then measure the answer.
+Quantum computing uses particles **entangled** together in discrete ways. E.g., if two particles are linked, their individual spins may be unknown, but they are known to be opposite of each other. If you carefully build a chain out of these interactions (with each known link serving as a logical operator of sorts), you can then measure the value of one particle and know the value of all the other particles, similar to how differential equations can be modeled using electrical circuits of known resistance: set up the problem using a physical analogue, then measure the answer.
 
 ---
 
-Molten salt reactors (MSRs) fall into two classes: salt-cooled reactors, in which the core contains a solid fuel and liquid salt coolant, and salt-fueled reactors, in which the fuel is dissolved within the salt. The term “fluoride salt-cooled high-temperature reactor” (FHR) is used to distinguish fluoride salt-cooled MSRs from other MSRs.
+Molten salt reactors (MSRs) fall into two classes: salt-cooled reactors, in which the core contains a solid fuel and liquid salt coolant, and salt-fueled reactors, in which the fuel is dissolved within the salt. The term **fluoride salt-cooled high-temperature reactor** (FHR) is used to distinguish fluoride salt-cooled MSRs from other MSRs.
 
 ---
 
@@ -1143,16 +1165,17 @@ Uranium 235 is the fissile isotope, 238 is the non fissile isotope. The natural 
 
 ---
 
-"Overwatering causes oxygen loss in the soil as the plant and bacteria consume it with no way for gases to penetrate the water logged soil. Lack of oxygen causes bad bacteria to start forming that will often eat plant roots and/or emit toxins that kill the plant roots so they can eat the decaying organic matter."
-https://www.reddit.com/r/askscience/comments/8hxlx6/comment/dynycsh
+> Overwatering causes oxygen loss in the soil as the plant and bacteria consume it with no way for gases to penetrate the water logged soil. Lack of oxygen causes bad bacteria to start forming that will often eat plant roots and/or emit toxins that kill the plant roots so they can eat the decaying organic matter.
+
+<p class="quote-src">— <a class="src-title" href="https://www.reddit.com/r/askscience/comments/8hxlx6/comment/dynycsh">r/askscience</a></p>
 
 ---
 
-"Anadromous" fish migrate from the sea up (Greek: ἀνά ana, "up" and δρόμος dromos, "course") into fresh water to spawn, such as salmon, striped bass, and the sea lamprey..."Catadromous" fish migrate from fresh water down into the sea to spawn, such as eels
+**Anadromous** fish migrate from the sea up (Greek: ἀνά ana, "up" and δρόμος dromos, "course") into fresh water to spawn, such as salmon, striped bass, and the sea lamprey...**Catadromous** fish migrate from fresh water down into the sea to spawn, such as eels
 
 ---
 
-The "Meredith effect" is a phenomenon whereby the heat of an engine can be used to produce thrust by expanding and accelerating the air flowing into the radiator. In the P51 Mustang, up to 90% of the aerodynamic drag produced by the radiator was offset by the design of the cooling duct.
+The **Meredith effect** is a phenomenon whereby the heat of an engine can be used to produce thrust by expanding and accelerating the air flowing into the radiator. In the P51 Mustang, up to 90% of the aerodynamic drag produced by the radiator was offset by the design of the cooling duct.
 
 ---
 
@@ -1204,7 +1227,7 @@ The us started the war of 1812
 
 ---
 
-South Vietnam was not overrun immediately after US ground troops withdrew. North Vietnam launched the "Easter Offensive" in 1972 (a conventional attack w/ armor) and was beaten back by "Operation Linebacker". It took another 2 years or so for Saigon to be overrun.
+South Vietnam was not overrun immediately after US ground troops withdrew. North Vietnam launched the **Easter Offensive** in 1972 (a conventional attack w/ armor) and was beaten back by **Operation Linebacker**. It took another 2 years or so for Saigon to be overrun.
 
 ---
 
@@ -1212,7 +1235,7 @@ Wristwatches did not become popular with men until WW1, when they were necessary
 
 ---
 
-An "azeotrope" is a mixture ratio of two or more chemicals such that the mixture cannot be refined by distillation - that is, the vapor produced from boiling the mixture has a composition ratio equal to the mixture itself, and does not change the ratio. Thus alcohol (ethanol : water) has a limit of ~190 proof (95.63% ethanol)
+An **azeotrope** is a mixture ratio of two or more chemicals such that the mixture cannot be refined by distillation - that is, the vapor produced from boiling the mixture has a composition ratio equal to the mixture itself, and does not change the ratio. Thus alcohol (ethanol : water) has a limit of ~190 proof (95.63% ethanol)
 
 ---
 
@@ -1224,7 +1247,7 @@ Dutch philosopher/lawyer Hugo Grotius helped lay the foundations for internation
 
 ---
 
-A "panegyric" is a self-serving historical account
+A **panegyric** is a self-serving historical account
 
 ---
 
@@ -1236,12 +1259,13 @@ Melanin concentrates near the nucleus of cells to protect the DNA from UV light
 
 ---
 
-"Baryonic" matter is regular (non-dark) matter. Dark matter interacts via gravity but not much else. When 2 galaxy clusters collide, the Stars mostly miss each other, the gas clouds (representing most of the baryonic matter) collide a lot and end up smashing into one big cloud, and the dark matter collides very little. By examining gravitational lensing, we can see that most of the dark matter is in or near the galaxies rather than the gas cloud (which is where the baryonic mass center is)
+**Baryonic** matter is regular (non-dark) matter. Dark matter interacts via gravity but not much else. When 2 galaxy clusters collide, the Stars mostly miss each other, the gas clouds (representing most of the baryonic matter) collide a lot and end up smashing into one big cloud, and the dark matter collides very little. By examining gravitational lensing, we can see that most of the dark matter is in or near the galaxies rather than the gas cloud (which is where the baryonic mass center is)
 
 ---
 
-“Plans are worthless, but planning is everything.”
--Eisenhower, quoting an Army aphorism
+> Plans are worthless, but planning is everything.
+
+<p class="quote-src">— Eisenhower, quoting an Army aphorism</p>
 
 ---
 

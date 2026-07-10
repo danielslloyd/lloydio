@@ -5,15 +5,13 @@ blurb: a commonplace book of lines worth keeping
 
 > Nevertheless Tolkien’s work is great art, in large part because it reflects the passions of his soul. Tolkien’s imitators, meanwhile, can only produce banal and vapid nonsense with elves and dwarves and orcs. They have fallen into cargo cult. They are laying out the landing strip of elves and dwarves and orcs and breathlessly awaiting the airplane.
 
-<p class="quote-src">— @viverricious, “Brandon Sanderson's Wonderful Marble Machine”, slimes all the way down Substack Apr 15, 2026<br>
-<a href="https://viverricious.substack.com/p/brandon-sandersons-wonderful-marble">https://viverricious.substack.com/p/brandon-sandersons-wonderful-marble</a></p>
+<p class="quote-src">— @viverricious, “<a class="src-title" href="https://viverricious.substack.com/p/brandon-sandersons-wonderful-marble">Brandon Sanderson's Wonderful Marble Machine</a>”, slimes all the way down Substack Apr 15, 2026</p>
 
 ---
 
 > Practical men are no greater than their successes; idealists, however, may leave behind treasures for future generations, however contemporaries undervalue them.
 
-<p class="quote-src">— John Byron Kuhner, “The Savannah Enlightenment”, First Things, April 21, 2026<br>
-<a href="https://firstthings.com/the-savannah-enlightenment/#:~:text=men%20are%20no%20greater%20than%20their%20successes">https://firstthings.com/the-savannah-enlightenment/#:~:text=men%20are%20no%20greater%20than%20their%20successes</a></p>
+<p class="quote-src">— John Byron Kuhner, “<a class="src-title" href="https://firstthings.com/the-savannah-enlightenment/#:~:text=men%20are%20no%20greater%20than%20their%20successes">The Savannah Enlightenment</a>”, First Things, April 21, 2026</p>
 
 ---
 
@@ -25,8 +23,7 @@ blurb: a commonplace book of lines worth keeping
 
 > It is only a slight exaggeration to say that the Congress is expected to frame for the future, the president is expected to act in the present, and the courts are expected to assess the past.
 
-<p class="quote-src">— Yuval Levin, “The Separation of Powers” National Constitution Center<br>
-<a href="https://constitutioncenter.org/the-constitution/the-principles-of-the-constitution/separation-of-powers">https://constitutioncenter.org/the-constitution/the-principles-of-the-constitution/separation-of-powers</a></p>
+<p class="quote-src">— Yuval Levin, “<a class="src-title" href="https://constitutioncenter.org/the-constitution/the-principles-of-the-constitution/separation-of-powers">The Separation of Powers</a>” National Constitution Center</p>
 
 ---
 
@@ -67,8 +64,7 @@ Distilled from “The Four Phases of Parenthood” by Bob Hostetler and related 
 
 > Nature is brutal and made less so by civilization, not the other way around. So, society really needs people who are like well-trained German Shepherds. Very few of those people will be female, and that’s okay. But all of their mothers will be. ...yes indeed, boys will be boys. In fact, they will be boys in perpetuity if we let a rudderless peer culture form the norms and preferences of masculinity rather than aiming at something higher.
 
-<p class="quote-src">— Elizabeth Grace Matthew, "How Mainstream Feminism Ruins Boys by Lying to their Mothers About Masculinity", What Are Grown-Ups For?, Dec 09, 2025<br>
-<a href="https://elizabethgracematthew.substack.com/p/how-mainstream-feminism-ruins-boys">https://elizabethgracematthew.substack.com/p/how-mainstream-feminism-ruins-boys</a></p>
+<p class="quote-src">— Elizabeth Grace Matthew, "<a class="src-title" href="https://elizabethgracematthew.substack.com/p/how-mainstream-feminism-ruins-boys">How Mainstream Feminism Ruins Boys by Lying to their Mothers About Masculinity</a>", What Are Grown-Ups For?, Dec 09, 2025</p>
 
 ---
 
@@ -82,8 +78,7 @@ Distilled from “The Four Phases of Parenthood” by Bob Hostetler and related 
 >
 > What would you not be writing, however, is a story about how a child-loving peasant girl becomes the cannibal witch from Hansel and Gretel.
 
-<p class="quote-src">— G. K. Sá Earp, “The Narrative Pitfalls of Making Villains Victims”, Making by the Law in Which We're Made, Jan 19, 2026<br>
-<a href="https://gkearp.substack.com/p/the-narrative-pitfalls-of-making">https://gkearp.substack.com/p/the-narrative-pitfalls-of-making</a></p>
+<p class="quote-src">— G. K. Sá Earp, “<a class="src-title" href="https://gkearp.substack.com/p/the-narrative-pitfalls-of-making">The Narrative Pitfalls of Making Villains Victims</a>”, Making by the Law in Which We're Made, Jan 19, 2026</p>
 
 ---
 
@@ -107,8 +102,7 @@ Distilled from “The Four Phases of Parenthood” by Bob Hostetler and related 
 
 > You may not have noticed, but we’ve invented a new mating system. It has the sexual inequality of polygamy with fertility closer to a celibate religious order. The harem without the children. The monastery without the prayers.
 
-<p class="quote-src">— Josh Konstantinos, “Sterile Polygamy”, Aporia, Jan 06, 2026<br>
-<a href="https://www.aporiamagazine.com/p/sterile-polygamy#:~:text=You%20may%20not%20have%20noticed%2C%20but%20we%E2%80%99ve%20invented%20a%20new%20mating%20system.%20It%20has%20the%20sexual%20inequality%20of%20polygamy%20with%20fertility%20closer%20to%20a%20celibate%20religious%20order.%20The%20harem%20without%20the%20children.%20The%20monastery%20without%20the%20prayers.">https://www.aporiamagazine.com/p/sterile-polygamy#:~:text=You%20may%20not%20have%20noticed%2C%20but%20we%E2%80%99ve%20invented%20a%20new%20mating%20system.%20It%20has%20the%20sexual%20inequality%20of%20polygamy%20with%20fertility%20closer%20to%20a%20celibate%20religious%20order.%20The%20harem%20without%20the%20children.%20The%20monastery%20without%20the%20prayers.</a></p>
+<p class="quote-src">— Josh Konstantinos, “<a class="src-title" href="https://www.aporiamagazine.com/p/sterile-polygamy#:~:text=You%20may%20not%20have%20noticed%2C%20but%20we%E2%80%99ve%20invented%20a%20new%20mating%20system.%20It%20has%20the%20sexual%20inequality%20of%20polygamy%20with%20fertility%20closer%20to%20a%20celibate%20religious%20order.%20The%20harem%20without%20the%20children.%20The%20monastery%20without%20the%20prayers.">Sterile Polygamy</a>”, Aporia, Jan 06, 2026</p>
 
 ---
 
@@ -148,8 +142,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > What happened to journalism in the 21st century is, in many ways, the story of the conflict between two utopian values: Information wants to be free and Writers should be paid.
 
-<p class="quote-src">— Celine Nguyen, “Is the Internet Making Culture Worse?”, Asterisk<br>
-<a href="https://asteriskmag.com/issues/12-books/is-the-internet-making-culture-worse?utm_source=substack&amp;utm_medium=email">https://asteriskmag.com/issues/12-books/is-the-internet-making-culture-worse?utm_source=substack&amp;utm_medium=email</a></p>
+<p class="quote-src">— Celine Nguyen, “<a class="src-title" href="https://asteriskmag.com/issues/12-books/is-the-internet-making-culture-worse?utm_source=substack&amp;utm_medium=email">Is the Internet Making Culture Worse?</a>”, Asterisk</p>
 
 ---
 
@@ -243,15 +236,13 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 >
 > Give a man power, he wants more power and feels himself entitled to it; if he succeeds, that means he deserves more power, and if he fails, that means he didn’t have enough power to get the job done.
 
-<p class="quote-src">— Kevin D. Williamson, “The French Are Just Ahead of the Curve”, The Dispatch, Oct 20, 2025<br>
-<a href="https://thedispatch.com/newsletter/wanderland/france-macron-crisis-trump-presidency/">https://thedispatch.com/newsletter/wanderland/france-macron-crisis-trump-presidency/</a></p>
+<p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://thedispatch.com/newsletter/wanderland/france-macron-crisis-trump-presidency/">The French Are Just Ahead of the Curve</a>”, The Dispatch, Oct 20, 2025</p>
 
 ---
 
 > You cannot beat your father in chess. It is impossible. And not merely because he is more patient or experienced. You cannot beat your father in chess, because he is not playing the same game as you. In his game, he wins even if you win, because he is in you, and your perfection is his glory.
 
-<p class="quote-src">— Ross Byrd, "Chess Against Your Dad", The Remarkable Ordinary #33, Oct 22, 2025<br>
-<a href="https://theremarkableordinary.substack.com/p/chess-against-your-dad?triedRedirect=true">https://theremarkableordinary.substack.com/p/chess-against-your-dad?triedRedirect=true</a></p>
+<p class="quote-src">— Ross Byrd, "<a class="src-title" href="https://theremarkableordinary.substack.com/p/chess-against-your-dad?triedRedirect=true">Chess Against Your Dad</a>", The Remarkable Ordinary #33, Oct 22, 2025</p>
 
 ---
 
@@ -283,8 +274,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > The fact is, if outcomes have any randomness to them, something that is fair ex ante can’t be fair ex post. You can have fairness before the dice roll, or after, but you can’t have both, because when the dice land, it’s a different world than before they were thrown.
 
-<p class="quote-src">— Noah Smith, "Why do people get paid to invest their money?", Noahpinion, Oct 03, 2025<br>
-<a href="https://www.noahpinion.blog/p/why-do-people-get-paid-to-invest">https://www.noahpinion.blog/p/why-do-people-get-paid-to-invest</a></p>
+<p class="quote-src">— Noah Smith, "<a class="src-title" href="https://www.noahpinion.blog/p/why-do-people-get-paid-to-invest">Why do people get paid to invest their money?</a>", Noahpinion, Oct 03, 2025</p>
 
 ---
 
@@ -297,15 +287,13 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > The great miracles are too big to see and the small ones too numerous to count.
 
-<p class="quote-src">— Fr. John O’Connor, letter to David Jones (quoted in "David Jones Unabridged" by Thomas Dilworth), Oct 8, 1921<br>
-<a href="https://collections.uwindsor.ca/scholcomm/David-Jones/David-Jones-Unabridged-20220407-final.pdf">https://collections.uwindsor.ca/scholcomm/David-Jones/David-Jones-Unabridged-20220407-final.pdf</a></p>
+<p class="quote-src">— Fr. John O’Connor, letter to David Jones (quoted in "<a class="src-title" href="https://collections.uwindsor.ca/scholcomm/David-Jones/David-Jones-Unabridged-20220407-final.pdf">David Jones Unabridged</a>" by Thomas Dilworth), Oct 8, 1921</p>
 
 ---
 
 > For churches today, beauty seems unnecessary at best and a waste of money at worst. You can almost hear Judas: ‘This could have been sold and given to the poor.’
 
-<p class="quote-src">— J. Chase Davis, “Why Evangelicals Don’t Build Cathedrals”, Substack, August 18, 2025<br>
-<a href="https://www.jchasedavis.com/p/why-evangelicals-dont-build-cathedrals">https://www.jchasedavis.com/p/why-evangelicals-dont-build-cathedrals</a></p>
+<p class="quote-src">— J. Chase Davis, “<a class="src-title" href="https://www.jchasedavis.com/p/why-evangelicals-dont-build-cathedrals">Why Evangelicals Don’t Build Cathedrals</a>”, Substack, August 18, 2025</p>
 
 ---
 
@@ -339,15 +327,13 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > [M]otivation is like the weather—it can change in an instant. One day it’s sunny, the next it’s stormy. Discipline, though, is like the climate of your life. It’s the steady, consistent pattern that shapes the overall landscape of your days. Weather might affect your mood or your energy for a moment, but it’s the climate that defines your world.
 
-<p class="quote-src">— Pennie M. Stewart, “Motivation vs. Discipline: Why One Will Save You and The Other Won’t” Sep 26, 2024<br>
-<a href="https://premierpotentialcoaching.com/powerful-positive-professional/motivation-vs.-discipline-why-one-will-save-you-and-the-other-wont">https://premierpotentialcoaching.com/powerful-positive-professional/motivation-vs.-discipline-why-one-will-save-you-and-the-other-wont</a></p>
+<p class="quote-src">— Pennie M. Stewart, “<a class="src-title" href="https://premierpotentialcoaching.com/powerful-positive-professional/motivation-vs.-discipline-why-one-will-save-you-and-the-other-wont">Motivation vs. Discipline: Why One Will Save You and The Other Won’t</a>” Sep 26, 2024</p>
 
 ---
 
 > If Democrats did not deny fundamental truths altogether, fewer people would accept Republicans’ bastardizations of them.
 
-<p class="quote-src">— Elizabeth Grace Matthew, “To Effectively Oppose the Right's Excesses, the Left Needs a Reality Principle. It Doesn’t Have One.”, What Are Grown-Ups For? Substack, June 9, 2025<br>
-<a href="https://elizabethgracematthew.substack.com/p/to-effectively-oppose-the-rights">https://elizabethgracematthew.substack.com/p/to-effectively-oppose-the-rights</a></p>
+<p class="quote-src">— Elizabeth Grace Matthew, “<a class="src-title" href="https://elizabethgracematthew.substack.com/p/to-effectively-oppose-the-rights">To Effectively Oppose the Right's Excesses, the Left Needs a Reality Principle. It Doesn’t Have One.</a>”, What Are Grown-Ups For? Substack, June 9, 2025</p>
 
 ---
 
@@ -360,8 +346,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > Our hope is not in our virtues but in their vices.
 
-<p class="quote-src">— Kevin D. Williamson, “The Road to Smurfdom”, The Dispatch, June 30, 2025<br>
-<a href="https://thedispatch.com/newsletter/wanderland/eisenhower-hegseth-iran-military/">https://thedispatch.com/newsletter/wanderland/eisenhower-hegseth-iran-military/</a></p>
+<p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://thedispatch.com/newsletter/wanderland/eisenhower-hegseth-iran-military/">The Road to Smurfdom</a>”, The Dispatch, June 30, 2025</p>
 
 ---
 
@@ -377,15 +362,13 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 >
 > The natural theologian says, 'You need to be consistent with what you already know—that morality exists—and adopt a worldview that explains why the world is more than just material.'
 
-<p class="quote-src">— Joel Carini, “Why I Stopped Being a Presuppositionalist”, Jun 23, 2025<br>
-<a href="https://joelcarini.substack.com/p/why-i-stopped-being-a-presuppositionalist">https://joelcarini.substack.com/p/why-i-stopped-being-a-presuppositionalist</a></p>
+<p class="quote-src">— Joel Carini, “<a class="src-title" href="https://joelcarini.substack.com/p/why-i-stopped-being-a-presuppositionalist">Why I Stopped Being a Presuppositionalist</a>”, Jun 23, 2025</p>
 
 ---
 
 > ‘Hobbies’ kill time, and time is all that we have — ‘hobbies’ are suicide.
 
-<p class="quote-src">— DeepLeftAnalysis, “Against Hobbies”, Substack, Jun 01, 2025<br>
-<a href="https://deepleft.substack.com/p/against-hobbies">https://deepleft.substack.com/p/against-hobbies</a></p>
+<p class="quote-src">— DeepLeftAnalysis, “<a class="src-title" href="https://deepleft.substack.com/p/against-hobbies">Against Hobbies</a>”, Substack, Jun 01, 2025</p>
 
 ---
 
@@ -412,8 +395,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > Spiritual parenthood—whether motherhood or fatherhood—is not a cheap consolation prize for infertile or single people. It is a deep spiritual reality.
 
-<p class="quote-src">— Helen Roy, “Motherless Day?”, Substack, May 12, 2025<br>
-<a href="https://helenroy.substack.com/p/motherless-day">https://helenroy.substack.com/p/motherless-day</a></p>
+<p class="quote-src">— Helen Roy, “<a class="src-title" href="https://helenroy.substack.com/p/motherless-day">Motherless Day?</a>”, Substack, May 12, 2025</p>
 
 ---
 
@@ -421,15 +403,13 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 >
 > As a result, the most powerful people in our society constantly mistake controlling the content and output of the conversation for managing the underlying reality that the conversation is about.
 
-<p class="quote-src">— Conor Fitzgerald, “Reality Bites”, The Fitzstack, July 19, 2024<br>
-<a href="https://www.conorfitzgerald.com/p/reality-bites?r=2rwzl&amp;selection=64a12984-807e-4c0a-af81-87b0eeed4f41&amp;utm_campaign=post-share-selection&amp;utm_medium=web&amp;triedRedirect=true">https://www.conorfitzgerald.com/p/reality-bites?r=2rwzl&amp;selection=64a12984-807e-4c0a-af81-87b0eeed4f41&amp;utm_campaign=post-share-selection&amp;utm_medium=web&amp;triedRedirect=true</a></p>
+<p class="quote-src">— Conor Fitzgerald, “<a class="src-title" href="https://www.conorfitzgerald.com/p/reality-bites?r=2rwzl&amp;selection=64a12984-807e-4c0a-af81-87b0eeed4f41&amp;utm_campaign=post-share-selection&amp;utm_medium=web&amp;triedRedirect=true">Reality Bites</a>”, The Fitzstack, July 19, 2024</p>
 
 ---
 
 > The ‘humanizing’ and ‘normalizing’ stuff has always been irritating to me. There is no need to humanize or to normalize Donald Trump, who is as normal as diabetic amputation and as human as a school shooting. Complaints about humanizing and normalizing have built into them a set of assumptions about the moral quality of the human and the normal that are simply not supported by the facts or by experience.
 
-<p class="quote-src">— Kevin D. Williamson, “Dinner With Donald”, The Dispatch, April 30, 2025<br>
-<a href="https://thedispatch.com/article/dinner-with-donald/?utm_source=ActiveCampaign&amp;utm_medium=email&amp;utm_content=Canada%20s%20Liberals%20Pull%20Off%20a%20Narrow%20Win&amp;utm_campaign=The%20Morning%20Dispatch_TMD%20Paid%20Subscribers%20Only_Canada%20s%20Liberals%20Pull%20Off%20a%20Narrow%20Win">https://thedispatch.com/article/dinner-with-donald/?utm_source=ActiveCampaign&amp;utm_medium=email&amp;utm_content=Canada%20s%20Liberals%20Pull%20Off%20a%20Narrow%20Win&amp;utm_campaign=The%20Morning%20Dispatch_TMD%20Paid%20Subscribers%20Only_Canada%20s%20Liberals%20Pull%20Off%20a%20Narrow%20Win</a></p>
+<p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://thedispatch.com/article/dinner-with-donald/?utm_source=ActiveCampaign&amp;utm_medium=email&amp;utm_content=Canada%20s%20Liberals%20Pull%20Off%20a%20Narrow%20Win&amp;utm_campaign=The%20Morning%20Dispatch_TMD%20Paid%20Subscribers%20Only_Canada%20s%20Liberals%20Pull%20Off%20a%20Narrow%20Win">Dinner With Donald</a>”, The Dispatch, April 30, 2025</p>
 
 ---
 
@@ -477,8 +457,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > There is something about God’s total sovereignty, the exclusivity of Christ, or the realities of hell and judgment, that invites the scorn of unbelievers in a way that feels invigorating. Because we believe these doctrines draw the truest lines between sheep and goats, we front-load our hearts with them and even pit them against doctrines such as the lavish grace, unfathomable forbearance, and stupefying delight of Christ toward his people. Those are truths we acknowledge but sometimes consider more fitting for liberal Christians.
 
-<p class="quote-src">— Samuel D. James, “What the Success of Gentle and Lowly Reveals About Our View of God’s Love”, The Gospel Coalition, March 3, 2021<br>
-<a href="https://www.thegospelcoalition.org/article/gentle-lowly-gods-love/">https://www.thegospelcoalition.org/article/gentle-lowly-gods-love/</a></p>
+<p class="quote-src">— Samuel D. James, “<a class="src-title" href="https://www.thegospelcoalition.org/article/gentle-lowly-gods-love/">What the Success of Gentle and Lowly Reveals About Our View of God’s Love</a>”, The Gospel Coalition, March 3, 2021</p>
 
 ---
 
@@ -525,8 +504,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > American progressivism has the reputation of supporting big government, but in practice it often just tries to use government as a pass-through entity to write checks to various “stakeholders”, while preventing it from actually being able to do anything other than write checks.
 
-<p class="quote-src">— Noah Smith, “Book review: ‘Abundance’”, Noahpinion, March 19, 2025<br>
-<a href="https://www.noahpinion.blog/p/book-review-abundance">https://www.noahpinion.blog/p/book-review-abundance</a></p>
+<p class="quote-src">— Noah Smith, “<a class="src-title" href="https://www.noahpinion.blog/p/book-review-abundance">Book review: ‘Abundance’</a>”, Noahpinion, March 19, 2025</p>
 
 ---
 
@@ -578,8 +556,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 >
 > 224: How I hate the follies of not believing in the Eucharist, etc.! If the Gospel be true, if Jesus Christ be God, what difficulty is there?
 
-<p class="quote-src">— Blaise Pascal, “Pensées” (tr. W.F. Trotter)<br>
-<a href="https://www.google.com/books/edition/Pensees/qpYwR3FT0-kC">https://www.google.com/books/edition/Pensees/qpYwR3FT0-kC</a></p>
+<p class="quote-src">— Blaise Pascal, “<a class="src-title" href="https://www.google.com/books/edition/Pensees/qpYwR3FT0-kC">Pensées</a>” (tr. W.F. Trotter)</p>
 
 ---
 
@@ -587,15 +564,13 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 >
 > ...Men are made for the dirt. They are made to subdue the earth and make its pathways straight for the kingdom of God. They are made to make love to real brides and take real risks and give real gifts to those who come after them. In living this kind of life, a man’s inner life actually becomes rich. It is no longer empty fiction, but rather a testimony to the wondrous works of the One whose image we bear.
 
-<p class="quote-src">— Samuel D. James, “Rich Inner Death”, Digital Liturgies, October 31, 2024<br>
-<a href="https://www.digitalliturgies.net/p/rich-inner-death">https://www.digitalliturgies.net/p/rich-inner-death</a></p>
+<p class="quote-src">— Samuel D. James, “<a class="src-title" href="https://www.digitalliturgies.net/p/rich-inner-death">Rich Inner Death</a>”, Digital Liturgies, October 31, 2024</p>
 
 ---
 
 > The American political tradition hopes with John Adams for a virtuous and religious people but plans with James Madison for the ordinary kind.
 
-<p class="quote-src">— Kevin D. Williamson, “More Partisan Journalism, Please—Just the Honest Kind”, The Dispatch, October 28, 2024<br>
-<a href="https://thedispatch.com/newsletter/wanderland/more-partisan-journalism-please-just-the-honest-kind/">https://thedispatch.com/newsletter/wanderland/more-partisan-journalism-please-just-the-honest-kind/</a></p>
+<p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://thedispatch.com/newsletter/wanderland/more-partisan-journalism-please-just-the-honest-kind/">More Partisan Journalism, Please—Just the Honest Kind</a>”, The Dispatch, October 28, 2024</p>
 
 ---
 
@@ -605,54 +580,21 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 ---
 
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:left="720" w:right="720" /></w:pPr><w:r><w:t>In the place of rules devised by moral philosophy and religion, therapy culture has erected others, such as
+> In the place of rules devised by moral philosophy and religion, therapy culture has erected others, such as:
+>
+> - You, your feelings, and your goals are always preeminent and in any conflict supersede those of others
+> - You are entitled to total and complete emotional safety at all times, and this entitlement supersedes the rights and desires of others
+> - Simultaneously, you are a totally, existentially, permanently fragile being
+> - Since there is nothing that can be endured or recovered from that is not injustice, the concept of resilience is itself an expression of injustice
+> - That which makes you feel better is that which is right to do
+> - In any conflict between any two people, there is always one guilty abuser and one blameless victim
+> - You argue, they gaslight, you have self-respect, they are narcissists, you are still growing, they are toxic, you have boundaries, they have limitations, you hold space, they stand in the way of your growth
+> - Your own behavior is always a trauma response, and thus not your fault; the behavior of others is always freely chosen, and thus responsibility-bearing
+> - Any of your behaviors is merely one small step on your journey, and you are still in the process of becoming yourself, any behavior of others you don’t like is constitutive of their very being and cannot change
+> - Wanting and not getting, for you, can never be an expression of the basic reality of existence, but rather is always evidence of crime, abuse, mistreatment, pathology, injustice
+> - Everything you feel, do, and are is valid, always valid, until the end of time
 
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:right="720" /></w:pPr><w:r><w:t>You, your feelings, and your goals are always preeminent and in any conflict supersede those of others
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:right="720" /></w:pPr><w:r><w:t>You are entitled to total and complete emotional safety at all times, and this entitlement supersedes the rights and desires of others
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:right="720" /></w:pPr><w:r><w:t>Simultaneously, you are a totally, existentially, permanently fragile being
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:right="720" /></w:pPr><w:r><w:t>Since there is nothing that can be endured or recovered from that is not injustice, the concept of resilience is itself an expression of injustice
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:right="720" /></w:pPr><w:r><w:t>That which makes you feel better is that which is right to do
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:right="720" /></w:pPr><w:r><w:t>In any conflict between any two people, there is always one guilty abuser and one blameless victim
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:right="720" /></w:pPr><w:r><w:t>You argue, they gaslight, you have self-respect, they are narcissists, you are still growing, they are toxic, you have boundaries, they have limitations, you hold space, they stand in the way of your growth
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:right="720" /></w:pPr><w:r><w:t>Your own behavior is always a trauma response, and thus not your fault; the behavior of others is always freely chosen, and thus responsibility-bearing
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:right="720" /></w:pPr><w:r><w:t>Any of your behaviors is merely one small step on your journey, and you are still in the process of becoming yourself, any behavior of others you don’t like is constitutive of their very being and cannot change
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:right="720" /></w:pPr><w:r><w:t>Wanting and not getting, for you, can never be an expression of the basic reality of existence, but rather is always evidence of crime, abuse, mistreatment, pathology, injustice
-
----
-
-> <w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:right="720" /><w:rPr><w:color w:val="000000" w:themeColor="text1" /></w:rPr></w:pPr><w:r><w:t xml:space="preserve">Everything you feel, do, and are is valid, always valid, until the end of time
-
-<p class="quote-src">— Freddie deBoer, “Selfishness &amp; Therapy Culture”, Substack, July 31, 2024<br>
-<a href="https://freddiedeboer.substack.com/p/selfishness-and-therapy-culture">https://freddiedeboer.substack.com/p/selfishness-and-therapy-culture</a></p>
+<p class="quote-src">— Freddie deBoer, “<a class="src-title" href="https://freddiedeboer.substack.com/p/selfishness-and-therapy-culture">Selfishness &amp; Therapy Culture</a>”, Substack, July 31, 2024</p>
 
 ---
 
@@ -708,8 +650,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 >
 > Yet, the besetting flaw of fundamentalism is that, ultimately, it tends to believe in the walls more than it believes in the fire.
 
-<p class="quote-src">— Samuel D. James, “You Can Stick Up for Fundamentalists Without Repeating Their Mistakes”, Digital Liturgies, August 19, 2024<br>
-<a href="https://www.digitalliturgies.net/p/you-can-stick-up-for-fundamentalists?utm_source=post-email-title&amp;publication_id=21173&amp;post_id=147875859&amp;utm_campaign=email-post-title&amp;isFreemail=true&amp;r=2rwzl&amp;triedRedirect=true&amp;utm_medium=email">https://www.digitalliturgies.net/p/you-can-stick-up-for-fundamentalists?utm_source=post-email-title&amp;publication_id=21173&amp;post_id=147875859&amp;utm_campaign=email-post-title&amp;isFreemail=true&amp;r=2rwzl&amp;triedRedirect=true&amp;utm_medium=email</a></p>
+<p class="quote-src">— Samuel D. James, “<a class="src-title" href="https://www.digitalliturgies.net/p/you-can-stick-up-for-fundamentalists?utm_source=post-email-title&amp;publication_id=21173&amp;post_id=147875859&amp;utm_campaign=email-post-title&amp;isFreemail=true&amp;r=2rwzl&amp;triedRedirect=true&amp;utm_medium=email">You Can Stick Up for Fundamentalists Without Repeating Their Mistakes</a>”, Digital Liturgies, August 19, 2024</p>
 
 ---
 
@@ -719,8 +660,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 >
 > Endless online connectivity obscures the difference between the self and the world, smudges the border that separates expression and action. Doing is hard and feeling is easy. Take your pick.
 
-<p class="quote-src">— Freddie deBoer, “Alice Munro is Dead”, Substack, July 10, 2024<br>
-<a href="https://freddiedeboer.substack.com/p/alice-munro-is-dead">https://freddiedeboer.substack.com/p/alice-munro-is-dead</a></p>
+<p class="quote-src">— Freddie deBoer, “<a class="src-title" href="https://freddiedeboer.substack.com/p/alice-munro-is-dead">Alice Munro is Dead</a>”, Substack, July 10, 2024</p>
 
 ---
 
@@ -816,8 +756,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > One version of illiberalism holds that somebody wins and somebody loses, and that Christians, having the upper hand in terms of numbers and political power, are entitled to impose their religion on society at large, to whatever degree they feel necessary and with only those accommodations demanded by their own forbearance. (That this is a profoundly un-Christian attitude has not stopped many Christians from embracing it.) Another version of illiberalism disguises itself as liberalism, and it insists that both Christianity and Judaism be denuded of everything that makes each distinctive, that these and all other religions be reduced to some version of the Church of Niceness, and that this orthodoxy be imposed on society at large, through formal and informal means. Genuine liberalism takes a different approach: It takes for granted that people living in a free and open society of any meaningful size or complexity will have profound, wrenching disagreements about fundamental issues, and that the job of the state and of civic institutions (including the schools) is not to scrub religions, political platforms, and creeds of anything potentially offensive but rather to create a political space in which community life can be lived peaceably.
 
-<p class="quote-src">— Kevin D. Williamson, “There Shall Be None to Make Him Afraid”, The Dispatch, April 8, 2024<br>
-<a href="https://thedispatch.com/newsletter/wanderland/there-shall-be-none-to-make-him-afraid/">https://thedispatch.com/newsletter/wanderland/there-shall-be-none-to-make-him-afraid/</a></p>
+<p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://thedispatch.com/newsletter/wanderland/there-shall-be-none-to-make-him-afraid/">There Shall Be None to Make Him Afraid</a>”, The Dispatch, April 8, 2024</p>
 
 ---
 
@@ -833,8 +772,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 >
 > Originality is the presence of new ideas, not the absence of old ones.
 
-<p class="quote-src">— Paul Graham, “How to Do Great Work”, July 2023<br>
-<a href="https://www.paulgraham.com/greatwork.html">https://www.paulgraham.com/greatwork.html</a></p>
+<p class="quote-src">— Paul Graham, “<a class="src-title" href="https://www.paulgraham.com/greatwork.html">How to Do Great Work</a>”, July 2023</p>
 
 ---
 
@@ -895,8 +833,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 >
 > Atheistic existentialism, of which I am a representative, declares with greater consistency that if God does not exist there is at least one being whose existence comes before its essence, a being which exists before it can be defined by any conception of it. ... Man is nothing else but that which he makes of himself. That is the first principle of existentialism.
 
-<p class="quote-src">— Jean-Paul Sarte, “Existentialism is a Humanism”, 1946, tr. Philip Mairet<br>
-<a href="https://www3.nd.edu/~afreddos/courses/264/sartre.htm">https://www3.nd.edu/~afreddos/courses/264/sartre.htm</a></p>
+<p class="quote-src">— Jean-Paul Sarte, “<a class="src-title" href="https://www3.nd.edu/~afreddos/courses/264/sartre.htm">Existentialism is a Humanism</a>”, 1946, tr. Philip Mairet</p>
 
 ---
 
@@ -914,15 +851,13 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > The Times’s problem has metastasised from liberal bias to illiberal bias, from an inclination to favour one side of the national debate to an impulse to shut debate down altogether.
 
-<p class="quote-src">— James Bennet, “When the New York Times lost its way”, 1843 Magazine, December 14, 2023<br>
-<a href="https://www.economist.com/1843/2023/12/14/when-the-new-york-times-lost-its-way">https://www.economist.com/1843/2023/12/14/when-the-new-york-times-lost-its-way</a></p>
+<p class="quote-src">— James Bennet, “<a class="src-title" href="https://www.economist.com/1843/2023/12/14/when-the-new-york-times-lost-its-way">When the New York Times lost its way</a>”, 1843 Magazine, December 14, 2023</p>
 
 ---
 
 > Elon Musk is good at certain business-related skills. But that’s not the essence of Elon Musk. The essence of Elon Musk is that he’s a Visionary who can bring the Glorious Future. We know this because he’s a crazy person who says stuff that doesn’t really make sense. When Elon Musk buys a company, its value goes up - maybe partly because people expect Musk to make good business decisions, but also partly because now the company is part of Musk’s Glorious Future, and therefore exciting. Employees, customers, and investors all get excited and reinforce each other in a virtuous circle. And although Musk might not always accomplish the exact Glorious Future future he promises, his companies do well and make money, because having motivated employees, star-struck customers, and willing investors is a great combination.
 
-<p class="quote-src">— Scott Alexander, “Model City Monday 9/4/23: California Dreamin'”, Astral Codex Ten, September 4, 2023<br>
-<a href="https://www.astralcodexten.com/p/model-city-monday-9423?utm_source=substack&amp;utm_medium=email">https://www.astralcodexten.com/p/model-city-monday-9423?utm_source=substack&amp;utm_medium=email</a></p>
+<p class="quote-src">— Scott Alexander, “<a class="src-title" href="https://www.astralcodexten.com/p/model-city-monday-9423?utm_source=substack&amp;utm_medium=email">Model City Monday 9/4/23: California Dreamin'</a>”, Astral Codex Ten, September 4, 2023</p>
 
 ---
 
@@ -938,22 +873,19 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > If you believe that the fate of Western civilization is a bigger, more deserving object of your attention than the character of God as revealed in Scripture, the grace of Jesus as revealed in the gospel, and the people of God as revealed in the church, then yes. There is practically nothing worth breaking rank with your fellow conservatives about. Solidarity must win the day, because the day is all that can be won.
 
-<p class="quote-src">— Samuel D. James, “The Parable of Kanye West”, Digital Liturgies, April 25, 2024<br>
-<a href="https://www.digitalliturgies.net/p/the-parable-of-kanye-west">https://www.digitalliturgies.net/p/the-parable-of-kanye-west</a></p>
+<p class="quote-src">— Samuel D. James, “<a class="src-title" href="https://www.digitalliturgies.net/p/the-parable-of-kanye-west">The Parable of Kanye West</a>”, Digital Liturgies, April 25, 2024</p>
 
 ---
 
 > The Tao of Matty Glesias is that you never have to ask these questions. Your view of the world comes predigested, and that certainty fuels the kind of self-esteem that lets your buzz around for several decades wondering why everyone’s always mad at you. (I know the feeling.) I don’t want Yglesias to have zero self-esteem, mind you. I just wish his was taxed at a significantly higher level than it currently is and redistributed to people in need.
 
-<p class="quote-src">— Freddie deBoer, “Does Political Message Matter or Not?”, Substack, August 15, 2023<br>
-<a href="https://freddiedeboer.substack.com/p/does-political-message-matter-or">https://freddiedeboer.substack.com/p/does-political-message-matter-or</a></p>
+<p class="quote-src">— Freddie deBoer, “<a class="src-title" href="https://freddiedeboer.substack.com/p/does-political-message-matter-or">Does Political Message Matter or Not?</a>”, Substack, August 15, 2023</p>
 
 ---
 
 > The problem is that Americans are, politically speaking, teenagers: We expect to be taken care of but resent being told what to do.
 
-<p class="quote-src">— Kevin D. Williamson, “The New Right Discovers … Socialized Medicine?”, The Dispatch, Aug 17, 2023<br>
-<a href="https://thedispatch.com/article/the-new-right-discovers-socialized-medicine/">https://thedispatch.com/article/the-new-right-discovers-socialized-medicine/</a></p>
+<p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://thedispatch.com/article/the-new-right-discovers-socialized-medicine/">The New Right Discovers … Socialized Medicine?</a>”, The Dispatch, Aug 17, 2023</p>
 
 ---
 
@@ -963,15 +895,13 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 >
 > His Excellency, after the health of the Queen-Empress had been drunk and dinner was over, was good enough to ask my opinion upon several matters, and considering the magnificent character of his hospitality, I thought it would be unbecoming in me not to reply fully. I have forgotten the particular points of British and Indian affairs upon which he sought my counsel; all I can remember is that I responded generously. There were indeed moments when he seemed willing to impart his own views; but I thought it would be ungracious to put him to so much trouble; and he very readily subsided. He kindly sent his aide-de-camp with us to make sure we found our way back to camp all right.
 
-<p class="quote-src">— Winston Churchill, “My Early Life”<br>
-<a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjE_4uO4Pr_AhVZnWoFHYWMAXEQFnoECCsQAQ&amp;url=https%3A%2F%2Fgutenberg.ca%2Febooks%2Fchurchillws-myearlylife%2Fchurchillws-myearlylife-00-h-dir%2Fchurchillws-myearlylife-00-h.html&amp;usg=AOvVaw3TFZvp-Sgo5o2u9PtHyTsC&amp;opi=89978449">https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjE_4uO4Pr_AhVZnWoFHYWMAXEQFnoECCsQAQ&amp;url=https%3A%2F%2Fgutenberg.ca%2Febooks%2Fchurchillws-myearlylife%2Fchurchillws-myearlylife-00-h-dir%2Fchurchillws-myearlylife-00-h.html&amp;usg=AOvVaw3TFZvp-Sgo5o2u9PtHyTsC&amp;opi=89978449</a></p>
+<p class="quote-src">— Winston Churchill, “<a class="src-title" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjE_4uO4Pr_AhVZnWoFHYWMAXEQFnoECCsQAQ&amp;url=https%3A%2F%2Fgutenberg.ca%2Febooks%2Fchurchillws-myearlylife%2Fchurchillws-myearlylife-00-h-dir%2Fchurchillws-myearlylife-00-h.html&amp;usg=AOvVaw3TFZvp-Sgo5o2u9PtHyTsC&amp;opi=89978449">My Early Life</a>”</p>
 
 ---
 
 > I can’t begin to answer whether morality is increasing or decreasing. But a first stab would be to note that wealth is increasing. We might expect those virtues which wealth makes less necessary, like industry and chastity, to decline - and those virtues which wealth makes more convenient, like compassion and pacifism, to increase.
 
-<p class="quote-src">— Scott Siskind, “Is There An Illusion Of Moral Decline?” Astral Codex Ten, June 30, 2023<br>
-<a href="https://astralcodexten.substack.com/p/is-there-an-illusion-of-moral-decline">https://astralcodexten.substack.com/p/is-there-an-illusion-of-moral-decline</a></p>
+<p class="quote-src">— Scott Siskind, “<a class="src-title" href="https://astralcodexten.substack.com/p/is-there-an-illusion-of-moral-decline">Is There An Illusion Of Moral Decline?</a>” Astral Codex Ten, June 30, 2023</p>
 
 ---
 
@@ -995,15 +925,13 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > Kinkade's luridly idyllic landscapes, full of quaint cottages and glowing firelight, already hang in an estimated one in 20 US homes.
 
-<p class="quote-src">— Oliver Burkeman, “Dark clouds gather over 'Painter of Light'”, The Guardian, March 25, 2006<br>
-<a href="https://www.theguardian.com/world/2006/mar/25/arts.artsnews">https://www.theguardian.com/world/2006/mar/25/arts.artsnews</a></p>
+<p class="quote-src">— Oliver Burkeman, “<a class="src-title" href="https://www.theguardian.com/world/2006/mar/25/arts.artsnews">Dark clouds gather over 'Painter of Light'</a>”, The Guardian, March 25, 2006</p>
 
 ---
 
 > Extinguishing mystery is, in general, an assault against the young, and what is the internet if not a giant machine for eliminating mystery?
 
-<p class="quote-src">— Freddie deBoer, “It's So Sad When Old People Romanticize Their Heydays, Also the 90s Were Objectively the Best Time to Be Alive”, Substack, February 6, 2023<br>
-<a href="https://freddiedeboer.substack.com/p/its-so-sad-when-old-people-romanticize">https://freddiedeboer.substack.com/p/its-so-sad-when-old-people-romanticize</a></p>
+<p class="quote-src">— Freddie deBoer, “<a class="src-title" href="https://freddiedeboer.substack.com/p/its-so-sad-when-old-people-romanticize">It's So Sad When Old People Romanticize Their Heydays, Also the 90s Were Objectively the Best Time to Be Alive</a>”, Substack, February 6, 2023</p>
 
 ---
 
@@ -1043,8 +971,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > The simple fact is that Americans have voted with their wallets—for more stuff, smaller families, and less time devoted to housework, raising kids, and investing in communities. It is not that a male breadwinner can no longer support a family at 1969 living standards. Rather, more women have professional aspirations, more young adults want to spend more time childless and single, and more adults of all ages prefer a more comfortable lifestyle that often requires two incomes.
 
-<p class="quote-src">— Scott Winship, “Can Men Still Bring Home the Bacon?”, The Dispatch, December 14, 2022<br>
-<a href="https://thedispatch.com/article/can-men-still-bring-home-the-bacon/">https://thedispatch.com/article/can-men-still-bring-home-the-bacon/</a></p>
+<p class="quote-src">— Scott Winship, “<a class="src-title" href="https://thedispatch.com/article/can-men-still-bring-home-the-bacon/">Can Men Still Bring Home the Bacon?</a>”, The Dispatch, December 14, 2022</p>
 
 ---
 
@@ -1064,8 +991,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > Ultramontane means pope-centered, an attitude toward church affairs characterized by extraordinary deference to the pope and his prerogatives. (Ultramontanism was born in France, from which point of view the Vatican is “beyond the mountains,” hence ultramontane.) Conservative Catholics got pretty ultramontane back in the days of Pope John Paul II, but are a good deal less so — and that is healthy! — in the time of Pope Francis, who is seen as a right-winger at home but is regarded as a Marxist whack-a-doodle by conservative American Catholics.
 
-<p class="quote-src">— Kevin D. Williamson, “Against Fanaticism”, National Review Online, August 16, 2022<br>
-<a href="https://www.nationalreview.com/the-tuesday/against-fanaticism/">https://www.nationalreview.com/the-tuesday/against-fanaticism/</a></p>
+<p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://www.nationalreview.com/the-tuesday/against-fanaticism/">Against Fanaticism</a>”, National Review Online, August 16, 2022</p>
 
 ---
 
@@ -1077,15 +1003,13 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > I would urge all of us to consider the possibility that Christian truth does not “fit” on these digital platforms. Teaching people what to think while allowing the algorithm to teach them how to think doesn’t work. It makes for computer-shaped churchgoers.
 
-<p class="quote-src">— Samuel D. James, “7 Thoughts on Elon Musk and Twitter”, Digital Liturgies, November 1, 2022<br>
-<a href="https://samueldjames.substack.com/p/7-thoughts-on-elon-musk-and-twitter">https://samueldjames.substack.com/p/7-thoughts-on-elon-musk-and-twitter</a></p>
+<p class="quote-src">— Samuel D. James, “<a class="src-title" href="https://samueldjames.substack.com/p/7-thoughts-on-elon-musk-and-twitter">7 Thoughts on Elon Musk and Twitter</a>”, Digital Liturgies, November 1, 2022</p>
 
 ---
 
 > The problem is when ‘winsomeness’ and ‘empathy’ get to be defined not by our words and deeds but by how our words and deeds make people feel. ‘I will be kind’ is Christianity. 'I will not do anything to jeopardize your good opinion of me' is capitulation. The other problem is that winsomeness almost always runs in one direction. The ‘winsome’ folks are careful to speak respectfully and humbly to an LGBT+ audience, while they're eager to speak ‘prophetically’ to the MAGA crowd.
 
-<p class="quote-src">— Kevin DeYoung, “Review: 'The Case for Christian Nationalism' by Stephen Wolfe”, The Gospel Coalition, November 28, 2022<br>
-<a href="https://www.thegospelcoalition.org/reviews/christian-nationalism-wolfe/">https://www.thegospelcoalition.org/reviews/christian-nationalism-wolfe/</a></p>
+<p class="quote-src">— Kevin DeYoung, “<a class="src-title" href="https://www.thegospelcoalition.org/reviews/christian-nationalism-wolfe/">Review: 'The Case for Christian Nationalism' by Stephen Wolfe</a>”, The Gospel Coalition, November 28, 2022</p>
 
 ---
 
@@ -1129,8 +1053,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 >
 > Another way of saying this is that law that is not fixed and knowable is only arbitrary power with a literary companion and a little democratic pretense. That is not to say that there will never be genuine, good-faith disagreements about what a law means, or that incompetent legislators will not make laws that are vague or imprecise, or that the regulations touching very complex activities will not be at times bewildering. It is only to say that judges and courts are to behave as an instrument of the law rather than using the law as an instrument of their own power for their ends, however just and enlightened they are convinced those ends are.
 
-<p class="quote-src">— Kevin D. Williamson, “Why We Write Our Laws Down”, National Review Online, July 6, 2022<br>
-<a href="https://www.nationalreview.com/2022/07/why-we-write-our-laws-down/">https://www.nationalreview.com/2022/07/why-we-write-our-laws-down/</a></p>
+<p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://www.nationalreview.com/2022/07/why-we-write-our-laws-down/">Why We Write Our Laws Down</a>”, National Review Online, July 6, 2022</p>
 
 ---
 
@@ -1174,8 +1097,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > An epicure is particular about his pleasures; a snob is particular about everyone else’s pleasures, forever lecturing others about their tastes in music, clothes, restaurants, and their general modes of life. A snob isn’t someone who prefers Manhattan to Scottsdale — it is someone who is irritated that anybody would prefer Scottsdale to Manhattan.
 
-<p class="quote-src">— Kevin D. Williamson, “Against Truck Shaming” National Review Online, March 10, 2022<br>
-<a href="https://www.nationalreview.com/2022/03/against-truck-shaming/">https://www.nationalreview.com/2022/03/against-truck-shaming/</a></p>
+<p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://www.nationalreview.com/2022/03/against-truck-shaming/">Against Truck Shaming</a>” National Review Online, March 10, 2022</p>
 
 ---
 
@@ -1185,8 +1107,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 >
 > Enslaved person also sounds a little antiseptic to my ear. ... Slavery is a savage thing, and it should have a blunt, ugly name. There’s no way to nice it up, and no cause to.
 
-<p class="quote-src">— Kevin D. Williamson, “Labor’s Love Lost” National Review Online, April 19, 2022<br>
-<a href="http://nationalreview.com/the-tuesday/labors-love-lost/">http://nationalreview.com/the-tuesday/labors-love-lost/</a></p>
+<p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="http://nationalreview.com/the-tuesday/labors-love-lost/">Labor’s Love Lost</a>” National Review Online, April 19, 2022</p>
 
 ---
 
@@ -1234,8 +1155,7 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 > In post-Obergefell America, Evangelicals and other orthodox Christians will be unable to outrun our freakishness. That is no reason for panic. Some will suggest that a Christian sexual ethic puts the churches on the “wrong side of history.” Well, we’ve been on the wrong side of history since a.d. 33. The “right side of history” was the Eternal City of Rome. And then the right side of history was the French Revolution. And then the right side of history was scientific naturalism and state socialism. And yet, there stands Jesus still, on the wrong side of history but at the right hand of the Father.
 
-<p class="quote-src">— Russell Moore, “Evangelicals Won’t Cave”, First Things, October 2015<br>
-<a href="https://www.firstthings.com/article/2015/10/evangelicals-wont-cave">https://www.firstthings.com/article/2015/10/evangelicals-wont-cave</a></p>
+<p class="quote-src">— Russell Moore, “<a class="src-title" href="https://www.firstthings.com/article/2015/10/evangelicals-wont-cave">Evangelicals Won’t Cave</a>”, First Things, October 2015</p>
 
 ---
 
@@ -1419,31 +1339,19 @@ The key to parenting boys is removing the possibility for “empty calories”, 
 
 ---
 
-I often ask Christians to evaluate their situation with regard to prayer by using a metaphor. Imagine that your soul is a boat, a boat with both oars and a sail. In this case here are four questions:
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:left="720" w:right="720" /><w:rPr><w:color w:val="000000" /></w:rPr></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>Are you “sailing”? Sailing means you are living the Christian life with the wind at your back. God is real to your heart. You often feel his love. You see prayers being answered. When studying the Bible, you regularly see remarkable things and you sense him speaking to you. You sense people around you being influenced by the Spirit through you.
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:left="720" w:right="720" /><w:rPr><w:color w:val="000000" /></w:rPr></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>Are you “rowing”? Rowing means you are finding prayer and Bible reading to be more a duty than a delight. God often (though not always) seems distant, and the sense of his presence is fairly rare. You don’t see many of your prayers being answered. You may be struggling with doubts about God and yourself. Yet despite all this, you refuse self-pity or the self-righteous pride that assumes you know better than God how your life should go. You continue to read the Bible and pray regularly, you attend worship and reach out and serve people despite the inner spiritual dryness.
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:left="720" w:right="720" /><w:rPr><w:color w:val="000000" /></w:rPr></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>Are you “drifting”? Drifting means that you are experiencing all the conditions of rowing—spiritual dryness and difficulties in life. But in response, instead of rowing, you are letting yourself drift. You don’t feel like approaching and obeying God, so you don’t pray or read. You give in to the self-centeredness that naturally comes when you feel sorry for yourself, and you drift into self-indulgent behaviors to comfort yourself, whether it be escape eating and sleeping, sexual practices, or whatever else.
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:left="720" w:right="720" /><w:rPr><w:color w:val="000000" /></w:rPr></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>Are you “sinking”? Eventually your boat, your soul, will drift away from the shipping lanes, as it were—and truly lose any forward motion in the Christian life. The numbness of heart can become hardness because you give in to thoughts of self-pity and resentment. If some major difficulty or trouble were to come into your life, it would be possible to abandon your faith and identity as a Christian altogether.
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:left="720" w:right="720" /><w:rPr><w:color w:val="000000" /></w:rPr></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>In this metaphor we see that there are some things we are responsible for, such as using the means of grace—the Bible, prayer, and church participation—in a disciplined way. There are many other things we do not have much control over—such as how well the circumstances in our lives are going as well as our emotions. If you pray, worship, and obey despite negative circumstances and feelings, you won’t be drifting, and when the winds come up again, you will move ahead swiftly. On the other hand, if you do not apply the means of grace, you will at best be drifting, and if storms come into your life, you might be in danger of sinking.
-
----
-
-> <w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:left="720" w:right="720" /><w:rPr><w:color w:val="000000" /></w:rPr></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>In any case—pray no matter what. Praying is rowing, and sometimes it is like rowing in the dark—you won’t feel that you are making any progress at all. Yet you are, and when the winds rise again, and they surely will, you will sail again before them.
+> I often ask Christians to evaluate their situation with regard to prayer by using a metaphor. Imagine that your soul is a boat, a boat with both oars and a sail. In this case here are four questions:
+>
+> Are you “sailing”? Sailing means you are living the Christian life with the wind at your back. God is real to your heart. You often feel his love. You see prayers being answered. When studying the Bible, you regularly see remarkable things and you sense him speaking to you. You sense people around you being influenced by the Spirit through you.
+>
+> Are you “rowing”? Rowing means you are finding prayer and Bible reading to be more a duty than a delight. God often (though not always) seems distant, and the sense of his presence is fairly rare. You don’t see many of your prayers being answered. You may be struggling with doubts about God and yourself. Yet despite all this, you refuse self-pity or the self-righteous pride that assumes you know better than God how your life should go. You continue to read the Bible and pray regularly, you attend worship and reach out and serve people despite the inner spiritual dryness.
+>
+> Are you “drifting”? Drifting means that you are experiencing all the conditions of rowing—spiritual dryness and difficulties in life. But in response, instead of rowing, you are letting yourself drift. You don’t feel like approaching and obeying God, so you don’t pray or read. You give in to the self-centeredness that naturally comes when you feel sorry for yourself, and you drift into self-indulgent behaviors to comfort yourself, whether it be escape eating and sleeping, sexual practices, or whatever else.
+>
+> Are you “sinking”? Eventually your boat, your soul, will drift away from the shipping lanes, as it were—and truly lose any forward motion in the Christian life. The numbness of heart can become hardness because you give in to thoughts of self-pity and resentment. If some major difficulty or trouble were to come into your life, it would be possible to abandon your faith and identity as a Christian altogether.
+>
+> In this metaphor we see that there are some things we are responsible for, such as using the means of grace—the Bible, prayer, and church participation—in a disciplined way. There are many other things we do not have much control over—such as how well the circumstances in our lives are going as well as our emotions. If you pray, worship, and obey despite negative circumstances and feelings, you won’t be drifting, and when the winds come up again, you will move ahead swiftly. On the other hand, if you do not apply the means of grace, you will at best be drifting, and if storms come into your life, you might be in danger of sinking.
+>
+> In any case—pray no matter what. Praying is rowing, and sometimes it is like rowing in the dark—you won’t feel that you are making any progress at all. Yet you are, and when the winds rise again, and they surely will, you will sail again before them.
 
 <p class="quote-src">— Tim Keller “Prayer” p.259-260</p>
 
@@ -1491,8 +1399,7 @@ I often ask Christians to evaluate their situation with regard to prayer by usin
 
 > Anything can be made into a brand and perhaps nothing can be more easily branded than the anti-brand faux-rebelliousness of recent punk culture. If Weird Christianity is to make good on its missionary promise, then it will need to avoid the obvious danger of becoming the Hot Topic to Willow Creek’s Old Navy or Boomer Catholicism’s Land’s End, all of which are welcome at American capitalism’s table.
 
-<p class="quote-src">— Jake Meador, “Keep Christianity Weird”, May 12, 2020:<br>
-<a href="https://mereorthodoxy.com/keep-christianity-weird/">https://mereorthodoxy.com/keep-christianity-weird/</a></p>
+<p class="quote-src">— Jake Meador, “<a class="src-title" href="https://mereorthodoxy.com/keep-christianity-weird/">Keep Christianity Weird</a>”, May 12, 2020:</p>
 
 ---
 
@@ -1570,11 +1477,9 @@ I often ask Christians to evaluate their situation with regard to prayer by usin
 
 ---
 
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:left="720" w:right="720" /><w:rPr><w:color w:val="000000" /></w:rPr></w:pPr><w:r w:rsidRPr="60EC0252"><w:rPr><w:color w:val="000000" w:themeColor="text1" /></w:rPr><w:t>Among the many thoughtless labels which have gained currency, the dichotomy between the political left and the political right is one of the most striking, not only for its wide acceptance but also for its utter lack of definition - or even an attempt at definition. Only the left is defined - initially by the kinds of ideas held by those who sat on the left side of the French national assembly in the eighteenth century. But while the left is defined, at least in this general sense, the dichotomy itself is undefined because 'the right' remains undefined. Those who oppose the left are said to be on the right - and when they are strongly opposed, or opposed across a broad spectrum of issues, they are said to be on the 'far right.' But this is a somewhat Ptolemaic view of the political universe, with the political left being in the center of that universe and who all who differ -in any direction- being called 'the right.'
-
----
-
-> <w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:ind w:left="720" w:right="720" /><w:rPr><w:color w:val="000000" /></w:rPr></w:pPr><w:r w:rsidRPr="60EC0252"><w:rPr><w:color w:val="000000" w:themeColor="text1" /></w:rPr><w:t xml:space="preserve">Whether free-market libertarians or statists ranging from those with monarchist to fascist views, opponents of the left are called 'the right.' In the United States, especially, the related term 'conservative' is routinely used to encompass people who have no desire to preserve the status quo or to return to some status quo ante... Although the free market is clearly the antithesis of state control of the economy, such as fascists advocate, the left-right dichotomy makes it seems as if fascists are just more extreme versions of 'conservatives,' in the same sense in which socialism is a more extreme version of the welfare state. But this vision of a symmetrical political spectrum corresponds to no political reality. Those who advocate the free market typically do so as just one aspect of a more general vision in which government's role in the lives of individuals is to be minimized, within limits set by a need to avoid anarchy and a need to maintain military defense against other nations. In no sense is fascism a further extension of that idea.
+> Among the many thoughtless labels which have gained currency, the dichotomy between the political left and the political right is one of the most striking, not only for its wide acceptance but also for its utter lack of definition - or even an attempt at definition. Only the left is defined - initially by the kinds of ideas held by those who sat on the left side of the French national assembly in the eighteenth century. But while the left is defined, at least in this general sense, the dichotomy itself is undefined because 'the right' remains undefined. Those who oppose the left are said to be on the right - and when they are strongly opposed, or opposed across a broad spectrum of issues, they are said to be on the 'far right.' But this is a somewhat Ptolemaic view of the political universe, with the political left being in the center of that universe and who all who differ -in any direction- being called 'the right.'
+>
+> Whether free-market libertarians or statists ranging from those with monarchist to fascist views, opponents of the left are called 'the right.' In the United States, especially, the related term 'conservative' is routinely used to encompass people who have no desire to preserve the status quo or to return to some status quo ante... Although the free market is clearly the antithesis of state control of the economy, such as fascists advocate, the left-right dichotomy makes it seems as if fascists are just more extreme versions of 'conservatives,' in the same sense in which socialism is a more extreme version of the welfare state. But this vision of a symmetrical political spectrum corresponds to no political reality. Those who advocate the free market typically do so as just one aspect of a more general vision in which government's role in the lives of individuals is to be minimized, within limits set by a need to avoid anarchy and a need to maintain military defense against other nations. In no sense is fascism a further extension of that idea.
 
 <p class="quote-src">— Thomas Sowell, “The Vision of the Anointed” (p. 208)</p>
 
@@ -1624,24 +1529,17 @@ I often ask Christians to evaluate their situation with regard to prayer by usin
 
 > Has no liberal noticed that no government is ever neutral in society’s allocation of wealth and opportunity? And that the bigger government becomes, the more it is manipulated by those who are sufficiently confident, articulate, and sophisticated to understand government’s complexities, and wealthy enough to hire skillful agents to navigate those complexities on their behalf? This is why big government is invariably regressive, transferring wealth upward.
 
-<p class="quote-src">— George Will “A New Paean to Progressivism Overlooks Why Americans Lost Trust in Government” January 17, 2018 8:00 PM<br>
-<a href="http://www.nationalreview.com/article/455523/david-goldfield-gifted-generation-romanticizes-pre-reagan-liberal-government">http://www.nationalreview.com/article/455523/david-goldfield-gifted-generation-romanticizes-pre-reagan-liberal-government</a></p>
+<p class="quote-src">— George Will “<a class="src-title" href="http://www.nationalreview.com/article/455523/david-goldfield-gifted-generation-romanticizes-pre-reagan-liberal-government">A New Paean to Progressivism Overlooks Why Americans Lost Trust in Government</a>” January 17, 2018 8:00 PM</p>
 
 ---
 
-James Donovan:</w:r><w:r><w:t>I have a mandate to serve you. Nobody else does. Quite frankly, everybody else has an interest in sending you to the electric chair.
-
----
-
-Rudolf Abel:</w:r><w:r><w:t>All right...
-
----
-
-James Donovan:</w:r><w:r><w:t>You don't seem alarmed.
-
----
-
-> Rudolf Abel:</w:r><w:r><w:t>Would it help?
+> James Donovan: I have a mandate to serve you. Nobody else does. Quite frankly, everybody else has an interest in sending you to the electric chair.
+>
+> Rudolf Abel: All right...
+>
+> James Donovan: You don't seem alarmed.
+>
+> Rudolf Abel: Would it help?
 
 <p class="quote-src">— Bridge of Spies (2015)</p>
 
@@ -1649,11 +1547,7 @@ James Donovan:</w:r><w:r><w:t>You don't seem alarmed.
 
 > Imagine that you are standing in a small clearing in the middle of a vast forest, and that this forest represents your ignorance of the world. The clearing you stand in represents your knowledge. As one gains knowledge, the clearing expands and the forest of ignorance recedes. But as the clearing expands, so does its circumference and so the area of contact between knowledge and ignorance also grows, and our knowledge of the extent of our ignorance grows with it. So, paradoxically, the wiser we become, the less wise we feel. This is the wellspring of intellectual humility, the Socratic realization that the more you know, the more you realize you don’t know, and the more apparent it becomes that your own opinions are susceptible to fallibility.
 
----
-
-Matthew Blackwell “The Psychology of Progressive Hostility” March 10, 2018 on Quillette.com
-
-<p class="quote-src"><a href="http://quillette.com/2018/03/10/psychology-progressive-hostility/">http://quillette.com/2018/03/10/psychology-progressive-hostility/</a></p>
+<p class="quote-src">— Matthew Blackwell, “<a class="src-title" href="http://quillette.com/2018/03/10/psychology-progressive-hostility/">The Psychology of Progressive Hostility</a>”, Quillette, March 10, 2018</p>
 
 ---
 
@@ -1671,58 +1565,25 @@ Edited by Ronald Hamowy
 ---
 
 > People who write in this manner usually have a general emotional meaning — they dislike one thing and want to express solidarity with another — but they are not interested in the detail of what they are saying.
-
----
-
-...
-
----
-
+>
+> ...
+>
 > The inflated style is itself a kind of euphemism. A mass of Latin words falls upon the facts like soft snow, blurring the outlines and covering up all the details. The great enemy of clear language is insincerity. When there is a gap between one’s real and one’s declared aims, one turns as it were instinctively to long words and exhausted idioms, like a cuttlefish spurting out ink.
-
----
-
-...
-
----
-
+>
+> ...
+>
 > What is above all needed is to let the meaning choose the word, and not the other way around. In prose, the worst thing one can do with words is surrender to them.
+>
+> ...
+>
+> - Never use a metaphor, simile, or other figure of speech which you are used to seeing in print.
+> - Never use a long word where a short one will do.
+> - If it is possible to cut a word out, always cut it out.
+> - Never use the passive where you can use the active.
+> - Never use a foreign phrase, a scientific word, or a jargon word if you can think of an everyday English equivalent.
+> - Break any of these rules sooner than say anything outright barbarous.
 
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:spacing w:after="0" /></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>Never use a metaphor, simile, or other figure of speech which you are used to seeing in print.
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:spacing w:after="0" /></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>Never use a long word where a short one will do.
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:spacing w:after="0" /></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>If it is possible to cut a word out, always cut it out.
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:spacing w:after="0" /></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>Never use the passive where you can use the active.
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:spacing w:after="0" /></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>Never use a foreign phrase, a scientific word, or a jargon word if you can think of an everyday English equivalent.
-
----
-
-<w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr></w:pPr><w:r w:rsidRPr="74D96161"><w:rPr><w:color w:val="000000" w:themeColor="text1" /></w:rPr><w:t>Break any of these rules sooner than say anything outright barbarous.
-
----
-
-> …
-
-<p class="quote-src">— George Orwell</p>
-
----
-
-politics and the English language, 1946
-
-<p class="quote-src"><a href="https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/">https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/</a></p>
+<p class="quote-src">— George Orwell, “<a class="src-title" href="https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/">Politics and the English Language</a>”, 1946</p>
 
 ---
 
@@ -1732,7 +1593,7 @@ politics and the English language, 1946
 
 ---
 
-> <w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:spacing w:after="200" w:line="276" w:lineRule="auto" /><w:rPr><w:color w:val="000000" /></w:rPr></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>“To my mind, conservatism is gratitude. Conservatives tend to begin from gratitude for what is good and what works in our society and then strive to build on it, while liberals tend to begin from outrage at what is bad and broken and seek to uproot it.”
+> “To my mind, conservatism is gratitude. Conservatives tend to begin from gratitude for what is good and what works in our society and then strive to build on it, while liberals tend to begin from outrage at what is bad and broken and seek to uproot it.”
 >
 > You need both, because some of what is good about our world is irreplaceable and has to be guarded, while some of what is bad is unacceptable and has to be changed. We should never forget that the people who oppose our various endeavors and argue for another way are well intentioned too, even when they’re wrong, and that they’re not always wrong.
 
@@ -1766,7 +1627,7 @@ politics and the English language, 1946
 
 ---
 
-> <w:left w:val="nil" /><w:bottom w:val="nil" /><w:right w:val="nil" /><w:between w:val="nil" /></w:pBdr><w:spacing w:after="200" w:line="276" w:lineRule="auto" /><w:rPr><w:color w:val="000000" /></w:rPr></w:pPr><w:r><w:rPr><w:color w:val="000000" /></w:rPr><w:t>"A man should never be ashamed to own that he has been in the wrong, which is but saying in other words, that he is wiser today than he was yesterday.
+> "A man should never be ashamed to own that he has been in the wrong, which is but saying in other words, that he is wiser today than he was yesterday."
 
 <p class="quote-src">— Alexander Pope, “Thoughts on Various Subjects” (1727), published in “Swift's Miscellanies” (1727)</p>
 
@@ -1780,9 +1641,7 @@ politics and the English language, 1946
 
 > Habits are for lazy people. And you are lazy. We all are. Habits are shortcuts to getting a whole lot of things done without spending too much of your finite supply of willpower. So use em.
 
-<p class="quote-src">— Rufus Griscom, “Unsolicited Advice for My Three Sons, In No Particular Order”<br>
-<a href="https://medium.com/@rufybaby/unsolicited-advice-for-my-three-boys-in-no-particular-order-9f31c0394404">https://medium.com/@rufybaby/unsolicited-advice-for-my-three-boys-in-no-particular-order-9f31c0394404</a><br>
-<a href="https://medium.com/@rufybaby/unsolicited-advice-for-my-three-boys-in-no-particular-order-9f31c0394404#.nmdh2wgcy">https://medium.com/@rufybaby/unsolicited-advice-for-my-three-boys-in-no-particular-order-9f31c0394404#.nmdh2wgcy</a></p>
+<p class="quote-src">— Rufus Griscom, “<a class="src-title" href="https://medium.com/@rufybaby/unsolicited-advice-for-my-three-boys-in-no-particular-order-9f31c0394404">Unsolicited Advice for My Three Sons, In No Particular Order</a>”</p>
 
 ---
 
@@ -1794,9 +1653,7 @@ politics and the English language, 1946
 
 > … cultural acceptance can go two ways. One is simply conceding on certain points in order to gain favor with the society. However, the other side to this is making it an aim to persuade the culture of the merits of your own views. The first assumes that we must yield to gain influence. The latter assumes that we can get them to yield. Both place an incredibly high value on getting the culture to accept and embrace us, something to which we have not been called, nor has it been promised to us.
 
-<p class="quote-src">— user Kenton commenting on “We're Not the Ones God Has Been Waiting For” by Daniel Darling<br>
-<a href="http://thegospelcoalition.org/blogs/tgc/2013/03/14/were-not-the-ones-god-has-been-waiting-for/?comments">http://thegospelcoalition.org/blogs/tgc/2013/03/14/were-not-the-ones-god-has-been-waiting-for/?comments</a><br>
-<a href="http://thegospelcoalition.org/blogs/tgc/2013/03/14/were-not-the-ones-god-has-been-waiting-for/?comments#comments">http://thegospelcoalition.org/blogs/tgc/2013/03/14/were-not-the-ones-god-has-been-waiting-for/?comments#comments</a></p>
+<p class="quote-src">— user Kenton commenting on “<a class="src-title" href="http://thegospelcoalition.org/blogs/tgc/2013/03/14/were-not-the-ones-god-has-been-waiting-for/?comments">We're Not the Ones God Has Been Waiting For</a>” by Daniel Darling</p>
 
 ---
 

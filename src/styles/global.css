@@ -169,6 +169,15 @@ th { font-variant: small-caps; }
   font-size: 0.8em;
   word-break: break-all;
 }
+/* A linked work/article title sits inline in the attribution at normal size;
+   the faint, small, break-all rule above is only for bare URL links. */
+.quote-src a.src-title {
+  display: inline;
+  color: inherit;
+  font-size: inherit;
+  word-break: normal;
+  text-decoration-color: var(--faint);
+}
 .essay-body hr {
   margin: 1.4rem 0;
   border-top: 1px solid var(--border);
