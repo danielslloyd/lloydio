@@ -5603,7 +5603,6 @@
   links:
     amazon: https://www.amazon.com/dp/B01N1V2RQC
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81GN375FryL._SY300_.jpg
 - id: "B005EWCECQ"
   title: The Death of Ivan Ilyich
