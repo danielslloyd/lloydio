@@ -7431,16 +7431,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71d0bGbCisL._SY300_.jpg
-- id: "B0052DYEUW"
-  title: "Speaking of Jesus: The Art of Not-Evangelism"
-  author: Carl Medearis
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B0052DYEUW
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61SFPmMVQEL._SY300_.jpg
 - id: "0307463745"
   title: Rework
   author: Jason Fried
