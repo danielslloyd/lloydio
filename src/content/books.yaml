@@ -7131,16 +7131,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/91sptmscinL._SY300_.jpg
-- id: "B01D0L9USS"
-  title: "Elizabeth II: Life of a Monarch: An Audible Original"
-  author: Ruth Cowen
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B01D0L9USS
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81+jVc617KL._SY300_.jpg
 - id: "B012HJK542"
   title: "D DAY Through German Eyes - More hidden stories from June 6th 1944: Book Two (D DAY - Through German Eyes 2)"
   author: Holger Eckhertz
