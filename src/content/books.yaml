@@ -4675,11 +4675,11 @@
   title: "The Finish: The Killing of Osama bin Laden"
   author: Mark Bowden
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 3
   links:
     amazon: https://www.amazon.com/dp/B009RFHBA6
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81fsrR0WmgL._SY300_.jpg
 - id: "1783271205"
   title: The Cistercians in the Middle Ages (Monastic Orders, 4)
