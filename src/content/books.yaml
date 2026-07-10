@@ -6845,16 +6845,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81nFgynQxQL._SY300_.jpg
-- id: "B084GB3VCY"
-  title: Tell Me Lies
-  author: J. P. Pomare
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B084GB3VCY
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81gYv6T+SSL._SY300_.jpg
 - id: "B00I3P36ZU"
   title: "The House of Morgan: An American Banking Dynasty and the Rise of Modern Finance"
   author: Ron Chernow
