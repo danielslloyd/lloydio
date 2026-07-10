@@ -6854,16 +6854,6 @@
     amazon: https://www.amazon.com/dp/B01GSO8F26
   source: amazon
   cover: https://m.media-amazon.com/images/I/A10iMAE42lL._SY300_.jpg
-- id: "1625275773"
-  title: "The Alliance: Managing Talent in the Networked Age"
-  author: Reid Hoffman
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1625275773
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61M+KUpCeQL._SY300_.jpg
 - id: "B071WQPBKP"
   title: "Treasure Island: An Audible Original Drama"
   author: Robert Louis Stevenson
