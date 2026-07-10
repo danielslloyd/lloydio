@@ -7021,16 +7021,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/A10iMAE42lL._SY300_.jpg
-- id: "0739360388"
-  title: Harry Potter and the Deathly Hallows
-  author: J.K. Rowling
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0739360388
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81kPK9ECveL._SY300_.jpg
 - id: "B07XQJBSRW"
   title: Midnight Son
   author: James Dommek Jr.
