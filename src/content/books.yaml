@@ -6480,11 +6480,11 @@
   title: Greenlights
   author: Matthew McConaughey
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B08HLW2JXD
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81z6Yc8fi7L._SY300_.jpg
 - id: "163149905X"
   title: "Jesus and John Wayne: How White Evangelicals Corrupted a Faith and Fractured a Nation"
