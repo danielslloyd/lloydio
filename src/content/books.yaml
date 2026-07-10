@@ -4625,11 +4625,11 @@
   title: "Last Branch Standing: A Potentially Surprising, Occasionally Witty Journey Inside Today's Supreme Court"
   author: Sarah Isgur
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/B0FPZHFD72
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/71i9e9ib85L._SY300_.jpg
 - id: "0140556125"
   title: "Paul Revere's Ride"
