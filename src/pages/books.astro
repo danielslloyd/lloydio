@@ -139,11 +139,24 @@ const sections = [
         return data;
       }
 
+      // Serialize writes. Each request commits to git, so two in flight race on
+      // the same base tree and the second 409s. Chain them so a click during an
+      // in-flight action waits its turn instead of erroring.
+      let queue = Promise.resolve();
+      function enqueue(task) {
+        const run = queue.then(task, task);
+        // Keep the chain alive regardless of this task's outcome.
+        queue = run.then(() => {}, () => {});
+        return run;
+      }
+
       function opFromRow(row, action) {
         const id = row.getAttribute('data-book-id');
         if (action === 'delete') return { action: 'delete', id };
-        const status = row.querySelector('.draft-status')?.value || 'to-read';
-        const ratingVal = row.querySelector('.draft-rating')?.value || '';
+        // One combined control encodes status and optional rating as
+        // "status" or "finished:<rating>".
+        const raw = row.querySelector('.draft-state')?.value || 'to-read';
+        const [status, ratingVal] = raw.split(':');
         const op = { action: 'publish', id, status };
         if (ratingVal) op.rating = Number(ratingVal);
         return op;
@@ -169,13 +182,14 @@ const sections = [
       }
 
       document.querySelectorAll('.drafts-section .book-row [data-act]').forEach((btn) => {
-        btn.addEventListener('click', async () => {
+        btn.addEventListener('click', async (ev) => {
           const row = btn.closest('.book-row');
           const action = btn.getAttribute('data-act');
-          if (action === 'delete' && !confirm('Discard this draft book permanently?')) return;
+          // Shift-click skips the confirm — for clearing many drafts quickly.
+          if (action === 'delete' && !ev.shiftKey && !confirm('Discard this draft book permanently?')) return;
           setBusy(row, true);
           try {
-            await send([opFromRow(row, action)]);
+            await enqueue(() => send([opFromRow(row, action)]));
             row.style.transition = 'opacity .3s';
             row.style.opacity = '0';
             setTimeout(() => row.remove(), 300);
@@ -195,7 +209,7 @@ const sections = [
           if (!confirm('Publish all ' + rows.length + ' drafts with their selected status?')) return;
           pubAll.setAttribute('disabled', '');
           try {
-            await send(rows.map((r) => opFromRow(r, 'publish')));
+            await enqueue(() => send(rows.map((r) => opFromRow(r, 'publish'))));
             location.reload();
           } catch (e) {
             alert('publish all failed: ' + e.message);

@@ -69,9 +69,23 @@ const LOGO: Record<string, { viewBox: string; inner: string }> = {
   },
 };
 
-const shops = (['goodreads', 'amazon', 'audible'] as const)
-  .filter((k) => links[k])
-  .map((k) => ({ kind: k, url: links[k]!, specific: isSpecific(links[k]!, k) }));
+// Always render all three marks; a book without a link for a given shop shows
+// a grayed-out, non-clickable placeholder rather than a gap.
+const shops = (['goodreads', 'amazon', 'audible'] as const).map((k) => {
+  const url = links[k];
+  return {
+    kind: k,
+    url: url ?? null,
+    specific: url ? isSpecific(url, k) : false,
+  };
+});
+
+const cap = (s: string) => s[0].toUpperCase() + s.slice(1);
+
+// Owner drafts use one combined status+rating control. A rating only applies to
+// finished books, so the option list flattens the two dimensions into one.
+const stateValue =
+  status === 'finished' ? (rating ? `finished:${rating}` : 'finished') : status;
 ---
 
 <tr class="book-row" data-book-id={actions ? id : undefined}>
@@ -90,46 +104,53 @@ const shops = (['goodreads', 'amazon', 'audible'] as const)
       </details>
     )}
   </td>
-  <td class="book-status" title={`Added ${formatDate(date)}`}>
-    {showStars ? (
-      rating ? (
-        <span class="stars" title={`${rating}/5`}>{stars(rating)}</span>
+  {!actions && (
+    <td class="book-status" title={`Added ${formatDate(date)}`}>
+      {showStars ? (
+        rating ? (
+          <span class="stars" title={`${rating}/5`}>{stars(rating)}</span>
+        ) : (
+          <span class="stars empty" title="unrated">☆☆☆☆☆</span>
+        )
       ) : (
-        <span class="stars empty" title="unrated">☆☆☆☆☆</span>
-      )
-    ) : (
-      <span class="status">{status}</span>
-    )}
-  </td>
-  <td class="book-links">
-    {shops.map((s) => (
-      <a
-        href={s.url}
-        title={`${s.kind[0].toUpperCase()}${s.kind.slice(1)}${s.specific ? '' : ' (search)'}`}
-        class:list={['shop', s.kind, { search: !s.specific }]}
-      >
-        <svg class="icon" viewBox={LOGO[s.kind].viewBox} fill="currentColor" aria-hidden="true" set:html={LOGO[s.kind].inner} />
-      </a>
-    ))}
-  </td>
+        <span class="status">{status}</span>
+      )}
+    </td>
+  )}
+  {!actions && (
+    <td class="book-links">
+      {shops.map((s) =>
+        s.url ? (
+          <a
+            href={s.url}
+            title={`${cap(s.kind)}${s.specific ? '' : ' (search)'}`}
+            class:list={['shop', s.kind, { search: !s.specific }]}
+          >
+            <svg class="icon" viewBox={LOGO[s.kind].viewBox} fill="currentColor" aria-hidden="true" set:html={LOGO[s.kind].inner} />
+          </a>
+        ) : (
+          <span class:list={['shop', s.kind, 'missing']} title={`${cap(s.kind)} (no link)`} aria-hidden="true">
+            <svg class="icon" viewBox={LOGO[s.kind].viewBox} fill="currentColor" aria-hidden="true" set:html={LOGO[s.kind].inner} />
+          </span>
+        )
+      )}
+    </td>
+  )}
   {actions && (
     <td class="book-actions">
-      <select class="draft-status" aria-label="Status on publish">
-        <option value="to-read" selected={status === 'to-read'}>to read</option>
-        <option value="reading" selected={status === 'reading'}>reading</option>
-        <option value="finished" selected={status === 'finished'}>read</option>
-      </select>
-      <select class="draft-rating" aria-label="Rating on publish">
-        <option value="">—</option>
-        <option value="1">★</option>
-        <option value="2">★★</option>
-        <option value="3">★★★</option>
-        <option value="4">★★★★</option>
-        <option value="5">★★★★★</option>
+      <select class="draft-state" aria-label="Status and rating on publish">
+        <option value="to-read" selected={stateValue === 'to-read'}>to read</option>
+        <option value="reading" selected={stateValue === 'reading'}>reading</option>
+        <option value="finished" selected={stateValue === 'finished'}>read</option>
+        <option value="finished:1" selected={stateValue === 'finished:1'}>read ★</option>
+        <option value="finished:2" selected={stateValue === 'finished:2'}>read ★★</option>
+        <option value="finished:3" selected={stateValue === 'finished:3'}>read ★★★</option>
+        <option value="finished:4" selected={stateValue === 'finished:4'}>read ★★★★</option>
+        <option value="finished:5" selected={stateValue === 'finished:5'}>read ★★★★★</option>
       </select>
       <button type="button" class="act publish" data-act="publish">publish</button>
       {editHref && <a class="act edit" href={editHref} target="_blank" rel="noopener">edit</a>}
-      <button type="button" class="act delete" data-act="delete" aria-label="Delete draft">✕</button>
+      <button type="button" class="act delete" data-act="delete" aria-label="Delete draft" title="Delete draft (shift-click to skip confirm)">✕</button>
     </td>
   )}
 </tr>
@@ -140,9 +161,14 @@ const shops = (['goodreads', 'amazon', 'audible'] as const)
     padding: 0.3em !important;
     text-align: center;
   }
+  /* Uniform thumbnail box so every row is the same height; unusually tall or
+     wide covers shrink to fit (letterboxed) rather than stretching the row. */
   .cover-image {
-    max-width: 100%;
-    max-height: 64px;
+    display: block;
+    margin: 0 auto;
+    width: 35px;
+    height: 52px;
+    object-fit: contain;
     border: 1px solid var(--border);
   }
 
@@ -228,7 +254,14 @@ const shops = (['goodreads', 'amazon', 'audible'] as const)
   .shop.search { opacity: 0.65; }
   .shop.search .icon,
   .shop.search .icon :global(path) { color: var(--faint); fill: var(--faint); }
-  .shop:hover { opacity: 1; }
+
+  /* No link at all: a faint, non-interactive placeholder. */
+  .shop.missing { opacity: 0.35; cursor: default; }
+  .shop.missing .icon,
+  .shop.missing .icon :global(path) { color: var(--faint); fill: var(--faint); }
+
+  /* Only real links brighten on hover; placeholders stay dim. */
+  a.shop:hover { opacity: 1; }
 
   /* Owner-mode draft controls. */
   .book-actions {
