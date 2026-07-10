@@ -6805,16 +6805,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81CB+m0vupL._SY300_.jpg
-- id: "B07QV32DZP"
-  title: "The Real Sherlock: An Audible Original"
-  author: Lucinda Hawksley
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07QV32DZP
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71JtM+hC88L._SY300_.jpg
 - id: "B00I3P36ZU"
   title: "The House of Morgan: An American Banking Dynasty and the Rise of Modern Finance"
   author: Ron Chernow
