@@ -7,9 +7,17 @@ import { SHOW_DRAFTS, editUrl } from '../lib/site';
 // books now live in one src/content/books.yaml (file loader).
 const BOOKS_FILE = 'src/content/books.yaml';
 
-const books = (await getCollection('books', (e) => SHOW_DRAFTS || !e.data.draft)).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
+const all = await getCollection('books', (e) => SHOW_DRAFTS || !e.data.draft);
+
+// Public list never shows drafts, even in owner mode — drafts get their own
+// section below so publishing is a deliberate act.
+const books = all
+  .filter((b) => !b.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const draftBooks = all
+  .filter((b) => b.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const counts = books.reduce((m, b) => ((m[b.data.status] = (m[b.data.status] ?? 0) + 1), m), {});
 
@@ -60,7 +68,142 @@ const sections = [
       </details>
     );
   })}
+
+  {SHOW_DRAFTS && draftBooks.length > 0 && (
+    <details class="book-section drafts-section" id="drafts" open>
+      <summary>
+        drafts <span class="count">{draftBooks.length}</span>
+      </summary>
+      <p class="drafts-help">
+        Owner-only. Imported from Goodreads/Amazon and hidden from the public site.
+        Pick a status (and optional rating), then <strong>publish</strong> to add it to the
+        list — or <strong>edit</strong> the raw entry, or <strong>✕</strong> to discard.
+        <button type="button" id="publish-all" class="act">publish all as-is</button>
+      </p>
+      <div style="overflow-x:auto">
+        <table>
+          <tbody>
+            {draftBooks.map((b) => (
+              <BookRow
+                id={b.id}
+                title={b.data.title}
+                author={b.data.author}
+                status={b.data.status}
+                rating={b.data.rating}
+                date={b.data.date}
+                cover={b.data.cover}
+                review={b.data.review}
+                links={b.data.links}
+                actions={true}
+                editHref={editUrl(BOOKS_FILE)}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+  )}
 </Base>
+
+{SHOW_DRAFTS && draftBooks.length > 0 && (
+  <script is:inline>
+    (function () {
+      const API = '/api/books';
+      const TOKEN_KEY = 'lloydio_owner_token';
+
+      function getToken() {
+        let t = localStorage.getItem(TOKEN_KEY);
+        if (!t) {
+          t = prompt('Owner token (CAPTURE_TOKEN):') || '';
+          if (t) localStorage.setItem(TOKEN_KEY, t.trim());
+        }
+        return (t || '').trim();
+      }
+
+      async function send(ops) {
+        const token = getToken();
+        if (!token) throw new Error('no token');
+        const res = await fetch(API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+          body: JSON.stringify(ops.length === 1 ? ops[0] : { ops }),
+        });
+        if (res.status === 401) {
+          localStorage.removeItem(TOKEN_KEY);
+          throw new Error('unauthorized — token cleared, try again');
+        }
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || 'request failed (' + res.status + ')');
+        return data;
+      }
+
+      function opFromRow(row, action) {
+        const id = row.getAttribute('data-book-id');
+        if (action === 'delete') return { action: 'delete', id };
+        const status = row.querySelector('.draft-status')?.value || 'to-read';
+        const ratingVal = row.querySelector('.draft-rating')?.value || '';
+        const op = { action: 'publish', id, status };
+        if (ratingVal) op.rating = Number(ratingVal);
+        return op;
+      }
+
+      function updateCount(delta) {
+        const c = document.querySelector('#drafts > summary .count');
+        if (!c) return;
+        const n = Math.max(0, (parseInt(c.textContent, 10) || 0) + delta);
+        c.textContent = String(n);
+        if (n === 0) {
+          const help = document.querySelector('.drafts-help');
+          if (help) help.textContent = 'All drafts cleared. ';
+        }
+      }
+
+      function setBusy(row, busy) {
+        row.querySelectorAll('button, select, a.act').forEach((el) => {
+          if (busy) el.setAttribute('disabled', '');
+          else el.removeAttribute('disabled');
+        });
+        row.style.opacity = busy ? '0.5' : '';
+      }
+
+      document.querySelectorAll('.drafts-section .book-row [data-act]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const row = btn.closest('.book-row');
+          const action = btn.getAttribute('data-act');
+          if (action === 'delete' && !confirm('Discard this draft book permanently?')) return;
+          setBusy(row, true);
+          try {
+            await send([opFromRow(row, action)]);
+            row.style.transition = 'opacity .3s';
+            row.style.opacity = '0';
+            setTimeout(() => row.remove(), 300);
+            updateCount(-1);
+          } catch (e) {
+            alert(action + ' failed: ' + e.message);
+            setBusy(row, false);
+          }
+        });
+      });
+
+      const pubAll = document.getElementById('publish-all');
+      if (pubAll) {
+        pubAll.addEventListener('click', async () => {
+          const rows = Array.from(document.querySelectorAll('.drafts-section .book-row'));
+          if (!rows.length) return;
+          if (!confirm('Publish all ' + rows.length + ' drafts with their selected status?')) return;
+          pubAll.setAttribute('disabled', '');
+          try {
+            await send(rows.map((r) => opFromRow(r, 'publish')));
+            location.reload();
+          } catch (e) {
+            alert('publish all failed: ' + e.message);
+            pubAll.removeAttribute('disabled');
+          }
+        });
+      }
+    })();
+  </script>
+)}
 
 <style>
   .book-section {
@@ -83,4 +226,32 @@ const sections = [
   .book-section[open] > summary::before { content: '▾ '; }
   .book-section > summary .count { color: var(--faint); font-size: 0.85rem; }
   .book-section table { margin-top: 0.4rem; }
+
+  /* Owner-only drafts bucket: set apart from the public sections. */
+  .drafts-section {
+    margin-top: 2.4rem;
+    padding: 0.6rem 0.9rem 0.9rem;
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--muted) 6%, transparent);
+  }
+  .drafts-section > summary { color: var(--muted); }
+  .drafts-help {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0.6rem 0 0.2rem;
+    line-height: 1.5;
+  }
+  .drafts-help .act {
+    font-family: inherit;
+    font-size: 0.9em;
+    margin-left: 0.4em;
+    padding: 0.12em 0.6em;
+    border: 1px solid var(--muted);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--fg);
+    cursor: pointer;
+  }
+  .drafts-help .act[disabled] { opacity: 0.5; cursor: default; }
 </style>

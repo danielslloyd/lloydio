@@ -15,9 +15,15 @@ interface Props {
     amazon?: string;
     audible?: string;
   };
+  // Owner-mode drafts table: render an extra cell with publish/edit/delete
+  // controls (wired client-side in books.astro). `editHref` deep-links to the
+  // GitHub web editor for books.yaml.
+  actions?: boolean;
+  editHref?: string | null;
 }
 
-const { title, author, status, rating, date, cover, review, links } = Astro.props;
+const { id, title, author, status, rating, date, cover, review, links, actions, editHref } =
+  Astro.props;
 
 const stars = (n?: number) => (n ? '★'.repeat(n) + '☆'.repeat(5 - n) : '');
 
@@ -68,7 +74,7 @@ const shops = (['goodreads', 'amazon', 'audible'] as const)
   .map((k) => ({ kind: k, url: links[k]!, specific: isSpecific(links[k]!, k) }));
 ---
 
-<tr class="book-row">
+<tr class="book-row" data-book-id={actions ? id : undefined}>
   <td class="book-cover">
     {cover && (
       <img src={cover} alt="" loading="lazy" class="cover-image" onerror="this.remove()" />
@@ -106,6 +112,26 @@ const shops = (['goodreads', 'amazon', 'audible'] as const)
       </a>
     ))}
   </td>
+  {actions && (
+    <td class="book-actions">
+      <select class="draft-status" aria-label="Status on publish">
+        <option value="to-read" selected={status === 'to-read'}>to read</option>
+        <option value="reading" selected={status === 'reading'}>reading</option>
+        <option value="finished" selected={status === 'finished'}>read</option>
+      </select>
+      <select class="draft-rating" aria-label="Rating on publish">
+        <option value="">—</option>
+        <option value="1">★</option>
+        <option value="2">★★</option>
+        <option value="3">★★★</option>
+        <option value="4">★★★★</option>
+        <option value="5">★★★★★</option>
+      </select>
+      <button type="button" class="act publish" data-act="publish">publish</button>
+      {editHref && <a class="act edit" href={editHref} target="_blank" rel="noopener">edit</a>}
+      <button type="button" class="act delete" data-act="delete" aria-label="Delete draft">✕</button>
+    </td>
+  )}
 </tr>
 
 <style>
@@ -203,4 +229,43 @@ const shops = (['goodreads', 'amazon', 'audible'] as const)
   .shop.search .icon,
   .shop.search .icon :global(path) { color: var(--faint); fill: var(--faint); }
   .shop:hover { opacity: 1; }
+
+  /* Owner-mode draft controls. */
+  .book-actions {
+    white-space: nowrap;
+    text-align: right;
+    font-size: 0.85em;
+  }
+  .book-actions select {
+    font-size: 0.85em;
+    padding: 0.05em 0.2em;
+    margin-right: 0.25em;
+    vertical-align: middle;
+  }
+  .book-actions .act {
+    display: inline-block;
+    margin-left: 0.2em;
+    padding: 0.12em 0.5em;
+    font-size: 0.9em;
+    font-family: inherit;
+    line-height: 1.4;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--fg);
+    cursor: pointer;
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  .book-actions .act:hover { border-color: var(--muted); }
+  .book-actions .publish {
+    border-color: var(--muted);
+    font-weight: 600;
+  }
+  .book-actions .delete {
+    color: var(--faint);
+    padding: 0.12em 0.4em;
+  }
+  .book-actions .delete:hover { color: #b00020; border-color: #b00020; }
+  .book-actions .act[disabled] { opacity: 0.5; cursor: default; }
 </style>
