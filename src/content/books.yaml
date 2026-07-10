@@ -6805,16 +6805,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81CB+m0vupL._SY300_.jpg
-- id: "B07T3HC7BC"
-  title: "A Grown-Up Guide to Dinosaurs: An Audible Original"
-  author: Ben Garrod
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07T3HC7BC
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91tmGGLJYGL._SY300_.jpg
 - id: "B07QV32DZP"
   title: "The Real Sherlock: An Audible Original"
   author: Lucinda Hawksley
