@@ -6855,16 +6855,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81gYv6T+SSL._SY300_.jpg
-- id: "B07WH3W69R"
-  title: Blood Territory
-  author: Mark Whittaker
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07WH3W69R
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/915e9dFrgFL._SY300_.jpg
 - id: "B00I3P36ZU"
   title: "The House of Morgan: An American Banking Dynasty and the Rise of Modern Finance"
   author: Ron Chernow
