@@ -3,27 +3,16 @@ title: Commonplace
 blurb: quotes, facts, and passages worth keeping
 ---
 
-
-> The first principle is that you must not fool yourself — and you are the easiest person to fool.
-
-<p class="quote-src">— Richard Feynman, “Surely You're Joking, Mr. Feynman!” (commencement address version, Caltech 1974)</p>
-
----
-
 S.S. Stevens' scales of measurement classifies data into four hierarchical levels—Nominal, Ordinal, Interval, and Ratio (NOIR).
 
----
+**Categorical** (or qualitative) variables describe kinds rather than amounts:
+- **Nominal** categorical variables are pure labels with no inherent order (e.g., blood type, country, product category).
+- **Binary** variables are a special case of nominal with exactly two categories, often encoding a yes/no condition.
+- **Ordinal** categorical variables impose a ranking without guaranteeing equal spacing between levels (e.g., high/medium/low, good/fair/poor, education levels).
 
-Categorical (or qualitative) variables describe kinds rather than amounts:
-- Nominal categorical variables are pure labels with no inherent order (e.g., blood type, country, product category).
-- Binary variables are a special case of nominal with exactly two categories, often encoding a yes/no condition.
-- Ordinal categorical variables impose a ranking without guaranteeing equal spacing between levels (e.g., high/medium/low, good/fair/poor, education levels).
-
----
-
-Numerical (quantitative) variables measure amounts and support arithmetic to varying degrees:
-- Interval numerical variables have equal, measurable spacing but no true zero, so ratios are meaningless, (e.g., 40° C is not "twice as hot" as 20° C because 0° is arbitrary).
-- Ratio (or cardinal) numerical variables have both equal intervals and a true zero, enabling all arithmetic.
+**Numerical** (quantitative) variables measure amounts and support arithmetic to varying degrees:
+- **Interval** numerical variables have equal, measurable spacing but no true zero, so ratios are meaningless, (e.g., 40° C is not "twice as hot" as 20° C because 0° is arbitrary).
+- **Ratio** (or **cardinal**) numerical variables have both equal intervals and a true zero, enabling all arithmetic.
 
 ---
 
@@ -316,11 +305,12 @@ Sound does not efficiently travel from water to air or vice versa. The human inn
 ---
 
 The name Pakistan is an acronym for the names of several regions, combined with the suffix **-stan** which means "land":
-Punjab
-Afghania
-Kashmir
-Indus-Sind
-Baluchistan: (represented by the **-tan** suffix) 
+- **P**unjab
+- **A**fghania
+- **K**ashmir
+- **I**ndus-Sind
+- Baluchi**stan**
+
 The name was coined in 1933 by Choudhry Rahmat Ali, a young Muslim student and activist in the Pakistan Movement, in his pamphlet Now or Never, Are We to Live or Perish Forever?. In Persian and Urdu, Pakistan can also be translated as "the land of the pure". The word **pak** means "pure" in Persian or Pashto, while the Persian suffix **-stan** means "place of" or "country".
 
 ---
@@ -502,22 +492,10 @@ The **F1 Score** of a model is the harmonic mean of Precision (true positives / 
 ---
 
 Monoclonal antibodies fall into four categories (murine, chimeric, humanized and human)
-
----
-
-Murine antibodies (suffix **-omab**) are from mice or rats, and have largely been replaced.
-
----
-
-Chimeric antibodies (suffix **-ximab**) are composed of murine variable regions fused onto human constant regions. This reduces immunogenicity (i.e., trigger less immune response in humans), and thus increases serum half-life.
-
----
-
-Humanized antibodies (suffix **-zumab**) are produced by grafting murine hypervariable regions on amino acid domains into human antibodies. This results in a molecule of approximately 95% human origin.
-
----
-
-Human antibodies (suffix **-umab**) are produced using transgenic mice - mice with human immunoglobulin genes. When these mice are vaccinated against the desired antigen, they produce fully human antibodies.
+- Murine antibodies (suffix **-omab**) are from mice or rats, and have largely been replaced.
+- Chimeric antibodies (suffix **-ximab**) are composed of murine variable regions fused onto human constant regions. This reduces immunogenicity (i.e., trigger less immune response in humans), and thus increases serum half-life.
+- Humanized antibodies (suffix **-zumab**) are produced by grafting murine hypervariable regions on amino acid domains into human antibodies. This results in a molecule of approximately 95% human origin.
+- Human antibodies (suffix **-umab**) are produced using transgenic mice - mice with human immunoglobulin genes. When these mice are vaccinated against the desired antigen, they produce fully human antibodies.
 
 ---
 
@@ -565,7 +543,7 @@ The **in-law** suffix is short for **in Canon law**, referring to the Catholic C
 
 ---
 
-In the Ancien Régime of France, the **noblesse de robe** (Nobles of the Robe) held purchased titles, generally attached to a function or office for which they had studied, while **noblesse d'épée** (Nobles of the Sword) held titles earned by their ancestors for military service and generally attached to a fiefdom.
+In the *Ancien Régime* of France, the *noblesse de robe* (Nobles of the Robe) held purchased titles, generally attached to a function or office for which they had studied, while *noblesse d'épée* (Nobles of the Sword) held titles earned by their ancestors for military service and generally attached to a fiefdom.
 
 ---
 
@@ -1275,4 +1253,3 @@ EconTalk with George Selgin, 2015-12-14
 ---
 
 RSA Cryptography uses large prime numbers multiplied together, which are hard to back-calculate
-
