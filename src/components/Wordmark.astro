@@ -2,10 +2,12 @@
 // The "lloydio" wordmark used in the site header. Rendered inline (not as an
 // <img>) so `fill: currentColor` lets it invert with the light/dark theme.
 // Background rect from the source art was dropped; only the letterforms remain.
+// viewBox is trimmed to the exact fill bounds of the glyph paths (measured via
+// getBBox) so there is no surrounding whitespace.
 ---
 <svg
   class="wordmark"
-  viewBox="83.74564 167 1744.50872 700"
+  viewBox="83.74564 390.49173 1744.50872 253.01657"
   xmlns="http://www.w3.org/2000/svg"
   role="img"
   aria-label="lloydio"

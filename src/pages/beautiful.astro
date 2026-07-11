@@ -1,4 +1,115 @@
 ---
-import CategoryDoc from '../components/CategoryDoc.astro';
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { SHOW_DRAFTS, editUrl } from '../lib/site';
+
+// Visual gallery, fed by src/content/beautiful.yaml. Images are hotlinked from
+// their source CDN with a text-link fallback (onerror). See BEAUTIFUL-IMAGES.md.
+const all = await getCollection('beautiful', (e) => SHOW_DRAFTS || !e.data.draft);
+const items = all.sort((a, b) => b.data.added.valueOf() - a.data.added.valueOf());
 ---
-<CategoryDoc slug="beautiful" />
+<Base title="Beautiful Things">
+  <h1 class="page-title">Beautiful Things</h1>
+  <p class="meta">
+    images worth returning to just to look at
+    {SHOW_DRAFTS && <a class="edit-link" href={editUrl('src/content/beautiful.yaml')}>edit beautiful.yaml</a>}
+  </p>
+
+  {items.length === 0 && <p>Nothing here yet.</p>}
+
+  <div class="gallery">
+    {items.map((it) => (
+      <figure class="beautiful">
+        <a href={it.data.source} class="b-frame">
+          <img
+            src={it.data.thumb ?? it.data.image}
+            alt={it.data.title}
+            width={it.data.width}
+            height={it.data.height}
+            loading="lazy"
+            decoding="async"
+            onerror="this.closest('figure').classList.add('img-broken')"
+          />
+        </a>
+        <figcaption>
+          <a class="b-title" href={it.data.source}>{it.data.title}</a>
+          <a class="b-source" href={it.data.source}>source ↗</a>
+          {it.data.caption && <span class="b-caption">{it.data.caption}</span>}
+          {it.data.credit && <span class="b-credit">{it.data.credit}</span>}
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+</Base>
+
+<style>
+  /* Break out of the narrow reading column so the images can be as wide as
+     possible, staying centered on the viewport (same technique as the books
+     drafts table and the doc editor). */
+  .gallery {
+    --gallery-width: min(96vw, 1600px);
+    width: var(--gallery-width);
+    margin: 1.75rem 0 0;
+    margin-left: calc(50% - var(--gallery-width) / 2);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  figure.beautiful {
+    margin: 0;
+  }
+  .b-frame {
+    display: block;
+    line-height: 0;
+  }
+  figure.beautiful img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  /* If the hotlinked image ever fails, hide the (broken) frame and let the
+     caption's title carry the link instead. */
+  figure.beautiful.img-broken .b-frame {
+    display: none;
+  }
+
+  figure.beautiful figcaption {
+    /* Keep caption text in a readable column, left-aligned under the wide image. */
+    max-width: var(--content-width);
+    margin: 0.7rem auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.8rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .b-title {
+    color: var(--fg);
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+  }
+  .b-title:hover { text-decoration: underline; }
+  .b-source {
+    margin-left: auto;
+    white-space: nowrap;
+    color: var(--faint);
+    font-variant: small-caps;
+    letter-spacing: 0.03em;
+  }
+  .b-caption {
+    flex-basis: 100%;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .b-credit {
+    flex-basis: 100%;
+    color: var(--faint);
+    font-size: 0.85em;
+  }
+</style>

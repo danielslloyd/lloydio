@@ -1,0 +1,27 @@
+# Beautiful things — a visual gallery. One consolidated file (edit/reorder in one
+# place); each entry needs a unique `id`. Images are hotlinked live from their
+# source CDN (never self-hosted, same policy as book covers), with a text-link
+# fallback if the image ever 404s. See docs/BEAUTIFUL-IMAGES.md.
+#
+#   image  — the URL actually rendered as <img>
+#   source — the page (or full-res image) the figure links out to
+#   width/height — the image's pixel dimensions, to reserve space (no layout shift)
+
+- id: sunrise-damselfly
+  title: Sunrise Damselfly
+  credit: Alexis Tinker-Tsavalas · Close-up Photographer of the Year (CUPOTY)
+  source: https://images.squarespace-cdn.com/content/v1/5aae554545776e4f59c31b2c/ea6e2dd4-9759-4495-bbdd-c55fd762065c/Alexis+Tinker-Tsavalas-Sunrise+Damselfly-CUPOTY.jpg?format=1500w
+  image: https://images.squarespace-cdn.com/content/v1/5aae554545776e4f59c31b2c/ea6e2dd4-9759-4495-bbdd-c55fd762065c/Alexis+Tinker-Tsavalas-Sunrise+Damselfly-CUPOTY.jpg?format=1500w
+  width: 1000
+  height: 667
+  added: 2026-07-10
+
+- id: hubble-udf
+  title: Hubble Ultra Deep Field
+  caption: Ten thousand galaxies in a patch of sky the size of a grain of sand at arm's length.
+  credit: NASA, ESA, S. Beckwith (STScI) and the HUDF Team
+  source: https://esahubble.org/images/heic0611b/
+  image: https://cdn.esahubble.org/archives/images/screen/heic0611b.jpg
+  width: 1280
+  height: 1280
+  added: 2026-07-09

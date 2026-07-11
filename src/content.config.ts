@@ -92,6 +92,27 @@ const docs = defineCollection({
   }),
 });
 
+// Beautiful things — a visual gallery, one consolidated YAML file (like books).
+// Each entry needs a unique `id`. Images are hotlinked from their source CDN
+// (never self-hosted, same policy as book covers). See docs/BEAUTIFUL-IMAGES.md.
+const beautiful = defineCollection({
+  loader: file('src/content/beautiful.yaml', { parser: yamlParser }),
+  schema: z.object({
+    title: z.string(),
+    source: z.string().url(), // page (or full-res image) the figure links to
+    image: z.string().url(), // URL rendered as <img>
+    thumb: z.string().url().optional(), // smaller variant for the grid, if any
+    credit: z.string().optional(),
+    caption: z.string().optional(),
+    width: z.number().optional(), // pixel dimensions, to reserve space
+    height: z.number().optional(),
+    archive: z.string().url().optional(),
+    selfhost: z.boolean().default(false), // true once copied into public/media
+    added: z.coerce.date(),
+    draft: z.boolean().default(false),
+  }),
+});
+
 // Owner-only triage bucket: discrete items pulled out of a category, waiting
 // to be sorted/finished. Shown only in DRAFTS builds. One YAML file.
 const drafts = defineCollection({
@@ -105,4 +126,4 @@ const drafts = defineCollection({
   }),
 });
 
-export const collections = { essays, notes, articles, books, docs, drafts };
+export const collections = { essays, notes, articles, books, docs, drafts, beautiful };
