@@ -25,3 +25,108 @@
   width: 1280
   height: 1280
   added: 2026-07-09
+
+# ---------------------------------------------------------------------------
+# Drafts seeded from the "Beauty" Google Keep note (owner-mode only until
+# reviewed/published). Each links back to its source page from the note, with
+# a large hotlinked image and whatever attribution/background could be found.
+# ---------------------------------------------------------------------------
+
+- id: apoy-2025-the-ridge
+  title: The Ridge
+  credit: "Tom Rae — ZWO Astronomy Photographer of the Year 2025 (Skyscapes)"
+  caption: A winning skyscape from the Royal Observatory Greenwich's astrophotography competition, the world's largest.
+  source: https://www.rmg.co.uk/whats-on/astronomy-photographer-year/galleries/overall-winners-2025
+  image: https://www.rmg.co.uk/sites/default/files/styles/large/public/2025-08/The%20Ridge%20%C2%A9%20Tom%20Rae%20-%20ZWO%20Astronomy%20Photographer%20of%20the%20Year%202025%20Skyscapes.jpg.webp?itok=HUpM_hjo
+  width: 1200
+  height: 962
+  added: 2026-07-11
+  draft: true
+
+- id: nlpoty-2025-nikki-born
+  title: Northern Lights Photographer of the Year 2025
+  credit: "Nikki Born — Capture the Atlas"
+  caption: One of the year's best aurora photographs, from Capture the Atlas's annual Northern Lights collection.
+  source: https://capturetheatlas.com/northern-lights-photographer-of-the-year/
+  image: https://imgcap.capturetheatlas.com/wp-content/uploads/2025/12/NikkiBorn_2025NLPOTY.jpg
+  width: 1623
+  height: 1080
+  added: 2026-07-11
+  draft: true
+
+- id: pano-awards-cantarelli
+  title: Epson International Pano Awards
+  credit: Alessandro Cantarelli
+  caption: A featured panorama from the world's largest competition for panoramic photography.
+  source: https://thepanoawards.com/
+  image: https://thepanoawards.com/wp-content/uploads/2025/10/SLIDER_Alessandro-Cantarelli-UAE-OPNL-PA2517730.jpg
+  width: 2560
+  height: 1280
+  added: 2026-07-11
+  draft: true
+
+- id: oliver-chalk-vessels
+  title: Oliver Chalk — turned timber vessels
+  credit: "Oliver Chalk (via Colossal, Kate Mothes)"
+  caption: From found wood, Oliver Chalk's voluminous vessels highlight natural textures while emphasizing pattern and geometry.
+  source: https://www.thisiscolossal.com/2024/07/oliver-chalk-wooden-sculptures/
+  image: https://www.thisiscolossal.com/wp-content/uploads/2024/07/chalk-6.jpg
+  width: 2000
+  height: 1333
+  added: 2026-07-11
+  draft: true
+
+- id: de-giuli-sense-of-scale
+  title: A Sense of Scale
+  credit: "Roman De Giuli (via Colossal, Kate Mothes)"
+  caption: Sweeping topographies made from flowing pigments, evoking rivers, lava flows, and clouds seen from above.
+  source: https://www.thisiscolossal.com/2022/10/roman-de-giuli-sense-of-scale/
+  image: https://www.thisiscolossal.com/wp-content/uploads/2022/10/degiuli-3.png
+  width: 1920
+  height: 1074
+  added: 2026-07-11
+  draft: true
+
+- id: northlandscapes-waider
+  title: Northlandscapes
+  credit: Jan Erik Waider
+  caption: Atmospheric, abstract landscape photography of the distant North, by Hamburg-based artist Jan Erik Waider.
+  source: https://www.northlandscapes.com/
+  image: https://www.northlandscapes.com/files/images/opengraph/content/portfolio-start.jpg
+  width: 1200
+  height: 630
+  added: 2026-07-11
+  draft: true
+
+- id: teagan-white-snake
+  title: Snake (art print)
+  credit: Teagan White
+  caption: Outsider-naturalist illustration from Teagan White's print shop.
+  source: https://www.teaganwhite.com/shop?category=art+prints
+  image: https://static1.squarespace.com/static/592c8cab9f7456f077311f68/t/61e74c68b6fff02145c85338/1642548328736/Snake1.jpg?format=1500w
+  width: 1200
+  height: 1500
+  added: 2026-07-11
+  draft: true
+
+- id: lee-mekyeoung-small-store
+  title: A Small Store (구멍가게)
+  credit: Lee Mekyeoung (이미경)
+  caption: For over twenty years, Lee Mekyeoung has drawn Korea's disappearing corner stores in acrylic ink and pen on paper.
+  source: https://www.leemekyeoung.com/2025
+  image: https://storage.googleapis.com/cr-resource/image/a7ebc1bd3168335e4f8247b5fe9e975f/leemekyeoung/650/9adcd80b6af4dd82843a7b4b761776c8.jpg?_1783743640
+  width: 650
+  height: 370
+  added: 2026-07-11
+  draft: true
+
+- id: yoshida-cherry-kawagoe
+  title: The Cherry Tree in Kawagoe
+  credit: Hiroshi Yoshida (吉田博)
+  caption: A shin-hanga woodblock print by Hiroshi Yoshida, via Ukiyo-e.org (Art Gallery of Greater Victoria).
+  source: https://ukiyo-e.org/artist/yoshida-hiroshi
+  image: https://data.ukiyo-e.org/aggv/images/12159.jpg
+  width: 410
+  height: 633
+  added: 2026-07-11
+  draft: true

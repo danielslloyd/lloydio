@@ -19,7 +19,7 @@ const items = all.sort((a, b) => b.data.added.valueOf() - a.data.added.valueOf()
 
   <div class="gallery">
     {items.map((it) => (
-      <figure class="beautiful">
+      <figure class:list={['beautiful', { 'is-draft': it.data.draft }]}>
         <a href={it.data.source} class="b-frame">
           <img
             src={it.data.thumb ?? it.data.image}
@@ -33,6 +33,7 @@ const items = all.sort((a, b) => b.data.added.valueOf() - a.data.added.valueOf()
         </a>
         <figcaption>
           <a class="b-title" href={it.data.source}>{it.data.title}</a>
+          {SHOW_DRAFTS && it.data.draft && <span class="b-draft">draft</span>}
           <a class="b-source" href={it.data.source}>source ↗</a>
           {it.data.caption && <span class="b-caption">{it.data.caption}</span>}
           {it.data.credit && <span class="b-credit">{it.data.credit}</span>}
@@ -58,6 +59,20 @@ const items = all.sort((a, b) => b.data.added.valueOf() - a.data.added.valueOf()
 
   figure.beautiful {
     margin: 0;
+  }
+  /* Owner-mode only: mark unpublished drafts so they are easy to pick out. */
+  figure.is-draft {
+    outline: 2px dashed var(--border);
+    outline-offset: 6px;
+  }
+  .b-draft {
+    color: var(--bg);
+    background: var(--muted);
+    font-variant: small-caps;
+    letter-spacing: 0.04em;
+    font-size: 0.75rem;
+    padding: 0.05em 0.5em;
+    border-radius: 3px;
   }
   .b-frame {
     display: block;
