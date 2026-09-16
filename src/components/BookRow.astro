@@ -20,9 +20,12 @@ interface Props {
   // GitHub web editor for books.yaml.
   actions?: boolean;
   editHref?: string | null;
+  // Owner mode, published rows: a small edit button that swaps the
+  // status/rating label for a dropdown (wired client-side in books.astro).
+  editable?: boolean;
 }
 
-const { id, title, author, status, rating, date, cover, review, links, actions, editHref } =
+const { id, title, author, status, rating, date, cover, review, links, actions, editHref, editable } =
   Astro.props;
 
 const stars = (n?: number) => (n ? '★'.repeat(n) + '☆'.repeat(5 - n) : '');
@@ -82,13 +85,14 @@ const shops = (['goodreads', 'amazon', 'audible'] as const).map((k) => {
 
 const cap = (s: string) => s[0].toUpperCase() + s.slice(1);
 
-// Owner drafts use one combined status+rating control. A rating only applies to
-// finished books, so the option list flattens the two dimensions into one.
+// The owner-mode controls use one combined status+rating value. A rating only
+// applies to finished books, so the option list flattens the two dimensions
+// into one ("finished:4").
 const stateValue =
   status === 'finished' ? (rating ? `finished:${rating}` : 'finished') : status;
 ---
 
-<tr class="book-row" data-book-id={actions ? id : undefined}>
+<tr class="book-row" data-book-id={actions || editable ? id : undefined}>
   <td class="book-cover">
     {cover && (
       <img src={cover} alt="" loading="lazy" class="cover-image" onerror="this.remove()" />
@@ -106,14 +110,37 @@ const stateValue =
   </td>
   {!actions && (
     <td class="book-status" title={`Added ${formatDate(date)}`}>
-      {showStars ? (
-        rating ? (
-          <span class="stars" title={`${rating}/5`}>{stars(rating)}</span>
+      <span class="state-label">
+        {showStars ? (
+          rating ? (
+            <span class="stars" title={`${rating}/5`}>{stars(rating)}</span>
+          ) : (
+            <span class="stars empty" title="unrated">☆☆☆☆☆</span>
+          )
         ) : (
-          <span class="stars empty" title="unrated">☆☆☆☆☆</span>
-        )
-      ) : (
-        <span class="status">{status}</span>
+          <span class="status">{status}</span>
+        )}
+      </span>
+      {editable && (
+        <button
+          type="button"
+          class="state-edit"
+          data-act="edit-state"
+          title="Change status or rating"
+          aria-label="Change status or rating"
+        >✎</button>
+      )}
+      {editable && (
+        <select class="row-state" aria-label="Status and rating" hidden>
+          <option value="to-read" selected={stateValue === 'to-read'}>to read</option>
+          <option value="reading" selected={stateValue === 'reading'}>reading</option>
+          <option value="finished" selected={stateValue === 'finished'}>read</option>
+          <option value="finished:1" selected={stateValue === 'finished:1'}>read ★</option>
+          <option value="finished:2" selected={stateValue === 'finished:2'}>read ★★</option>
+          <option value="finished:3" selected={stateValue === 'finished:3'}>read ★★★</option>
+          <option value="finished:4" selected={stateValue === 'finished:4'}>read ★★★★</option>
+          <option value="finished:5" selected={stateValue === 'finished:5'}>read ★★★★★</option>
+        </select>
       )}
     </td>
   )}
@@ -225,6 +252,35 @@ const stateValue =
     color: var(--muted);
     font-variant: small-caps;
   }
+
+  /* Owner-mode inline status editor: a pencil that appears on row hover and
+     swaps the label for a dropdown. */
+  .state-edit {
+    margin-left: 0.3em;
+    padding: 0 0.25em;
+    border: none;
+    background: transparent;
+    color: var(--faint);
+    font-family: inherit;
+    font-size: 0.95em;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.12s;
+  }
+  .book-row:hover .state-edit,
+  .state-edit:focus-visible { opacity: 1; }
+  .state-edit:hover { color: var(--fg); }
+  .book-row.editing .state-edit { display: none; }
+  .book-row.editing .state-label { display: none; }
+  .row-state {
+    /* Override the global `width:100%` form rule. */
+    width: auto;
+    font-size: 0.9em;
+    padding: 0.05em 0.2em;
+    vertical-align: middle;
+  }
+  .book-row.saving { opacity: 0.5; }
 
   .book-links {
     white-space: nowrap;

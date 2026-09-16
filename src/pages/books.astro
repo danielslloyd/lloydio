@@ -31,8 +31,11 @@ const sections = [
 <Base title="Books">
   <h1 class="page-title">Books</h1>
   <p class="meta">
-    reading list · {counts.finished ?? 0} read · {counts['to-read'] ?? 0} to read
-    {counts.reading ? ` · ${counts.reading} reading` : ''}
+    reading list · <span data-total="finished">{counts.finished ?? 0}</span> read ·
+    <span data-total="to-read">{counts['to-read'] ?? 0}</span> to read
+    {(counts.reading || SHOW_DRAFTS) && (
+      <> · <span data-total="reading">{counts.reading ?? 0}</span> reading</>
+    )}
     {SHOW_DRAFTS && <a class="edit-link" href={editUrl(BOOKS_FILE)}>edit books.yaml</a>}
   </p>
 
@@ -40,9 +43,11 @@ const sections = [
 
   {sections.map(({ status, label }) => {
     const group = books.filter((b) => b.data.status === status);
-    if (group.length === 0) return null;
+    // Owner mode renders every section, even an empty one, so the inline editor
+    // has somewhere to move a row to.
+    if (group.length === 0 && !SHOW_DRAFTS) return null;
     return (
-      <details class="book-section" open>
+      <details class="book-section" data-status={status} open>
         <summary>
           {label} <span class="count">{group.length}</span>
         </summary>
@@ -60,6 +65,7 @@ const sections = [
                   cover={b.data.cover}
                   review={b.data.review}
                   links={b.data.links}
+                  editable={SHOW_DRAFTS}
                 />
               ))}
             </tbody>
@@ -68,6 +74,13 @@ const sections = [
       </details>
     );
   })}
+
+  {SHOW_DRAFTS && (
+    <p class="owner-help">
+      Owner mode: hover a row and hit <strong>✎</strong> to change its status or
+      rating. Rating a book files it under <strong>read</strong>.
+    </p>
+  )}
 
   {SHOW_DRAFTS && draftBooks.length > 0 && (
     <details class="book-section drafts-section" id="drafts" open>
@@ -105,7 +118,7 @@ const sections = [
   )}
 </Base>
 
-{SHOW_DRAFTS && draftBooks.length > 0 && (
+{SHOW_DRAFTS && (
   <script is:inline>
     (function () {
       const API = '/api/books';
@@ -201,6 +214,92 @@ const sections = [
         });
       });
 
+      // ---- inline status/rating editor (published rows) ------------------
+      // Local calendar date, not UTC: a late-evening rating shouldn't land on
+      // tomorrow.
+      const TODAY = new Date().toLocaleDateString('en-CA');
+      const starStr = (n) => '★'.repeat(n) + '☆'.repeat(5 - n);
+
+      function renderLabel(row, status, rating) {
+        const label = row.querySelector('.state-label');
+        if (!label) return;
+        if (status === 'finished') {
+          label.innerHTML = rating
+            ? '<span class="stars" title="' + rating + '/5">' + starStr(rating) + '</span>'
+            : '<span class="stars empty" title="unrated">☆☆☆☆☆</span>';
+        } else {
+          label.innerHTML = '<span class="status">' + status + '</span>';
+        }
+      }
+
+      function bump(section, delta) {
+        if (!section) return;
+        const c = section.querySelector(':scope > summary .count');
+        if (c) c.textContent = String(Math.max(0, (parseInt(c.textContent, 10) || 0) + delta));
+        const total = document.querySelector('[data-total="' + section.dataset.status + '"]');
+        if (total) total.textContent = String(Math.max(0, (parseInt(total.textContent, 10) || 0) + delta));
+      }
+
+      // Move a row into the section its new status belongs to, so the change is
+      // visible immediately instead of after the site rebuilds.
+      function moveRow(row, status) {
+        const from = row.closest('.book-section');
+        const to = document.querySelector('.book-section[data-status="' + status + '"]');
+        if (!to || to === from) return;
+        to.querySelector('tbody').prepend(row);
+        bump(from, -1);
+        bump(to, 1);
+      }
+
+      function closeEditor(row) {
+        row.classList.remove('editing');
+        const sel = row.querySelector('.row-state');
+        if (sel) sel.hidden = true;
+      }
+
+      document.querySelectorAll('.book-row [data-act="edit-state"]').forEach((btn) => {
+        const row = btn.closest('.book-row');
+        const sel = row.querySelector('.row-state');
+        if (!sel) return;
+        sel.dataset.saved = sel.value;
+
+        btn.addEventListener('click', () => {
+          row.classList.add('editing');
+          sel.hidden = false;
+          sel.focus();
+        });
+
+        sel.addEventListener('keydown', (ev) => {
+          if (ev.key === 'Escape') {
+            sel.value = sel.dataset.saved || sel.value;
+            closeEditor(row);
+          }
+        });
+        sel.addEventListener('blur', () => closeEditor(row));
+
+        sel.addEventListener('change', async () => {
+          const [status, ratingVal] = sel.value.split(':');
+          const rating = ratingVal ? Number(ratingVal) : null;
+          const op = { action: 'update', id: row.getAttribute('data-book-id'), status, rating };
+          // Rating a book (or otherwise marking it read) stamps today as the
+          // date it was finished.
+          if (status === 'finished') op.date = TODAY;
+          row.classList.add('saving');
+          try {
+            await enqueue(() => send([op]));
+            sel.dataset.saved = sel.value;
+            renderLabel(row, status, rating);
+            closeEditor(row);
+            moveRow(row, status);
+          } catch (e) {
+            alert('save failed: ' + e.message);
+            sel.value = sel.dataset.saved || sel.value;
+          } finally {
+            row.classList.remove('saving');
+          }
+        });
+      });
+
       const pubAll = document.getElementById('publish-all');
       if (pubAll) {
         pubAll.addEventListener('click', async () => {
@@ -282,4 +381,10 @@ const sections = [
     cursor: pointer;
   }
   .drafts-help .act[disabled] { opacity: 0.5; cursor: default; }
+
+  .owner-help {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 1.4rem 0 0;
+  }
 </style>
