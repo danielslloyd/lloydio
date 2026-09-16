@@ -1,6 +1,5 @@
 ---
 title: Commonplace
-blurb: quotes, facts, and passages worth keeping
 ---
 
 S.S. Stevens' scales of measurement classifies data into four hierarchical levels—Nominal, Ordinal, Interval, and Ratio (NOIR).
