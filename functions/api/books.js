@@ -1,11 +1,11 @@
 // Cloudflare Pages Function: POST /api/books
 //
-// Owner-only endpoint for acting on draft books in src/content/books.yaml.
-// Used by the owner-mode ("DRAFTS=1") Drafts section on /books: it can
-// publish a draft (drop `draft: true`, optionally set status/rating) or
-// delete a draft outright, committing the change to GitHub — which triggers
-// a rebuild. Edits are line-scoped so the diff stays minimal and the rest of
-// the hand-authored file is preserved verbatim.
+// Owner-only endpoint for acting on books in src/content/books.yaml. Used by
+// the owner-mode ("DRAFTS=1") /books page: it can publish a draft (drop
+// `draft: true`, optionally set status/rating), update an already-published
+// book's status/rating, or delete an entry outright, committing the change to
+// GitHub — which triggers a rebuild. Edits are line-scoped so the diff stays
+// minimal and the rest of the hand-authored file is preserved verbatim.
 //
 // Auth: the owner-mode site (DRAFTS=1) sits behind Cloudflare Zero Trust
 // Access, so a request that arrives already carries a signed Access JWT —
@@ -23,6 +23,7 @@
 
 const FILE = 'src/content/books.yaml';
 const STATUSES = new Set(['to-read', 'reading', 'finished']);
+const ACTIONS = new Set(['publish', 'update', 'delete']);
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -53,12 +54,19 @@ export async function onRequestPost(context) {
   const clean = [];
   for (const op of ops) {
     const id = typeof op.id === 'string' ? op.id.trim() : '';
-    const action = op.action === 'delete' ? 'delete' : 'publish';
+    const action = ACTIONS.has(op.action) ? op.action : 'publish';
     if (!id) return json({ error: 'missing id' }, 400);
     const status = STATUSES.has(op.status) ? op.status : undefined;
+    // `rating: null` clears the rating (a book moved back out of "read").
     const rating =
-      Number.isInteger(op.rating) && op.rating >= 0 && op.rating <= 5 ? op.rating : undefined;
-    clean.push({ id, action, status, rating });
+      op.rating === null
+        ? null
+        : Number.isInteger(op.rating) && op.rating >= 0 && op.rating <= 5
+          ? op.rating
+          : undefined;
+    // Only `update` may restamp the date (the day a book was rated/finished).
+    const date = action === 'update' && /^\d{4}-\d{2}-\d{2}$/.test(op.date || '') ? op.date : undefined;
+    clean.push({ id, action, status, rating, date });
   }
   if (!clean.length) return json({ error: 'no ops' }, 400);
 
@@ -98,7 +106,7 @@ export async function onRequestPost(context) {
   const message =
     clean.length === 1
       ? `books: ${clean[0].action} ${clean[0].id}`
-      : `books: ${clean[0].action} ${clean.length} drafts`;
+      : `books: ${clean[0].action} ${clean.length} entries`;
 
   const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${FILE}`, {
     method: 'PUT',
@@ -141,15 +149,18 @@ function applyOp(text, op) {
     return out.join('\n');
   }
 
-  // publish: drop `draft: true`, optionally set status / rating.
-  block = block.filter((l) => !/^\s*draft:\s*true\s*$/.test(l));
+  // publish: drop `draft: true`. update: leave the draft flag alone (an
+  // already-published entry has none). Both may set status / rating / date.
+  if (op.action === 'publish') block = block.filter((l) => !/^\s*draft:\s*true\s*$/.test(l));
 
   if (op.status) {
     const si = block.findIndex((l) => /^\s*status:/.test(l));
     if (si !== -1) block[si] = block[si].replace(/status:.*/, `status: ${op.status}`);
   }
 
-  if (op.rating !== undefined) {
+  if (op.rating === null) {
+    block = block.filter((l) => !/^\s*rating:/.test(l));
+  } else if (op.rating !== undefined) {
     const ri = block.findIndex((l) => /^\s*rating:/.test(l));
     if (ri !== -1) {
       block[ri] = block[ri].replace(/rating:.*/, `rating: ${op.rating}`);
@@ -159,6 +170,11 @@ function applyOp(text, op) {
       const at = si !== -1 ? si + 1 : 1;
       block.splice(at, 0, `  rating: ${op.rating}`);
     }
+  }
+
+  if (op.date) {
+    const di = block.findIndex((l) => /^\s*date:/.test(l));
+    if (di !== -1) block[di] = block[di].replace(/date:.*/, `date: ${op.date}`);
   }
 
   const out = [...lines.slice(0, from), ...block, ...lines.slice(to)];
