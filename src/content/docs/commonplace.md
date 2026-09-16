@@ -1,6 +1,5 @@
 ---
 title: Commonplace
-blurb: quotes, facts, and passages worth keeping
 ---
 
 **Nitrogen narcosis** is when increased nitrogen partial pressure at depth causes intoxication-like impairment—slowed cognition, poor judgment, euphoria. Worsens beyond ~100 feet.
