@@ -3,6 +3,42 @@ title: Commonplace
 blurb: quotes, facts, and passages worth keeping
 ---
 
+**Nitrogen narcosis** is when increased nitrogen partial pressure at depth causes intoxication-like impairment—slowed cognition, poor judgment, euphoria. Worsens beyond ~100 feet.
+
+**Decompression sickness** (the bends) happens when dissolved nitrogen forms bubbles in tissues/blood during ascent (caused by rising too fast). Can cause paralysis, joint pain, or death.
+
+**Oxygen toxicity** is caused by high oxygen partial pressure at depth and can trigger seizures without warning.
+
+---
+
+*Near* and *next* were originally the comparative and superlative of *nigh* (*nigh-er* and *nigh-est*).
+
+---
+
+Asphalt is a flexible pavement. The surface layer spreads each wheel load across the aggregate base and the soil below it. The asphalt cement hardens permanently under UV and oxygen over roughly 10 to 20 years, going from viscoelastic to brittle. If a pavement flexes too far under load, it will crack from the bottom up. Alligator cracking at the surface is indicative of failures underneath, and water intrusion in these cracks can wash away fine particles and cause further damage from freeze-thaw cycles.
+
+---
+
+Pavement damage scales with axle load to the fourth power: a loaded semi does as much damage as several thousand cars, which is why residential streets can last much longer than truck routes.
+
+---
+
+Pakistan's ISI armed, funded, and supplied the Taliban through the 1990s, as one half of a broader doctrine of cultivating Islamist proxies. Benazir Bhutto misled Washington about how far the support went, and was plausibly misled herself. The ISI used Islamist militants as deniable instruments of state policy (against India in Kashmir), and a friendly Kabul offered strategic depth against an Indian conventional advantage. The two theaters shared recruits, camps, and handlers, which proved impossible to dismantle selectively later.
+
+The Taliban agreed in June 1998 to surrender bin Laden to Saudi Arabia (and were given 400 pickup trucks and funding) but reneged in September after the East Africa embassy bombings and the American cruise-missile response.
+
+---
+
+The **crack spread** is the price gap between crude oil and its refined products, named for the refining process, which "cracks" dense crude hydrocarbons into a range of lighter products. This spread is the primary driver of refinery profitability. In mid-2026, this spread became unusually wide: crude oversupply pushed Brent to around $75/barrel while limited refining capacity kept gasoline near $125/barrel (a ~$50 crack spread) and diesel near $140/barrel (a ~$65 spread), both roughly triple the seasonal norm of ~$20. The standard refinery-margin benchmark is based on a 3:2:1 crack spread (assuming three barrels of crude produce two barrels of gasoline and one barrel of diesel).
+
+---
+
+The stock of Welsh surnames is unusually small, largely because the pool of baptismal names narrowed after the Protestant Reformation, just as Wales was shifting from patronymics (ap Hywel, ap Siôn) to fixed English-style surnames under the Laws in Wales Acts. Native Welsh personal names gave way to a handful of biblical and English ones — John, William, David, Richard, Evan — which then froze into Jones, Williams, Davies, Richards, and Evans. 
+
+The redundancy created a practical need for distinction, and in the 19th century Welsh families began adopting double surnames — prefixing the name of a house, parish, or the mother's maiden name to the paternal surname. Hyphens were often added later, producing forms like Griffith-Jones.
+
+---
+
 S.S. Stevens' scales of measurement classifies data into four hierarchical levels—Nominal, Ordinal, Interval, and Ratio (NOIR).
 
 **Categorical** (or qualitative) variables describe kinds rather than amounts:
