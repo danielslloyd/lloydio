@@ -6264,16 +6264,6 @@
     amazon: https://www.amazon.com/dp/B075VG9PZ2
   source: amazon
   cover: https://m.media-amazon.com/images/I/81NBSoy3j7L._SY300_.jpg
-- id: "B09VJY7G62"
-  title: "Strange New World: How Thinkers and Activists Redefined Identity and Sparked the Sexual Revolution"
-  author: Carl R. Trueman
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B09VJY7G62
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91HOyxKAT0L._SY300_.jpg
 - id: "B09XBXW6DQ"
   title: "Russia: Revolution and Civil War, 1917-1921"
   author: Antony Beevor
