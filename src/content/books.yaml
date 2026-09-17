@@ -7344,16 +7344,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/811I8QMskbL._SY300_.jpg
-- id: "0547884591"
-  title: "The 4-Hour Chef: The Simple Path to Cooking Like a Pro, Learning Anything, and Living the Good Life"
-  author: Timothy Ferriss
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0547884591
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81KdF6TVZQL._SY300_.jpg
 - id: "0781408237"
   title: "Multiply: Disciples Making Disciples"
   author: Francis Chan
