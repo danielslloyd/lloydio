@@ -7112,16 +7112,6 @@
     audible: https://www.audible.com/pd/On-Writing-Well-Audio-Collection-Audiobook/B002V8KQLC
   source: amazon
   cover: https://m.media-amazon.com/images/I/71bIiz4wX0L._SY300_.jpg
-- id: "0307463745"
-  title: Rework
-  author: Jason Fried
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0307463745
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71CVp5P3x3L._SY300_.jpg
 - id: "B00J1UEAC4"
   title: "Jesus, Continued...: Why the Spirit Inside You Is Better than Jesus Beside You"
   author: J.D. Greear
