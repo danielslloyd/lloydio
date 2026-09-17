@@ -5789,16 +5789,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/91H5KOckWKL._SY300_.jpg
-- id: "B0B5K2M9J4"
-  title: "Timothy Keller, Updated and Expanded Edition: His Spiritual and Intellectual Formation"
-  author: Collin Hansen
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B0B5K2M9J4
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81l9SxMeO2L._SY300_.jpg
 - id: "B0BYTKB813"
   title: "Iron and Blood: A Military History of the German-Speaking Peoples Since 1500"
   author: Peter H. Wilson
