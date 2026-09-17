@@ -5773,11 +5773,11 @@
   title: "My Early Life: A Roving Commission"
   author: Winston Churchill
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 5
   links:
     amazon: https://www.amazon.com/dp/B003K20QJA
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/715WLWWAziL._SY300_.jpg
 - id: "0600637670"
   title: "Chetna's Indian Feasts: Everyday meals and easy entertaining"
