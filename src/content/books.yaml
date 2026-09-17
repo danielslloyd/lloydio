@@ -6233,16 +6233,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/91B4rLXzBUL._SY300_.jpg
-- id: "B096MWJLNW"
-  title: Will
-  author: Will Smith
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B096MWJLNW
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/911cmGSgcvL._SY300_.jpg
 - id: "B06ZYH979G"
   title: "The Broken Ladder: How Inequality Affects the Way We Think, Live, and Die"
   author: Keith Payne
