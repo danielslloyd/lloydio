@@ -6989,16 +6989,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/816t4XjLmhL._SY300_.jpg
-- id: "B074F3SLTL"
-  title: Grant
-  author: Mark Bramhall
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B074F3SLTL
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/9156v9R332L._SY300_.jpg
 - id: "0330447262"
   title: THE COMPLETE JAMES HERRIOT Box Set 1-8
   author: james-herriot
