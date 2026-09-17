@@ -24,6 +24,8 @@ Pavement damage scales with axle load to the fourth power: a loaded semi does as
 
 Pakistan's ISI armed, funded, and supplied the Taliban through the 1990s, as one half of a broader doctrine of cultivating Islamist proxies. Benazir Bhutto misled Washington about how far the support went, and was plausibly misled herself. The ISI used Islamist militants as deniable instruments of state policy (against India in Kashmir), and a friendly Kabul offered strategic depth against an Indian conventional advantage. The two theaters shared recruits, camps, and handlers, which proved impossible to dismantle selectively later.
 
+---
+
 The Taliban agreed in June 1998 to surrender bin Laden to Saudi Arabia (and were given 400 pickup trucks and funding in return) but reneged in September after the East Africa embassy bombings and the American cruise-missile response.
 
 ---
