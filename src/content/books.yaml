@@ -6589,11 +6589,11 @@
   title: Norse Mythology
   author: Neil Gaiman
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 3
   links:
     amazon: https://www.amazon.com/dp/B01M1DYSHD
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/61D9CcNEoVL._SY300_.jpg
 - id: "B004TPAS5O"
   title: The Diary of Samuel Pepys
