@@ -57,7 +57,7 @@ Historically, producing clear glass required careful management of iron content 
 
 ---
 
-Greenland ice cores provide an indirect proxy for Roman economic activity: lead pollution from smelting and mining, carried atmosphetically and deposited in Arctic ice, tracks closely with the empire's fortunes. The record suggests Roman economic output peaked in the first century AD, declined through the crisis of the third century, and largely collapsed after the Western Empire fell.
+Greenland ice cores provide an indirect proxy for Roman economic activity: lead from smelting and mining was deposited in Arctic ice, and historical levels track closely with the empire's fortunes. The record suggests Roman economic output peaked in the first century AD, declined through the crisis of the third century, and largely collapsed after the Western Empire fell.
 
 ---
 
@@ -81,15 +81,15 @@ Call options are the right to buy and are profitable when the spot price rises a
 
 ---
 
-Options are described as in-the-money (ITM) or out-of-the-money (OTM) based on the relative spot vs strike values. Common strategies include covered calls (owning the underlying and selling a call against it; this caps upside but generates income), protective puts (owning the underlying and buying a put as insurance against downside), straddles (buying a call and put at the same strike and profiting from large moves in either direction), and spreads (buying one option and selling another at a different strike/expiry to reduce premium cost).
+Options are described as **in-the-money** (ITM) or **out-of-the-money** (OTM) based on the relative spot vs strike values. Common strategies include **covered calls** (owning the underlying and selling a call against it; this caps upside but generates income), **protective puts** (owning the underlying and buying a put as insurance against downside), **straddles** (buying a call and put at the same strike and profiting from large moves in either direction), and **spreads** (buying one option and selling another at a different strike/expiry to reduce premium cost).
 
 ---
 
-Contango is the normal state where futures prices exceed spot (reflecting carry costs), while backwardation is the inverted state where spot exceeds futures, signaling near-term scarcity or exceptional demand for immediate delivery.
+**Contango** is the normal state where futures prices exceed spot (reflecting carry costs), while **backwardation** is the inverted state where spot exceeds futures, signaling near-term scarcity or exceptional demand for immediate delivery.
 
 ---
 
-Spot is immediate delivery at today's price (e.g., buying physical silver or an ETF). Linear derivatives move 1:1 with the underlying asset (e.g., futures and forwards), while non-linear derivatives can produce a disproportionately large or small gain depending on where you are relative to the strike price.
+**Spot** is immediate delivery at today's price (e.g., buying physical silver or an ETF). Linear derivatives move 1:1 with the underlying asset (e.g., futures and forwards), while non-linear derivatives can produce a disproportionately large or small gain depending on where you are relative to the strike price.
 
 ---
 
@@ -121,7 +121,7 @@ Cleisthenes was an Athenian statesman who, around 508–507 BCE, overhauled Athe
 
 ---
 
-Gold and silver production is often a byproduct of base metal mining. While 70–75% of gold is “primary” gold, the world's largest gold mine (Grasberg in Indonesia) is primarily a copper operation, producing over a million ounces of gold annually purely as a byproduct. Silver is the inverse and is largely captive to base metal cycles: 70–75% comes as a byproduct of lead-zinc, copper, and gold mining, so supply barely responds to silver price signals. This makes silver supply structurally inelastic compared to gold, amplifying price moves when demand shocks hit.
+Gold and silver production is often a byproduct of base metal mining. While 70–75% of gold is **primary** gold, the world's largest gold mine (Grasberg in Indonesia) is primarily a copper operation, producing over a million ounces of gold annually purely as a byproduct. Silver is the inverse and is largely captive to base metal cycles: 70–75% comes as a byproduct of lead-zinc, copper, and gold mining, so supply barely responds to silver price signals. This makes silver supply structurally inelastic compared to gold, amplifying price moves when demand shocks hit.
 
 ---
 
