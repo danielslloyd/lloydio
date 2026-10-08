@@ -2,6 +2,14 @@
 title: Commonplace
 ---
 
+**William Knudsen** was a Danish-born industrialist who emigrated to the US in 1900 and learned mass production at Ford, where he oversaw plant construction and wartime materiel in World War I. After a falling-out with Henry Ford he joined General Motors in 1922, ran Chevrolet from 1924, and became GM president in 1937. In the lead-up to WWII, Knudsen left GM for Washington at a salary of $1 a year, eventually serving as head of the Office of Production Management and as the War Department's Director of Production. He is remembered for converting the auto industry to tanks, aircraft, and munitions.
+
+---
+
+**Henry J. Kaiser** built his career in road and dam construction. He chaired the executive committee of Six Companies, the consortium that built Hoover Dam ahead of schedule. With no prior shipbuilding experience, Kaiser built shipyards in California and the Pacific Northwest during World War II, using assembly-line and prefabrication methods to produce Liberty ships at unprecedented speed. His yards built roughly 1,400–1,500 ships in total, including 821 Liberty ships and 219 Victory ships. His motto was "Find a need and fill it." Kaiser also created the prepaid health plan for his shipyard workers in 1942, which became **Kaiser Permanente**.
+
+---
+
 **Nitrogen narcosis** is when increased nitrogen partial pressure at depth causes intoxication-like impairment—slowed cognition, poor judgment, euphoria. Worsens beyond ~100 feet.
 
 **Decompression sickness** (the bends) happens when dissolved nitrogen forms bubbles in tissues/blood during ascent (caused by rising too fast). Can cause paralysis, joint pain, or death.
