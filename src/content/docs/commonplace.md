@@ -2,7 +2,7 @@
 title: Commonplace
 ---
 
-The "the" in "the more, the merrier" is not the definite article but a relic of the Old English instrumental case of the **demonstrative þē** and meaning roughly "by that much." The construction is a comparative correlative, expressing proportional dependence: "by how much more, by so much merrier." As thorn (þ) gave way to th, the word became spelled identically to the definite article, which descends from other forms of the same demonstrative. The two are cognate rather than the same word.
+The **correlative the** in "the more, the merrier" is not the definite article but a relic of the Old English instrumental case of the **demonstrative þȳ (or þē)** and meaning roughly "by that much." The construction is a comparative correlative, expressing proportional dependence: "by how much more, by so much merrier." As thorn (þ) gave way to th, the word became spelled identically to the definite article, which descends from other forms of the same demonstrative. The two are cognate rather than the same word.
 
 ---
 
