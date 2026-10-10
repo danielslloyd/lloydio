@@ -2,6 +2,10 @@
 title: Commonplace
 ---
 
+The "the" in "the more, the merrier" is not the definite article but a relic of the Old English instrumental case of the **demonstrative þē** and meaning roughly "by that much." The construction is a comparative correlative, expressing proportional dependence: "by how much more, by so much merrier." As thorn (þ) gave way to th, the word became spelled identically to the definite article, which descends from other forms of the same demonstrative. The two are cognate rather than the same word.
+
+---
+
 **William Knudsen** was a Danish-born industrialist who emigrated to the US in 1900 and learned mass production at Ford, where he oversaw plant construction and wartime materiel in World War I. After a falling-out with Henry Ford he joined General Motors in 1922, ran Chevrolet from 1924, and became GM president in 1937. In the lead-up to WWII, Knudsen left GM for Washington at a salary of $1 a year, eventually serving as head of the Office of Production Management and as the War Department's Director of Production. He is remembered for converting the auto industry to tanks, aircraft, and munitions.
 
 ---
