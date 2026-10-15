@@ -2,6 +2,14 @@
 title: Commonplace
 ---
 
+Ferdinand Tönnies’s *Gemeinschaft und Gesellschaft* (1887) contrasts two ideal types of social order: **Gemeinschaft** (community) is bound by kinship, neighborhood, tradition, and felt solidarity, while **Gesellschaft** (society) is bound by explicit rules, contracts, and rational self-interest, as in a business association. Each is grounded in a kind of will: *Wesenwille* (natural will) acts from habit, sentiment, or intrinsic value, and produces community, while *Kürwille* (rational will) chooses means for a calculated end, and produces society. Tönnies saw modernization, industrialization, and urbanization as shifting the balance from Gemeinschaft toward Gesellschaft.
+
+---
+
+**Valenzuela** is a Spanish toponymic surname and is roughly equivalent to "Little Valencia". **Venezuela** is thought to be derived from Veneziola ("Little Venice") after Indigenous *palafito* stilt houses built over the water of the Gulf of Venezuela and Lake Maracaibo reminded Amerigo Vespucci of the city of Venice.
+
+---
+
 The **correlative the** in "the more, the merrier" is not the definite article but a relic of the Old English instrumental case of the **demonstrative þȳ (or þē)** and meaning roughly "by that much." The construction is a comparative correlative, expressing proportional dependence: "by how much more, by so much merrier." As thorn (þ) gave way to th, the word became spelled identically to the definite article, which descends from other forms of the same demonstrative. The two are cognate rather than the same word.
 
 ---
