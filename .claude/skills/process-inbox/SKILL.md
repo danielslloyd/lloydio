@@ -19,6 +19,7 @@ file**.
 | a link kept for its visual/aesthetic value | `src/content/docs/beautiful.md` | append `[title](url)` + a line on why |
 | an infographic / chart / dense diagram | `src/content/docs/infographics.md` | append the link/image + a note |
 | a book (title/author, "should read") | `src/content/books.yaml` | add an entry (see shape below) |
+| a queued book link (tags `book` + a status, from `/books`) | `src/content/books.yaml` | add an entry with `status` = the second tag, `id` = the Amazon ASIN, `source: amazon` |
 | unclear / half-baked / needs sorting | `src/content/drafts.yaml` | add `{ id, category, text, note?, source }` — the owner-only triage bucket |
 | a long-form article to read/listen | leave the note, keep its `podcast` tag | BacklogCast handles it; don't add the tag unprompted |
 | junk, duplicate, dead link | — | delete the note file |

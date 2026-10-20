@@ -30,6 +30,10 @@ content stays **per-file**.
 - `pipeline/backlogcast.mjs` — link → clean markdown + TTS mp3; runs via
   `.github/workflows/backlogcast.yml`.
 - `functions/api/capture.js` — Cloudflare Pages Function; commits captures.
+- `functions/api/books.js` + `functions/_bookmeta.js` — owner-mode book
+  writes, incl. `add` (Amazon link → entry). Unreadable links are queued as
+  draft inbox notes tagged `book` + a status; `.github/workflows/book-links.yml`
+  (Claude job, needs `ANTHROPIC_API_KEY`) resolves them into `books.yaml`.
 - `scripts/ingest-keep.mjs`, `scripts/inbox.mjs` — ingestion + inbox listing.
 
 ## Commands

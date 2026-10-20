@@ -3,7 +3,8 @@
 // Owner-only endpoint for acting on books in src/content/books.yaml. Used by
 // the owner-mode ("DRAFTS=1") /books page: it can publish a draft (drop
 // `draft: true`, optionally set status/rating), update an already-published
-// book's status/rating, or delete an entry outright, committing the change to
+// book's status/rating, delete an entry outright, or add a new book from an
+// Amazon link (`add`, see addFromLink below), committing the change to
 // GitHub — which triggers a rebuild. Edits are line-scoped so the diff stays
 // minimal and the rest of the hand-authored file is preserved verbatim.
 //
@@ -20,6 +21,9 @@
 //   GH_REPO               — e.g. "danielslloyd/lloydio"
 //   GH_BRANCH             — e.g. "main"
 //   CAPTURE_TOKEN         — optional shared secret fallback (`Bearer <token>`)
+
+import { lookupAmazon, findDuplicate, bookLinks, appendEntry } from '../_bookmeta.js';
+import { githubGetFile, githubPutFile } from '../_owner.js';
 
 const FILE = 'src/content/books.yaml';
 const STATUSES = new Set(['to-read', 'reading', 'finished']);
@@ -48,6 +52,9 @@ export async function onRequestPost(context) {
   } catch {
     return json({ error: 'invalid JSON' }, 400);
   }
+
+  // `add` has no id yet — it's a link to turn into a new entry.
+  if (body.action === 'add') return addFromLink(body, env);
 
   // Accept a single op ({ action, id, ... }) or a batch ({ ops: [...] }).
   const ops = Array.isArray(body.ops) ? body.ops : [body];
@@ -119,6 +126,72 @@ export async function onRequestPost(context) {
   }
 
   return json({ ok: true, applied });
+}
+
+// ---- add: Amazon link → new entry ---------------------------------------
+//
+// Looks the book up right away (functions/_bookmeta.js). A confident hit is
+// appended as a published entry; a guess from the URL slug lands as a draft
+// for review; a link we can't read at all is queued as an inbox note tagged
+// `book` + status, which the book-links workflow (a Claude job) picks up.
+async function addFromLink(body, env) {
+  const url = typeof body.url === 'string' ? body.url.trim() : '';
+  const status = STATUSES.has(body.status) ? body.status : 'to-read';
+  if (!/^(https?:\/\/)?[^\s]+\.[^\s]+$/.test(url)) return json({ error: 'not a link' }, 400);
+
+  try {
+    const meta = await lookupAmazon(url);
+    if (!meta || meta.confidence === 'none') {
+      const path = await queueLink(env, url, status);
+      return json({ ok: true, result: 'queued', path });
+    }
+
+    const { text, sha } = await githubGetFile(env, FILE);
+    const dupe = findDuplicate(text, meta.asin);
+    if (dupe !== null) return json({ ok: true, result: 'duplicate', title: dupe || meta.asin });
+
+    const draft = meta.confidence !== 'high';
+    const entry = {
+      id: meta.asin,
+      title: meta.title,
+      author: meta.author,
+      date: new Date().toISOString().slice(0, 10),
+      status,
+      cover: meta.cover,
+      links: bookLinks(meta),
+      draft,
+    };
+    await githubPutFile(env, FILE, appendEntry(text, entry), sha, `books: add ${meta.asin}`);
+    return json({ ok: true, result: draft ? 'drafted' : 'added', entry });
+  } catch (e) {
+    return json({ error: String(e.message || e) }, 502);
+  }
+}
+
+// One note per queued link (per-file, like /api/capture) so the Claude job
+// never races the hand-edited books.yaml.
+async function queueLink(env, url, status) {
+  const now = new Date();
+  const stamp = now.toISOString().replace(/[-:]/g, '').replace(/\..+/, '');
+  const path = `src/content/notes/${now.toISOString().slice(0, 10)}-${stamp.slice(9)}-book-link.md`;
+  const full = /^https?:\/\//i.test(url) ? url : 'https://' + url;
+  const fm = [
+    '---',
+    'title: "Book link"',
+    `url: ${JSON.stringify(full)}`,
+    `date: ${now.toISOString()}`,
+    `tags: ["book", ${JSON.stringify(status)}]`,
+    // A bare queued link isn't public content; owner-mode builds only.
+    'draft: true',
+    'inbox: true',
+    'source: capture',
+    '---',
+    '',
+    'Queued from /books — the instant lookup could not read this link.',
+    '',
+  ].join('\n');
+  await githubPutFile(env, path, fm, undefined, `capture: book link ${full}`);
+  return path;
 }
 
 // Apply one op to the YAML text via line-scoped edits. Returns the new text,

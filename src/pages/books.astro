@@ -37,6 +37,9 @@ const sections = [
       <> · <span data-total="reading">{counts.reading ?? 0}</span> reading</>
     )}
     {SHOW_DRAFTS && <a class="edit-link" href={editUrl(BOOKS_FILE)}>edit books.yaml</a>}
+    {SHOW_DRAFTS && (
+      <button id="books-edit-toggle" class="edit-toggle" type="button" aria-pressed="false">edit</button>
+    )}
   </p>
 
   {books.length === 0 && <p>No books yet.</p>}
@@ -51,6 +54,20 @@ const sections = [
         <summary>
           {label} <span class="count">{group.length}</span>
         </summary>
+        {SHOW_DRAFTS && (
+          <form class="add-book" data-status={status} hidden>
+            <input
+              type="url"
+              name="url"
+              placeholder={`paste an Amazon link to add to “${label}”`}
+              aria-label={`Amazon link to add to ${label}`}
+              autocomplete="off"
+              required
+            />
+            <button type="submit" class="act">add</button>
+            <span class="add-book-msg" role="status"></span>
+          </form>
+        )}
         <div style="overflow-x:auto">
           <table>
             <tbody>
@@ -300,6 +317,122 @@ const sections = [
         });
       });
 
+      // ---- add a book from an Amazon link ---------------------------------
+      // The page-level "edit" toggle reveals one add box per section. The
+      // server looks the link up right away; a confident hit is committed as a
+      // published entry, a guess lands in drafts, and an unreadable link is
+      // queued for the book-links Claude job.
+      const editToggle = document.getElementById('books-edit-toggle');
+      const addForms = Array.from(document.querySelectorAll('form.add-book'));
+      if (editToggle) {
+        editToggle.addEventListener('click', () => {
+          const on = editToggle.getAttribute('aria-pressed') !== 'true';
+          editToggle.setAttribute('aria-pressed', String(on));
+          editToggle.textContent = on ? 'done' : 'edit';
+          addForms.forEach((f) => {
+            f.hidden = !on;
+            // Adding into a collapsed section should show where it lands.
+            if (on) f.closest('details').open = true;
+          });
+          if (on && addForms[0]) addForms[0].querySelector('input').focus();
+        });
+      }
+
+      // A placeholder row for a just-added book, shown until the rebuild lands.
+      // Cloning a rendered row keeps BookRow's scoped styles.
+      function placeholderRow(entry) {
+        const proto = document.querySelector('.book-section[data-status] .book-row');
+        let row;
+        if (proto) {
+          row = proto.cloneNode(true);
+          row.querySelectorAll('.book-review, .state-edit, .row-state').forEach((el) => el.remove());
+          const links = row.querySelector('.book-links');
+          if (links) links.textContent = '';
+          let img = row.querySelector('.cover-image');
+          if (entry.cover) {
+            if (!img) {
+              img = document.createElement('img');
+              img.className = 'cover-image';
+              row.querySelector('.book-cover').append(img);
+            }
+            img.src = entry.cover;
+          } else if (img) {
+            img.remove();
+          }
+        } else {
+          row = document.createElement('tr');
+          row.className = 'book-row';
+          row.innerHTML =
+            '<td class="book-cover"></td><td class="book-title-author"><div class="title"></div>' +
+            '<div class="author"></div></td><td class="book-status"><span class="state-label"></span></td>';
+        }
+        row.setAttribute('data-book-id', entry.id);
+        row.querySelector('.title').textContent = entry.title;
+        row.querySelector('.title').title = entry.title;
+        row.querySelector('.author').textContent = entry.author || '';
+        renderLabel(row, entry.status, null);
+        // renderLabel's fresh spans lack BookRow's scoped-style attribute.
+        const label = row.querySelector('.state-label');
+        if (label) {
+          const cid = Array.from(label.attributes).find((a) => a.name.startsWith('data-astro-cid'));
+          if (cid) label.querySelectorAll('*').forEach((el) => el.setAttribute(cid.name, ''));
+        }
+        row.classList.add('just-added');
+        row.title = 'Added — appears for good after the site rebuilds';
+        return row;
+      }
+
+      function say(form, text, kind) {
+        const msg = form.querySelector('.add-book-msg');
+        msg.textContent = text;
+        msg.dataset.kind = kind || '';
+      }
+
+      addForms.forEach((form) => {
+        const input = form.querySelector('input');
+        const status = form.dataset.status;
+        const section = form.closest('.book-section');
+
+        form.addEventListener('submit', async (ev) => {
+          ev.preventDefault();
+          const url = input.value.trim();
+          if (!url) return;
+          form.classList.add('busy');
+          input.disabled = true;
+          say(form, 'looking it up…');
+          try {
+            const res = await enqueue(() => send([{ action: 'add', url, status }]));
+            if (res.result === 'added') {
+              section.querySelector('tbody').prepend(placeholderRow(res.entry));
+              bump(section, 1);
+              say(form, 'added “' + res.entry.title + '”', 'ok');
+            } else if (res.result === 'drafted') {
+              say(form, 'saved “' + res.entry.title + '” as a draft — the lookup was a guess, check it under drafts after the rebuild', 'warn');
+            } else if (res.result === 'queued') {
+              say(form, 'couldn’t read that link — queued for the Claude job', 'warn');
+            } else if (res.result === 'duplicate') {
+              say(form, 'already listed: ' + res.title, 'warn');
+            } else {
+              say(form, 'done');
+            }
+            input.value = '';
+          } catch (e) {
+            say(form, 'add failed: ' + e.message, 'err');
+          } finally {
+            form.classList.remove('busy');
+            input.disabled = false;
+            input.focus();
+          }
+        });
+
+        // Pasting a link is the whole interaction — submit straight away.
+        input.addEventListener('paste', () => {
+          setTimeout(() => {
+            if (input.value.trim() && input.checkValidity()) form.requestSubmit();
+          }, 0);
+        });
+      });
+
       const pubAll = document.getElementById('publish-all');
       if (pubAll) {
         pubAll.addEventListener('click', async () => {
@@ -341,6 +474,64 @@ const sections = [
   .book-section[open] > summary::before { content: '▾ '; }
   .book-section > summary .count { color: var(--faint); font-size: 0.85rem; }
   .book-section table { margin-top: 0.4rem; }
+
+  /* Owner-mode "edit" toggle (same look as the category docs' toggle). */
+  .edit-toggle {
+    font-family: inherit;
+    font-size: 0.85em;
+    font-variant: small-caps;
+    margin-left: 0.6em;
+    padding: 0.05em 0.55em;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    vertical-align: baseline;
+  }
+  .edit-toggle:hover,
+  .edit-toggle[aria-pressed='true'] { border-color: var(--muted); color: var(--fg); }
+
+  /* Per-section "add from Amazon link" box, shown while editing. */
+  .add-book {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4em;
+    margin: 0.5rem 0 0.2rem;
+  }
+  .add-book[hidden] { display: none; }
+  .add-book input {
+    /* Override the global `width:100%` form rule; flex sizes it instead. */
+    width: auto;
+    flex: 1 1 16rem;
+    min-width: 0;
+    font-size: 0.85rem;
+    padding: 0.25em 0.5em;
+  }
+  .add-book .act {
+    font-family: inherit;
+    font-size: 0.85rem;
+    padding: 0.2em 0.7em;
+    border: 1px solid var(--muted);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--fg);
+    cursor: pointer;
+  }
+  .add-book.busy { opacity: 0.6; }
+  .add-book-msg {
+    flex-basis: 100%;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .add-book-msg:empty { display: none; }
+  .add-book-msg[data-kind='ok'] { color: var(--fg); }
+  .add-book-msg[data-kind='err'] { color: #b00020; }
+  /* A row added this session, before the rebuild makes it permanent. */
+  .book-section :global(.book-row.just-added) {
+    background: color-mix(in srgb, var(--muted) 10%, transparent);
+  }
 
   /* Owner-only drafts bucket: set apart from the public sections. */
   .drafts-section {

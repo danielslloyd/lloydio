@@ -1,0 +1,100 @@
+# Book links: turn queued Amazon links into books.yaml entries.
+#
+# The owner-mode /books page posts pasted Amazon links to /api/books, which
+# adds them instantly when it can. Links it can't read are queued as inbox
+# notes tagged `book` + a status (to-read | reading | finished); this job has
+# Claude resolve them (title/author/cover), append them to books.yaml, and
+# delete the notes. Runs daily, on demand, and right after a capture lands.
+#
+# Requires the ANTHROPIC_API_KEY repository secret.
+name: book-links
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 6 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/notes/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: book-links
+  cancel-in-progress: false
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Most note pushes are ordinary captures; skip the paid step unless a
+      # queued book link is actually waiting.
+      - name: Find queued book links
+        id: queue
+        run: |
+          files=$(grep -lE '^tags: \[.*"book"' src/content/notes/*.md 2>/dev/null || true)
+          echo "$files"
+          echo "count=$(printf '%s' "$files" | grep -c . || true)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-node@v4
+        if: steps.queue.outputs.count != '0'
+        with:
+          node-version: 22
+          cache: npm
+      - if: steps.queue.outputs.count != '0'
+        run: npm ci
+
+      - name: Resolve with Claude
+        if: steps.queue.outputs.count != '0'
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: >-
+            --max-turns 60
+            --allowedTools Read,Edit,Write,Glob,Grep,WebFetch,WebSearch,Bash(npm run build),Bash(rm src/content/notes/*)
+          prompt: |
+            You are filing queued book links for this repo. Read CLAUDE.md and
+            .claude/skills/process-inbox/SKILL.md first and follow their rules.
+
+            Scope: ONLY notes in src/content/notes/ whose frontmatter tags include
+            "book" (queued from the /books page). Ignore every other note.
+
+            For each one:
+            1. The `url` is an Amazon (or other bookseller) link. Its second tag is
+               the status: to-read | reading | finished.
+            2. Work out the real title, author, and Amazon ASIN using WebFetch /
+               WebSearch (Open Library and Google Books APIs work well; Amazon
+               pages may be blocked). Prefer the exact edition linked.
+            3. If the ASIN or a link to it is already in src/content/books.yaml,
+               it's a duplicate: just delete the note.
+            4. Otherwise append one entry to the END of src/content/books.yaml in
+               the shape the existing `source: amazon` entries use:
+               id (the ASIN, quoted), title, author, date (today), status, links
+               (amazon: https://www.amazon.com/dp/<ASIN>; goodreads/audible as
+               search URLs unless you verified a direct page), source: amazon,
+               and cover only if you found a real m.media-amazon.com image URL.
+               If you could not confidently identify the book, still add what you
+               know but with `draft: true` so the owner reviews it. Never invent
+               titles, authors, ASINs or URLs.
+            5. Delete the note file.
+
+            Then run `npm run build`; it must pass. Leave the changes uncommitted —
+            the next workflow step commits them.
+
+      - name: Commit results
+        if: steps.queue.outputs.count != '0'
+        run: |
+          git config user.name "book-links"
+          git config user.email "book-links@users.noreply.github.com"
+          git add -A src/content/books.yaml src/content/notes
+          if git diff --cached --quiet; then
+            echo "nothing resolved"
+          else
+            git commit -m "process: ${{ steps.queue.outputs.count }} book links"
+            git pull --rebase origin main
+            git push
+          fi
