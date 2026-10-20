@@ -2,6 +2,10 @@
 title: Commonplace
 ---
 
+An **eddy current separator (ECS)** pushes aluminum and copper out of a recycling stream - a belt carries shredded material (already stripped of iron and steel), over a fast-spinning drum of alternating-pole neodymium magnets. Conductive non-ferrous metals such as aluminum and copper are flung forward by the induced opposing field, while non-conductive materials just fall off the belt. Aluminum responds especially well because it is highly conductive for its weight.
+
+---
+
 **First Wave Feminism** (c. 1840s-1920s) grew out of abolitionism and temperance work and pursued legal citizenship: suffrage, married women’s property and custody rights, and the end of coverture, which absorbed a wife’s legal identity into her husband’s. Key figures include Elizabeth Cady Stanton, Susan B. Anthony, and Emmeline Pankhurst, and it culminated in the 19th Amendment (1920). The **Second Wave** (c. 1960s-1980s), launched by Betty Friedan’s *The Feminine Mystique* (1963), pursued social and structural equality under the slogan “the personal is political,” targeting workplace discrimination, reproductive rights, domestic violence, and the Equal Rights Amendment. Its key figures were Friedan, Gloria Steinem, and Shulamith Firestone, and its signature method was consciousness-raising, in which women shared private experiences to reveal them as systemic. The **Third Wave** (c. 1990s-2000s), launched by Kimberlé Crenshaw’s coining of intersectionality (1989), emphasized individual choice, sexual agency, and plural definitions of womanhood. Its key figures were Crenshaw, Judith Butler, and Rebecca Walker, and its signature expressions were cultural as much as legal, from Butler’s theory of gender performativity to the Riot Grrrl music scene. A contested fourth wave (c. 2010s-present) is usually defined by digital activism such as #MeToo and by debates over trans inclusion.
 
 ---
