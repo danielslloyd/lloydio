@@ -7587,3 +7587,14 @@
     audible: https://www.audible.com/search?keywords=A%20World%20at%20Arms%3A%20A%20Global%20History%20of%20World%20War%20II%20Gerhard%20L.%20Weinberg
   source: manual
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1766824429i/1488322.jpg
+- id: "B008Y2ARWC"
+  title: "Freedom's Forge: How American Business Built the Arsenal of Democracy That Won World War II"
+  author: "Arthur Herman"
+  date: 2026-10-20
+  status: reading
+  links:
+    amazon: https://www.amazon.com/dp/B008Y2ARWC
+    goodreads: https://www.goodreads.com/search?q=Freedom's%20Forge%20Arthur%20Herman
+    audible: https://www.audible.com/search?keywords=Freedom's%20Forge%20Arthur%20Herman
+  source: amazon
+  cover: https://m.media-amazon.com/images/I/81ACxZxYrtL._SY300_.jpg
