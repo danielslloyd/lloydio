@@ -346,8 +346,30 @@ const sections = [
         if (proto) {
           row = proto.cloneNode(true);
           row.querySelectorAll('.book-review, .state-edit, .row-state').forEach((el) => el.remove());
-          const links = row.querySelector('.book-links');
-          if (links) links.textContent = '';
+          // Re-point the cloned shop icons at this book's links, with the
+          // same specific-vs-search styling BookRow applies.
+          row.querySelectorAll('.book-links .shop').forEach((el) => {
+            const kind = ['goodreads', 'amazon', 'audible'].find((k) => el.classList.contains(k));
+            const href = entry.links && entry.links[kind];
+            const shop = document.createElement(href ? 'a' : 'span');
+            for (const at of el.attributes) shop.setAttribute(at.name, at.value);
+            shop.innerHTML = el.innerHTML;
+            shop.classList.remove('search', 'missing');
+            const name = kind[0].toUpperCase() + kind.slice(1);
+            if (href) {
+              shop.href = href;
+              const specific =
+                kind === 'goodreads' ? href.includes('/book/show/')
+                : kind === 'amazon' ? /\/(dp|gp)\//.test(href)
+                : !/[?&]keywords=|\/search\b/.test(href);
+              if (!specific) shop.classList.add('search');
+              shop.title = name + (specific ? '' : ' (search)');
+            } else {
+              shop.classList.add('missing');
+              shop.title = name + ' (no link)';
+            }
+            el.replaceWith(shop);
+          });
           let img = row.querySelector('.cover-image');
           if (entry.cover) {
             if (!img) {
@@ -367,7 +389,9 @@ const sections = [
             '<div class="author"></div></td><td class="book-status"><span class="state-label"></span></td>';
         }
         row.setAttribute('data-book-id', entry.id);
-        row.querySelector('.title').textContent = entry.title;
+        // Same single-line truncation as BookRow's truncateTitle (42 chars).
+        row.querySelector('.title').textContent =
+          entry.title.length > 43 ? entry.title.slice(0, 42).trimEnd() + '…' : entry.title;
         row.querySelector('.title').title = entry.title;
         row.querySelector('.author').textContent = entry.author || '';
         renderLabel(row, entry.status, null);

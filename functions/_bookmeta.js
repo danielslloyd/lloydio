@@ -35,7 +35,16 @@ export async function lookupAmazon(rawUrl) {
   }
   if (!asin) return null;
 
-  const out = { asin, url, title: '', author: '', cover: '', confidence: 'none' };
+  const out = {
+    asin,
+    url,
+    title: '',
+    author: '',
+    cover: '',
+    goodreads: '',
+    audible: '',
+    confidence: 'none',
+  };
 
   // 1) Print ISBN-10.
   if (/^\d{9}[\dX]$/.test(asin)) {
@@ -52,6 +61,7 @@ export async function lookupAmazon(rawUrl) {
     }
     if (!out.author && page.author) out.author = page.author;
     if (page.cover) out.cover = page.cover;
+    if (page.audible) out.audible = page.audible;
   }
 
   // 3) URL slug → Google Books search.
@@ -70,6 +80,7 @@ export async function lookupAmazon(rawUrl) {
   }
 
   if (!out.cover) out.cover = await amazonCover(asin);
+  out.goodreads = await goodreadsPage(asin);
   return out;
 }
 
@@ -89,16 +100,17 @@ export function findDuplicate(text, asin) {
   return null;
 }
 
-// Amazon product link plus Goodreads/Audible *search* links (BookRow grays
-// search links out, so they read as "not yet pinned down").
-export function bookLinks({ asin, title, author }) {
+// Amazon product link plus the Goodreads/Audible pages the lookup found,
+// falling back to *search* links (BookRow grays those out, so they read as
+// "not yet pinned down").
+export function bookLinks({ asin, title, author, goodreads, audible }) {
   const q = encodeURIComponent(
     [title.replace(/:.*$/, ''), (author || '').split(',')[0]].filter(Boolean).join(' ')
   );
   return {
     amazon: `https://www.amazon.com/dp/${asin}`,
-    goodreads: `https://www.goodreads.com/search?q=${q}`,
-    audible: `https://www.audible.com/search?keywords=${q}`,
+    goodreads: goodreads || `https://www.goodreads.com/search?q=${q}`,
+    audible: audible || `https://www.audible.com/search?keywords=${q}`,
   };
 }
 
@@ -191,8 +203,15 @@ async function scrapeAmazon(asin) {
   // Normalize to the thumbnail size the rest of books.yaml uses.
   cover = cover.replace(/\._[^/]*_\.(jpg|png)$/i, '._SY300_.$1');
 
+  // Audiobook edition: the format swatch tagged tmm_aud. If this page *is*
+  // the audiobook, the swatch has no link, so fall back to the page's ASIN.
+  let audible = '';
+  const aud = html.match(/\/dp\/([A-Z0-9]{10})\/ref=tmm_aud_swatch/);
+  if (aud) audible = `https://www.amazon.com/dp/${aud[1]}`;
+  else if (/Listening Length/.test(html)) audible = `https://www.amazon.com/dp/${asin}`;
+
   if (!title) return null;
-  return { title, author: authors.join(', '), cover };
+  return { title, author: authors.join(', '), cover, audible };
 }
 
 // Amazon's ASIN-addressed image endpoint. Missing images come back as a tiny
@@ -204,6 +223,23 @@ async function amazonCover(asin) {
     if (!res.ok) return '';
     const buf = await res.arrayBuffer();
     return buf.byteLength > 1000 ? url : '';
+  } catch {
+    return '';
+  }
+}
+
+// Goodreads resolves ISBNs and Amazon ASINs (Kindle too) at /book/isbn/<id>,
+// redirecting to the book's page. '' when it doesn't know the id.
+async function goodreadsPage(asin) {
+  try {
+    const res = await fetch(`https://www.goodreads.com/book/isbn/${asin}`, {
+      redirect: 'manual',
+      headers: { 'User-Agent': UA },
+      signal: AbortSignal.timeout(5000),
+    });
+    const loc = res.headers.get('Location') || '';
+    const m = loc.match(/^(?:https:\/\/www\.goodreads\.com)?(\/book\/show\/[^?#]+)/);
+    return m ? `https://www.goodreads.com${m[1]}` : '';
   } catch {
     return '';
   }
