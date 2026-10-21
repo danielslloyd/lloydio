@@ -47,6 +47,10 @@ const articles = defineCollection({
   schema: z.object({
     title: z.string(),
     url: z.string().url(),
+    // Byline facts from BacklogCast, where the source states them.
+    author: z.string().optional(),
+    source: z.string().optional(), // publication / site name
+    published: z.string().optional(), // the piece's own date: YYYY[-MM[-DD]]
     date: z.coerce.date(),
     audio: z.string().optional(), // relative (/media/audio/…) or absolute URL
     audio_bytes: z.number().optional(), // enclosure length; set by /api/episode for R2-hosted audio

@@ -21,7 +21,8 @@ BacklogCast (desktop)
   1. fetch the URL as a browser would (HTML or PDF; curl / Substack-API fallbacks)
   2. trafilatura draft → headless Claude (`claude -p`) writes the clean reading text
   3. Henty narrates it (Chatterbox, with a Whisper check per chunk) → mp3
-  4. POST /api/episode  (multipart: slug, title, url, date, duration, markdown, mp3)
+  4. POST /api/episode  (multipart: slug, title, url, date, duration, markdown, mp3,
+                        + author/source/published where the source states them)
       ▼
 /api/episode (Pages Function)
   - mp3 → R2  episodes/<slug>.mp3  (public at https://media.lloyd.studio)
@@ -97,6 +98,17 @@ the LISTEN column into a control:
 stored as `status/<slug>.json` in the AUDIO bucket, so progress updates never
 trigger rebuilds. Re-queuing a cancelled item resumes it; re-queuing a deleted
 episode re-uploads the audio BacklogCast already has.
+
+Clean-text progress works the same way at `textstatus/<slug>.json`
+(`in_progress` | `waiting` | `failed`, plus a `reason`). /reading reads it —
+the public page too, unauthenticated GETs return just this part — to pulse a
+missing "md" that's still coming and strike through one that failed.
+BacklogCast retries a failed extraction or narration up to 4 times
+(after 15 min, 1 h, 4 h), then gives up until retried by hand.
+
+Narration opens with a spoken byline (title, author, publication, date —
+whatever is known); the same facts land in the article frontmatter
+(`author`, `source`, `published`) and show under the title on /reading/<slug>.
 
 ## Article lifecycle
 

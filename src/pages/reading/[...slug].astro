@@ -15,9 +15,12 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const { author, source, published } = entry.data;
+const byline = [author && `by ${author}`, source, published].filter(Boolean).join(' · ');
 ---
 <Base title={entry.data.title} article={true}>
   <h1 class="page-title">{entry.data.title}</h1>
+  {byline && <p class="byline">{byline}</p>}
   <p class="meta">
     added {formatDate(entry.data.date)} ·
     <a href={entry.data.url}>original ↗</a>
@@ -33,3 +36,11 @@ const { Content } = await render(entry);
     <p class="meta">Clean text not generated yet — BacklogCast will fill this in.</p>
   )}
 </Base>
+
+<style>
+  .byline {
+    margin: -0.4rem 0 0.4rem;
+    font-style: italic;
+    color: var(--muted);
+  }
+</style>

@@ -8,6 +8,8 @@
 //   slug              item key (from /api/podcast-queue.json)
 //   title, url, date  article metadata (date = ISO publish time)
 //   markdown          the clean article text
+//   author, source, published  byline facts, where known (published =
+//                     the piece's own date, YYYY[-MM[-DD]]) — all optional
 //   audio             the mp3 file            — narration only
 //   duration_seconds  episode length          — narration only
 //
@@ -57,6 +59,11 @@ export async function onRequestPost(context) {
   const audio = form.get('audio');
   const hasAudio = audio && typeof audio !== 'string' && audio.size > 0;
   const duration = Math.max(0, Math.round(Number(form.get('duration_seconds')) || 0));
+  // Optional byline facts; blank ones are left out of the frontmatter.
+  const byline = ['author', 'source', 'published']
+    .map((k) => [k, String(form.get(k) || '').trim().slice(0, 200)])
+    .filter(([k, v]) => v && (k !== 'published' || /^\d{4}(-\d{2}){0,2}$/.test(v)))
+    .map(([k, v]) => `${k}: ${JSON.stringify(v)}`);
   const dateIn = String(form.get('date') || '');
   const date = isNaN(Date.parse(dateIn)) ? new Date() : new Date(dateIn);
 
@@ -94,6 +101,7 @@ export async function onRequestPost(context) {
     '---',
     `title: ${JSON.stringify(title)}`,
     `url: ${JSON.stringify(url)}`,
+    ...byline,
     `date: ${date.toISOString()}`,
     'status: ready',
     ...audioLines,
