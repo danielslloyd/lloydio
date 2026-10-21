@@ -37,7 +37,7 @@ const listenLabel = {
 
   {items.length === 0 && <p>Nothing on the list yet.</p>}
   {items.length > 0 && (
-    <table class="reading-table">
+    <table class:list={['reading-table', { owner: SHOW_DRAFTS }]}>
       <colgroup><col /><col class="col-read" /><col class="col-listen" /></colgroup>
       <thead>
         <tr><th>title</th><th>read</th><th>listen</th></tr>
@@ -58,7 +58,7 @@ const listenLabel = {
               {i.hasArticle ? (
                 <a href={`/reading/${i.slug}`}>md</a>
               ) : (
-                <span class="pending" title="clean text not generated yet">md</span>
+                <span class="pending" title="clean text not generated yet — queued">md</span>
               )}
             </td>
             <td class="listen">
@@ -69,7 +69,9 @@ const listenLabel = {
                   {listenIcon[i.listen]}
                 </span>
               )}
-              {SHOW_DRAFTS && <button type="button" class="listen-btn" hidden>{listenIcon[i.listen]}</button>}
+              {SHOW_DRAFTS && (
+                <button type="button" class="listen-btn" data-state={i.listen}>{listenIcon[i.listen]}</button>
+              )}
             </td>
           </tr>
         ))}
@@ -78,6 +80,34 @@ const listenLabel = {
   )}
 </Base>
 
+<script is:inline>
+  (function () {
+    // Live extraction state for links without clean text yet (BacklogCast
+    // reports it; see functions/_episodes.js). Distinguishes a "md" that's
+    // still coming from one that failed. The owner script reuses the fetch.
+    const titles = {
+      in_progress: 'extracting clean text…',
+      waiting: 'extraction failed — will retry',
+      failed: 'extraction failed',
+    };
+    window.readingStatus = function () {
+      return fetch('/api/episode-status', { credentials: 'include' })
+        .then((r) => (r.ok ? r.json() : {}))
+        .catch(() => ({}));
+    };
+    window.readingStatusOnce = window.readingStatus();
+    window.readingStatusOnce.then(({ text = {} }) => {
+      document.querySelectorAll('.reading-table tbody tr[data-key]').forEach((row) => {
+        const s = text[row.dataset.key];
+        const md = row.querySelector('.read .pending');
+        if (!s || !md || !titles[s.state]) return;
+        md.dataset.text = s.state;
+        md.title = titles[s.state] + (s.reason ? ': ' + s.reason : '');
+      });
+    });
+  })();
+</script>
+
 {SHOW_DRAFTS && (
   <script is:inline define:vars={{ listenIcon }}>
     (function () {
@@ -85,7 +115,6 @@ const listenLabel = {
       // pattern as the /books add box — the Access cookie rides along; the
       // shared token is only a 401 fallback.
       const API = '/api/reading';
-      const STATUS_API = '/api/episode-status';
       const TOKEN_KEY = 'lloydio_owner_token';
       const toggle = document.getElementById('reading-edit-toggle');
       const form = document.getElementById('add-reading');
@@ -125,24 +154,18 @@ const listenLabel = {
         toggle.setAttribute('aria-pressed', String(on));
         toggle.textContent = on ? 'done' : 'edit';
         form.hidden = !on;
-        document.querySelectorAll('.reading-table .listen').forEach((td) => {
-          td.querySelector('.listen-view').hidden = on;
-          const btn = td.querySelector('.listen-btn');
-          if (btn) btn.hidden = !on;
-        });
+        // Editing also exposes the "delete episode" button on narrated rows.
+        if (table) table.classList.toggle('editing', on);
         if (on) {
-          document.querySelectorAll('.reading-table tbody tr').forEach((r) => setListen(r, r.dataset.listen));
-          overlayLiveStatus();
+          overlayLiveStatus(window.readingStatus());
           urlInput.focus();
         }
       });
 
       // "In progress" isn't in the repo — BacklogCast reports it live.
-      async function overlayLiveStatus() {
+      async function overlayLiveStatus(pending) {
         try {
-          const res = await fetch(STATUS_API, { credentials: 'include' });
-          if (!res.ok) return;
-          const { statuses = {} } = await res.json();
+          const { statuses = {} } = await pending;
           document.querySelectorAll('.reading-table tbody tr[data-key]').forEach((row) => {
             const s = statuses[row.dataset.key];
             if (!s || row.dataset.listen === 'ready') return;
@@ -156,7 +179,8 @@ const listenLabel = {
           // live status is a nicety; the column still works without it
         }
       }
-      overlayLiveStatus();
+      document.querySelectorAll('.reading-table tbody tr').forEach((r) => setListen(r, r.dataset.listen));
+      overlayLiveStatus(window.readingStatusOnce);
 
       function post(payload, token) {
         const headers = { 'Content-Type': 'application/json' };
@@ -374,9 +398,32 @@ const listenLabel = {
     font-size: 0.85em;
     line-height: 1.5;
   }
-  .read .pending { color: var(--muted); opacity: 0.6; }
+  .read .pending { color: var(--muted); opacity: 0.6; cursor: help; }
+  /* Live extraction state (set client-side): a slow pulse while BacklogCast is
+     working on it or will retry; struck through once it has given up. */
+  .read .pending[data-text='in_progress'],
+  .read .pending[data-text='waiting'] { animation: md-pending 2.4s ease-in-out infinite; }
+  .read .pending[data-text='waiting'] { animation-duration: 4.8s; }
+  .read .pending[data-text='failed'] {
+    opacity: 0.45;
+    text-decoration: line-through;
+    text-decoration-color: color-mix(in srgb, #b00020 70%, transparent);
+  }
+  @keyframes md-pending {
+    50% { opacity: 0.25; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .read .pending[data-text] { animation: none; }
+    .read .pending[data-text='in_progress'],
+    .read .pending[data-text='waiting'] { text-decoration: underline dotted; }
+  }
 
-  /* LISTEN column: a link/glyph when viewing, a state button when editing. */
+  /* LISTEN column: a link/glyph on the public site. In owner mode every
+     un-narrated row is a state button; narrated rows keep their ▶ link and
+     show the (delete) button only while editing. */
+  .reading-table.owner .listen-view { display: none; }
+  .reading-table.owner:not(.editing) tr[data-listen='ready'] .listen-view { display: inline; }
+  .reading-table.owner:not(.editing) tr[data-listen='ready'] .listen-btn { display: none; }
   .listen { text-align: center; white-space: nowrap; }
   .listen-view { color: var(--muted); }
   .listen-view[data-state='queued'],

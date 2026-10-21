@@ -8,6 +8,10 @@ export const SHOW_DRAFTS = process.env.DRAFTS === '1';
 export const REPO = 'danielslloyd/lloydio';
 export const REPO_BRANCH = 'main';
 
+// The two deployments: the public site and the Access-protected owner build.
+export const PUBLIC_ORIGIN = 'https://lloyd.studio';
+export const DRAFTS_ORIGIN = 'https://drafts.lloyd.studio';
+
 export const SITE_TITLE = 'lloydio';
 export const SITE_DESCRIPTION = "Daniel Lloyd's notes, links, essays, and small tools.";
 

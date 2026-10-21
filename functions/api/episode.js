@@ -25,7 +25,7 @@
 // Access JWT / CAPTURE_TOKEN (via _owner.js `authorized`) are accepted too.
 
 import { authorized, githubGetFile, githubPutFile, json, CORS } from '../_owner.js';
-import { audioBase, clearStatus } from '../_episodes.js';
+import { audioBase, clearStatus, clearTextStatus } from '../_episodes.js';
 
 const SLUG_RE = /^[a-z0-9-]{1,120}$/;
 const AUDIO_KEYS = ['audio', 'audio_bytes', 'duration'];
@@ -111,6 +111,8 @@ export async function onRequestPost(context) {
 
   // Narration landed: drop the live in-progress marker (see _episodes.js).
   if (hasAudio && env.AUDIO) await clearStatus(env, slug).catch(() => {});
+  // The text exists now, whatever extraction reported before.
+  if (env.AUDIO) await clearTextStatus(env, slug).catch(() => {});
   return json({
     ok: true,
     slug,

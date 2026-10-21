@@ -81,6 +81,13 @@ main {
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
 }
+#site-swap {
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+  opacity: 0.7;
+}
+#site-swap:hover { opacity: 1; color: var(--fg); }
 #theme-toggle {
   background: none;
   border: none;

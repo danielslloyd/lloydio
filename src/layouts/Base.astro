@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import Wordmark from '../components/Wordmark.astro';
-import { SITE_TITLE, SITE_DESCRIPTION, SHOW_DRAFTS } from '../lib/site';
+import { SITE_TITLE, SITE_DESCRIPTION, SHOW_DRAFTS, PUBLIC_ORIGIN, DRAFTS_ORIGIN } from '../lib/site';
 
 interface Props {
   title?: string;
@@ -14,6 +14,8 @@ const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
 
 // Determine which nav item is active
 const pathname = new URL(Astro.request.url).pathname;
+// The lock swaps between the public site and the owner (drafts) build, same page.
+const otherSite = `${SHOW_DRAFTS ? PUBLIC_ORIGIN : DRAFTS_ORIGIN}${pathname}`;
 const getNavLabel = (href: string) => {
   if (pathname === '/') return href === '/';
   if (pathname.startsWith('/apps/')) {
@@ -58,6 +60,18 @@ const getNavLabel = (href: string) => {
         <a href="/search" class:list={{ active: getNavLabel('/search') }}>search</a>
         {SHOW_DRAFTS && <a href="/inbox" class="owner-only" class:list={{ active: getNavLabel('/inbox') }}>inbox</a>}
         {SHOW_DRAFTS && <a href="/capture" class="owner-only" class:list={{ active: getNavLabel('/capture') }}>capture</a>}
+        <a
+          id="site-swap"
+          href={otherSite}
+          title={SHOW_DRAFTS ? 'View this page on the public site' : 'Open this page in owner mode'}
+          aria-label={SHOW_DRAFTS ? 'Public site' : 'Owner mode'}
+        >
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <rect x="3" y="7" width="10" height="7" rx="1.2" />
+            {SHOW_DRAFTS ? <path d="M5.5 7V4.8a2.5 2.5 0 0 1 4.9-.7" /> : <path d="M5.5 7V4.8a2.5 2.5 0 0 1 5 0V7" />}
+          </svg>
+        </a>
         <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">◐</button>
       </nav>
       {SHOW_DRAFTS && <p class="draft-banner">owner mode — drafts visible</p>}
@@ -79,8 +93,12 @@ const getNavLabel = (href: string) => {
       });
       if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
 
+      // Carry query + hash across to the other deployment.
+      var swap = document.getElementById('site-swap');
+      swap.href += location.search + location.hash;
+
       // External links open in new tab
-      document.querySelectorAll('a').forEach(function (link) {
+      document.querySelectorAll('a:not(#site-swap)').forEach(function (link) {
         var href = link.getAttribute('href') || '';
         if (href.startsWith('http://') || href.startsWith('https://')) {
           link.setAttribute('target', '_blank');
