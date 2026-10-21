@@ -49,6 +49,8 @@ const articles = defineCollection({
     url: z.string().url(),
     date: z.coerce.date(),
     audio: z.string().optional(), // relative (/media/audio/…) or absolute URL
+    audio_bytes: z.number().optional(), // enclosure length; set by /api/episode for R2-hosted audio
+    duration: z.number().optional(), // seconds
     status: z.enum(['queued', 'ready', 'read']).default('queued'),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),

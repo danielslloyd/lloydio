@@ -12,7 +12,7 @@ Time: ~45 min active, plus DNS propagation wait. Follow in order.
 ## 0. Branch
 
 The default branch is **`main`**, and every deploy, the capture function
-(`GH_BRANCH=main`), and the BacklogCast Action all target it. A fresh
+(`GH_BRANCH=main`), and BacklogCast's `/api/episode` write-back all target it. A fresh
 `git clone` lands you on `main` — nothing to do. Consider **making the repo
 private**: drafts and unprocessed Keep imports are hidden on the public
 *site* but fully visible in a public *repo*. Cloudflare Pages deploys
@@ -179,7 +179,7 @@ seconds and appear on the site after the ~1 min rebuild.
 | - | ---- | --- | ------ |
 | 1 | plain thought, no URL | extension or `/capture`, note text only | `/notes` under today; `[archive]` absent; owner mode shows an `inbox` chip |
 | 2 | any link | phone share sheet → lloydio → save | `/notes` with title + `[archive]` link to the Wayback snapshot |
-| 3 | an article, **podcast checked** | extension, tick *queue for podcast* | note tagged `#podcast`; item in `/api/podcast-queue.json`; **Actions → backlogcast** run starts (or trigger via *Run workflow*), commits `backlogcast: new episodes`; after rebuild `/reading` row has ▶ + text; episode in `/podcast/<FEED_TOKEN>.xml` |
+| 3 | an article, **podcast checked** | extension, tick *queue for podcast* | note tagged `#podcast`; item in `/api/podcast-queue.json`; within `LLOYDIO_POLL_SECONDS` the desktop BacklogCast narrates it and commits `backlogcast: <title>` via `/api/episode`; after rebuild `/reading` row has ▶ + text; episode in `/podcast/<FEED_TOKEN>.xml` |
 | 4 | a quote, tag `commonplace` | any capture path, tags field | appears on `/commonplace` |
 | 5 | a pretty link, tag `beautiful` | any | appears on `/beautiful` |
 | 6 | an infographic link, tag `infographics` | any | appears on `/infographics` |
@@ -197,9 +197,7 @@ npm install
 npm run build                  # must pass; DRAFTS=1 npm run build for owner view
 npm run dev                    # http://localhost:4321
 npm run inbox                  # lists captures 1–7 as unprocessed
-npm run backlogcast -- --dry-run   # shows the podcast queue
-pip install edge-tts           # then a real local pipeline run:
-npm run backlogcast            # fetch + narrate anything still queued
+npm run backlogcast            # shows the podcast queue (narration is BacklogCast's job)
 ```
 
 Then process the inbox: open the repo in Claude Code/Cowork and say
@@ -225,8 +223,9 @@ published, and `npm run inbox` returns to zero.
   missing Contents write on the repo.
 - **Saved but never appears** — check the Pages build log; a schema error
   in a hand-edited file fails the build (`npm run build` locally to see it).
-- **backlogcast run is green but no audio** — check the run log: a `fetch
-  403/404` means the site blocks bots (article saved textless and retried);
-  edge-tts errors mean the voice name is wrong.
+- **Queued link never gets audio** — open the BacklogCast UI on the desktop
+  (http://127.0.0.1:9157): the job shows its state and error (fetch failure,
+  `needs_review` from the Claude pass, Henty down, or a failed `/api/episode`
+  upload — which it retries every 10 minutes).
 - **Feed 404** — the feed path embeds `FEED_TOKEN` at build time; it only
   exists after a deploy *with* that env var set.

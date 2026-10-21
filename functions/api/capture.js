@@ -10,6 +10,8 @@
 //   GH_REPO       — e.g. "danielslloyd/lloydio"
 //   GH_BRANCH     — e.g. "main"
 
+import { buildNote, archiveUrl } from '../_note.js';
+
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -40,37 +42,12 @@ export async function onRequestPost(context) {
   const note = typeof body.note === 'string' ? body.note.trim() : '';
   const tags = Array.isArray(body.tags) ? body.tags.map(clean).filter(Boolean).slice(0, 10) : [];
   const draft = body.draft === true;
-  // "podcast" flags the link for BacklogCast (see .github/workflows/backlogcast.yml)
+  // "podcast" flags the link for BacklogCast (see docs/BACKLOGCAST.md)
   if (body.podcast === true && url && !tags.includes('podcast')) tags.push('podcast');
 
   if (!url && !title && !note) return json({ error: 'empty capture' }, 400);
 
-  const now = new Date();
-  const stamp = now.toISOString().replace(/[-:]/g, '').replace(/\..+/, ''); // 20260707T190755
-  const slugBase = (title || (url ? new URL(url).hostname : 'note'))
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 40) || 'note';
-  const path = `src/content/notes/${now.toISOString().slice(0, 10)}-${stamp.slice(9)}-${slugBase}.md`;
-
-  const fm = [
-    '---',
-    title ? `title: ${JSON.stringify(title)}` : null,
-    url ? `url: ${JSON.stringify(url)}` : null,
-    url ? `archive: ${JSON.stringify('https://web.archive.org/web/2/' + url)}` : null,
-    `date: ${now.toISOString()}`,
-    tags.length ? `tags: [${tags.map((t) => JSON.stringify(t)).join(', ')}]` : null,
-    draft ? 'draft: true' : null,
-    'inbox: true',
-    'source: capture',
-    '---',
-    '',
-    note,
-    '',
-  ]
-    .filter((l) => l !== null)
-    .join('\n');
+  const { path, text: fm } = buildNote({ url, title, note, tags, draft });
 
   // Commit via the GitHub Contents API.
   const ghRes = await fetch(
@@ -97,14 +74,7 @@ export async function onRequestPost(context) {
   }
 
   // Fire-and-forget: ask the Wayback Machine to snapshot the link.
-  if (url) {
-    context.waitUntil(
-      fetch(`https://web.archive.org/save/${url}`, {
-        headers: { 'User-Agent': 'lloydio-capture' },
-        redirect: 'manual',
-      }).catch(() => {})
-    );
-  }
+  if (url) archiveUrl(context, url);
 
   return json({ ok: true, path });
 }

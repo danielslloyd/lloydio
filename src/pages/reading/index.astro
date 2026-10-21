@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getReadingItems } from '../../lib/reading';
-import { formatDate } from '../../lib/site';
+import { SHOW_DRAFTS, formatDate } from '../../lib/site';
 
 const items = await getReadingItems();
 const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' };
@@ -11,7 +11,21 @@ const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' 
   <p class="meta">
     articles queued for reading/listening · flag a capture with the podcast
     checkbox to queue it · <a href="/api/podcast-queue.json">queue.json</a>
+    {SHOW_DRAFTS && (
+      <button id="reading-edit-toggle" class="edit-toggle" type="button" aria-pressed="false">edit</button>
+    )}
   </p>
+
+  {SHOW_DRAFTS && (
+    <form id="add-reading" class="add-reading" hidden>
+      <input type="url" name="url" placeholder="paste a URL (article or PDF) to queue for narration"
+        aria-label="URL to queue" autocomplete="off" required />
+      <input type="text" name="title" placeholder="title (optional)" aria-label="Title (optional)"
+        autocomplete="off" class="title-input" />
+      <button type="submit" class="act">add</button>
+      <span class="add-msg" role="status"></span>
+    </form>
+  )}
 
   {items.length === 0 && <p>Nothing queued yet.</p>}
   {items.length > 0 && (
@@ -36,3 +50,167 @@ const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' 
     </div>
   )}
 </Base>
+
+{SHOW_DRAFTS && (
+  <script is:inline>
+    (function () {
+      // Owner-mode "add URL": same auth pattern as the /books add box — the
+      // Access cookie rides along; the shared token is only a 401 fallback.
+      const API = '/api/reading';
+      const TOKEN_KEY = 'lloydio_owner_token';
+      const toggle = document.getElementById('reading-edit-toggle');
+      const form = document.getElementById('add-reading');
+      if (!toggle || !form) return;
+      const urlInput = form.querySelector('input[name=url]');
+      const titleInput = form.querySelector('input[name=title]');
+      const msg = form.querySelector('.add-msg');
+
+      toggle.addEventListener('click', () => {
+        const on = toggle.getAttribute('aria-pressed') !== 'true';
+        toggle.setAttribute('aria-pressed', String(on));
+        toggle.textContent = on ? 'done' : 'edit';
+        form.hidden = !on;
+        if (on) urlInput.focus();
+      });
+
+      function post(payload, token) {
+        const headers = { 'Content-Type': 'application/json' };
+        if (token) headers.Authorization = 'Bearer ' + token;
+        return fetch(API, { method: 'POST', headers, body: payload, credentials: 'include' });
+      }
+
+      async function send(body) {
+        const payload = JSON.stringify(body);
+        let res = await post(payload, localStorage.getItem(TOKEN_KEY) || '');
+        if (res.status === 401) {
+          localStorage.removeItem(TOKEN_KEY);
+          const t = (prompt('Not authenticated. Owner token (CAPTURE_TOKEN):') || '').trim();
+          if (!t) throw new Error('unauthorized');
+          localStorage.setItem(TOKEN_KEY, t);
+          res = await post(payload, t);
+          if (res.status === 401) {
+            localStorage.removeItem(TOKEN_KEY);
+            throw new Error('unauthorized — token rejected');
+          }
+        }
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || 'request failed (' + res.status + ')');
+        return data;
+      }
+
+      function say(text, kind) {
+        msg.textContent = text;
+        msg.dataset.kind = kind || '';
+      }
+
+      // A placeholder row until the rebuild lists it for real.
+      function placeholderRow(url, title) {
+        const tbody = document.querySelector('.reading-table tbody');
+        if (!tbody) return;
+        const tr = document.createElement('tr');
+        tr.className = 'just-added';
+        tr.title = 'Queued — appears for good after the site rebuilds';
+        const cells = ['just now', title || url, '', '—', '—', '⧗ queued'];
+        cells.forEach((c, i) => {
+          const td = document.createElement('td');
+          if (i === 2) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.textContent = '↗';
+            td.append(a);
+          } else {
+            td.textContent = c;
+          }
+          if (i === 0) td.className = 'entry-date';
+          if (i === 5) td.className = 'meta';
+          tr.append(td);
+        });
+        tbody.prepend(tr);
+      }
+
+      // Each add is a git commit; chain them so quick successive adds don't race.
+      let chain = Promise.resolve();
+      form.addEventListener('submit', (ev) => {
+        ev.preventDefault();
+        const url = urlInput.value.trim();
+        const title = titleInput.value.trim();
+        if (!url) return;
+        urlInput.value = '';
+        titleInput.value = '';
+        say('queuing…');
+        chain = chain.then(async () => {
+          try {
+            const res = await send({ action: 'add', url, title });
+            if (res.result === 'duplicate') {
+              say('already on the list: ' + (res.title || url) + ' (' + res.status + ')', 'warn');
+            } else {
+              placeholderRow(url, title);
+              say('queued — appears after the next rebuild; BacklogCast picks it up from there', 'ok');
+            }
+          } catch (e) {
+            say('add failed: ' + e.message, 'err');
+          }
+        });
+        urlInput.focus();
+      });
+    })();
+  </script>
+)}
+
+<style>
+  /* Owner-mode "edit" toggle (same look as /books). */
+  .edit-toggle {
+    font-family: inherit;
+    font-size: 0.85em;
+    font-variant: small-caps;
+    margin-left: 0.6em;
+    padding: 0.05em 0.55em;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    vertical-align: baseline;
+  }
+  .edit-toggle:hover,
+  .edit-toggle[aria-pressed='true'] { border-color: var(--muted); color: var(--fg); }
+
+  .add-reading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4em;
+    margin: 0.5rem 0 0.8rem;
+  }
+  .add-reading[hidden] { display: none; }
+  .add-reading input {
+    /* Override the global `width:100%` form rule; flex sizes it instead. */
+    width: auto;
+    flex: 3 1 18rem;
+    min-width: 0;
+    font-size: 0.85rem;
+    padding: 0.25em 0.5em;
+  }
+  .add-reading input.title-input { flex: 1 1 10rem; }
+  .add-reading .act {
+    font-family: inherit;
+    font-size: 0.85rem;
+    padding: 0.2em 0.7em;
+    border: 1px solid var(--muted);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--fg);
+    cursor: pointer;
+  }
+  .add-msg {
+    flex-basis: 100%;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .add-msg:empty { display: none; }
+  .add-msg[data-kind='ok'] { color: var(--fg); }
+  .add-msg[data-kind='err'] { color: #b00020; }
+  :global(.reading-table tr.just-added) {
+    background: color-mix(in srgb, var(--muted) 10%, transparent);
+  }
+</style>

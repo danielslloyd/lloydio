@@ -23,12 +23,15 @@ content stays **per-file**.
 - `src/content/drafts.yaml` — owner-only triage bucket (held-back/unsorted
   items, `category` per row); shown only in `DRAFTS=1` builds under each
   category doc.
-- `src/content/articles/` — article reading list; **written by the
-  BacklogCast pipeline, don't hand-edit bodies** (frontmatter tweaks like
+- `src/content/articles/` — article reading list; **written by
+  BacklogCast via `/api/episode`, don't hand-edit bodies** (frontmatter tweaks like
   `status: read` are fine).
 - `src/content/essays/` — long-form writing (per-file).
-- `pipeline/backlogcast.mjs` — link → clean markdown + TTS mp3; runs via
-  `.github/workflows/backlogcast.yml`.
+- `pipeline/backlogcast.mjs` — podcast queue viewer. Narration runs on the
+  owner's desktop (BacklogCast + Henty), which writes back through
+  `functions/api/episode.js` (mp3 → R2 `AUDIO` binding, article → git).
+- `functions/api/reading.js` — owner-mode "add URL" for `/reading`; commits a
+  podcast-tagged note (shared note builder: `functions/_note.js`).
 - `functions/api/capture.js` — Cloudflare Pages Function; commits captures.
 - `functions/api/books.js` + `functions/_bookmeta.js` — owner-mode book
   writes, incl. `add` (Amazon link → entry). Unreadable links are queued as
@@ -44,7 +47,7 @@ npm run build        # must pass before committing content/schema changes
 DRAFTS=1 npm run build   # owner-mode build (drafts + edit links)
 npm run inbox        # list unprocessed notes (--json for machines)
 npm run ingest-keep -- <Takeout/Keep dir>
-npm run backlogcast -- --dry-run   # show the podcast queue
+npm run backlogcast               # show the podcast queue
 ```
 
 ## Skills

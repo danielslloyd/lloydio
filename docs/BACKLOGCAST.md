@@ -1,30 +1,36 @@
 # BacklogCast — the podcast pipeline
 
-BacklogCast is absorbed into this repo (a rewrite of the original
-`danielslloyd/BacklogCast` idea): flag a link, and it comes back as a
-narrated episode on a private feed plus a clean-text page on the site.
+Flag a link, and it comes back as a narrated episode on a private feed plus a
+clean-text page on the site. lloydio owns **capture, the queue, the text, the
+audio hosting, and the always-on feed**; the owner's desktop
+([BacklogCast](https://github.com/danielslloyd/BacklogCast) + the Henty GPU
+TTS studio) does the **production** — so episodes get made while the desktop
+is on, and stay downloadable when it's off.
 
 ## Flow
 
 ```
-capture with "podcast" checked
-      │  (tag: podcast on the note)
+/capture with "podcast" checked, or /reading → edit → add (owner site)
+      │  commits src/content/notes/<…>.md tagged `podcast`
       ▼
-GitHub Action .github/workflows/backlogcast.yml
-  (daily cron + on new captures + manual run)
-      │  runs pipeline/backlogcast.mjs:
-      │    1. queue = podcast-tagged notes without an article yet
-      │             + articles still missing audio
-      │    2. fetch page → Readability → clean markdown
-      │    3. edge-tts → public/media/audio/<slug>.mp3
-      │    4. write src/content/articles/<slug>.md
-      │  commits results to main
+/api/podcast-queue.json          (podcast notes without an article yet,
+      │                           + articles still missing audio)
+      │  polled every LLOYDIO_POLL_SECONDS by BacklogCast on the desktop
+      ▼
+BacklogCast (desktop)
+  1. fetch the URL as a browser would (HTML or PDF; curl / Substack-API fallbacks)
+  2. trafilatura draft → headless Claude (`claude -p`) writes the clean reading text
+  3. Henty narrates it (Chatterbox, with a Whisper check per chunk) → mp3
+  4. POST /api/episode  (multipart: slug, title, url, date, duration, markdown, mp3)
+      ▼
+/api/episode (Pages Function)
+  - mp3 → R2  episodes/<slug>.mp3  (public at https://media.lloyd.studio)
+  - commits src/content/articles/<slug>.md  (status: ready, audio: <R2 URL>)
       ▼
 site rebuilds automatically
   /reading                     table: original ↗ · ▶ listen · text · status
   /reading/<slug>              clean text + inline player
   /podcast/<FEED_TOKEN>.xml    private RSS feed with enclosures
-  /api/podcast-queue.json      machine-readable queue (for external tools)
 ```
 
 ## The private feed
@@ -35,30 +41,38 @@ site rebuilds automatically
 - Subscribe by pasting the full URL into any podcast app ("add by URL").
 - `robots.txt` disallows `/podcast/` and the feed sets `itunes:block`.
   This is privacy-by-obscurity — fine for a personal feed, not real auth.
+- Enclosures point at R2 (`audio_bytes` / `duration` frontmatter give the
+  length and `itunes:duration`). R2's public domain serves range requests, so
+  podcast apps can stream and resume.
 
-## Configuration
+## Configuration (Cloudflare)
 
-- Voice: `EDGE_TTS_VOICE` in the workflow (default `en-US-ChristopherNeural`;
-  list options with `edge-tts --list-voices`).
-- The workflow needs no secrets: it uses the built-in `GITHUB_TOKEN` with
-  `contents: write`.
-- Audio lives in the repo (`public/media/audio/`). At ~0.4 MB/min it takes
-  a lot of episodes to matter; if the repo gets heavy, move old episodes to
-  object storage and change each article's `audio:` frontmatter to the
-  absolute URL — the feed and pages follow it automatically.
+Public Pages project (the one serving lloyd.studio — BacklogCast posts there):
+
+| Setting          | What |
+|------------------|------|
+| R2 bucket        | e.g. `lloydio-audio`, with custom domain `media.lloyd.studio` (public) |
+| `AUDIO`          | R2 bucket **binding** on the Pages project (Settings → Bindings) |
+| `AUDIO_BASE_URL` | optional; defaults to `https://media.lloyd.studio` |
+| `EPISODE_TOKEN`  | secret; BacklogCast sends it as `Authorization: Bearer …` (its `LLOYDIO_EPISODE_TOKEN`) |
+| `FEED_TOKEN`     | makes the feed URL unguessable |
+| `GH_TOKEN`, `GH_REPO`, `GH_BRANCH` | as for `/api/capture` — used to commit the article |
+
+The desktop side is configured in BacklogCast's `backlogcast.env.bat`
+(`LLOYDIO_BASE_URL`, `LLOYDIO_POLL_SECONDS`, `LLOYDIO_EPISODE_TOKEN`,
+`CLAUDE_EXTRACT`, Henty settings).
 
 ## Interop for external tools
 
-Anything else (a local model, another repo, a cron job on a laptop) can
-participate using the same contract the pipeline uses:
+Anything else can participate using the same contract:
 
 - **Read the queue**: `GET /api/podcast-queue.json` on the deployed site, or
-  run `npm run backlogcast -- --dry-run` in a checkout. Each item carries
-  its `slug`, `article_path`, and suggested audio paths.
-- **Write back**: commit the article markdown to `items[].article_path`
-  (frontmatter: `title`, `url`, `date`, `status: ready`, optional `audio`)
-  and the mp3 to `suggested_audio_repo_path` — via git or the GitHub
-  Contents API. The site and feed pick both up on the next build.
+  `npm run backlogcast` in a checkout. Each item carries its `slug` and
+  `article_path`.
+- **Write back**: `POST /api/episode` as above, or commit the article
+  markdown to `items[].article_path` yourself (frontmatter: `title`, `url`,
+  `date`, `status: ready`, `audio` — relative `/media/audio/…` or an absolute
+  URL — plus optional `audio_bytes`, `duration`).
 - Slugs are deterministic (`src/lib/reading.ts`), so independent tools
   converge on the same filenames.
 

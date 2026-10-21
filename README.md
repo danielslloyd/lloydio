@@ -13,8 +13,8 @@ Captured notes flow through a lightweight lifecycle: they arrive in an
 **inbox** (`inbox: true`), get processed — by you, or by Claude
 Code/Cowork sessions following the repo's skills — into categorized,
 cleaned-up entries, and links flagged with the **podcast** checkbox are
-narrated into episodes on a private feed by the built-in BacklogCast
-pipeline (see `docs/BACKLOGCAST.md`).
+narrated into episodes on a private feed by BacklogCast on the owner's
+desktop (see `docs/BACKLOGCAST.md`).
 
 ## Layout
 
@@ -26,14 +26,14 @@ src/content/docs/     curated category docs — commonplace.md, beautiful.md, in
 src/content/books.yaml  book reading list — one consolidated file
 src/content/drafts.yaml owner-only triage bucket (held-back/unsorted items)
 src/content/notes/    the link/note dump + one-offs — one file per capture
-src/content/articles/ article reading list — written by the BacklogCast pipeline
+src/content/articles/ article reading list — written by BacklogCast via /api/episode
 src/content/essays/   long-form pages (markdown + front-matter)
 src/pages/apps/       small personal tools (pomodoro, quiz) — localStorage only
 public/media/         audio/text from other projects; episodes in media/audio/
 public/decks/         quiz decks (JSON) — add a file + list it in index.json
-functions/api/        the capture endpoint (Cloudflare Pages Function)
+functions/api/        Pages Functions: capture, reading add, episode write-back, books
 extension/            desktop browser extension (load unpacked)
-pipeline/             BacklogCast: flagged link → clean markdown + TTS episode
+pipeline/             BacklogCast queue viewer (`npm run backlogcast`)
 scripts/              ingest-keep (Google Keep import) + inbox lister
 .claude/skills/       processing instructions for Claude Code/Cowork sessions
 ```
@@ -48,9 +48,10 @@ scripts/              ingest-keep (Google Keep import) + inbox lister
   visuals → `beautiful.md` / `infographics.md`, unsure → `drafts.yaml`) and
   deletes the note. `npm run inbox` shows what's pending; owner mode has an
   `/inbox` page.
-- **Listen**: anything captured with the podcast checkbox is picked up by the
-  `backlogcast` GitHub Action (daily + after captures), which fetches the
-  article, extracts clean text, narrates it with edge-tts, and commits both.
+- **Listen**: anything captured with the podcast checkbox (or added from
+  `/reading` → edit in owner mode) is picked up by BacklogCast on the desktop,
+  which extracts the text with Claude, narrates it with Henty, and posts the
+  episode to `/api/episode` (mp3 → R2, article → `src/content/articles/`).
   `/reading` shows the table (original ↗ · listen ▶ · clean text · status);
   the private RSS feed lives at `/podcast/<FEED_TOKEN>.xml`.
 

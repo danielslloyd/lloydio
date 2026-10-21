@@ -13,11 +13,11 @@ export const GET: APIRoute = async () => {
     repo: REPO,
     branch: REPO_BRANCH,
     write_back: {
-      how: 'Commit files to the repo via the GitHub Contents API (PAT with contents:write).',
+      how: 'POST multipart to /api/episode (Bearer EPISODE_TOKEN): slug, title, url, date, duration_seconds, markdown, audio (mp3). Stores the mp3 in R2 and commits the article.',
       article_path: 'see items[].article_path — clean markdown + frontmatter (docs/BACKLOGCAST.md)',
       audio_options: [
-        'commit the file to public/media/audio/<slug>.mp3 and set frontmatter audio: /media/audio/<slug>.mp3',
-        'host audio elsewhere (private feed storage) and set frontmatter audio: <absolute URL>',
+        'POST to /api/episode (mp3 hosted on R2, absolute audio URL)',
+        'or commit public/media/audio/<slug>.mp3 yourself and set frontmatter audio: /media/audio/<slug>.mp3',
       ],
     },
     items: items

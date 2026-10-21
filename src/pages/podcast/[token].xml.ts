@@ -22,8 +22,8 @@ export const GET: APIRoute = async (context) => {
   const items = articles
     .map((a) => {
       const audioUrl = new URL(a.data.audio!, site).href;
-      let length = 0;
-      if (a.data.audio!.startsWith('/')) {
+      let length = a.data.audio_bytes ?? 0;
+      if (!length && a.data.audio!.startsWith('/')) {
         try {
           length = fs.statSync(`public${a.data.audio}`).size;
         } catch {}
@@ -35,7 +35,9 @@ export const GET: APIRoute = async (context) => {
       <guid isPermaLink="false">${esc(audioUrl)}</guid>
       <pubDate>${a.data.date.toUTCString()}</pubDate>
       <description>${esc(`Narration of ${a.data.url}`)}</description>
-      <enclosure url="${esc(audioUrl)}" length="${length}" type="${type}" />
+      <enclosure url="${esc(audioUrl)}" length="${length}" type="${type}" />${
+        a.data.duration ? `\n      <itunes:duration>${Math.round(a.data.duration)}</itunes:duration>` : ''
+      }
     </item>`;
     })
     .join('\n');

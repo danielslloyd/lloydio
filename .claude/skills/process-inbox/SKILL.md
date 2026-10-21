@@ -67,6 +67,8 @@ done). Don't leave the content in two places.
   delete.
 - Never invent URLs, authors, or attributions.
 - Don't touch `src/content/articles/` — that directory belongs to the
-  BacklogCast pipeline (`pipeline/backlogcast.mjs`).
+  BacklogCast app, which writes it via `/api/episode` (see docs/BACKLOGCAST.md).
+- Never delete a note tagged `podcast` — it *is* the podcast queue entry until
+  BacklogCast writes the matching article.
 - Personal / half-baked prose that isn't ready for the public doc goes in
   `drafts.yaml` (owner-only), not the category doc.
