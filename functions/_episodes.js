@@ -3,8 +3,10 @@
 //
 // Live listen state lives in the AUDIO bucket as small JSON objects at
 // `status/<slug>.json` — { state, updated } where state is `in_progress`
-// (BacklogCast picked it up), `failed`, or `cancelled` (the owner cancelled;
-// BacklogCast stops and clears it). No object = nothing in flight. Kept out of
+// (BacklogCast picked it up), `failed`, `cancelled` (the owner cancelled;
+// BacklogCast stops and clears it), or `removed` (the owner took the link off
+// the reading list: BacklogCast drops the job and /api/episode refuses it;
+// re-adding the link clears it). No object = nothing in flight. Kept out of
 // git so progress updates don't trigger site rebuilds.
 //
 // Clean-text progress is tracked the same way, separately, at
@@ -18,7 +20,7 @@
 // the public site (BacklogCast's writes) and the owner site (the /reading
 // editor) both need it.
 
-export const STATES = new Set(['in_progress', 'failed', 'cancelled']);
+export const STATES = new Set(['in_progress', 'failed', 'cancelled', 'removed']);
 export const TEXT_STATES = new Set(['in_progress', 'waiting', 'failed']);
 export const SLUG_RE = /^[a-z0-9-]{1,120}$/;
 
@@ -77,6 +79,27 @@ async function listPrefix(env, prefix) {
     cursor = page.truncated ? page.cursor : undefined;
   } while (cursor);
   return out;
+}
+
+// Deterministic slug for a reading-list link. Keep in sync with articleSlug()
+// in src/lib/reading.ts and pipeline/backlogcast.mjs.
+export function articleSlug(title, url) {
+  const base =
+    (title || new URL(url).hostname + new URL(url).pathname)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+      .slice(0, 50) || 'article';
+  return `${base}-${fnv1a(url)}`;
+}
+
+function fnv1a(s) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return (h >>> 0).toString(16).padStart(8, '0').slice(0, 6);
 }
 
 export function audioBase(env) {

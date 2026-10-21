@@ -35,6 +35,7 @@ export const PODCAST_TAG = 'podcast';
 
 // Deterministic slug for an article: from the title (or URL hostname),
 // suffixed with a short hash of the URL so retitling can't collide.
+// Duplicated in pipeline/backlogcast.mjs and functions/_episodes.js.
 export function articleSlug(title: string | undefined, url: string): string {
   const base =
     (title || new URL(url).hostname + new URL(url).pathname)

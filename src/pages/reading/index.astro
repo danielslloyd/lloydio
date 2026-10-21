@@ -47,12 +47,21 @@ const listenLabel = {
           <tr
             data-key={i.key}
             data-title={i.title}
+            data-url={i.url}
             data-listen={i.listen}
             data-note={i.notePath}
             data-article={i.articleFilePath}
             data-audio={i.audio}
           >
-            <td class="title" title={`added ${formatDate(i.date)}`}>{i.title}</td>
+            <td class="title" title={`added ${formatDate(i.date)}`}>
+              {i.title}
+              {SHOW_DRAFTS && (
+                <span class="row-ops">
+                  <button type="button" class="row-op" data-op="to-notes" title="Move to notes (off the reading list)">→ note</button>
+                  <button type="button" class="row-op danger" data-op="delete" title="Delete from the reading list">✕</button>
+                </span>
+              )}
+            </td>
             <td class="read">
               <a href={i.url}>original</a>
               {i.hasArticle ? (
@@ -257,6 +266,45 @@ const listenLabel = {
         });
       }
 
+      // ---- remove / move to notes ----------------------------------------------
+      if (table) {
+        table.addEventListener('click', (ev) => {
+          const btn = ev.target.closest('.row-op');
+          if (!btn) return;
+          const row = btn.closest('tr');
+          const op = btn.dataset.op;
+          const title = row.dataset.title || 'this item';
+          const extra = row.dataset.article
+            ? '\n\nIts clean text' + (row.dataset.audio ? ' and episode audio' : '') + ' will be deleted.'
+            : '';
+          const ask = op === 'delete'
+            ? 'Delete “' + title + '” from the reading list?' + extra
+            : 'Move “' + title + '” to notes? It leaves the reading list and stays as a note.' + extra;
+          if (!confirm(ask)) return;
+          row.classList.add('saving');
+          row.querySelectorAll('button').forEach((b) => (b.disabled = true));
+          enqueue(async () => {
+            try {
+              await send({
+                action: 'remove',
+                op,
+                slug: row.dataset.key,
+                notePath: row.dataset.note || undefined,
+                articlePath: row.dataset.article || undefined,
+                audio: row.dataset.audio || undefined,
+                url: row.dataset.url,
+                title: row.dataset.title,
+              });
+              row.remove();
+            } catch (e) {
+              alert('Could not ' + (op === 'delete' ? 'delete' : 'move to notes') + ': ' + e.message);
+              row.classList.remove('saving');
+              row.querySelectorAll('button').forEach((b) => (b.disabled = false));
+            }
+          });
+        });
+      }
+
       // ---- add row ------------------------------------------------------------
       // A placeholder row until the rebuild lists it for real.
       function placeholderRow(url, title, listen) {
@@ -446,6 +494,24 @@ const listenLabel = {
   .listen-btn[data-state='in_progress'] { border-style: dashed; }
   .listen-btn:disabled { opacity: 0.5; cursor: progress; }
   :global(.reading-table tr.saving) { opacity: 0.6; }
+
+  /* Per-row remove / move-to-notes, shown only while editing. */
+  .row-ops { display: none; white-space: nowrap; margin-left: 0.5em; }
+  .reading-table.editing .row-ops { display: inline-flex; gap: 0.3em; vertical-align: baseline; }
+  .row-op {
+    font-family: inherit;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    padding: 0.05em 0.45em;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .row-op:hover { border-color: var(--muted); color: var(--fg); }
+  .row-op.danger:hover { border-color: #b00020; color: #b00020; }
+  .row-op:disabled { opacity: 0.5; cursor: progress; }
   :global(.reading-table tr.just-added) {
     background: color-mix(in srgb, var(--muted) 10%, transparent);
   }

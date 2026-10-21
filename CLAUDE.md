@@ -63,8 +63,8 @@ npm run backlogcast               # show the podcast queue
   changing any frontmatter shape. Curated = one file (docs/*.md, books.yaml,
   drafts.yaml); streaming = per-file (notes, articles). Don't point machine
   writers at the consolidated files — they'd conflict.
-- Slug logic for articles is duplicated in `src/lib/reading.ts` and
-  `pipeline/backlogcast.mjs` — keep them in sync.
+- Slug logic for articles is duplicated in `src/lib/reading.ts`,
+  `pipeline/backlogcast.mjs` and `functions/_episodes.js` — keep them in sync.
 - Commit messages: `capture:` (machine), `backlogcast:` (machine),
   `process:` (inbox triage), `ingest:` (bulk imports).
 - Never commit secrets; tokens live in Cloudflare/GitHub settings.

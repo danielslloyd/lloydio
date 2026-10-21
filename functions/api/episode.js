@@ -27,7 +27,7 @@
 // Access JWT / CAPTURE_TOKEN (via _owner.js `authorized`) are accepted too.
 
 import { authorized, githubGetFile, githubPutFile, json, CORS } from '../_owner.js';
-import { audioBase, clearStatus, clearTextStatus } from '../_episodes.js';
+import { audioBase, clearStatus, clearTextStatus, getStatus } from '../_episodes.js';
 
 const SLUG_RE = /^[a-z0-9-]{1,120}$/;
 const AUDIO_KEYS = ['audio', 'audio_bytes', 'duration'];
@@ -71,6 +71,11 @@ export async function onRequestPost(context) {
   if (!/^https?:\/\//.test(url)) return json({ error: 'url must be http(s)' }, 400);
   if (!title) return json({ error: 'title is required' }, 400);
   if (!hasAudio && !markdown.trim()) return json({ error: 'markdown or audio is required' }, 400);
+
+  // Taken off the reading list by the owner: don't bring it back.
+  if (env.AUDIO && (await getStatus(env, slug).catch(() => null))?.state === 'removed') {
+    return json({ error: 'removed from the reading list', removed: true }, 410);
+  }
 
   const path = `src/content/articles/${slug}.md`;
   let existing;

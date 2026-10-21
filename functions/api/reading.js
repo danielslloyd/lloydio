@@ -18,6 +18,15 @@
 //       delete   — remove the narration (R2 mp3 + the article's audio fields;
 //                  the clean text stays) and untag, back to "+"
 //
+//   { action: 'remove', op, slug, notePath?, articlePath?, audio?, url, title? }
+//     Takes a link off the reading list. op:
+//       delete   — delete the note and the article (+ R2 mp3) outright
+//       to-notes — keep it as an ordinary note (drop the `reading`/`podcast`
+//                  tags; an article-only item gets a fresh note), delete the
+//                  article (+ mp3)
+//     Either way status/<slug> becomes `removed` in R2, so BacklogCast drops
+//     the job and /api/episode won't re-create the article.
+//
 // Auth: as functions/api/books.js (Access JWT, falling back to CAPTURE_TOKEN).
 // Env: GH_TOKEN / GH_REPO / GH_BRANCH to commit; the AUDIO R2 binding for
 // cancel/delete (see functions/_episodes.js).
@@ -26,11 +35,19 @@ import {
   authorized,
   githubGetFile,
   githubPutFile,
+  githubDeleteFile,
   json,
   CORS,
 } from '../_owner.js';
 import { buildNote, archiveUrl, normalizeUrl, setNoteTag } from '../_note.js';
-import { SLUG_RE, putStatus, clearStatus, audioKeyFromUrl } from '../_episodes.js';
+import {
+  SLUG_RE,
+  putStatus,
+  clearStatus,
+  clearTextStatus,
+  audioKeyFromUrl,
+  articleSlug,
+} from '../_episodes.js';
 
 const NOTE_PATH_RE = /^src\/content\/notes\/[A-Za-z0-9._-]+\.md$/;
 const ARTICLE_PATH_RE = /^src\/content\/articles\/[a-z0-9-]+\.md$/;
@@ -52,6 +69,7 @@ export async function onRequestPost(context) {
   try {
     if (body.action === 'add') return await add(context, body);
     if (body.action === 'listen') return await listen(env, body);
+    if (body.action === 'remove') return await remove(env, body);
   } catch (e) {
     return json({ error: e.message }, 502);
   }
@@ -81,6 +99,8 @@ async function add(context, body) {
   });
   await githubPutFile(env, path, text, undefined, `capture: ${title || url}`);
   archiveUrl(context, url);
+  // Re-adding a link that was removed earlier: let BacklogCast work on it again.
+  if (env.AUDIO) await clearStatus(env, articleSlug(title || undefined, url)).catch(() => {});
   return json({ result: 'queued', path, listen: body.podcast === true ? 'queued' : 'none' });
 }
 
@@ -120,6 +140,56 @@ async function listen(env, body) {
   }
 
   return json({ error: 'unknown op' }, 400);
+}
+
+async function remove(env, body) {
+  const { op, slug, notePath, articlePath, audio, url, title } = body;
+  if (op !== 'delete' && op !== 'to-notes') return json({ error: 'unknown op' }, 400);
+  if (!SLUG_RE.test(slug || '')) return json({ error: 'invalid slug' }, 400);
+  if (notePath && !NOTE_PATH_RE.test(notePath)) return json({ error: 'invalid notePath' }, 400);
+  if (articlePath && !ARTICLE_PATH_RE.test(articlePath)) return json({ error: 'invalid articlePath' }, 400);
+  if (!notePath && !articlePath) return json({ error: 'nothing to remove' }, 400);
+  if (!env.AUDIO) return json({ error: 'AUDIO R2 binding is not configured on this Pages project' }, 500);
+
+  // First, so BacklogCast stops before the commits land.
+  await putStatus(env, slug, 'removed');
+  await clearTextStatus(env, slug);
+
+  const name = (p) => p.split('/').pop();
+  let notePathOut = null;
+  if (op === 'to-notes') {
+    if (notePath) {
+      const { text, sha } = await githubGetFile(env, notePath);
+      const next = setNoteTag(setNoteTag(text, 'reading', false), 'podcast', false);
+      if (next !== text) await githubPutFile(env, notePath, next, sha, `reading: to notes ${name(notePath)}`);
+      notePathOut = notePath;
+    } else {
+      if (!/^https?:\/\//.test(url || '')) return json({ error: 'url required to make a note' }, 400);
+      const note = buildNote({ url, title: title || undefined, inbox: false, source: 'reading' });
+      await githubPutFile(env, note.path, note.text, undefined, `reading: to notes ${title || url}`);
+      notePathOut = note.path;
+    }
+  } else if (notePath) {
+    await deleteIfPresent(env, notePath, `reading: remove ${name(notePath)}`);
+  }
+
+  if (articlePath) {
+    const key = audioKeyFromUrl(env, audio);
+    if (key) await env.AUDIO.delete(key);
+    await deleteIfPresent(env, articlePath, `reading: remove ${name(articlePath)}`);
+  }
+  return json({ ok: true, op, notePath: notePathOut });
+}
+
+async function deleteIfPresent(env, path, message) {
+  let file;
+  try {
+    file = await githubGetFile(env, path);
+  } catch (e) {
+    if (String(e.message).includes('404')) return; // already gone
+    throw e;
+  }
+  await githubDeleteFile(env, path, file.sha, message);
 }
 
 // Drops audio/audio_bytes/duration from an article's frontmatter.
