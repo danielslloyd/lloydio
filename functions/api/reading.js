@@ -12,11 +12,11 @@
 //   { action: 'listen', op, notePath, slug, articlePath?, audio? }
 //     The LISTEN column. op:
 //       queue    — tag the note `podcast` (BacklogCast picks it up)
-//       unqueue  — drop the `podcast` tag
+//       unqueue  — drop the `podcast` tag (and tell BacklogCast via R2)
 //       cancel   — drop the tag and mark status/<slug> `cancelled` in R2, which
 //                  BacklogCast checks between chunks and stops on
-//       delete   — remove the episode: R2 mp3 + article file, and untag the
-//                  note so the item goes back to "+" on the reading list
+//       delete   — remove the narration (R2 mp3 + the article's audio fields;
+//                  the clean text stays) and untag, back to "+"
 //
 // Auth: as functions/api/books.js (Access JWT, falling back to CAPTURE_TOKEN).
 // Env: GH_TOKEN / GH_REPO / GH_BRANCH to commit; the AUDIO R2 binding for
@@ -26,7 +26,6 @@ import {
   authorized,
   githubGetFile,
   githubPutFile,
-  githubDeleteFile,
   json,
   CORS,
 } from '../_owner.js';
@@ -98,19 +97,24 @@ async function listen(env, body) {
     if (!notePath) return json({ error: 'this item has no reading note to tag' }, 400);
     await tagNote(env, notePath, op === 'queue', op);
     if (env.AUDIO && slug) {
-      // `queue` clears a stale `cancelled`; `cancel` tells BacklogCast to stop.
-      if (op === 'cancel') await putStatus(env, slug, 'cancelled');
-      else await clearStatus(env, slug);
+      // `queue` clears a stale `cancelled`. `unqueue`/`cancel` tell BacklogCast
+      // right away (it checks R2 before and during narration), so a queue
+      // listing that hasn't rebuilt yet can't start or keep narrating it.
+      if (op === 'queue') await clearStatus(env, slug);
+      else await putStatus(env, slug, 'cancelled');
     }
     return json({ ok: true, listen: op === 'queue' ? 'queued' : 'none' });
   }
 
   if (op === 'delete') {
+    // Removes the narration only: the R2 mp3 and the article's audio fields.
+    // The clean text (the "md" link) stays.
     if (!articlePath || !ARTICLE_PATH_RE.test(articlePath)) return json({ error: 'invalid articlePath' }, 400);
     const key = audioKeyFromUrl(env, audio);
     if (key) await env.AUDIO.delete(key);
-    const { sha } = await githubGetFile(env, articlePath);
-    await githubDeleteFile(env, articlePath, sha, `backlogcast: delete episode ${articlePath.split('/').pop()}`);
+    const { text, sha } = await githubGetFile(env, articlePath);
+    await githubPutFile(env, articlePath, stripAudio(text), sha,
+      `backlogcast: delete episode ${articlePath.split('/').pop()}`);
     if (notePath) await tagNote(env, notePath, false, 'delete');
     return json({ ok: true, listen: 'none', audioDeleted: Boolean(key) });
   }
@@ -118,9 +122,16 @@ async function listen(env, body) {
   return json({ error: 'unknown op' }, 400);
 }
 
+// Drops audio/audio_bytes/duration from an article's frontmatter.
+function stripAudio(text) {
+  return text.replace(/^(---\r?\n[\s\S]*?\r?\n---)/, (fm) =>
+    fm.replace(/^(audio|audio_bytes|duration):.*\r?\n/gm, ''));
+}
+
+// Toggles `podcast`; always keeps `reading` so the link stays on the list.
 async function tagNote(env, notePath, on, op) {
   const { text, sha } = await githubGetFile(env, notePath);
-  const next = setNoteTag(text, 'podcast', on);
+  const next = setNoteTag(setNoteTag(text, 'reading', true), 'podcast', on);
   if (next !== text) {
     await githubPutFile(env, notePath, next, sha, `reading: ${op} ${notePath.split('/').pop()}`);
   }

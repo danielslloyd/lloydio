@@ -1,19 +1,21 @@
 // Cloudflare Pages Function: POST /api/episode
 //
 // Write-back endpoint for the local BacklogCast app (see docs/BACKLOGCAST.md).
-// BacklogCast extracts a queued link, narrates it with Henty, then POSTs the
-// finished episode here as multipart/form-data:
+// BacklogCast extracts every reading-list link into clean text, narrates the
+// ones queued for listening with Henty, and POSTs results here as
+// multipart/form-data:
 //
-//   slug              lloydio's article slug (from /api/podcast-queue.json)
-//   title, url, date  article metadata (date = ISO episode publish time)
-//   duration_seconds  episode length
+//   slug              item key (from /api/podcast-queue.json)
+//   title, url, date  article metadata (date = ISO publish time)
 //   markdown          the clean article text
-//   audio             the mp3 file
+//   audio             the mp3 file            — narration only
+//   duration_seconds  episode length          — narration only
 //
-// We store the mp3 in R2 (served publicly at AUDIO_BASE_URL) and commit
-// src/content/articles/<slug>.md with `status: ready` + the audio URL. The
-// commit triggers a rebuild, which takes the item off the queue and adds it to
-// /podcast/<FEED_TOKEN>.xml. Re-POSTing a slug overwrites both (idempotent).
+// Text only: commits src/content/articles/<slug>.md with the clean text, so
+// /reading gets its "md" link. With audio: also stores the mp3 in R2 (served
+// at AUDIO_BASE_URL) and adds audio/audio_bytes/duration, which puts it in
+// /podcast/<FEED_TOKEN>.xml. The commit triggers a rebuild. Re-POSTing a slug
+// overwrites (idempotent); a text-only POST keeps any audio already recorded.
 //
 // Environment (the public Pages project — BacklogCast posts to lloyd.studio):
 //   AUDIO          — R2 bucket binding for episode mp3s
@@ -26,6 +28,7 @@ import { authorized, githubGetFile, githubPutFile, json, CORS } from '../_owner.
 import { audioBase, clearStatus } from '../_episodes.js';
 
 const SLUG_RE = /^[a-z0-9-]{1,120}$/;
+const AUDIO_KEYS = ['audio', 'audio_bytes', 'duration'];
 
 export async function onRequestOptions() {
   return new Response(null, { headers: CORS });
@@ -39,7 +42,6 @@ export async function onRequestPost(context) {
   if (!viaToken && !(await authorized(request, env))) {
     return json({ error: 'unauthorized' }, 401);
   }
-  if (!env.AUDIO) return json({ error: 'AUDIO R2 binding is not configured' }, 500);
 
   let form;
   try {
@@ -53,6 +55,7 @@ export async function onRequestPost(context) {
   const url = String(form.get('url') || '').trim();
   const markdown = String(form.get('markdown') || '');
   const audio = form.get('audio');
+  const hasAudio = audio && typeof audio !== 'string' && audio.size > 0;
   const duration = Math.max(0, Math.round(Number(form.get('duration_seconds')) || 0));
   const dateIn = String(form.get('date') || '');
   const date = isNaN(Date.parse(dateIn)) ? new Date() : new Date(dateIn);
@@ -60,47 +63,64 @@ export async function onRequestPost(context) {
   if (!SLUG_RE.test(slug)) return json({ error: 'invalid slug' }, 400);
   if (!/^https?:\/\//.test(url)) return json({ error: 'url must be http(s)' }, 400);
   if (!title) return json({ error: 'title is required' }, 400);
-  if (!audio || typeof audio === 'string' || !audio.size) {
-    return json({ error: 'audio file is required' }, 400);
-  }
-
-  const key = `episodes/${slug}.mp3`;
-  // Buffer first: a chunked upload gives a stream of unknown length, which
-  // R2 put() rejects. Episodes are tens of MB at most, well within limits.
-  await env.AUDIO.put(key, await audio.arrayBuffer(), {
-    httpMetadata: { contentType: audio.type || 'audio/mpeg' },
-  });
-  const audioUrl = `${audioBase(env)}/${key}`;
+  if (!hasAudio && !markdown.trim()) return json({ error: 'markdown or audio is required' }, 400);
 
   const path = `src/content/articles/${slug}.md`;
+  let existing;
+  try {
+    existing = await githubGetFile(env, path);
+  } catch (e) {
+    if (!String(e.message).includes('404')) return json({ error: e.message }, 502);
+  }
+
+  let audioLines = [];
+  let audioUrl = null;
+  if (hasAudio) {
+    if (!env.AUDIO) return json({ error: 'AUDIO R2 binding is not configured' }, 500);
+    const key = `episodes/${slug}.mp3`;
+    // Buffer first: a chunked upload gives a stream of unknown length, which
+    // R2 put() rejects. Episodes are tens of MB at most, well within limits.
+    await env.AUDIO.put(key, await audio.arrayBuffer(), {
+      httpMetadata: { contentType: audio.type || 'audio/mpeg' },
+    });
+    audioUrl = `${audioBase(env)}/${key}`;
+    audioLines = [`audio: ${JSON.stringify(audioUrl)}`, `audio_bytes: ${audio.size}`, `duration: ${duration}`];
+  } else if (existing) {
+    // Text refresh: keep whatever narration the article already has.
+    audioLines = frontmatterLines(existing.text).filter((l) => AUDIO_KEYS.some((k) => l.startsWith(`${k}:`)));
+  }
+
   const text = [
     '---',
     `title: ${JSON.stringify(title)}`,
     `url: ${JSON.stringify(url)}`,
     `date: ${date.toISOString()}`,
     'status: ready',
-    `audio: ${JSON.stringify(audioUrl)}`,
-    `audio_bytes: ${audio.size}`,
-    `duration: ${duration}`,
+    ...audioLines,
     '---',
     '',
     markdown.trim(),
     '',
   ].join('\n');
 
-  let sha;
   try {
-    sha = (await githubGetFile(env, path)).sha;
-  } catch (e) {
-    if (!String(e.message).includes('404')) return json({ error: e.message }, 502);
-  }
-  try {
-    await githubPutFile(env, path, text, sha, `backlogcast: ${title}`);
+    await githubPutFile(env, path, text, existing?.sha, `backlogcast: ${hasAudio ? '' : 'text: '}${title}`);
   } catch (e) {
     return json({ error: e.message }, 502);
   }
 
-  // Done: drop the live in-progress marker (see _episodes.js).
-  await clearStatus(env, slug).catch(() => {});
-  return json({ ok: true, slug, audio_url: audioUrl, audio_bytes: audio.size, article_path: path });
+  // Narration landed: drop the live in-progress marker (see _episodes.js).
+  if (hasAudio && env.AUDIO) await clearStatus(env, slug).catch(() => {});
+  return json({
+    ok: true,
+    slug,
+    audio_url: audioUrl,
+    audio_bytes: hasAudio ? audio.size : null,
+    article_path: path,
+  });
+}
+
+function frontmatterLines(text) {
+  const m = text.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  return m ? m[1].split(/\r?\n/) : [];
 }

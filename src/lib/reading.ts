@@ -6,13 +6,16 @@ import { getCollection } from 'astro:content';
 import { SHOW_DRAFTS } from './site';
 
 // Listen state, from the repo alone: `ready` = narrated (article has audio),
-// `queued` = tagged `podcast` (BacklogCast will narrate it), `none` = on the
-// reading list only. "In progress" is live state BacklogCast reports to
+// `queued` = note tagged `podcast` (BacklogCast will narrate it), `none` =
+// reading only. "In progress" is live state BacklogCast reports to
 // /api/episode-status; the owner page overlays it client-side.
 export type ListenState = 'none' | 'queued' | 'ready';
 
 export interface ReadingItem {
-  slug: string;
+  slug: string; // /reading/<slug> page (derived from the article title)
+  // Stable id BacklogCast tracks the item by: the queue slug and the live-status
+  // key. It is the article's filename once the clean text exists.
+  key: string;
   title: string;
   url: string;
   date: Date;
@@ -64,21 +67,26 @@ export async function getReadingItems(): Promise<ReadingItem[]> {
   );
   const noteByUrl = new Map(notes.map((n) => [n.data.url!, n]));
 
-  const items: ReadingItem[] = articles.map((a) => ({
-    slug: articleSlug(a.data.title, a.data.url),
-    title: a.data.title,
-    url: a.data.url,
-    date: a.data.date,
-    tags: a.data.tags,
-    status: a.data.status,
-    // An article still missing audio is back in BacklogCast's queue.
-    listen: a.data.audio ? 'ready' : 'queued',
-    audio: a.data.audio,
-    hasArticle: true,
-    articlePath: a.filePath ?? `src/content/articles/${a.id}.md`,
-    articleFilePath: a.filePath,
-    notePath: noteByUrl.get(a.data.url)?.filePath,
-  }));
+  const items: ReadingItem[] = articles.map((a) => {
+    const note = noteByUrl.get(a.data.url);
+    return {
+      slug: articleSlug(a.data.title, a.data.url),
+      key: a.id,
+      title: a.data.title,
+      url: a.data.url,
+      date: a.data.date,
+      tags: a.data.tags,
+      status: a.data.status,
+      // Text can exist without audio; narration is wanted only while the note
+      // carries the `podcast` tag.
+      listen: a.data.audio ? 'ready' : note?.data.tags.includes(PODCAST_TAG) ? 'queued' : 'none',
+      audio: a.data.audio,
+      hasArticle: true,
+      articlePath: a.filePath ?? `src/content/articles/${a.id}.md`,
+      articleFilePath: a.filePath,
+      notePath: note?.filePath,
+    };
+  });
 
   const knownUrls = new Set(items.map((i) => i.url));
   for (const n of notes) {
@@ -86,6 +94,7 @@ export async function getReadingItems(): Promise<ReadingItem[]> {
     const slug = articleSlug(n.data.title, n.data.url!);
     items.push({
       slug,
+      key: slug,
       title: n.data.title ?? n.data.url!,
       url: n.data.url!,
       date: n.data.date,

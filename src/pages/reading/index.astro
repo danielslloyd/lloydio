@@ -4,10 +4,14 @@ import { getReadingItems } from '../../lib/reading';
 import { SHOW_DRAFTS, formatDate } from '../../lib/site';
 
 const items = await getReadingItems();
-const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' };
 // LISTEN column glyphs, shared with the owner-mode editor script below.
 const listenIcon = { none: '+', queued: '≡', in_progress: '⏳', ready: '▶' };
-const listenLabel = { none: 'not queued', queued: 'queued for narration', ready: 'listen' };
+const listenLabel = {
+  none: 'not queued for narration',
+  queued: 'queued for narration',
+  in_progress: 'being narrated',
+  ready: 'listen',
+};
 ---
 <Base title="Reading">
   <h1 class="page-title">Reading</h1>
@@ -33,41 +37,44 @@ const listenLabel = { none: 'not queued', queued: 'queued for narration', ready:
 
   {items.length === 0 && <p>Nothing on the list yet.</p>}
   {items.length > 0 && (
-    <div style="overflow-x:auto">
-      <table class="reading-table">
-        <thead>
-          <tr><th>added</th><th>title</th><th>original</th><th>listen</th><th>read</th><th>status</th></tr>
-        </thead>
-        <tbody>
-          {items.map((i) => (
-            <tr
-              data-slug={i.slug}
-              data-title={i.title}
-              data-listen={i.listen}
-              data-note={i.notePath}
-              data-article={i.articleFilePath}
-              data-audio={i.audio}
-            >
-              <td class="entry-date">{formatDate(i.date)}</td>
-              <td>{i.title}</td>
-              <td><a href={i.url}>↗</a></td>
-              <td class="listen">
-                {i.listen === 'ready' ? (
-                  <a class="listen-view" href={i.audio} title={listenLabel.ready}>{listenIcon.ready}</a>
-                ) : (
-                  <span class="listen-view" title={listenLabel[i.listen]}>
-                    {i.listen === 'queued' ? listenIcon.queued : '—'}
-                  </span>
-                )}
-                {SHOW_DRAFTS && <button type="button" class="listen-btn" hidden>{listenIcon[i.listen]}</button>}
-              </td>
-              <td>{i.hasArticle ? <a href={`/reading/${i.slug}`}>text</a> : '—'}</td>
-              <td class="meta">{statusMark[i.status]}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <table class="reading-table">
+      <colgroup><col /><col class="col-read" /><col class="col-listen" /></colgroup>
+      <thead>
+        <tr><th>title</th><th>read</th><th>listen</th></tr>
+      </thead>
+      <tbody>
+        {items.map((i) => (
+          <tr
+            data-key={i.key}
+            data-title={i.title}
+            data-listen={i.listen}
+            data-note={i.notePath}
+            data-article={i.articleFilePath}
+            data-audio={i.audio}
+          >
+            <td class="title" title={`added ${formatDate(i.date)}`}>{i.title}</td>
+            <td class="read">
+              <a href={i.url}>original</a>
+              {i.hasArticle ? (
+                <a href={`/reading/${i.slug}`}>md</a>
+              ) : (
+                <span class="pending" title="clean text not generated yet">md</span>
+              )}
+            </td>
+            <td class="listen">
+              {i.listen === 'ready' ? (
+                <a class="listen-view" href={i.audio} title={listenLabel.ready}>{listenIcon.ready}</a>
+              ) : (
+                <span class="listen-view" data-state={i.listen} title={listenLabel[i.listen]}>
+                  {listenIcon[i.listen]}
+                </span>
+              )}
+              {SHOW_DRAFTS && <button type="button" class="listen-btn" hidden>{listenIcon[i.listen]}</button>}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   )}
 </Base>
 
@@ -96,12 +103,20 @@ const listenLabel = { none: 'not queued', queued: 'queued for narration', ready:
         ready: 'narrated — click to delete the episode',
       };
 
+      // Updates both faces of the cell: the view glyph and the edit button.
       function setListen(row, state) {
         row.dataset.listen = state;
+        const failed = row.dataset.failed ? ' (last attempt failed)' : '';
+        const view = row.querySelector('.listen-view');
+        if (view && view.tagName !== 'A') {
+          view.textContent = listenIcon[state];
+          view.dataset.state = state;
+          view.title = (state === 'in_progress' ? 'being narrated' : view.title) + failed;
+        }
         const btn = row.querySelector('.listen-btn');
         if (!btn) return;
         btn.textContent = listenIcon[state];
-        btn.title = titles[state] + (row.dataset.failed ? ' (last attempt failed)' : '');
+        btn.title = titles[state] + failed;
         btn.dataset.state = state;
       }
 
@@ -128,8 +143,8 @@ const listenLabel = { none: 'not queued', queued: 'queued for narration', ready:
           const res = await fetch(STATUS_API, { credentials: 'include' });
           if (!res.ok) return;
           const { statuses = {} } = await res.json();
-          document.querySelectorAll('.reading-table tbody tr[data-slug]').forEach((row) => {
-            const s = statuses[row.dataset.slug];
+          document.querySelectorAll('.reading-table tbody tr[data-key]').forEach((row) => {
+            const s = statuses[row.dataset.key];
             if (!s || row.dataset.listen === 'ready') return;
             if (s.state === 'in_progress') setListen(row, 'in_progress');
             else if (s.state === 'failed') {
@@ -141,6 +156,7 @@ const listenLabel = { none: 'not queued', queued: 'queued for narration', ready:
           // live status is a nicety; the column still works without it
         }
       }
+      overlayLiveStatus();
 
       function post(payload, token) {
         const headers = { 'Content-Type': 'application/json' };
@@ -199,7 +215,7 @@ const listenLabel = { none: 'not queued', queued: 'queued for narration', ready:
               const res = await send({
                 action: 'listen',
                 op,
-                slug: row.dataset.slug,
+                slug: row.dataset.key,
                 notePath: row.dataset.note || undefined,
                 articlePath: row.dataset.article || undefined,
                 audio: row.dataset.audio || undefined,
@@ -225,21 +241,22 @@ const listenLabel = { none: 'not queued', queued: 'queued for narration', ready:
         const tr = document.createElement('tr');
         tr.className = 'just-added';
         tr.title = 'Added — appears for good after the site rebuilds';
-        const cells = ['just now', title || url, '', listenIcon[listen], '—', '⧗ queued'];
-        cells.forEach((c, i) => {
-          const td = document.createElement('td');
-          if (i === 2) {
-            const a = document.createElement('a');
-            a.href = url;
-            a.textContent = '↗';
-            td.append(a);
-          } else {
-            td.textContent = c;
-          }
-          if (i === 0) td.className = 'entry-date';
-          if (i === 5) td.className = 'meta';
-          tr.append(td);
-        });
+        const titleTd = document.createElement('td');
+        titleTd.className = 'title';
+        titleTd.textContent = title || url;
+        const readTd = document.createElement('td');
+        readTd.className = 'read';
+        const orig = document.createElement('a');
+        orig.href = url;
+        orig.textContent = 'original';
+        const md = document.createElement('span');
+        md.className = 'pending';
+        md.textContent = 'md';
+        readTd.append(orig, md);
+        const listenTd = document.createElement('td');
+        listenTd.className = 'listen';
+        listenTd.textContent = listenIcon[listen];
+        tr.append(titleTd, readTd, listenTd);
         tbody.prepend(tr);
       }
 
@@ -337,9 +354,33 @@ const listenLabel = { none: 'not queued', queued: 'queued for narration', ready:
   .add-msg[data-kind='ok'] { color: var(--fg); }
   .add-msg[data-kind='err'] { color: #b00020; }
 
+  /* Fits the page width: no horizontal scroll. The title column takes the
+     rest and wraps (long untitled URLs break anywhere). */
+  .reading-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+  .reading-table .col-read { width: 4.6em; }
+  .reading-table .col-listen { width: 4.6em; }
+  .reading-table th:not(:first-child) { text-align: center; }
+  .reading-table th { font-size: 0.85em; padding-left: 0.2em; padding-right: 0.2em; }
+  .reading-table td { vertical-align: top; }
+  .reading-table td.title { overflow-wrap: anywhere; }
+  .read a,
+  .read .pending {
+    display: block;
+    text-align: center;
+    font-size: 0.85em;
+    line-height: 1.5;
+  }
+  .read .pending { color: var(--muted); opacity: 0.6; }
+
   /* LISTEN column: a link/glyph when viewing, a state button when editing. */
   .listen { text-align: center; white-space: nowrap; }
   .listen-view { color: var(--muted); }
+  .listen-view[data-state='queued'],
+  .listen-view[data-state='in_progress'] { color: var(--fg); }
   a.listen-view { color: inherit; text-decoration: none; }
   .listen-btn {
     font-family: inherit;
