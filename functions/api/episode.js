@@ -64,7 +64,9 @@ export async function onRequestPost(context) {
   }
 
   const key = `episodes/${slug}.mp3`;
-  await env.AUDIO.put(key, audio.stream(), {
+  // Buffer first: a chunked upload gives a stream of unknown length, which
+  // R2 put() rejects. Episodes are tens of MB at most, well within limits.
+  await env.AUDIO.put(key, await audio.arrayBuffer(), {
     httpMetadata: { contentType: audio.type || 'audio/mpeg' },
   });
   const base = (env.AUDIO_BASE_URL || 'https://media.lloyd.studio').replace(/\/+$/, '');
