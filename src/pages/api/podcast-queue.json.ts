@@ -21,7 +21,8 @@ export const GET: APIRoute = async () => {
       ],
     },
     items: items
-      .filter((i) => i.status === 'queued' || !i.audio)
+      // Only items queued for narration; reading-list-only links stay out.
+      .filter((i) => i.listen === 'queued')
       .map((i) => ({
         slug: i.slug,
         url: i.url,

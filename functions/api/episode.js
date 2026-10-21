@@ -23,6 +23,7 @@
 // Access JWT / CAPTURE_TOKEN (via _owner.js `authorized`) are accepted too.
 
 import { authorized, githubGetFile, githubPutFile, json, CORS } from '../_owner.js';
+import { audioBase, clearStatus } from '../_episodes.js';
 
 const SLUG_RE = /^[a-z0-9-]{1,120}$/;
 
@@ -69,8 +70,7 @@ export async function onRequestPost(context) {
   await env.AUDIO.put(key, await audio.arrayBuffer(), {
     httpMetadata: { contentType: audio.type || 'audio/mpeg' },
   });
-  const base = (env.AUDIO_BASE_URL || 'https://media.lloyd.studio').replace(/\/+$/, '');
-  const audioUrl = `${base}/${key}`;
+  const audioUrl = `${audioBase(env)}/${key}`;
 
   const path = `src/content/articles/${slug}.md`;
   const text = [
@@ -100,5 +100,7 @@ export async function onRequestPost(context) {
     return json({ error: e.message }, 502);
   }
 
+  // Done: drop the live in-progress marker (see _episodes.js).
+  await clearStatus(env, slug).catch(() => {});
   return json({ ok: true, slug, audio_url: audioUrl, audio_bytes: audio.size, article_path: path });
 }

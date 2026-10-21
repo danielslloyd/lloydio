@@ -1,21 +1,40 @@
 // Cloudflare Pages Function: POST /api/reading
 //
-// Owner-only "add URL" for the /reading page (the edit button in DRAFTS=1
-// builds). `{ action: 'add', url, title? }` commits a note tagged `podcast`
-// to src/content/notes/, which queues it for BacklogCast (see
-// docs/BACKLOGCAST.md). The note skips the process-inbox triage (`inbox`
-// unset) since its only job is to be narrated.
+// Owner-only edits for the /reading page (the edit button in DRAFTS=1 builds).
 //
-// Duplicates (same URL ignoring tracking params/fragments) are rejected using
-// the static /api/reading-urls.json from the last deploy, so a link added
-// moments ago and not yet rebuilt can slip through — harmless, BacklogCast
-// dedupes by URL too.
+//   { action: 'add', url, title?, podcast? }
+//     Commits a note tagged `reading` (plus `podcast` when podcast is true,
+//     which queues it for BacklogCast). The note skips process-inbox triage.
+//     Duplicates (same URL ignoring tracking params/fragments) are rejected
+//     using the static /api/reading-urls.json from the last deploy, so a link
+//     added moments ago can slip through — harmless, BacklogCast dedupes too.
 //
-// Auth and environment: as functions/api/books.js (Access JWT, falling back to
-// CAPTURE_TOKEN; GH_TOKEN / GH_REPO / GH_BRANCH to commit).
+//   { action: 'listen', op, notePath, slug, articlePath?, audio? }
+//     The LISTEN column. op:
+//       queue    — tag the note `podcast` (BacklogCast picks it up)
+//       unqueue  — drop the `podcast` tag
+//       cancel   — drop the tag and mark status/<slug> `cancelled` in R2, which
+//                  BacklogCast checks between chunks and stops on
+//       delete   — remove the episode: R2 mp3 + article file, and untag the
+//                  note so the item goes back to "+" on the reading list
+//
+// Auth: as functions/api/books.js (Access JWT, falling back to CAPTURE_TOKEN).
+// Env: GH_TOKEN / GH_REPO / GH_BRANCH to commit; the AUDIO R2 binding for
+// cancel/delete (see functions/_episodes.js).
 
-import { authorized, githubPutFile, json, CORS } from '../_owner.js';
-import { buildNote, archiveUrl, normalizeUrl } from '../_note.js';
+import {
+  authorized,
+  githubGetFile,
+  githubPutFile,
+  githubDeleteFile,
+  json,
+  CORS,
+} from '../_owner.js';
+import { buildNote, archiveUrl, normalizeUrl, setNoteTag } from '../_note.js';
+import { SLUG_RE, putStatus, clearStatus, audioKeyFromUrl } from '../_episodes.js';
+
+const NOTE_PATH_RE = /^src\/content\/notes\/[A-Za-z0-9._-]+\.md$/;
+const ARTICLE_PATH_RE = /^src\/content\/articles\/[a-z0-9-]+\.md$/;
 
 export async function onRequestOptions() {
   return new Response(null, { headers: CORS });
@@ -31,8 +50,17 @@ export async function onRequestPost(context) {
   } catch {
     return json({ error: 'invalid JSON' }, 400);
   }
-  if (body.action !== 'add') return json({ error: 'unknown action' }, 400);
+  try {
+    if (body.action === 'add') return await add(context, body);
+    if (body.action === 'listen') return await listen(env, body);
+  } catch (e) {
+    return json({ error: e.message }, 502);
+  }
+  return json({ error: 'unknown action' }, 400);
+}
 
+async function add(context, body) {
+  const { request, env } = context;
   const url = typeof body.url === 'string' ? body.url.trim() : '';
   if (!/^https?:\/\/[^\s]+$/.test(url)) return json({ error: 'url must be http(s)' }, 400);
   try {
@@ -48,17 +76,54 @@ export async function onRequestPost(context) {
   const { path, text } = buildNote({
     url,
     title: title || undefined,
-    tags: ['podcast'],
+    tags: body.podcast === true ? ['reading', 'podcast'] : ['reading'],
     inbox: false,
     source: 'reading',
   });
-  try {
-    await githubPutFile(env, path, text, undefined, `capture: ${title || url}`);
-  } catch (e) {
-    return json({ error: e.message }, 502);
-  }
+  await githubPutFile(env, path, text, undefined, `capture: ${title || url}`);
   archiveUrl(context, url);
-  return json({ result: 'queued', path });
+  return json({ result: 'queued', path, listen: body.podcast === true ? 'queued' : 'none' });
+}
+
+async function listen(env, body) {
+  const { op, notePath, slug, articlePath, audio } = body;
+  if (notePath && !NOTE_PATH_RE.test(notePath)) return json({ error: 'invalid notePath' }, 400);
+  if (slug && !SLUG_RE.test(slug)) return json({ error: 'invalid slug' }, 400);
+  const needsR2 = op === 'cancel' || op === 'delete';
+  if (needsR2 && !env.AUDIO) {
+    return json({ error: 'AUDIO R2 binding is not configured on this Pages project' }, 500);
+  }
+
+  if (op === 'queue' || op === 'unqueue' || op === 'cancel') {
+    if (!notePath) return json({ error: 'this item has no reading note to tag' }, 400);
+    await tagNote(env, notePath, op === 'queue', op);
+    if (env.AUDIO && slug) {
+      // `queue` clears a stale `cancelled`; `cancel` tells BacklogCast to stop.
+      if (op === 'cancel') await putStatus(env, slug, 'cancelled');
+      else await clearStatus(env, slug);
+    }
+    return json({ ok: true, listen: op === 'queue' ? 'queued' : 'none' });
+  }
+
+  if (op === 'delete') {
+    if (!articlePath || !ARTICLE_PATH_RE.test(articlePath)) return json({ error: 'invalid articlePath' }, 400);
+    const key = audioKeyFromUrl(env, audio);
+    if (key) await env.AUDIO.delete(key);
+    const { sha } = await githubGetFile(env, articlePath);
+    await githubDeleteFile(env, articlePath, sha, `backlogcast: delete episode ${articlePath.split('/').pop()}`);
+    if (notePath) await tagNote(env, notePath, false, 'delete');
+    return json({ ok: true, listen: 'none', audioDeleted: Boolean(key) });
+  }
+
+  return json({ error: 'unknown op' }, 400);
+}
+
+async function tagNote(env, notePath, on, op) {
+  const { text, sha } = await githubGetFile(env, notePath);
+  const next = setNoteTag(text, 'podcast', on);
+  if (next !== text) {
+    await githubPutFile(env, notePath, next, sha, `reading: ${op} ${notePath.split('/').pop()}`);
+  }
 }
 
 async function findDuplicate(env, requestUrl, url) {

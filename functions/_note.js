@@ -44,6 +44,49 @@ export function buildNote({
   return { path, text };
 }
 
+// Adds or removes one tag in a note's frontmatter, preserving everything else.
+// Handles both `tags: ["a", "b"]` (what buildNote writes) and a block list
+// (`tags:` followed by `  - a` lines, as in Keep imports).
+export function setNoteTag(text, tag, on) {
+  const nl = text.includes('\r\n') ? '\r\n' : '\n';
+  const lines = text.split(/\r?\n/);
+  if (lines[0] !== '---') throw new Error('note has no frontmatter');
+  const end = lines.indexOf('---', 1);
+  if (end < 0) throw new Error('note frontmatter is not closed');
+
+  let tags = [];
+  let start = -1;
+  let count = 0;
+  for (let i = 1; i < end; i++) {
+    const m = lines[i].match(/^tags:\s*(.*)$/);
+    if (!m) continue;
+    start = i;
+    count = 1;
+    if (m[1].trim().startsWith('[')) {
+      tags = m[1].trim().slice(1, -1).split(',').map(unquote).filter(Boolean);
+    } else {
+      while (start + count < end && /^\s+-\s/.test(lines[start + count])) {
+        tags.push(unquote(lines[start + count].replace(/^\s+-\s*/, '')));
+        count++;
+      }
+    }
+    break;
+  }
+
+  const had = tags.includes(tag);
+  if (on === had) return text;
+  tags = on ? [...tags, tag] : tags.filter((t) => t !== tag);
+  const line = `tags: [${tags.map((t) => JSON.stringify(t)).join(', ')}]`;
+  if (start >= 0) lines.splice(start, count, line);
+  else lines.splice(end, 0, line);
+  return lines.join(nl);
+}
+
+function unquote(s) {
+  s = s.trim();
+  return /^(["']).*\1$/.test(s) ? s.slice(1, -1) : s;
+}
+
 // Asks the Wayback Machine to snapshot a link (fire-and-forget).
 export function archiveUrl(context, url) {
   context.waitUntil(

@@ -213,3 +213,78 @@
   category: commonplace
   text: prolegomena
   source: keep
+- id: link-001
+  category: recipes
+  text: "Garlic butter steak bites"
+  note: https://getpocket.com/explore/item/garlic-butter-steak-bites
+  source: link
+- id: link-002
+  category: shopping
+  text: "Blackwing Matte pencils (12-pack)"
+  note: https://colossal.shop/products/blackwing-matte-pencils-12-pack
+  source: link
+- id: link-003
+  category: shopping
+  text: "Sandelier (original)"
+  note: https://sandelier.com/products/original-sandelier?variant=40290018721947
+  source: link
+- id: link-004
+  category: shopping
+  text: "Sisyphus kinetic sand table"
+  note: https://www.taomc.com/sisyphus/2015/7/15/d53t7vgy5hujf8192uqblt2aa9hkfl
+  source: link
+- id: link-005
+  category: photos
+  text: "Stephen Wilkes, Day to Night (photo book)"
+  note: https://bookshop.org/p/books/stephen-wilkes-day-to-night-lyle-rexer/18654005?ean=9783836592574
+  source: link
+- id: link-006
+  category: photos
+  text: "Best photo stitching software for panoramas"
+  note: https://havecamerawilltravel.com/panorama-stitching-best-apps/
+  source: link
+- id: link-007
+  category: photos
+  text: "Chaotica fractal art software (download)"
+  note: https://www.chaoticafractals.com/download
+  source: link
+- id: link-008
+  category: tools
+  text: "VO2 max calculator"
+  note: https://www.omnicalculator.com/sports/vo2-max
+  source: link
+- id: link-009
+  category: tools
+  text: "Tax calculator (moneychimp)"
+  note: http://www.moneychimp.com/features/tax_calculator.htm
+  source: link
+- id: link-010
+  category: reference
+  text: "Accelerated Reader ranges (Lee County library PDF)"
+  note: https://www.leegov.com/library/s_kids/Documents/Accelerated-Reader-Ranges.pdf
+  source: link
+- id: link-011
+  category: reference
+  text: "Atomic Habits cheat sheet (PDF)"
+  note: https://s3.amazonaws.com/jamesclear/Atomic+Habits/Habits+Cheat+Sheet.pdf
+  source: link
+- id: link-012
+  category: reference
+  text: "Burke: a select bibliography (Liberty Fund)"
+  note: https://oll.libertyfund.org/page/burke-a-select-bibliography
+  source: link
+- id: link-013
+  category: reference
+  text: "JSTOR search: author Fujio Ikado"
+  note: https://www.jstor.org/action/doBasicSearch?Query=au%3A%22Fujio+Ikado%22&so=rel
+  source: link
+- id: link-014
+  category: video
+  text: "The Burning of His Majesty’s Schooner Gaspee (American Revolution Institute)"
+  note: https://www.americanrevolutioninstitute.org/video/the-burning-of-his-majestys-schooner-gaspee/
+  source: link
+- id: link-015
+  category: video
+  text: "Family Feud: Child Allowance Edition (American Compass event)"
+  note: https://americancompass.org/event/family-feud-child-allowance-edition/
+  source: link

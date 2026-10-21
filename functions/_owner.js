@@ -115,6 +115,20 @@ export async function githubPutFile(env, file, text, sha, message) {
   return res.json();
 }
 
+// Deletes a repo file (needs its current sha). Returns the GitHub response.
+export async function githubDeleteFile(env, file, sha, message) {
+  const res = await fetch(`https://api.github.com/repos/${env.GH_REPO}/contents/${file}`, {
+    method: 'DELETE',
+    headers: { ...ghHeaders(env), 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message, sha, branch: env.GH_BRANCH || 'main' }),
+  });
+  if (!res.ok) {
+    const detail = await res.text();
+    throw new Error(`github delete ${res.status}: ${detail.slice(0, 300)}`);
+  }
+  return res.json();
+}
+
 // ---- base64 / base64url -------------------------------------------------
 function b64urlToBytes(str) {
   let s = str.replace(/-/g, '+').replace(/_/g, '/');

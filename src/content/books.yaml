@@ -7611,3 +7611,38 @@
     audible: https://www.audible.com/search?keywords=11%2F22%2F63%20Stephen%20King
   source: amazon
   cover: https://m.media-amazon.com/images/I/81B6VbRVb9L._SY300_.jpg
+- id: "isbn-9780268210458"
+  title: "Abortion and America’s Churches"
+  author: "Daniel K. Williams"
+  date: 2026-10-21
+  status: to-read
+  links:
+    goodreads: https://www.goodreads.com/search?q=Abortion%20and%20America%E2%80%99s%20Churches%20Daniel%20K.%20Williams
+    amazon: https://www.amazon.com/s?k=Abortion%20and%20America%E2%80%99s%20Churches%20Daniel%20K.%20Williams
+  source: link
+- id: "founders-constitution"
+  title: "The Founders’ Constitution"
+  author: "Philip B. Kurland and Ralph Lerner (eds.)"
+  date: 2026-10-21
+  status: to-read
+  links:
+    goodreads: https://www.goodreads.com/search?q=The%20Founders%E2%80%99%20Constitution
+    amazon: https://www.amazon.com/s?k=The%20Founders%E2%80%99%20Constitution
+  source: link
+- id: "gbooks-eH7YAAAAMAAJ"
+  title: "Black Preacher to White America"
+  date: 2026-10-21
+  status: to-read
+  links:
+    goodreads: https://www.goodreads.com/search?q=Black%20Preacher%20to%20White%20America
+    amazon: https://www.amazon.com/s?k=Black%20Preacher%20to%20White%20America
+  source: link
+- id: "gutenberg-43409"
+  title: "The Kingdom of God Is Within You; What Is Art?"
+  author: "Leo Tolstoy"
+  date: 2026-10-21
+  status: to-read
+  links:
+    goodreads: https://www.goodreads.com/search?q=The%20Kingdom%20of%20God%20Is%20Within%20You%3B%20What%20Is%20Art%3F%20Leo%20Tolstoy
+    amazon: https://www.amazon.com/s?k=The%20Kingdom%20of%20God%20Is%20Within%20You%3B%20What%20Is%20Art%3F%20Leo%20Tolstoy
+  source: link

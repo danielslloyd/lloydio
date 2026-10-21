@@ -5,12 +5,15 @@ import { SHOW_DRAFTS, formatDate } from '../../lib/site';
 
 const items = await getReadingItems();
 const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' };
+// LISTEN column glyphs, shared with the owner-mode editor script below.
+const listenIcon = { none: '+', queued: '≡', in_progress: '⏳', ready: '▶' };
+const listenLabel = { none: 'not queued', queued: 'queued for narration', ready: 'listen' };
 ---
 <Base title="Reading">
   <h1 class="page-title">Reading</h1>
   <p class="meta">
-    articles queued for reading/listening · flag a capture with the podcast
-    checkbox to queue it · <a href="/api/podcast-queue.json">queue.json</a>
+    articles to read, and to listen to once narrated ·
+    <a href="/api/podcast-queue.json">queue.json</a>
     {SHOW_DRAFTS && (
       <button id="reading-edit-toggle" class="edit-toggle" type="button" aria-pressed="false">edit</button>
     )}
@@ -18,16 +21,17 @@ const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' 
 
   {SHOW_DRAFTS && (
     <form id="add-reading" class="add-reading" hidden>
-      <input type="url" name="url" placeholder="paste a URL (article or PDF) to queue for narration"
-        aria-label="URL to queue" autocomplete="off" required />
+      <input type="url" name="url" placeholder="paste a URL (article or PDF) to add to the reading list"
+        aria-label="URL to add" autocomplete="off" required />
       <input type="text" name="title" placeholder="title (optional)" aria-label="Title (optional)"
         autocomplete="off" class="title-input" />
+      <label class="listen-opt"><input type="checkbox" name="podcast" /> listen</label>
       <button type="submit" class="act">add</button>
       <span class="add-msg" role="status"></span>
     </form>
   )}
 
-  {items.length === 0 && <p>Nothing queued yet.</p>}
+  {items.length === 0 && <p>Nothing on the list yet.</p>}
   {items.length > 0 && (
     <div style="overflow-x:auto">
       <table class="reading-table">
@@ -36,11 +40,27 @@ const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' 
         </thead>
         <tbody>
           {items.map((i) => (
-            <tr>
+            <tr
+              data-slug={i.slug}
+              data-title={i.title}
+              data-listen={i.listen}
+              data-note={i.notePath}
+              data-article={i.articleFilePath}
+              data-audio={i.audio}
+            >
               <td class="entry-date">{formatDate(i.date)}</td>
               <td>{i.title}</td>
               <td><a href={i.url}>↗</a></td>
-              <td>{i.audio ? <a href={i.audio}>▶</a> : '—'}</td>
+              <td class="listen">
+                {i.listen === 'ready' ? (
+                  <a class="listen-view" href={i.audio} title={listenLabel.ready}>{listenIcon.ready}</a>
+                ) : (
+                  <span class="listen-view" title={listenLabel[i.listen]}>
+                    {i.listen === 'queued' ? listenIcon.queued : '—'}
+                  </span>
+                )}
+                {SHOW_DRAFTS && <button type="button" class="listen-btn" hidden>{listenIcon[i.listen]}</button>}
+              </td>
               <td>{i.hasArticle ? <a href={`/reading/${i.slug}`}>text</a> : '—'}</td>
               <td class="meta">{statusMark[i.status]}</td>
             </tr>
@@ -52,26 +72,75 @@ const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' 
 </Base>
 
 {SHOW_DRAFTS && (
-  <script is:inline>
+  <script is:inline define:vars={{ listenIcon }}>
     (function () {
-      // Owner-mode "add URL": same auth pattern as the /books add box — the
-      // Access cookie rides along; the shared token is only a 401 fallback.
+      // Owner-mode editing: the add row, and the LISTEN column. Same auth
+      // pattern as the /books add box — the Access cookie rides along; the
+      // shared token is only a 401 fallback.
       const API = '/api/reading';
+      const STATUS_API = '/api/episode-status';
       const TOKEN_KEY = 'lloydio_owner_token';
       const toggle = document.getElementById('reading-edit-toggle');
       const form = document.getElementById('add-reading');
+      const table = document.querySelector('.reading-table');
       if (!toggle || !form) return;
       const urlInput = form.querySelector('input[name=url]');
       const titleInput = form.querySelector('input[name=title]');
+      const podcastInput = form.querySelector('input[name=podcast]');
       const msg = form.querySelector('.add-msg');
+
+      const titles = {
+        none: 'not queued — click to queue for narration',
+        queued: 'queued — click to un-queue',
+        in_progress: 'being narrated — click to cancel',
+        ready: 'narrated — click to delete the episode',
+      };
+
+      function setListen(row, state) {
+        row.dataset.listen = state;
+        const btn = row.querySelector('.listen-btn');
+        if (!btn) return;
+        btn.textContent = listenIcon[state];
+        btn.title = titles[state] + (row.dataset.failed ? ' (last attempt failed)' : '');
+        btn.dataset.state = state;
+      }
 
       toggle.addEventListener('click', () => {
         const on = toggle.getAttribute('aria-pressed') !== 'true';
         toggle.setAttribute('aria-pressed', String(on));
         toggle.textContent = on ? 'done' : 'edit';
         form.hidden = !on;
-        if (on) urlInput.focus();
+        document.querySelectorAll('.reading-table .listen').forEach((td) => {
+          td.querySelector('.listen-view').hidden = on;
+          const btn = td.querySelector('.listen-btn');
+          if (btn) btn.hidden = !on;
+        });
+        if (on) {
+          document.querySelectorAll('.reading-table tbody tr').forEach((r) => setListen(r, r.dataset.listen));
+          overlayLiveStatus();
+          urlInput.focus();
+        }
       });
+
+      // "In progress" isn't in the repo — BacklogCast reports it live.
+      async function overlayLiveStatus() {
+        try {
+          const res = await fetch(STATUS_API, { credentials: 'include' });
+          if (!res.ok) return;
+          const { statuses = {} } = await res.json();
+          document.querySelectorAll('.reading-table tbody tr[data-slug]').forEach((row) => {
+            const s = statuses[row.dataset.slug];
+            if (!s || row.dataset.listen === 'ready') return;
+            if (s.state === 'in_progress') setListen(row, 'in_progress');
+            else if (s.state === 'failed') {
+              row.dataset.failed = '1';
+              setListen(row, row.dataset.listen);
+            }
+          });
+        } catch {
+          // live status is a nicety; the column still works without it
+        }
+      }
 
       function post(payload, token) {
         const headers = { 'Content-Type': 'application/json' };
@@ -103,14 +172,60 @@ const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' 
         msg.dataset.kind = kind || '';
       }
 
+      // Each action is a git commit; chain them so quick successive clicks don't race.
+      let chain = Promise.resolve();
+      function enqueue(task) {
+        const run = chain.then(task, task);
+        chain = run.then(() => {}, () => {});
+        return run;
+      }
+
+      // ---- LISTEN column ----------------------------------------------------
+      const ops = { none: 'queue', queued: 'unqueue', in_progress: 'cancel', ready: 'delete' };
+      if (table) {
+        table.addEventListener('click', (ev) => {
+          const btn = ev.target.closest('.listen-btn');
+          if (!btn) return;
+          const row = btn.closest('tr');
+          const state = row.dataset.listen;
+          const op = ops[state];
+          const title = row.dataset.title || 'this item';
+          if (op === 'cancel' && !confirm('Cancel narration of “' + title + '”?')) return;
+          if (op === 'delete' && !confirm('Delete the episode for “' + title + '”?\n\nThis removes the audio and the narrated text; the link stays on your reading list.')) return;
+          btn.disabled = true;
+          row.classList.add('saving');
+          enqueue(async () => {
+            try {
+              const res = await send({
+                action: 'listen',
+                op,
+                slug: row.dataset.slug,
+                notePath: row.dataset.note || undefined,
+                articlePath: row.dataset.article || undefined,
+                audio: row.dataset.audio || undefined,
+              });
+              delete row.dataset.failed;
+              setListen(row, res.listen);
+              row.title = 'Saved — the site catches up after the next rebuild';
+            } catch (e) {
+              alert('Could not ' + op + ': ' + e.message);
+            } finally {
+              btn.disabled = false;
+              row.classList.remove('saving');
+            }
+          });
+        });
+      }
+
+      // ---- add row ------------------------------------------------------------
       // A placeholder row until the rebuild lists it for real.
-      function placeholderRow(url, title) {
+      function placeholderRow(url, title, listen) {
         const tbody = document.querySelector('.reading-table tbody');
         if (!tbody) return;
         const tr = document.createElement('tr');
         tr.className = 'just-added';
-        tr.title = 'Queued — appears for good after the site rebuilds';
-        const cells = ['just now', title || url, '', '—', '—', '⧗ queued'];
+        tr.title = 'Added — appears for good after the site rebuilds';
+        const cells = ['just now', title || url, '', listenIcon[listen], '—', '⧗ queued'];
         cells.forEach((c, i) => {
           const td = document.createElement('td');
           if (i === 2) {
@@ -128,24 +243,25 @@ const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' 
         tbody.prepend(tr);
       }
 
-      // Each add is a git commit; chain them so quick successive adds don't race.
-      let chain = Promise.resolve();
       form.addEventListener('submit', (ev) => {
         ev.preventDefault();
         const url = urlInput.value.trim();
         const title = titleInput.value.trim();
+        const podcast = podcastInput.checked;
         if (!url) return;
         urlInput.value = '';
         titleInput.value = '';
-        say('queuing…');
-        chain = chain.then(async () => {
+        say('adding…');
+        enqueue(async () => {
           try {
-            const res = await send({ action: 'add', url, title });
+            const res = await send({ action: 'add', url, title, podcast });
             if (res.result === 'duplicate') {
               say('already on the list: ' + (res.title || url) + ' (' + res.status + ')', 'warn');
             } else {
-              placeholderRow(url, title);
-              say('queued — appears after the next rebuild; BacklogCast picks it up from there', 'ok');
+              placeholderRow(url, title, res.listen);
+              say(podcast
+                ? 'added and queued for narration — BacklogCast picks it up after the next rebuild'
+                : 'added — appears after the next rebuild', 'ok');
             }
           } catch (e) {
             say('add failed: ' + e.message, 'err');
@@ -183,7 +299,8 @@ const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' 
     margin: 0.5rem 0 0.8rem;
   }
   .add-reading[hidden] { display: none; }
-  .add-reading input {
+  .add-reading input[type='url'],
+  .add-reading input[type='text'] {
     /* Override the global `width:100%` form rule; flex sizes it instead. */
     width: auto;
     flex: 3 1 18rem;
@@ -192,6 +309,15 @@ const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' 
     padding: 0.25em 0.5em;
   }
   .add-reading input.title-input { flex: 1 1 10rem; }
+  .listen-opt {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    font-size: 0.85rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .listen-opt input { width: auto; margin: 0; }
   .add-reading .act {
     font-family: inherit;
     font-size: 0.85rem;
@@ -210,6 +336,28 @@ const statusMark = { queued: '⧗ queued', ready: '● ready', read: '✓ read' 
   .add-msg:empty { display: none; }
   .add-msg[data-kind='ok'] { color: var(--fg); }
   .add-msg[data-kind='err'] { color: #b00020; }
+
+  /* LISTEN column: a link/glyph when viewing, a state button when editing. */
+  .listen { text-align: center; white-space: nowrap; }
+  .listen-view { color: var(--muted); }
+  a.listen-view { color: inherit; text-decoration: none; }
+  .listen-btn {
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1;
+    min-width: 2em;
+    padding: 0.2em 0.4em;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--fg);
+    cursor: pointer;
+  }
+  .listen-btn:hover { border-color: var(--muted); }
+  .listen-btn[data-state='none'] { color: var(--muted); }
+  .listen-btn[data-state='in_progress'] { border-style: dashed; }
+  .listen-btn:disabled { opacity: 0.5; cursor: progress; }
+  :global(.reading-table tr.saving) { opacity: 0.6; }
   :global(.reading-table tr.just-added) {
     background: color-mix(in srgb, var(--muted) 10%, transparent);
   }

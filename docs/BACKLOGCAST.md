@@ -58,6 +58,10 @@ Public Pages project (the one serving lloyd.studio — BacklogCast posts there):
 | `FEED_TOKEN`     | makes the feed URL unguessable |
 | `GH_TOKEN`, `GH_REPO`, `GH_BRANCH` | as for `/api/capture` — used to commit the article |
 
+Owner Pages project (the Access-protected `DRAFTS=1` site with the /reading
+editor): add the **same** `AUDIO` R2 binding. The LISTEN column's cancel and
+delete actions, and the live "in progress" state, read and write R2 from there.
+
 The desktop side is configured in BacklogCast's `backlogcast.env.bat`
 (`LLOYDIO_BASE_URL`, `LLOYDIO_POLL_SECONDS`, `LLOYDIO_EPISODE_TOKEN`,
 `CLAUDE_EXTRACT`, Henty settings).
@@ -75,6 +79,24 @@ Anything else can participate using the same contract:
   URL — plus optional `audio_bytes`, `duration`).
 - Slugs are deterministic (`src/lib/reading.ts`), so independent tools
   converge on the same filenames.
+
+## Reading list vs. listening
+
+A link on /reading is either just on the reading list (note tagged `reading`)
+or also queued for narration (tagged `podcast`). In owner mode, **edit** turns
+the LISTEN column into a control:
+
+| shows | means | click |
+|-------|-------|-------|
+| `+` | on the reading list only | queue it (adds `podcast`) |
+| `≡` | queued for BacklogCast | un-queue (drops `podcast`) |
+| `⏳` | BacklogCast is working on it (live, from R2) | cancel, after a confirm — BacklogCast stops between chunks |
+| `▶` | narrated | delete the episode (R2 mp3 + article), after a confirm |
+
+"In progress" is not in git: BacklogCast reports it to `/api/episode-status`,
+stored as `status/<slug>.json` in the AUDIO bucket, so progress updates never
+trigger rebuilds. Re-queuing a cancelled item resumes it; re-queuing a deleted
+episode re-uploads the audio BacklogCast already has.
 
 ## Article lifecycle
 
