@@ -35,20 +35,33 @@ export const GET: APIRoute = async (context) => {
       <guid isPermaLink="false">${esc(audioUrl)}</guid>
       <pubDate>${a.data.date.toUTCString()}</pubDate>
       <description>${esc(`Narration of ${a.data.url}`)}</description>
-      <enclosure url="${esc(audioUrl)}" length="${length}" type="${type}" />${
+      <enclosure url="${esc(audioUrl)}" length="${length}" type="${type}" />
+      <itunes:explicit>false</itunes:explicit>${
         a.data.duration ? `\n      <itunes:duration>${Math.round(a.data.duration)}</itunes:duration>` : ''
       }
     </item>`;
     })
     .join('\n');
 
+  // Podcast apps (Pocket Casts, Apple) expect artwork, author, category and an
+  // explicit flag on the channel; a feed without them can fail to subscribe.
+  const selfUrl = new URL(context.url.pathname, site).href;
+  const cover = new URL('/media/podcast-cover.png', site).href;
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${esc(SITE_TITLE)} backlog</title>
     <link>${esc(new URL('/reading', site).href)}</link>
+    <atom:link href="${esc(selfUrl)}" rel="self" type="application/rss+xml" />
     <description>Narrated versions of articles from the reading list.</description>
     <language>en</language>
+    <itunes:author>Daniel Lloyd</itunes:author>
+    <itunes:summary>Narrated versions of articles from the reading list.</itunes:summary>
+    <itunes:image href="${esc(cover)}" />
+    <image><url>${esc(cover)}</url><title>${esc(SITE_TITLE)} backlog</title><link>${esc(new URL('/reading', site).href)}</link></image>
+    <itunes:category text="Education" />
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
     <itunes:block>Yes</itunes:block>
 ${items}
   </channel>
