@@ -5421,16 +5421,6 @@
     audible: https://www.audible.com/pd/Generation-Kill-Audiobook/B002V8N7PO
   source: amazon
   cover: https://m.media-amazon.com/images/I/A1kQFKsy8OL._SY300_.jpg
-- id: "B000054795"
-  title: "The Personal Memoirs of U.S. Grant, Part 3: Wilderness Campaign, Appomattox, Death of Lincoln (Unabr.)"
-  author: Ulysses S. Grant
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B000054795
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81lBAqntfGL._SY300_.jpg
 - id: "B0CQ71WHDH"
   title: "Meditations by Marcus Aurelius: the New Translation"
   author: Marcus Aurelius
