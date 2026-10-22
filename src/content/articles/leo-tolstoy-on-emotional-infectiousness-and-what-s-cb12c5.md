@@ -1,8 +1,12 @@
 ---
 title: "Leo Tolstoy on Emotional Infectiousness and What Separates Good Art from the Bad"
 url: "https://www.themarginalian.org/2013/09/09/leo-tolstoy-what-is-art-infectiousness/"
-date: 2026-10-21T19:54:53.000Z
+author: "Maria Popova"
+date: 2026-10-22T06:02:37.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/leo-tolstoy-on-emotional-infectiousness-and-what-s-cb12c5.mp3"
+audio_bytes: 4888485
+duration: 636
 ---
 
 # Leo Tolstoy on Emotional Infectiousness and What Separates Good Art from the Bad
