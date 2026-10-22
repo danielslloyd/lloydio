@@ -5431,16 +5431,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81lBAqntfGL._SY300_.jpg
-- id: "B000054794"
-  title: "The Personal Memoirs of U.S. Grant, Part 2: March 4, 1861 - March 26, 1864"
-  author: Ulysses S. Grant
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B000054794
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81gxgwvKAcL._SY300_.jpg
 - id: "B0CQ71WHDH"
   title: "Meditations by Marcus Aurelius: the New Translation"
   author: Marcus Aurelius
