@@ -1,8 +1,11 @@
 ---
 title: "Magnifica Humanitas: On Safeguarding the Human Person in the Time of Artificial Intelligence"
 url: "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html"
-date: 2026-05-27T22:32:35.000Z
+date: 2026-10-22T04:34:00.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/magnifica-humanitas-leo-xiv-15-may-2026-6f9284.mp3"
+audio_bytes: 59356749
+duration: 14839
 ---
 
 # Magnifica Humanitas: On Safeguarding the Human Person in the Time of Artificial Intelligence
