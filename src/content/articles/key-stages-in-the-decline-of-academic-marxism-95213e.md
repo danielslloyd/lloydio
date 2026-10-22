@@ -1,8 +1,12 @@
 ---
 title: "Key stages in the decline of academic Marxism"
 url: "https://josephheath.substack.com/p/key-stages-in-the-decline-of-academic"
-date: 2026-10-21T19:54:53.000Z
+author: "Joseph Heath"
+date: 2026-10-22T05:54:14.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/key-stages-in-the-decline-of-academic-marxism-95213e.mp3"
+audio_bytes: 7567749
+duration: 977
 ---
 
 # Key stages in the decline of academic Marxism
