@@ -4,8 +4,11 @@ url: "https://president.yale.edu/sites/default/files/2026-04/Report-of-the-Commi
 author: "Yale Committee on Trust in Higher Education"
 source: "Yale University"
 published: "2026-04-10"
-date: 2026-10-21T19:54:54.000Z
+date: 2026-10-22T13:40:14.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/report-of-the-committee-on-trust-in-higher-educati-9d63c8.mp3"
+audio_bytes: 35199645
+duration: 4552
 ---
 
 # Report of the Yale Committee on Trust in Higher Education
