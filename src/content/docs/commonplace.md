@@ -8,7 +8,11 @@ title: Commonplace
 
 **Butter** is churned cream: agitation makes the fat globules clump together and squeezes out the water. Over-whipped cream does this by accident, leaving yellow butterfat sitting in liquid. **Buttermilk** is the nearly fat-free liquid left after churning, since the fat has moved into the butter. *Cultured butter* is made from soured cream and tastes tangy. American butter is *sweet cream butter*, made from cream centrifuged straight from pasteurized milk with no lactic bacteria. The Netherlands, Belgium, France, and Denmark culture their cream, while England and Germany mostly don’t.
 
-In the EU and US, butter is legally required to be at least 80% milk fat. Typical American butter is about 80-81% fat, 16-17% water, and 1-2% milk solids, while Dutch butter is about ~82%, and “European-style” butter sold in the US usually runs 82-86% fat. The extra fat gives a richer taste and causes it to behave differently in pastry. Because milk fat is mostly saturated, it stays firm at room temperature. Butter from grass-fed cows is softer and creamier because the milk carries more unsaturated fat, and often yellower from grass carotene.
+In the EU and US, butter is legally required to be at least 80% milk fat. Typical American butter is about 80-81% fat, 16-17% water, and 1-2% milk solids, while Dutch butter is about ~82%, and “European-style” butter sold in the US usually runs 82-86% fat. The extra fat gives a richer taste and causes it to behave differently in pastry. 
+
+Because milk fat is mostly saturated, it stays firm at room temperature. Butter from grass-fed cows is softer and creamier because the milk carries more unsaturated fat, and often yellower from grass carotene.
+
+**Clarified butter** is butter with its water and milk solids removed, leaving pure butterfat. The milk solids are what burn first, so removing them raises the smoke point to about 450°F (from roughly 300-350°F for regular butter). **Brown butter** keeps the milk solids in and toasts them - the Maillard reaction develops much of the flavor of the browned solids.
 
 ---
 
