@@ -2,11 +2,23 @@
 title: Commonplace
 ---
 
-To make cane sugar, harvested cane is crushed between serrated rollers and pressed to extract the juice, while the fibrous bagasse is burned as fuel. The raw juice is cleaned and boiled down to syrup, crystallized in vacuum pans, then spun in centrifuges. This yields **raw sugar** (also known as *turbinado* or *demerara*), which has been crystallized and spun but only lightly washed, and **molasses**, the residual syrup after the last economical crystallization. Raw sugar is decolorized and filtered until its final state as white refined cane sugar. **Brown sugar** is typically white sugar with molasses added back in.
-
-Beet sugar is made by soaking thinly sliced beets in hot water, then processing the juice through largely the same clarification, crystallization, and molasses-separation steps. The finished sugar is chemically the same (about 99.95% sucrose), but beet molasses tastes unpleasant, so it goes to animal feed and fermentation (yeast, MSG) instead of the kitchen.
-
----
+Cane sugar starts at a mill, where the harvested cane is crushed between serrated rollers and pressed to extract the juice, while the fibrous bagasse is burned as fuel. The raw juice is limed and settled to remove mud, boiled down to syrup, and crystallized in vacuum pans, then spun in centrifuges. This yields raw sugar (about 97.5% sucrose) and a dark syrup that won’t give up more crystals, which is molasses. 
+uspto
+Refining usually happens at a separate plant. The first step is affination (French for “refining”), in which raw sugar is mingled with hot, saturated syrup that melts the outermost layer of each crystal, and the syrup is spun off. This removes roughly half the color for very little cost, which is why refiners treat it as the key step. 
+purolite
+The washed crystals are dissolved into a liquor and clarified with lime, using either carbonatation (CO₂ precipitates calcium carbonate) or phosphatation (calcium phosphate), which traps color bodies and particles. The liquor is then decolorized, most commonly with powdered or granular activated carbon. Some refineries use bone char or ion-exchange resins instead. 
+purolite
+The clear liquor is evaporated and fed to vacuum pans, where crystals grow at a temperature well below water’s atmospheric boiling point, protecting the sucrose from thermal degradation. Pure sucrose crystallizes out and leaves impurities in the remaining syrup. The crystals are spun, washed, dried, screened by size, and packed. The leftover syrup is re-boiled for further crops until little sucrose remains. 
+ieee
+Molasses is the residual syrup after the last economical crystallization. It is still around half sucrose by dry weight, plus invert sugars, minerals, and color compounds. Grades are loosely defined by how many times the syrup was boiled: first-boil is sweet and mild, and blackstrap (the final boil) is dark, bitter, and mineral-heavy. 
+unite
+Brown sugar is sucrose plus molasses. In modern production it is typically white sugar with molasses added back (one source describes adding molasses before the centrifuge), and darker grades contain more. Unrefined relatives include raw/turbinado/demerara (cane crystals only lightly washed) and muscovado and jaggery (non-centrifugal, boiled in open pans with a high moisture content). 
+scribd
+wikibooks
+Beet sugar uses a different front end. Sliced beets are soaked in hot water (diffusion) instead of crushed, and the juice then goes through largely the same clarification, crystallization, and molasses-separation steps. The finished sugar is chemically the same (about 99.95% sucrose). Cane grows in the tropics and beets in temperate climates. 
+thedailymeal
+masterclass
+The differences are in the byproducts. Beet contains raffinose, which is a marker for detecting beet sugar, and analyses of cane molasses found none. Beet molasses tastes unpleasant, so it goes to animal feed and fermentation (yeast, MSG) instead of the kitchen.
 
 **Climacteric** fruits (banana, apple, pear, avocado, mango, tomato, kiwi) ripen after harvest: chlorophyll breaks down, pigments and aroma volatiles appear, enzymes dissolve cell walls so the flesh softens, acids and tannins decline, and starch converts to sugar as. It is metabolically expensive and driven by *respiration*, the oxidation of stored sugar (sugar + O₂ → CO₂ + water + ATP + heat). Post-harvest handling is largely an effort to slow this respiration, with controlled-atmosphere cold storage (low O₂, high CO₂, ethylene removal). **Non-climacteric** fruits (strawberry, grape, cherry, citrus, pineapple, watermelon) do not meaningfully ripen once picked.
 
