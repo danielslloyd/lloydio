@@ -2,7 +2,7 @@
 title: Commonplace
 ---
 
-Harvested sugar cane is crushed and pressed to extract the juice, which is filtered and boiled down to syrup, then crystallized in vacuum pans and spun in centrifuges. This yields **raw sugar** (*turbinado* or *demerara*) and **molasses**, which is the residual syrup after the last economical crystallization. Raw sugar is clarified and filtered further to produce table sugar, which can be re-mixed with molasses to make **brown sugar**.
+Harvested sugar cane is crushed and pressed to extract the juice, which is filtered and boiled down to syrup, then crystallized in vacuum pans and spun in centrifuges. This yields **raw sugar** (*turbinado* or *demerara*) and **molasses**, which is the residual syrup after the last economical crystallization. Raw sugar is clarified and filtered further to produce table sugar, which can then be re-mixed with molasses to make **brown sugar**.
 
 The process for making **beet sugar** starts with soaking thinly sliced beets in hot water, then processing the juice through largely the same clarification, crystallization, and molasses-separation steps. The finished sugar is chemically the same, but beet molasses tastes unpleasant, so it goes to animal feed and fermentation (yeast, MSG).
 
