@@ -1,8 +1,11 @@
 ---
 title: "The Lost Tools of Learning"
 url: "https://www.pccs.org/wp-content/uploads/2016/06/LostToolsOfLearning-DorothySayers.pdf"
-date: 2026-10-21T18:24:01.000Z
+date: 2026-10-22T05:42:40.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/www-pccs-org-wp-content-uploads-2016-06-losttoolso-21c1f8.mp3"
+audio_bytes: 24276357
+duration: 3152
 ---
 
 # The Lost Tools of Learning
