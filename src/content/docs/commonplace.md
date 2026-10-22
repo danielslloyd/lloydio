@@ -12,13 +12,10 @@ The clear liquor is evaporated and fed to vacuum pans, where crystals grow at a 
 ieee
 Molasses is the residual syrup after the last economical crystallization. It is still around half sucrose by dry weight, plus invert sugars, minerals, and color compounds. Grades are loosely defined by how many times the syrup was boiled: first-boil is sweet and mild, and blackstrap (the final boil) is dark, bitter, and mineral-heavy. 
 unite
-Brown sugar is sucrose plus molasses. In modern production it is typically white sugar with molasses added back (one source describes adding molasses before the centrifuge), and darker grades contain more. Unrefined relatives include raw/turbinado/demerara (cane crystals only lightly washed) and muscovado and jaggery (non-centrifugal, boiled in open pans with a high moisture content). 
-scribd
-wikibooks
-Beet sugar uses a different front end. Sliced beets are soaked in hot water (diffusion) instead of crushed, and the juice then goes through largely the same clarification, crystallization, and molasses-separation steps. The finished sugar is chemically the same (about 99.95% sucrose). Cane grows in the tropics and beets in temperate climates. 
-thedailymeal
-masterclass
-The differences are in the byproducts. Beet contains raffinose, which is a marker for detecting beet sugar, and analyses of cane molasses found none. Beet molasses tastes unpleasant, so it goes to animal feed and fermentation (yeast, MSG) instead of the kitchen.
+Brown sugar is sucrose plus molasses. In modern production it is typically white sugar with molasses added back.
+Beet sugar starts with soaking thinly sliced beets in hot water, then processing the juice through largely the same clarification, crystallization, and molasses-separation steps. The finished sugar is chemically the same, but beet molasses tastes unpleasant, so it goes to animal feed and fermentation (yeast, MSG).
+
+---
 
 **Climacteric** fruits (banana, apple, pear, avocado, mango, tomato, kiwi) ripen after harvest: chlorophyll breaks down, pigments and aroma volatiles appear, enzymes dissolve cell walls so the flesh softens, acids and tannins decline, and starch converts to sugar as. It is metabolically expensive and driven by *respiration*, the oxidation of stored sugar (sugar + O₂ → CO₂ + water + ATP + heat). Post-harvest handling is largely an effort to slow this respiration, with controlled-atmosphere cold storage (low O₂, high CO₂, ethylene removal). **Non-climacteric** fruits (strawberry, grape, cherry, citrus, pineapple, watermelon) do not meaningfully ripen once picked.
 
