@@ -2,6 +2,10 @@
 title: Commonplace
 ---
 
+**Climacteric** fruits (banana, apple, pear, avocado, mango, tomato, kiwi) ripen after harvest: chlorophyll breaks down, pigments and aroma volatiles appear, enzymes dissolve cell walls so the flesh softens, acids and tannins decline, and starch converts to sugar as. It is metabolically expensive and driven by *respiration*, the oxidation of stored sugar (sugar + O₂ → CO₂ + water + ATP + heat). Post-harvest handling is largely an effort to slow this respiration, with controlled-atmosphere cold storage (low O₂, high CO₂, ethylene removal). **Non-climacteric** fruits (strawberry, grape, cherry, citrus, pineapple, watermelon) do not meaningfully ripen once picked.
+
+---
+
 **Butter** is churned cream: agitation makes the fat globules clump together and squeezes out the water. Over-whipped cream does this by accident, leaving yellow butterfat sitting in liquid. **Buttermilk** is the nearly fat-free liquid left after churning, since the fat has moved into the butter. *Cultured butter* is made from soured cream and tastes tangy. American butter is *sweet cream butter*, made from cream centrifuged straight from pasteurized milk with no lactic bacteria. The Netherlands, Belgium, France, and Denmark culture their cream, while England and Germany mostly don’t.
 
 ---
