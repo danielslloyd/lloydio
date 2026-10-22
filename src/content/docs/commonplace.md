@@ -2,6 +2,12 @@
 title: Commonplace
 ---
 
+To make cane sugar, harvested cane is crushed between serrated rollers and pressed to extract the juice, while the fibrous bagasse is burned as fuel. The raw juice is cleaned and boiled down to syrup, crystallized in vacuum pans, then spun in centrifuges. This yields **raw sugar** (also known as *turbinado* or *demerara*), which has been crystallized and spun but only lightly washed, and **molasses**, the residual syrup after the last economical crystallization. Raw sugar is decolorized and filtered until its final state as white refined cane sugar. **Brown sugar** is typically white sugar with molasses added back in.
+
+Beet sugar is made by soaking thinly sliced beets in hot water, then processing the juice through largely the same clarification, crystallization, and molasses-separation steps. The finished sugar is chemically the same (about 99.95% sucrose), but beet molasses tastes unpleasant, so it goes to animal feed and fermentation (yeast, MSG) instead of the kitchen.
+
+---
+
 **Climacteric** fruits (banana, apple, pear, avocado, mango, tomato, kiwi) ripen after harvest: chlorophyll breaks down, pigments and aroma volatiles appear, enzymes dissolve cell walls so the flesh softens, acids and tannins decline, and starch converts to sugar as. It is metabolically expensive and driven by *respiration*, the oxidation of stored sugar (sugar + O₂ → CO₂ + water + ATP + heat). Post-harvest handling is largely an effort to slow this respiration, with controlled-atmosphere cold storage (low O₂, high CO₂, ethylene removal). **Non-climacteric** fruits (strawberry, grape, cherry, citrus, pineapple, watermelon) do not meaningfully ripen once picked.
 
 ---
