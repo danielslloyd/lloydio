@@ -1,8 +1,12 @@
 ---
 title: "When Truth Is Lost, Goodness Distorted, And Beauty Forgotten"
 url: "https://www.cslewisinstitute.org/resources/when-truth-is-lost-goodness-distorted-and-beauty-forgotten/"
-date: 2026-10-21T18:24:01.000Z
+author: "Thiago M Silva"
+date: 2026-10-22T04:58:09.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/www-cslewisinstitute-org-resources-when-truth-is-l-0a310f.mp3"
+audio_bytes: 12704757
+duration: 1668
 ---
 
 # When Truth Is Lost, Goodness Distorted, And Beauty Forgotten
