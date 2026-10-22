@@ -4,8 +4,11 @@ url: "https://www.notboring.co/p/the-electric-slide"
 author: "Packy McCormick and Sam D'Amico"
 source: "Not Boring"
 published: "2025-08-26"
-date: 2026-10-21T19:54:54.000Z
+date: 2026-10-22T18:44:03.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/the-electric-slide-06038a.mp3"
+audio_bytes: 5724813
+duration: 1431
 ---
 
 # The Electric Slide
