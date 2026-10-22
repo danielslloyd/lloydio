@@ -5305,11 +5305,11 @@
   title: Personal Memoirs of Ulysses S. Grant
   author: Ulysses S. Grant
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 4
   links:
     amazon: https://www.amazon.com/dp/B004CWFASO
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81xLcxHweBL._SY300_.jpg
 - id: "B01GQQMVBW"
   title: "A Time for Trumpets: The Untold Story of the Battle of the Bulge"
