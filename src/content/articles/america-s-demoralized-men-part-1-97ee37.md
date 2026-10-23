@@ -4,8 +4,11 @@ url: "https://ifstudies.org/report-brief/americas-demoralized-men-part-1"
 author: "Joseph E. Davis, Michael Toscano and Ken Burchfiel"
 source: "Institute for Family Studies"
 published: "2026-03"
-date: 2026-10-21T19:54:54.000Z
+date: 2026-10-23T06:45:09.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/america-s-demoralized-men-part-1-97ee37.mp3"
+audio_bytes: 19972749
+duration: 4993
 ---
 
 # America’s Demoralized Men, Part 1
