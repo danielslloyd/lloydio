@@ -1,8 +1,12 @@
 ---
 title: "Ancient Philosophy's Return Amidst the Triumph of the Therapeutic"
 url: "https://churchlifejournal.nd.edu/articles/ancient-philosophys-return-amidst-the-triumph-of-the-therapeutic/"
-date: 2026-10-21T19:54:53.000Z
+author: "Elisabeth Lasch-Quinn"
+date: 2026-10-23T03:12:09.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/ancient-philosophy-s-return-amidst-the-triumph-of--10b42f.mp3"
+audio_bytes: 6951597
+duration: 1737
 ---
 
 # Ancient Philosophy's Return Amidst the Triumph of the Therapeutic
