@@ -4,8 +4,11 @@ url: "https://modernshakers.substack.com/p/its-good-to-be-a-man"
 author: "Jayson Fritz-Stibbe"
 source: "Modern Shakers"
 published: "2026-06-18"
-date: 2026-10-21T19:54:54.000Z
+date: 2026-10-23T07:22:37.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/my-unfinished-list-of-masculine-virtues-c5dd1c.mp3"
+audio_bytes: 4474605
+duration: 1118
 ---
 
 # My Unfinished List of Masculine Virtues
