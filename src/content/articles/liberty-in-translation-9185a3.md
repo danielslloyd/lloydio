@@ -1,8 +1,12 @@
 ---
 title: "Liberty in Translation"
 url: "https://lawliberty.org/liberty-in-translation/"
-date: 2026-10-21T19:54:53.000Z
+author: "Richard Gunderman"
+date: 2026-10-23T03:52:02.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/liberty-in-translation-9185a3.mp3"
+audio_bytes: 2180013
+duration: 544
 ---
 
 # Liberty in Translation
