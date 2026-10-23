@@ -1,8 +1,12 @@
 ---
 title: "The Case for Christian Nationalism"
 url: "https://www.thegospelcoalition.org/reviews/christian-nationalism-wolfe/"
-date: 2026-10-21T19:54:53.000Z
+author: "Kevin DeYoung"
+date: 2026-10-23T04:25:55.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/the-rise-of-right-wing-wokeism-8df0b9.mp3"
+audio_bytes: 12111789
+duration: 3027
 ---
 
 # The Case for Christian Nationalism
