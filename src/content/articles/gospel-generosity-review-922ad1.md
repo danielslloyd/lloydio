@@ -1,8 +1,12 @@
 ---
 title: "Gospel Generosity"
 url: "https://www.challies.com/book-reviews/gospel-generosity/"
-date: 2026-10-21T19:54:53.000Z
+author: "Nathan W Harris"
+date: 2026-10-23T03:15:20.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/gospel-generosity-review-922ad1.mp3"
+audio_bytes: 1153581
+duration: 288
 ---
 
 # Gospel Generosity
