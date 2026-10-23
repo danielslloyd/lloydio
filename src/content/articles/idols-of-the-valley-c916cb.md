@@ -4,8 +4,11 @@ url: "https://www.thenewatlantis.com/publications/idols-of-the-valley"
 author: "Yuval Levin"
 source: "The New Atlantis"
 published: "2026-05-27"
-date: 2026-10-21T19:54:54.000Z
+date: 2026-10-23T07:10:50.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/idols-of-the-valley-c916cb.mp3"
+audio_bytes: 5495181
+duration: 1373
 ---
 
 # Idols of the Valley
