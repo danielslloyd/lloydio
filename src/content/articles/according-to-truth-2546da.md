@@ -1,8 +1,12 @@
 ---
 title: "“According to Truth”"
 url: "https://thejosias.com/2018/07/19/according-to-truth/"
-date: 2026-10-21T19:54:53.000Z
+author: "Adrian Vermeule"
+date: 2026-10-23T02:50:47.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/according-to-truth-2546da.mp3"
+audio_bytes: 2618925
+duration: 654
 ---
 
 # “According to Truth”
