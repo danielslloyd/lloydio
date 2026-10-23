@@ -4,8 +4,11 @@ url: "https://davidoks.blog/p/why-china-got-rich-and-india-didnt"
 author: "David Oks"
 source: "David Oks"
 published: "2026-06-02"
-date: 2026-10-21T19:54:54.000Z
+date: 2026-10-23T05:38:15.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/why-china-got-rich-and-india-didn-t-5fbb4c.mp3"
+audio_bytes: 7514733
+duration: 1878
 ---
 
 # Why China got rich and India didn't
