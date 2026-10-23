@@ -4,8 +4,11 @@ url: "https://classes.matthewjbrown.net/teaching-files/philtech/berry-computer.p
 author: "Wendell Berry"
 source: "What Are People For? (North Point Press)"
 published: "1987"
-date: 2026-10-21T19:54:54.000Z
+date: 2026-10-23T06:55:12.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/classes-matthewjbrown-net-teaching-files-philtech--1312ec.mp3"
+audio_bytes: 3647277
+duration: 911
 ---
 
 # Why I Am not Going To Buy A Computer
