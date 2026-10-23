@@ -4,8 +4,11 @@ url: "https://www.clearerthinking.org/post/understand-how-other-people-think-a-t
 author: "Spencer Greenberg and Amber Dawn Ace"
 source: "Clearer Thinking"
 published: "2022-06-29"
-date: 2026-10-21T19:54:53.000Z
+date: 2026-10-23T04:40:08.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/understand-how-other-people-think-a-theory-of-worl-b814f9.mp3"
+audio_bytes: 4293837
+duration: 1073
 ---
 
 # Understand how other people think: a theory of worldviews.
