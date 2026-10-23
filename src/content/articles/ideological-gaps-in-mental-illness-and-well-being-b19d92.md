@@ -1,8 +1,12 @@
 ---
 title: "Contextualizing Ideological Gaps in Mental Illness and Well-Being"
 url: "https://musaalgharbi.com/2023/03/21/ideological-gaps-mental-illness-well-being/"
-date: 2026-10-21T19:54:53.000Z
+author: "Musa al-Gharbi"
+date: 2026-10-23T03:45:56.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/ideological-gaps-in-mental-illness-and-well-being-b19d92.mp3"
+audio_bytes: 10724493
+duration: 2681
 ---
 
 # Contextualizing Ideological Gaps in Mental Illness and Well-Being
