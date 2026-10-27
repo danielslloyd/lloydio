@@ -1,8 +1,11 @@
 ---
 title: "Building Better, Building Beautiful Commission"
 url: "https://www.gov.uk/government/groups/building-better-building-beautiful-commission"
-date: 2026-10-21T19:54:53.000Z
+date: 2026-10-27T13:11:14.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/building-better-building-beautiful-commission-ebe76f.mp3"
+audio_bytes: 718797
+duration: 179
 ---
 
 # Building Better, Building Beautiful Commission
