@@ -1,8 +1,11 @@
 ---
 title: "AI as Normal Technology"
 url: "https://kfai-documents.s3.amazonaws.com/documents/0ee1da899a/AI-as-Normal-Technology---Narayanan---Kapoor-Final.pdf"
-date: 2026-10-21T19:54:53.000Z
+date: 2026-10-27T15:04:02.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/ai-as-normal-technology-narayanan-kapoor-8aa1b2.mp3"
+audio_bytes: 24385101
+duration: 6096
 ---
 
 # AI as Normal Technology
