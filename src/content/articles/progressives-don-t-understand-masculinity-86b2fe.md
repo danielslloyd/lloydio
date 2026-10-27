@@ -4,8 +4,11 @@ url: "https://lastbluedog.substack.com/p/progressives-dont-understand-masculinit
 author: "LastBlueDog"
 source: "LastBlueDog"
 published: "2026-05-29"
-date: 2026-10-21T19:54:54.000Z
+date: 2026-10-27T15:20:57.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/progressives-don-t-understand-masculinity-86b2fe.mp3"
+audio_bytes: 4407501
+duration: 1101
 ---
 
 # Progressives Don't Understand Masculinity
