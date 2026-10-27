@@ -4,8 +4,11 @@ url: "https://www.clearerthinking.org/post/understanding-the-two-most-common-men
 author: "Amanda Metskas"
 source: "Clearer Thinking"
 published: "2022-07-27"
-date: 2026-10-21T19:54:53.000Z
+date: 2026-10-27T13:26:42.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/understanding-the-two-most-common-mental-health-pr-42f7f0.mp3"
+audio_bytes: 3808269
+duration: 952
 ---
 
 # Understanding the two most common mental health problems in the world
