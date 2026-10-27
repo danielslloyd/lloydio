@@ -1,8 +1,11 @@
 ---
 title: "Defence Command Paper 2023: Defence’s response to a more contested and volatile world"
 url: "https://www.gov.uk/government/publications/defence-command-paper-2023-defences-response-to-a-more-contested-and-volatile-world"
-date: 2026-10-21T19:54:53.000Z
+date: 2026-10-27T15:07:39.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/defence-command-paper-2023-f1471a.mp3"
+audio_bytes: 986925
+duration: 246
 ---
 
 # Defence Command Paper 2023: Defence’s response to a more contested and volatile world
