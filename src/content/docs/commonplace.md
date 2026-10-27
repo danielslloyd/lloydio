@@ -12,7 +12,7 @@ The process for making **beet sugar** starts with soaking thinly sliced beets in
 
 ---
 
-**Butter** is churned cream: agitation makes the fat globules clump together and squeezes out the water. Over-whipped cream does this by accident, leaving yellow butterfat sitting in liquid. **Buttermilk** is the nearly fat-free liquid left after churning, since the fat has moved into the butter. *Cultured butter* is made from soured cream and tastes tangy. American butter is *sweet cream butter*, made from cream centrifuged straight from pasteurized milk with no lactic bacteria. The Netherlands, Belgium, France, and Denmark culture their cream, while England and Germany mostly don’t.
+When cream is churned (over over-whipped), the fat globules clump together and form **butter**. The nearly fat-free liquid left over is **buttermilk**. *Cultured butter* is made from soured cream and tastes tangy. American butter is *sweet cream butter*, made from cream centrifuged straight from pasteurized milk with no lactic bacteria. The Netherlands, Belgium, France, and Denmark culture their cream, while England and Germany mostly don’t.
 
 In the EU and US, butter is legally required to be at least 80% milk fat. Typical American butter is about 80-81% fat, 16-17% water, and 1-2% milk solids, while Dutch butter is about ~82%, and “European-style” butter sold in the US usually runs 82-86% fat. The extra fat gives a richer taste and causes it to behave differently in pastry. 
 
