@@ -4,8 +4,11 @@ url: "https://www.donothallucinate.com/p/three-helpful-word-pictures-on-ai"
 author: "Michael Graham"
 source: "Do Not Hallucinate"
 published: "2026-06-05"
-date: 2026-10-21T19:54:54.000Z
+date: 2026-10-27T13:15:50.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/three-helpful-word-pictures-on-ai-usage-1f03a6.mp3"
+audio_bytes: 1468653
+duration: 367
 ---
 
 # Three Helpful Word Pictures on AI Usage
