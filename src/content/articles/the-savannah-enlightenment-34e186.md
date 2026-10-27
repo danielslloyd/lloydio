@@ -4,8 +4,11 @@ url: "https://firstthings.com/the-savannah-enlightenment/"
 author: "John Byron Kuhner"
 source: "First Things"
 published: "2026-04-21"
-date: 2026-10-21T19:54:54.000Z
+date: 2026-10-27T15:49:20.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/the-savannah-enlightenment-34e186.mp3"
+audio_bytes: 6965037
+duration: 1741
 ---
 
 # The Savannah Enlightenment
