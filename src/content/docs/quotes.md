@@ -2,6 +2,14 @@
 title: Quotes
 ---
 
+>A dog with two owners dies of hunger.
+<p class="quote-src">
+— Portuguese proverb
+
+>A slave with two masters is a free man.
+<p class="quote-src">
+— often attributed to Peter Drucker
+
 > Nevertheless Tolkien’s work is great art, in large part because it reflects the passions of his soul. Tolkien’s imitators, meanwhile, can only produce banal and vapid nonsense with elves and dwarves and orcs. They have fallen into cargo cult. They are laying out the landing strip of elves and dwarves and orcs and breathlessly awaiting the airplane.
 
 <p class="quote-src">— @viverricious, “<a class="src-title" href="https://viverricious.substack.com/p/brandon-sandersons-wonderful-marble">Brandon Sanderson's Wonderful Marble Machine</a>”, slimes all the way down Substack Apr 15, 2026</p>
