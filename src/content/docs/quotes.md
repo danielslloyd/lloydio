@@ -6,9 +6,13 @@ title: Quotes
 <p class="quote-src">
 — Portuguese proverb
 
+---
+
 >A slave with two masters is a free man.
 <p class="quote-src">
 — often attributed to Peter Drucker
+
+---
 
 > Nevertheless Tolkien’s work is great art, in large part because it reflects the passions of his soul. Tolkien’s imitators, meanwhile, can only produce banal and vapid nonsense with elves and dwarves and orcs. They have fallen into cargo cult. They are laying out the landing strip of elves and dwarves and orcs and breathlessly awaiting the airplane.
 
