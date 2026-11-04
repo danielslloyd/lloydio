@@ -5,12 +5,22 @@
 // Two kinds of work, which BacklogCast does in this order:
 //   needs_text  — no clean text yet (every reading-list link gets one)
 //   needs_audio — queued for narration (note tagged `podcast`, no audio yet)
+//
+// Drafts (owner-only items) are listed only once they're queued for narration,
+// so queueing one is what exposes its title and URL here — the same facts the
+// private feed carries once it's narrated. Items whose text already exists
+// carry `article_raw_url`, so BacklogCast narrates that text instead of
+// re-fetching the source (which may be paywalled, e.g. an emailed newsletter).
 import type { APIRoute } from 'astro';
 import { getReadingItems } from '../../lib/reading';
-import { REPO, REPO_BRANCH } from '../../lib/site';
+import { REPO, REPO_BRANCH, SHOW_DRAFTS } from '../../lib/site';
+
+const rawUrl = (path: string) => `https://raw.githubusercontent.com/${REPO}/${REPO_BRANCH}/${path}`;
 
 export const GET: APIRoute = async () => {
-  const items = await getReadingItems();
+  const items = (await getReadingItems({ includeDrafts: true })).filter(
+    (i) => SHOW_DRAFTS || !i.draft || i.listen === 'queued'
+  );
   const body = {
     version: 2,
     generated: new Date().toISOString(),
@@ -34,6 +44,8 @@ export const GET: APIRoute = async () => {
         article_exists: i.hasArticle,
         has_audio: Boolean(i.audio),
         article_path: i.articlePath,
+        ...(i.hasArticle ? { article_raw_url: rawUrl(i.articlePath) } : {}),
+        draft: i.draft,
       })),
   };
   return new Response(JSON.stringify(body, null, 2), {

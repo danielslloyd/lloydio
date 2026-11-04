@@ -24,6 +24,7 @@ export interface ReadingItem {
   listen: ListenState;
   audio?: string;
   hasArticle: boolean;
+  draft: boolean; // owner-only (article or note is draft: true)
   articlePath: string; // repo path where the article file lives / should live
   articleFilePath?: string; // actual path if the article exists
   notePath?: string; // the reading/podcast note for this URL, if any
@@ -57,14 +58,19 @@ function fnv1a(s: string): string {
 
 // Union of: existing article entries + reading/podcast-tagged notes that
 // don't have an article yet (matched by URL). Newest first.
-export async function getReadingItems(): Promise<ReadingItem[]> {
-  const articles = await getCollection('articles', (e) => SHOW_DRAFTS || !e.data.draft);
+// Drafts are included in owner builds, or when `includeDrafts` is set (the
+// podcast queue, which still only lists the drafts queued for narration).
+export async function getReadingItems(
+  { includeDrafts = false }: { includeDrafts?: boolean } = {}
+): Promise<ReadingItem[]> {
+  const withDrafts = SHOW_DRAFTS || includeDrafts;
+  const articles = await getCollection('articles', (e) => withDrafts || !e.data.draft);
   const notes = await getCollection(
     'notes',
     (e) =>
       (e.data.tags.includes(PODCAST_TAG) || e.data.tags.includes(READING_TAG)) &&
       !!e.data.url &&
-      (SHOW_DRAFTS || !e.data.draft)
+      (withDrafts || !e.data.draft)
   );
   const noteByUrl = new Map(notes.map((n) => [n.data.url!, n]));
 
@@ -83,6 +89,7 @@ export async function getReadingItems(): Promise<ReadingItem[]> {
       listen: a.data.audio ? 'ready' : note?.data.tags.includes(PODCAST_TAG) ? 'queued' : 'none',
       audio: a.data.audio,
       hasArticle: true,
+      draft: a.data.draft || Boolean(note?.data.draft),
       articlePath: a.filePath ?? `src/content/articles/${a.id}.md`,
       articleFilePath: a.filePath,
       notePath: note?.filePath,
@@ -103,6 +110,7 @@ export async function getReadingItems(): Promise<ReadingItem[]> {
       status: 'queued',
       listen: n.data.tags.includes(PODCAST_TAG) ? 'queued' : 'none',
       hasArticle: false,
+      draft: n.data.draft,
       articlePath: `src/content/articles/${slug}.md`,
       notePath: n.filePath,
     });

@@ -17,7 +17,9 @@
 // /reading gets its "md" link. With audio: also stores the mp3 in R2 (served
 // at AUDIO_BASE_URL) and adds audio/audio_bytes/duration, which puts it in
 // /podcast/<FEED_TOKEN>.xml. The commit triggers a rebuild. Re-POSTing a slug
-// overwrites (idempotent); a text-only POST keeps any audio already recorded.
+// overwrites (idempotent); a text-only POST keeps any audio already recorded,
+// and every POST keeps the article's `draft`/`tags`, a `status: read`, byline
+// facts it doesn't resend, and (if `markdown` is empty) the existing text.
 //
 // Environment (the public Pages project — BacklogCast posts to lloyd.studio):
 //   AUDIO          — R2 bucket binding for episode mp3s
@@ -31,6 +33,8 @@ import { audioBase, clearStatus, clearTextStatus, getStatus } from '../_episodes
 
 const SLUG_RE = /^[a-z0-9-]{1,120}$/;
 const AUDIO_KEYS = ['audio', 'audio_bytes', 'duration'];
+const BYLINE_KEYS = ['author', 'source', 'published'];
+const OWNER_KEYS = ['draft', 'tags']; // set by hand on the article; never overwritten here
 
 export async function onRequestOptions() {
   return new Response(null, { headers: CORS });
@@ -60,7 +64,7 @@ export async function onRequestPost(context) {
   const hasAudio = audio && typeof audio !== 'string' && audio.size > 0;
   const duration = Math.max(0, Math.round(Number(form.get('duration_seconds')) || 0));
   // Optional byline facts; blank ones are left out of the frontmatter.
-  const byline = ['author', 'source', 'published']
+  const byline = BYLINE_KEYS
     .map((k) => [k, String(form.get(k) || '').trim().slice(0, 200)])
     .filter(([k, v]) => v && (k !== 'published' || /^\d{4}(-\d{2}){0,2}$/.test(v)))
     .map(([k, v]) => `${k}: ${JSON.stringify(v)}`);
@@ -102,17 +106,30 @@ export async function onRequestPost(context) {
     audioLines = frontmatterLines(existing.text).filter((l) => AUDIO_KEYS.some((k) => l.startsWith(`${k}:`)));
   }
 
+  // Carry over what this write doesn't supply: byline facts BacklogCast didn't
+  // send, the owner's flags (`draft`, `tags`) — so narrating a draft never
+  // publishes it — and a `status: read`. An audio-only upload keeps the text.
+  const sent = new Set(byline.map((l) => l.split(':')[0]));
+  const carried = existing
+    ? carriedLines(existing.text, [...BYLINE_KEYS.filter((k) => !sent.has(k)), ...OWNER_KEYS])
+    : [];
+  const status = existing && carriedLines(existing.text, ['status']).some((l) => /:\s*read\s*$/.test(l))
+    ? 'read'
+    : 'ready';
+  const body = markdown.trim() || (existing ? bodyOf(existing.text).trim() : '');
+
   const text = [
     '---',
     `title: ${JSON.stringify(title)}`,
     `url: ${JSON.stringify(url)}`,
     ...byline,
     `date: ${date.toISOString()}`,
-    'status: ready',
+    `status: ${status}`,
+    ...carried,
     ...audioLines,
     '---',
     '',
-    markdown.trim(),
+    body,
     '',
   ].join('\n');
 
@@ -133,6 +150,24 @@ export async function onRequestPost(context) {
     audio_bytes: hasAudio ? audio.size : null,
     article_path: path,
   });
+}
+
+// The frontmatter lines for `keys`, including indented continuation lines
+// (e.g. a block-style `tags:` list).
+function carriedLines(text, keys) {
+  const out = [];
+  let keep = false;
+  for (const line of frontmatterLines(text)) {
+    const m = line.match(/^([A-Za-z_][\w-]*):/);
+    if (m) keep = keys.includes(m[1]);
+    else if (!/^\s/.test(line)) keep = false;
+    if (keep) out.push(line);
+  }
+  return out;
+}
+
+function bodyOf(text) {
+  return text.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, '');
 }
 
 function frontmatterLines(text) {

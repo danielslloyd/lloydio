@@ -73,7 +73,10 @@ Anything else can participate using the same contract:
 
 - **Read the queue**: `GET /api/podcast-queue.json` on the deployed site, or
   `npm run backlogcast` in a checkout. Each item carries its `slug` and
-  `article_path`.
+  `article_path`; items whose text already exists (`article_exists`) also
+  carry `article_raw_url` (the markdown on GitHub). Narrate that text rather
+  than re-fetching the source — it may be a paywalled page whose full text
+  only arrived by email.
 - **Write back**: `POST /api/episode` as above, or commit the article
   markdown to `items[].article_path` yourself (frontmatter: `title`, `url`,
   `date`, `status: ready`, `audio` — relative `/media/audio/…` or an absolute
@@ -115,3 +118,9 @@ whatever is known); the same facts land in the article frontmatter
 `queued` (flagged, nothing generated) → `ready` (text + audio exist) →
 `read` (set by hand/skill when done). Setting `draft: true` on an article
 hides it from the public site but keeps it in the feed.
+
+Drafts can be narrated: once a draft is queued (`+` on the owner site), the
+public queue lists it (title, URL, `draft: true`) so BacklogCast picks it up;
+unqueued drafts never appear there. `/api/episode` keeps `draft`, `tags`, a
+`status: read`, and any byline field it isn't sent when it rewrites an
+article, so narration never publishes a draft.
