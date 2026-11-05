@@ -5,7 +5,7 @@ author: "Jane Psmith"
 source: "The Psmiths"
 published: "2026-06-15"
 date: 2026-10-21T21:21:43.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/www-thepsmiths-com-p-review-1939-by-david-gelernte-0a0f5e.mp3"
 audio_bytes: 11386893
 duration: 1501
