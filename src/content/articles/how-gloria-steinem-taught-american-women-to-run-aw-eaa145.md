@@ -4,10 +4,14 @@ url: "https://restoringamericanadulthood.substack.com/p/how-gloria-steinem-taugh
 author: "Elizabeth Grace Matthew"
 source: "Restoring American Adulthood"
 published: "2026-09-21"
-date: 2026-09-21T11:01:21.000Z
+date: 2026-11-05T05:22:34.000Z
 status: ready
 draft: true
+audio: "https://media.lloyd.studio/episodes/how-gloria-steinem-taught-american-women-to-run-aw-eaa145.mp3"
+audio_bytes: 2986893
+duration: 746
 ---
+
 # How Gloria Steinem Taught American Women to Run Away from True Equality
 
 *This is the lie that Steinem and her acolytes sold to women: There is nothing sweeter than the perfect freedom defined as a lack of responsibility to others.*
