@@ -5,7 +5,7 @@ author: "Jane Psmith"
 source: "Mr. and Mrs. Psmith’s Bookshelf"
 published: "2026-04-27"
 date: 2026-10-21T22:26:50.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/www-thepsmiths-com-p-review-the-greatest-knight-by-fb476d.mp3"
 audio_bytes: 16862085
 duration: 2206
