@@ -3,10 +3,14 @@ title: "What a Forgotten 100-Year-Old Government Report Says About Who We Are"
 url: "https://www.derekthompson.org/p/america-1926-an-absurdly-deep-dive"
 author: "Derek Thompson"
 published: "2026-07-03"
-date: 2026-07-03T10:02:45.000Z
+date: 2026-11-05T07:39:43.000Z
 status: ready
 draft: true
+audio: "https://media.lloyd.studio/episodes/what-a-forgotten-100-year-old-government-report-sa-372469.mp3"
+audio_bytes: 6996429
+duration: 1749
 ---
+
 # What a Forgotten 100-Year-Old Government Report Says About Who We Are
 
 *America in 1926 was obsessed with technology, immigration, women, work, and money. Sound familiar?*
