@@ -4797,16 +4797,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/71KqG2nt0IL._SY300_.jpg
-- id: "B0DTZP2T3V"
-  title: "The Secret of Secrets: A Novel"
-  author: Dan Brown
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B0DTZP2T3V
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/813F0yyJr7L._SY300_.jpg
 - id: "B07QGGSS3S"
   title: "The Only Plane in the Sky: An Oral History of September 11, 2001"
   author: Garrett M. Graff
