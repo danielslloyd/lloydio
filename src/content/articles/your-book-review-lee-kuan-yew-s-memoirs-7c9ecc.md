@@ -4,10 +4,14 @@ url: "https://www.astralcodexten.com/p/your-book-review-lee-kuan-yews-memoirs"
 author: "Anonymous (ACX book review contest finalist)"
 source: "Astral Codex Ten"
 published: "2026-09-25"
-date: 2026-09-25T22:26:10.000Z
+date: 2026-11-05T06:29:46.000Z
 status: ready
 draft: true
+audio: "https://media.lloyd.studio/episodes/your-book-review-lee-kuan-yew-s-memoirs-7c9ecc.mp3"
+audio_bytes: 8187021
+duration: 2046
 ---
+
 # Your Book Review: Lee Kuan Yew's Memoirs
 
 *Finalist #10 in the Book Review Contest*
