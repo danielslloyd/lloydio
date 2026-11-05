@@ -5,7 +5,7 @@ author: "Wendell Berry"
 source: "What Are People For? (North Point Press)"
 published: "1987"
 date: 2026-10-23T06:55:12.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/classes-matthewjbrown-net-teaching-files-philtech--1312ec.mp3"
 audio_bytes: 3647277
 duration: 911
