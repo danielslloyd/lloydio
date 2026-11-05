@@ -4552,16 +4552,6 @@
     audible: https://www.audible.com/pd/Witness-Audiobook/B002V0QRVS
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1415678126i/21471378.jpg
-- id: "1465414576"
-  title: "The Animal Book: A Visual Animal Kingdom Encyclopedia for Kids (DK Our World in Pictures)"
-  author: David Burnie
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1465414576
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91WzhyDcO1L._SY300_.jpg
 - id: "B0CLFQ4KP4"
   title: "When the Sea Came Alive: An Oral History of D-Day"
   author: Garrett M. Graff
