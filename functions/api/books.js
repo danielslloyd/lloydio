@@ -3,7 +3,8 @@
 // Owner-only endpoint for acting on books in src/content/books.yaml. Used by
 // the owner-mode ("DRAFTS=1") /books page: it can publish a draft (drop
 // `draft: true`, optionally set status/rating), update an already-published
-// book's status/rating, delete an entry outright, add a new book from an
+// book's status/rating, send a published book back to drafts (`unpublish`),
+// delete an entry outright, add a new book from an
 // Amazon link (`add`, see addFromLink below), or clean up a wrong entry
 // (`search` for candidate listings, then `replace` it with the one picked),
 // committing the change to GitHub — which triggers a rebuild. Edits are
@@ -38,7 +39,7 @@ import { githubGetFile, githubPutFile } from '../_owner.js';
 
 const FILE = 'src/content/books.yaml';
 const STATUSES = new Set(['to-read', 'reading', 'finished']);
-const ACTIONS = new Set(['publish', 'update', 'delete']);
+const ACTIONS = new Set(['publish', 'update', 'delete', 'unpublish']);
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -358,7 +359,18 @@ function applyOp(text, op) {
 
   // publish: drop `draft: true`. update: leave the draft flag alone (an
   // already-published entry has none). Both may set status / rating / date.
+  // unpublish: kick a published book back to the drafts bucket.
   if (op.action === 'publish') block = block.filter((l) => !/^\s*draft:\s*true\s*$/.test(l));
+  if (op.action === 'unpublish' && !block.some((l) => /^\s*draft:\s*true\s*$/.test(l))) {
+    // Same field order appendEntry writes: … source, draft, cover.
+    const si = block.findIndex((l) => /^\s*source:/.test(l));
+    let at = si + 1;
+    if (si === -1) {
+      at = block.length;
+      while (at > 1 && block[at - 1].trim() === '') at--;
+    }
+    block.splice(at, 0, '  draft: true');
+  }
 
   if (op.status) {
     const si = block.findIndex((l) => /^\s*status:/.test(l));
