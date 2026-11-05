@@ -7,7 +7,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/77566.Hyperion
     amazon: https://www.amazon.com/dp/0553283685
-    audible: https://www.amazon.com/dp/B001OC2W04
+    audible: https://www.audible.com/pd/Hyperion-Audiobook/B002V5BLIW
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1746983261i/77566.jpg
 - id: "35746278"
@@ -19,7 +19,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/35746278-on-grand-strategy
     amazon: https://www.amazon.com/dp/1594203512
-    audible: https://www.amazon.com/dp/B07BGH9MDX
+    audible: https://www.audible.com/pd/On-Grand-Strategy-Audiobook/B07BGG8SMR
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1500913696i/35746278.jpg
 - id: "41716921"
@@ -31,7 +31,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/41716921-surprise-kill-vanish
     amazon: https://www.amazon.com/dp/0316441430
-    audible: https://www.amazon.com/dp/B07PWHZK2H
+    audible: https://www.audible.com/pd/Surprise-Kill-Vanish-Audiobook/1478993359
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1551108605i/41716921.jpg
 - id: "18050143"
@@ -43,7 +43,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/18050143-zero-to-one
     amazon: https://www.amazon.com/dp/0804139296
-    audible: https://www.amazon.com/dp/B00M284NY2
+    audible: https://www.audible.com/pd/Zero-to-One-Audiobook/B00M27LBU2
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1630663027i/18050143.jpg
 - id: "222925312"
@@ -67,7 +67,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/223736214-breakneck
     amazon: https://www.amazon.com/dp/1324106034
-    audible: https://www.amazon.com/dp/B0FDH3Z3K6
+    audible: https://www.audible.com/pd/Breakneck-Audiobook/B0FDH3V8T2
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1765233885i/223736214.jpg
 - id: "23848190"
@@ -79,7 +79,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/23848190-extreme-ownership
     amazon: https://www.amazon.com/dp/1250067057
-    audible: https://www.amazon.com/dp/B015TM0RM4
+    audible: https://www.audible.com/pd/Extreme-Ownership-Audiobook/B015TVHUA2
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1427163007i/23848190.jpg
 - id: "169354"
@@ -91,7 +91,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/169354.The_Prize
     amazon: https://www.amazon.com/dp/0671799320
-    audible: https://www.amazon.com/dp/B0CVHGNZ27
+    audible: https://www.audible.com/pd/The-Prize-Audiobook/B0CVHG6CXR
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1403025725i/169354.jpg
 - id: "42737163"
@@ -115,7 +115,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/206780468-the-strategists
     amazon: https://www.amazon.com/dp/1524746487
-    audible: https://www.amazon.com/dp/B0CVSTCN7B
+    audible: https://www.audible.com/pd/The-Strategists-Audiobook/B0CVSD6R83
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1719952985i/206780468.jpg
 - id: "176444107"
@@ -127,7 +127,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/176444107-troubled
     amazon: https://www.amazon.com/dp/1982168536
-    audible: https://www.amazon.com/dp/B0C7YF7DY3
+    audible: https://www.audible.com/pd/Troubled-Audiobook/B0C7Y5BZ16
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1688068270i/176444107.jpg
 - id: "40524017"
@@ -139,7 +139,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/40524017-ten-caesars
     amazon: https://www.amazon.com/dp/145166883X
-    audible: https://www.amazon.com/dp/B07JR2D9DN
+    audible: https://www.audible.com/pd/Ten-Caesars-Audiobook/1508284288
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1534187082i/40524017.jpg
 - id: "227144"
@@ -151,7 +151,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/227144.Son_of_the_Morning_Star
     amazon: https://www.amazon.com/dp/1844137635
-    audible: https://www.amazon.com/dp/B0069RQ7YG
+    audible: https://www.audible.com/pd/Son-of-the-Morning-Star-Audiobook/B00699ZZNS
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1348716111i/227144.jpg
 - id: "34201498"
@@ -163,7 +163,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/34201498-stalin
     amazon: https://www.amazon.com/dp/1594203806
-    audible: https://www.amazon.com/dp/B07884ZNR8
+    audible: https://www.audible.com/pd/Stalin-Volume-II-Audiobook/B07884ZKKV
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1489642551i/34201498.jpg
 - id: "87665"
@@ -175,7 +175,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/87665.Orthodoxy
     amazon: https://www.amazon.com/dp/160096527X
-    audible: https://www.amazon.com/dp/B000LXHF68
+    audible: https://www.audible.com/pd/Orthodoxy-Audiobook/B002V8DERA
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1348323220i/87665.jpg
 - id: "7336"
@@ -199,7 +199,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/34658.Shattered_Sword
     amazon: https://www.amazon.com/dp/1574889230
-    audible: https://www.amazon.com/dp/B07QFB2BLX
+    audible: https://www.audible.com/pd/Shattered-Sword-Audiobook/1977383637
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1328660958i/34658.jpg
 - id: "184419"
@@ -211,7 +211,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/184419.The_Man_Who_Was_Thursday
     amazon: https://www.amazon.com/dp/0375757910
-    audible: https://www.amazon.com/dp/B001Q58IHK
+    audible: https://www.audible.com/pd/The-Man-Who-Was-Thursday-Audiobook/B002VA9DY6
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1403181403i/184419.jpg
 - id: "194803869"
@@ -223,7 +223,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/194803869-ascent-to-power
     amazon: https://www.amazon.com/dp/0593186443
-    audible: https://www.amazon.com/dp/B0CF6Q2ZJX
+    audible: https://www.audible.com/pd/Ascent-to-Power-Audiobook/B0CF744BVV
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1691417047i/194803869.jpg
 - id: "61273798"
@@ -235,7 +235,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/61273798-generations
     amazon: https://www.amazon.com/dp/1982181613
-    audible: https://www.amazon.com/dp/B0B4WVMYJP
+    audible: https://www.audible.com/pd/Generations-Audiobook/B0B4WY4LK1
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1680127256i/61273798.jpg
 - id: "39000"
@@ -246,7 +246,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/39000.Six_Frigates
     amazon: https://www.amazon.com/dp/0393058476
-    audible: https://www.amazon.com/dp/B000JCE3CK
+    audible: https://www.audible.com/pd/Six-Frigates-Audiobook/B002V1C56S
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1329071512i/39000.jpg
 - id: "50611065"
@@ -258,7 +258,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/50611065-family-discipleship
     amazon: https://www.amazon.com/dp/143356629X
-    audible: https://www.amazon.com/dp/B08DZDMSCB
+    audible: https://www.audible.com/pd/Family-Discipleship-Audiobook/1646890655
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1582084096i/50611065.jpg
 - id: "703842"
@@ -282,7 +282,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/25439763-keep-your-love-on
     amazon: https://www.amazon.com/dp/1942306067
-    audible: https://www.amazon.com/dp/B0DV66PMYP
+    audible: https://www.audible.com/pd/Keep-Your-Love-On-Audiobook/B0DV66KFRG
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1430167693i/25439763.jpg
 - id: "34451579"
@@ -293,7 +293,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/34451579-mao-s-great-famine
     amazon: https://www.amazon.com/dp/1408886367
-    audible: https://www.amazon.com/dp/B0D381VWJ2
+    audible: https://www.audible.com/pd/Maos-Great-Famine-Audiobook/B0D387DTQ2
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1765120491i/34451579.jpg
 - id: "61153739"
@@ -305,7 +305,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/61153739-outlive
     amazon: https://www.amazon.com/dp/0593236599
-    audible: https://www.amazon.com/dp/B0B64WL9PK
+    audible: https://www.audible.com/pd/Outlive-Audiobook/B0B6444XS3
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1700067079i/61153739.jpg
 - id: "414077"
@@ -316,7 +316,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/414077.Parting_the_Waters
     amazon: https://www.amazon.com/dp/0671687425
-    audible: https://www.amazon.com/dp/B07KMJNSLP
+    audible: https://www.audible.com/pd/Parting-the-Waters-Audiobook/1508286469
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1441025384i/414077.jpg
 - id: "218319936"
@@ -374,7 +374,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/33223266-the-things-they-carried
     amazon: https://www.amazon.com/dp/0544309766
-    audible: https://www.amazon.com/dp/B00FFHK3B4
+    audible: https://www.audible.com/pd/The-Things-They-Carried-Audiobook/B00FFHJXSI
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1480635766i/33223266.jpg
 - id: "1082105"
@@ -409,7 +409,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/26568656-you-are-what-you-love
     amazon: https://www.amazon.com/dp/158743380X
-    audible: https://www.amazon.com/dp/B01E980M6A
+    audible: https://www.audible.com/pd/You-Are-What-You-Love-Audiobook/B01E980SO6
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1449355202i/26568656.jpg
 - id: "18144590"
@@ -420,7 +420,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/18144590-the-alchemist
     amazon: https://www.amazon.com/dp/0062315005
-    audible: https://www.amazon.com/dp/B000BO2D3C
+    audible: https://www.audible.com/pd/The-Alchemist-Audiobook/B002V0Q4LG
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg
 - id: "40121378"
@@ -444,7 +444,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/176444106-abundance
     amazon: https://www.amazon.com/dp/1668023482
-    audible: https://www.amazon.com/dp/B0C7Y68VWT
+    audible: https://www.audible.com/pd/Abundance-Audiobook/B0C7YLL2T3
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1737312514i/176444106.jpg
 - id: "6947702"
@@ -456,7 +456,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/6947702-citizens-of-london
     amazon: https://www.amazon.com/dp/1400067588
-    audible: https://www.amazon.com/dp/B0039KZ7MY
+    audible: https://www.audible.com/pd/Citizens-of-London-Audiobook/B0038U4VXQ
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1441482430i/6947702.jpg
 - id: "35187175"
@@ -468,7 +468,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/35187175-storm-in-a-teacup
     amazon: https://www.amazon.com/dp/0393355470
-    audible: https://www.amazon.com/dp/B01MSTLZD4
+    audible: https://www.audible.com/pd/Storm-in-a-Teacup-Audiobook/B01NCEDPPF
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1600967348i/35187175.jpg
 - id: "56898302"
@@ -480,7 +480,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/56898302-the-baseball-100
     amazon: https://www.amazon.com/dp/1982180587
-    audible: https://www.amazon.com/dp/B08WGL3SKP
+    audible: https://www.audible.com/pd/The-Baseball-100-Audiobook/1797130730
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1630535549i/56898302.jpg
 - id: "31932761"
@@ -516,7 +516,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/216052746-believe
     amazon: https://www.amazon.com/dp/0310367581
-    audible: https://www.amazon.com/dp/B0D92Z1KXJ
+    audible: https://www.audible.com/pd/Believe-Audiobook/B0D92YCKBZ
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1721752376i/216052746.jpg
 - id: "50896142"
@@ -528,7 +528,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/50896142-twilight-of-the-gods
     amazon: https://www.amazon.com/dp/039308065X
-    audible: https://www.amazon.com/dp/B08F2QWCVQ
+    audible: https://www.audible.com/pd/Twilight-of-the-Gods-Audiobook/198009084X
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1570920773i/50896142.jpg
 - id: "13707735"
@@ -540,7 +540,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/13707735-pacific-crucible
     amazon: https://www.amazon.com/dp/0393343413
-    audible: https://www.amazon.com/dp/B0064I1BJ6
+    audible: https://www.audible.com/pd/Pacific-Crucible-War-at-Sea-in-the-Pacific-1941-1942-Audiobook/B0062CHMRE
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1347983136i/13707735.jpg
 - id: "61327457"
@@ -552,7 +552,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/61327457-the-blazing-world
     amazon: https://www.amazon.com/dp/0593318358
-    audible: https://www.amazon.com/dp/B0B6467RGF
+    audible: https://www.audible.com/pd/The-Blazing-World-Audiobook/B0B644Z5MB
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1657519383i/61327457.jpg
 - id: "111919"
@@ -576,7 +576,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/672062.The_Lord_and_His_Prayer
     amazon: https://www.amazon.com/dp/0802843204
-    audible: https://www.amazon.com/dp/B01BPL30Z4
+    audible: https://www.audible.com/pd/The-Lord-and-His-Prayer-Audiobook/B01BPL35HW
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1347910975i/672062.jpg
 - id: "25241317"
@@ -587,7 +587,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/25241317-black-flags
     amazon: https://www.amazon.com/dp/0385538227
-    audible: https://www.amazon.com/dp/B014RHT8T0
+    audible: https://www.audible.com/pd/Black-Flags-Audiobook/B014RQLOEI
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1430514347i/25241317.jpg
 - id: "60321447"
@@ -598,7 +598,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/60321447-chip-war
     amazon: https://www.amazon.com/dp/1982172002
-    audible: https://www.amazon.com/dp/B09TX24J5Y
+    audible: https://www.audible.com/pd/Chip-War-Audiobook/B09TX11LQB
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1662566820i/60321447.jpg
 - id: "35623545"
@@ -621,7 +621,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/71984.Ghost_Wars
     amazon: https://www.amazon.com/dp/0143034669
-    audible: https://www.amazon.com/dp/B006316BYY
+    audible: https://www.audible.com/pd/Ghost-Wars-Audiobook/B005ZTQ4RY
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1386924074i/71984.jpg
 - id: "125937631"
@@ -633,7 +633,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/125937631-material-world
     amazon: https://www.amazon.com/dp/0593534344
-    audible: https://www.amazon.com/dp/B0BXFM4F7P
+    audible: https://www.audible.com/pd/Material-World-Audiobook/B0BXFP3GR3
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1680839699i/125937631.jpg
 - id: "83817455"
@@ -645,7 +645,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/83817455-practicing-the-way
     amazon: https://www.amazon.com/dp/0593193822
-    audible: https://www.amazon.com/dp/B0BVSPG7PZ
+    audible: https://www.audible.com/pd/Practicing-the-Way-Audiobook/B0BVS5QJNH
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1697658775i/83817455.jpg
 - id: "207718310"
@@ -656,7 +656,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/207718310-targeted
     amazon: https://www.amazon.com/dp/1668024357
-    audible: https://www.amazon.com/dp/B0CVMZKMRW
+    audible: https://www.audible.com/pd/Targeted-Beirut-Audiobook/B0CVMW1XS4
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1707599627i/207718310.jpg
 - id: "10954987"
@@ -679,7 +679,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/12158480-why-nations-fail
     amazon: https://www.amazon.com/dp/0307719219
-    audible: https://www.amazon.com/dp/B007MIXOEC
+    audible: https://www.audible.com/pd/Why-Nations-Fail-Audiobook/B0079KEF1O
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1348987396i/12158480.jpg
 - id: "203507919"
@@ -701,7 +701,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/40537082-children-of-time
     amazon: https://www.amazon.com/dp/0316452505
-    audible: https://www.amazon.com/dp/B06ZXTHNSJ
+    audible: https://www.audible.com/pd/Children-of-Time-Audiobook/B071Y9TTHC
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1538437664i/40537082.jpg
 - id: "25761655"
@@ -713,7 +713,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/25761655-the-secret-of-our-success
     amazon: https://www.amazon.com/dp/0691166854
-    audible: https://www.amazon.com/dp/B07B53C56B
+    audible: https://www.audible.com/pd/The-Secret-of-Our-Success-Audiobook/B07B535R6T
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1439857632i/25761655.jpg
 - id: "59808056"
@@ -725,7 +725,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/59808056-the-story-of-russia
     amazon: https://www.amazon.com/dp/125079689X
-    audible: https://www.amazon.com/dp/B0B2KQVBCL
+    audible: https://www.audible.com/pd/The-Story-of-Russia-Audiobook/B0B2KSY7F1
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1646651360i/59808056.jpg
 - id: "53487237"
@@ -748,7 +748,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/55782918-the-intentional-father
     amazon: https://www.amazon.com/dp/0801018684
-    audible: https://www.amazon.com/dp/B09FCH47VX
+    audible: https://www.audible.com/pd/The-Intentional-Father-Audiobook/B09FCPMJKH
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1614354099i/55782918.jpg
 - id: "110890"
@@ -760,7 +760,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/110890.The_Looming_Tower
     amazon: https://www.amazon.com/dp/037541486X
-    audible: https://www.amazon.com/dp/B0713X6NN6
+    audible: https://www.audible.com/pd/The-Looming-Tower-Audiobook/B072HMNYKM
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1320471617i/110890.jpg
 - id: "14201"
@@ -784,7 +784,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/17412744-catastrophe-1914
     amazon: https://www.amazon.com/dp/0307597059
-    audible: https://www.amazon.com/dp/B08PC4TNDQ
+    audible: https://www.audible.com/pd/Catastrophe-1914-Audiobook/0593408357
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1375116229i/17412744.jpg
 - id: "123979539"
@@ -796,7 +796,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/123979539-the-blue-machine
     amazon: https://www.amazon.com/dp/1324006714
-    audible: https://www.amazon.com/dp/B0C5RYCKQ6
+    audible: https://www.audible.com/pd/The-Blue-Machine-Audiobook/B0C5RZ9Q31
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1680049757i/123979539.jpg
 - id: "36099654"
@@ -808,7 +808,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/36099654-vietnam
     amazon: https://www.amazon.com/dp/0062405667
-    audible: https://www.amazon.com/dp/B07DWC9L3D
+    audible: https://www.audible.com/pd/Vietnam-Audiobook/B07DW88KD4
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1508784853i/36099654.jpg
 - id: "30652257"
@@ -820,7 +820,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/30652257-tin-can-titans
     amazon: https://www.amazon.com/dp/0306824302
-    audible: https://www.amazon.com/dp/B074JK5KZH
+    audible: https://www.audible.com/pd/Tin-Can-Titans-Audiobook/B074JL8LBC
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1473884990i/30652257.jpg
 - id: "75598048"
@@ -832,7 +832,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/75598048-the-things-we-make
     amazon: https://www.amazon.com/dp/1728215757
-    audible: https://www.amazon.com/dp/B0BXR2PGR5
+    audible: https://www.audible.com/pd/The-Things-We-Make-Audiobook/B0BXQQ2BMQ
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1672947897i/75598048.jpg
 - id: "23503953"
@@ -844,7 +844,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/23503953-how-the-war-was-won
     amazon: https://www.amazon.com/dp/1107014751
-    audible: https://www.amazon.com/dp/B0C9R9TTX3
+    audible: https://www.audible.com/pd/How-the-War-Was-Won-Audiobook/B0C9RV3Y45
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1422811378i/23503953.jpg
 - id: "31625593"
@@ -856,7 +856,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/31625593-the-benedict-option
     amazon: https://www.amazon.com/dp/0735213291
-    audible: https://www.amazon.com/dp/B06XDL1Y5H
+    audible: https://www.audible.com/pd/The-Benedict-Option-Audiobook/B06XDC8Y2N
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1689626923i/31625593.jpg
 - id: "60354443"
@@ -868,7 +868,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/60354443-five-lies-of-our-anti-christian-age
     amazon: https://www.amazon.com/dp/1433573539
-    audible: https://www.amazon.com/dp/B0CHSKZR78
+    audible: https://www.audible.com/pd/Five-Lies-of-Our-Anti-Christian-Age-Audiobook/B0CHSLZ4R6
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1649655169i/60354443.jpg
 - id: "6884693"
@@ -880,7 +880,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/6884693-merchant-kings
     amazon: https://www.amazon.com/dp/1553653424
-    audible: https://www.amazon.com/dp/B09Q72BXSN
+    audible: https://www.audible.com/pd/Merchant-Kings-Audiobook/B09Q7MVK2S
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1331004485i/6884693.jpg
 - id: "18669114"
@@ -903,7 +903,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/16948.Children_of_God
     amazon: https://www.amazon.com/dp/044900483X
-    audible: https://www.amazon.com/dp/B001O1ZXF6
+    audible: https://www.audible.com/pd/Children-of-God-Audiobook/B002V8MA8O
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1373509005i/16948.jpg
 - id: "26244"
@@ -915,7 +915,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/26244.A_Confession
     amazon: https://www.amazon.com/dp/1598184717
-    audible: https://www.amazon.com/dp/B004LNUNIQ
+    audible: https://www.audible.com/pd/A-Confession-Audiobook/B0DRYJKX2H
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1348237118i/26244.jpg
 - id: "3872"
@@ -927,7 +927,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/3872.A_History_of_the_World_in_6_Glasses
     amazon: https://www.amazon.com/dp/0802715524
-    audible: https://www.amazon.com/dp/B004SKR6MS
+    audible: https://www.audible.com/pd/A-History-of-the-World-in-6-Glasses-Audiobook/B004SHJHDW
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1415681601i/3872.jpg
 - id: "7993566"
@@ -939,7 +939,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/7993566-colonel-roosevelt
     amazon: https://www.amazon.com/dp/0375504877
-    audible: https://www.amazon.com/dp/B004DI4S3U
+    audible: https://www.audible.com/pd/Colonel-Roosevelt-Audiobook/B0049WSCR8
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1695135074i/7993566.jpg
 - id: "17252"
@@ -951,7 +951,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/17252.Crucible_of_War
     amazon: https://www.amazon.com/dp/0375706364
-    audible: https://www.amazon.com/dp/B087NXTKST
+    audible: https://www.audible.com/pd/Crucible-of-War-Audiobook/B079Q8W9ZY
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1386924893i/17252.jpg
 - id: "41793"
@@ -963,7 +963,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/41793.Hackers_Painters
     amazon: https://www.amazon.com/dp/0596006624
-    audible: https://www.amazon.com/dp/B08Z4FHH3T
+    audible: https://www.audible.com/pd/Hackers-Painters-Audiobook/B08Z4DVL45
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1348562702i/41793.jpg
 - id: "9646"
@@ -975,7 +975,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/9646.Homage_to_Catalonia
     amazon: https://www.amazon.com/dp/0156421178
-    audible: https://www.amazon.com/dp/B00BEBHOYY
+    audible: https://www.audible.com/pd/Homage-to-Catalonia-Audiobook/B00B1VJ0XU
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1394868278i/9646.jpg
 - id: "711901"
@@ -987,7 +987,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/711901.Lone_Survivor
     amazon: https://www.amazon.com/dp/0316067598
-    audible: https://www.amazon.com/dp/B007Z96MMO
+    audible: https://www.audible.com/pd/Lone-Survivor-Audiobook/B007VQX5CG
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1344265535i/711901.jpg
 - id: "1885"
@@ -1035,7 +1035,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/17332218-words-of-radiance
     amazon: https://www.amazon.com/dp/0765326361
-    audible: https://www.amazon.com/dp/B00HWDEFMW
+    audible: https://www.audible.com/pd/Words-of-Radiance-Audiobook/B00HWF0MHW
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1728768241i/17332218.jpg
 - id: "41252565"
@@ -1047,7 +1047,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/41252565-the-common-rule
     amazon: https://www.amazon.com/dp/0830845607
-    audible: https://www.amazon.com/dp/B07NP63YRL
+    audible: https://www.audible.com/pd/The-Common-Rule-Audiobook/154591172X
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1534727778i/41252565.jpg
 - id: "41881472"
@@ -1083,7 +1083,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/88634.Liberal_Fascism
     amazon: https://www.amazon.com/dp/0385511841
-    audible: https://www.amazon.com/dp/B0018O22WG
+    audible: https://www.audible.com/pd/Liberal-Fascism-Audiobook/B002V0AF1G
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1428514380i/88634.jpg
 - id: "58537359"
@@ -1095,7 +1095,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/58537359-against-all-odds
     amazon: https://www.amazon.com/dp/0593183746
-    audible: https://www.amazon.com/dp/B09B7ZTJFL
+    audible: https://www.audible.com/pd/Against-All-Odds-Audiobook/0593510917
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1627896383i/58537359.jpg
 - id: "71872910"
@@ -1106,7 +1106,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/71872910-losing-our-religion
     amazon: https://www.amazon.com/dp/0593541782
-    audible: https://www.amazon.com/dp/B0BR8KRH3G
+    audible: https://www.audible.com/pd/Losing-Our-Religion-Audiobook/B0BR8GZSSK
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1685351984i/71872910.jpg
 - id: "9034043"
@@ -1118,7 +1118,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/9034043-rawhide-down
     amazon: https://www.amazon.com/dp/080509346X
-    audible: https://www.amazon.com/dp/B004S4WY94
+    audible: https://www.audible.com/pd/Rawhide-Down-Audiobook/B004Q7BM82
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1442284782i/9034043.jpg
 - id: "59389258"
@@ -1129,7 +1129,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/59389258-the-air-we-breathe
     amazon: https://www.amazon.com/dp/1784987492
-    audible: https://www.amazon.com/dp/B0B3H6112H
+    audible: https://www.audible.com/pd/The-Air-We-Breathe-Audiobook/B0B3GTGDVC
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1649404185i/59389258.jpg
 - id: "7282903"
@@ -1141,7 +1141,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/7282903-the-crusades
     amazon: https://www.amazon.com/dp/0060787287
-    audible: https://www.amazon.com/dp/B01H41C1TU
+    audible: https://www.audible.com/pd/The-Crusades-Audiobook/B01H41BUZG
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1348662175i/7282903.jpg
 - id: "57240632"
@@ -1152,7 +1152,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/57240632-the-last-king-of-america
     amazon: https://www.amazon.com/dp/198487926X
-    audible: https://www.amazon.com/dp/B09BH2WR38
+    audible: https://www.audible.com/pd/The-Last-King-of-America-Audiobook/0593458842
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1614723881i/57240632.jpg
 - id: "10756"
@@ -1164,7 +1164,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/10756.The_Sword_and_the_Shield
     amazon: https://www.amazon.com/dp/0465003125
-    audible: https://www.amazon.com/dp/B00005AAPI
+    audible: https://www.audible.com/pd/The-Sword-And-The-Shield-Audiobook/B0H8NT8SHL
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1440642067i/10756.jpg
 - id: "1213862"
@@ -1175,7 +1175,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/1213862.The_World_Was_Going_Our_Way
     amazon: https://www.amazon.com/dp/0465003117
-    audible: https://www.amazon.com/dp/B0FZD85VMK
+    audible: https://www.audible.com/pd/The-World-Was-Going-Our-Way-Audiobook/B0FZCYVLSZ
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1442598168i/1213862.jpg
 - id: "60141696"
@@ -1187,7 +1187,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/60141696-american-midnight
     amazon: https://www.amazon.com/dp/0358455464
-    audible: https://www.amazon.com/dp/B09TX2XFGZ
+    audible: https://www.audible.com/pd/American-Midnight-Audiobook/B09TX3BQ2G
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1648718294i/60141696.jpg
 - id: "60647674"
@@ -1198,7 +1198,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/60647674-and-there-was-light
     amazon: https://www.amazon.com/dp/0553393960
-    audible: https://www.amazon.com/dp/B09W34B832
+    audible: https://www.audible.com/pd/And-There-Was-Light-Audiobook/B09W34YVLL
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1648682688i/60647674.jpg
 - id: "42972023"
@@ -1209,7 +1209,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/42972023-the-anarchy
     amazon: https://www.amazon.com/dp/1635573955
-    audible: https://www.amazon.com/dp/B07YZRKCHN
+    audible: https://www.audible.com/pd/The-Anarchy-Audiobook/1526616971
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1565769891i/42972023.jpg
 - id: "41812830"
@@ -1220,7 +1220,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/41812830-the-british-are-coming
     amazon: https://www.amazon.com/dp/1627790438
-    audible: https://www.amazon.com/dp/B07KRKKZ4K
+    audible: https://www.audible.com/pd/The-British-Are-Coming-Audiobook/B07KRH55ZG
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1538524326i/41812830.jpg
 - id: "22889768"
@@ -1231,7 +1231,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/22889768-the-quartet
     amazon: https://www.amazon.com/dp/0385353405
-    audible: https://www.amazon.com/dp/B00UKDY9E0
+    audible: https://www.audible.com/pd/The-Quartet-Audiobook/B00UKG1UNU
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1422811159i/22889768.jpg
 - id: "30334134"
@@ -1242,7 +1242,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/30334134-the-undoing-project
     amazon: https://www.amazon.com/dp/0393254593
-    audible: https://www.amazon.com/dp/B01KBM82M4
+    audible: https://www.audible.com/pd/The-Undoing-Project-Audiobook/B01KBM825G
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1464874845i/30334134.jpg
 - id: "18730589"
@@ -1254,7 +1254,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/18730589-1177-b-c
     amazon: https://www.amazon.com/dp/0691140898
-    audible: https://www.amazon.com/dp/B00J37IKOO
+    audible: https://www.audible.com/pd/1177-BC-Revised-and-Updated-Audiobook/0691224803
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1397424814i/18730589.jpg
 - id: "39937812"
@@ -1277,7 +1277,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/11958983-eisenhower-in-war-and-peace
     amazon: https://www.amazon.com/dp/140006693X
-    audible: https://www.amazon.com/dp/B007BJUIL4
+    audible: https://www.audible.com/pd/Eisenhower-in-War-and-Peace-Audiobook/B00728A6RU
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1333579846i/11958983.jpg
 - id: "332980"
@@ -1288,7 +1288,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/332980.FDR
     amazon: https://www.amazon.com/dp/1400061210
-    audible: https://www.amazon.com/dp/B000QUCP6G
+    audible: https://www.audible.com/pd/FDR-Audiobook/B002V57T9M
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1387752215i/332980.jpg
 - id: "41021344"
@@ -1311,7 +1311,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/28504581-herbert-hoover
     amazon: https://www.amazon.com/dp/1101991003
-    audible: https://www.amazon.com/dp/B01LW0CZFC
+    audible: https://www.audible.com/pd/Herbert-Hoover-Audiobook/B01LW8TUQ0
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1460909322i/28504581.jpg
 - id: "843764"
@@ -1404,7 +1404,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/1831667.The_Horse_the_Wheel_and_Language
     amazon: https://www.amazon.com/dp/0691058873
-    audible: https://www.amazon.com/dp/B07H38F3KM
+    audible: https://www.audible.com/pd/The-Horse-the-Wheel-and-Language-Audiobook/1977385435
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1619046003i/1831667.jpg
 - id: "14741709"
@@ -1464,7 +1464,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/37542581-the-spy-and-the-traitor
     amazon: https://www.amazon.com/dp/0771060335
-    audible: https://www.amazon.com/dp/B07DHR7427
+    audible: https://www.audible.com/pd/The-Spy-and-the-Traitor-Audiobook/B07DHRP7VK
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1522906662i/37542581.jpg
 - id: "60468246"
@@ -1476,7 +1476,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/60468246-the-revolutionary
     amazon: https://www.amazon.com/dp/0316441112
-    audible: https://www.amazon.com/dp/B0B2HX4S24
+    audible: https://www.audible.com/pd/The-Revolutionary-Samuel-Adams-Audiobook/B0B2J1R89Y
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1653943150i/60468246.jpg
 - id: "5944774"
@@ -1571,7 +1571,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/11414907-erasing-hell
     amazon: https://www.amazon.com/dp/0781407257
-    audible: https://www.amazon.com/dp/B08ZJDTXCH
+    audible: https://www.audible.com/pd/Erasing-Hell-Audiobook/1646892887
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1316528369i/11414907.jpg
 - id: "733393"
@@ -1713,7 +1713,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/14743.The_God_Delusion
     amazon: https://www.amazon.com/dp/0618680004
-    audible: https://www.amazon.com/dp/B000LP5E8M
+    audible: https://www.audible.com/pd/The-God-Delusion-Audiobook/B0036MX44S
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1347220693i/14743.jpg
 - id: "1205591"
@@ -2006,7 +2006,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/18765.I_Claudius
     amazon: https://www.amazon.com/dp/067972477X
-    audible: https://www.amazon.com/dp/B000UOAC8Q
+    audible: https://www.audible.com/pd/I-Claudius-Audiobook/B002V1OLT2
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1657550972i/18765.jpg
 - id: "36250813"
@@ -2029,7 +2029,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/17897480-judges-for-you
     amazon: https://www.amazon.com/dp/190876290X
-    audible: https://www.amazon.com/dp/B00GDNZOLI
+    audible: https://www.audible.com/pd/Judges-for-You-Audiobook/B00GCBNKC6
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1377533452i/17897480.jpg
 - id: "9662968"
@@ -2110,7 +2110,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/62712920-pax
     amazon: https://www.amazon.com/dp/1408706989
-    audible: https://www.amazon.com/dp/B0BWGP8XXN
+    audible: https://www.audible.com/pd/Pax-Audiobook/B0BWG6KRCW
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1674764385i/62712920.jpg
 - id: "343"
@@ -2190,7 +2190,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/55751.The_Last_Lion
     amazon: https://www.amazon.com/dp/0385313314
-    audible: https://www.audible.com/pd/The-Last-Lion-Winston-Spencer-Churchill-Volume-I-Visions-of-Glory-1874-1932-Audiobook/B002V1C022
+    audible: https://www.audible.com/pd/The-Last-Lion-Winston-Spencer-Churchill-Volume-II-Alone-1932-1940-Winston-Spencer-Churchill-Volume-II-Alone-1932-1940-Audiobook/B002V5GQBO
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1388244306i/55751.jpg
 - id: "746673"
@@ -2225,7 +2225,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/11389341-the-meaning-of-marriage
     amazon: https://www.amazon.com/dp/0525952470
-    audible: https://www.amazon.com/dp/B0067MFBOK
+    audible: https://www.audible.com/pd/The-Meaning-of-Marriage-Audiobook/B005ZVJWXU
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1347735080i/11389341.jpg
 - id: "119073"
@@ -2435,7 +2435,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/57500772-brothers-in-arms
     amazon: https://www.amazon.com/dp/0802159087
-    audible: https://www.amazon.com/dp/B09LRBMKDK
+    audible: https://www.audible.com/pd/Brothers-in-Arms-Audiobook/B09LRBBCVW
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1618284047i/57500772.jpg
 - id: "177766"
@@ -2507,7 +2507,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/36198001-world-war-ii-at-sea
     amazon: https://www.amazon.com/dp/0190243678
-    audible: https://www.amazon.com/dp/B07KMD5S4J
+    audible: https://www.audible.com/pd/World-War-II-at-Sea-Audiobook/1684415454
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1504807397i/36198001.jpg
 - id: "55660735"
@@ -2543,7 +2543,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/55921889-the-verge
     amazon: https://www.amazon.com/dp/1538701189
-    audible: https://www.amazon.com/dp/B091FXCWL5
+    audible: https://www.audible.com/pd/The-Verge-Audiobook/1549181246
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1614013351i/55921889.jpg
 - id: "1986565"
@@ -2788,7 +2788,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/13528287-the-second-world-war
     amazon: https://www.amazon.com/dp/0316023744
-    audible: https://www.amazon.com/dp/B008D5HC1O
+    audible: https://www.audible.com/pd/The-Second-World-War-Audiobook/B008CPVW4S
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1338581873i/13528287.jpg
 - id: "33127125"
@@ -2834,7 +2834,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/1206073.Washington_s_Crossing
     amazon: https://www.amazon.com/dp/0195170342
-    audible: https://www.amazon.com/dp/B00029DHZO
+    audible: https://www.audible.com/pd/Washingtons-Crossing-Audiobook/B002V8MLVU
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1353284022i/1206073.jpg
 - id: "3047"
@@ -2870,7 +2870,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/40538709-accidental-presidents
     amazon: https://www.amazon.com/dp/1501109820
-    audible: https://www.amazon.com/dp/B07N4BND4J
+    audible: https://www.audible.com/pd/Accidental-Presidents-Audiobook/1508252750
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1552849520i/40538709.jpg
 - id: "145960"
@@ -2986,7 +2986,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/143614.Fateful_Choices
     amazon: https://www.amazon.com/dp/1594201234
-    audible: https://www.amazon.com/dp/B0874CLYSN
+    audible: https://www.audible.com/pd/Fateful-Choices-Audiobook/1705203248
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1266481778i/143614.jpg
 - id: "202146"
@@ -3009,7 +3009,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/1202.Freakonomics
     amazon: https://www.amazon.com/dp/0061234001
-    audible: https://www.amazon.com/dp/B000TK5BS2
+    audible: https://www.audible.com/pd/Freakonomics-Audiobook/B002V5GOHA
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1550917827i/1202.jpg
 - id: "169815"
@@ -3172,7 +3172,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/20575435-political-order-and-political-decay
     amazon: https://www.amazon.com/dp/0374227357
-    audible: https://www.amazon.com/dp/B00LU3YM8C
+    audible: https://www.audible.com/pd/Political-Order-and-Political-Decay-Audiobook/B00LU41FP4
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1403560044i/20575435.jpg
 - id: "33598223"
@@ -3184,7 +3184,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/33598223-rise-and-kill-first
     amazon: https://www.amazon.com/dp/1400069718
-    audible: https://www.amazon.com/dp/B0797LD93S
+    audible: https://www.audible.com/pd/Rise-and-Kill-First-Audiobook/B0797JHBGS
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1495743181i/33598223.jpg
 - id: "27220736"
@@ -3312,7 +3312,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/29430010-the-pursuit-of-power
     amazon: https://www.amazon.com/dp/0670024570
-    audible: https://www.amazon.com/dp/B01MQILLJ3
+    audible: https://www.audible.com/pd/The-Pursuit-of-Power-Audiobook/B01MRK05KY
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1459274073i/29430010.jpg
 - id: "7776209"
@@ -3324,7 +3324,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/7776209-the-rational-optimist
     amazon: https://www.amazon.com/dp/006145205X
-    audible: https://www.amazon.com/dp/B003MY7RGG
+    audible: https://www.audible.com/pd/The-Rational-Optimist-Audiobook/B003L25KGS
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1347664546i/7776209.jpg
 - id: "34184069"
@@ -3522,7 +3522,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/2556998.1920
     amazon: https://www.amazon.com/dp/0786721022
-    audible: https://www.amazon.com/dp/B0030HF9J2
+    audible: https://www.audible.com/pd/1920-Audiobook/B0030F1MNQ
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1388445175i/2556998.jpg
 - id: "6407183"
@@ -3891,7 +3891,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/52891090-gentle-and-lowly
     amazon: https://www.amazon.com/dp/1433566133
-    audible: https://www.amazon.com/dp/B09GWDZH58
+    audible: https://www.audible.com/pd/Gentle-and-Lowly-Audiobook/B09GWCVMWT
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1571689979l/52891090.jpg
 - id: "34237826"
@@ -3963,7 +3963,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/42972007-how-to-be-a-dictator
     amazon: https://www.amazon.com/dp/1635573793
-    audible: https://www.amazon.com/dp/B07Z6KND5W
+    audible: https://www.audible.com/pd/How-to-Be-a-Dictator-Audiobook/1526616963
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1576955831i/42972007.jpg
 - id: "2203"
@@ -4047,7 +4047,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/1301.Moneyball
     amazon: https://www.amazon.com/dp/0393324818
-    audible: https://www.amazon.com/dp/B005FFRQYS
+    audible: https://www.audible.com/pd/Moneyball-Audiobook/B005EHN61O
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1388176510i/1301.jpg
 - id: "20821092"
@@ -4273,7 +4273,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/561909.The_Hiding_Place
     amazon: https://www.amazon.com/dp/0553256696
-    audible: https://www.amazon.com/dp/B08264M51B
+    audible: https://www.audible.com/pd/The-Hiding-Place-Audiobook/B005S44J2I
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1320418824i/561909.jpg
 - id: "174502"
@@ -4309,7 +4309,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/19809.The_Last_Lion
     amazon: https://www.amazon.com/dp/0385313489
-    audible: https://www.amazon.com/dp/B00117SKE4
+    audible: https://www.audible.com/pd/The-Last-Lion-Winston-Spencer-Churchill-Volume-I-Visions-of-Glory-1874-1932-Audiobook/B002V1C022
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1384736532i/19809.jpg
 - id: "54707"
@@ -4465,7 +4465,7 @@
   links:
     goodreads: https://www.goodreads.com/book/show/40923.Theodore_Rex
     amazon: https://www.amazon.com/dp/0812966007
-    audible: https://www.amazon.com/dp/B0000E69DT
+    audible: https://www.audible.com/pd/Theodore-Rex-Audiobook/B002VA9DAU
   source: goodreads
   cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1388177930i/40923.jpg
 - id: "16121"
@@ -7588,48 +7588,56 @@
   source: amazon
   cover: https://m.media-amazon.com/images/I/81B6VbRVb9L._SY300_.jpg
 - id: "isbn-9780268210458"
-  title: "Abortion and America’s Churches"
+  title: "Abortion and America's Churches: A Religious History of Roe v. Wade"
   author: "Daniel K. Williams"
   date: 2026-10-21
   status: to-read
   links:
-    goodreads: https://www.goodreads.com/search?q=Abortion%20and%20America%E2%80%99s%20Churches%20Daniel%20K.%20Williams
-    amazon: https://www.amazon.com/s?k=Abortion%20and%20America%E2%80%99s%20Churches%20Daniel%20K.%20Williams
+    goodreads: https://www.goodreads.com/book/show/228534679-abortion-and-america-s-churches
+    amazon: https://www.amazon.com/dp/0268210454
+    audible: https://www.audible.com/search?keywords=Abortion%20and%20America's%20Churches%20Daniel%20K.%20Williams
   source: link
+  cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1744315503i/228534679.jpg
 - id: "founders-constitution"
-  title: "The Founders’ Constitution"
-  author: "Philip B. Kurland and Ralph Lerner (eds.)"
+  title: "The Founders' Constitution"
+  author: "Philip B. Kurland, Ralph Lerner (eds.)"
   date: 2026-10-21
   status: to-read
   links:
-    goodreads: https://www.goodreads.com/search?q=The%20Founders%E2%80%99%20Constitution
-    amazon: https://www.amazon.com/s?k=The%20Founders%E2%80%99%20Constitution
+    goodreads: https://www.goodreads.com/book/show/15261946-the-founders-constitution
+    amazon: https://www.amazon.com/dp/0226463885
+    audible: https://www.audible.com/search?keywords=The%20Founders'%20Constitution%20Kurland%20Lerner
   source: link
+  cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1663322226i/15261946.jpg
 - id: "gbooks-eH7YAAAAMAAJ"
-  title: "Black Preacher to White America"
+  title: "Black Preacher to White America: The Collected Writings of Lemuel Haynes, 1774-1833"
+  author: "Lemuel Haynes"
   date: 2026-10-21
   status: to-read
   links:
-    goodreads: https://www.goodreads.com/search?q=Black%20Preacher%20to%20White%20America
-    amazon: https://www.amazon.com/s?k=Black%20Preacher%20to%20White%20America
+    goodreads: https://www.goodreads.com/book/show/113673119-black-preacher-to-white-america
+    amazon: https://www.amazon.com/dp/0926019244
+    audible: https://www.audible.com/search?keywords=Black%20Preacher%20to%20White%20America%20Lemuel%20Haynes
   source: link
 - id: "gutenberg-43409"
-  title: "The Kingdom of God Is Within You; What Is Art?"
+  title: "The Kingdom of God Is Within You & What Is Art?"
   author: "Leo Tolstoy"
   date: 2026-10-21
   status: to-read
   links:
-    goodreads: https://www.goodreads.com/search?q=The%20Kingdom%20of%20God%20Is%20Within%20You%3B%20What%20Is%20Art%3F%20Leo%20Tolstoy
-    amazon: https://www.amazon.com/s?k=The%20Kingdom%20of%20God%20Is%20Within%20You%3B%20What%20Is%20Art%3F%20Leo%20Tolstoy
+    goodreads: https://www.goodreads.com/book/show/900959.The_Kingdom_of_God_Is_within_You
+    amazon: https://www.amazon.com/dp/0803294042
+    audible: https://www.audible.com/pd/The-Kingdom-of-God-Is-Within-You-Audiobook/B0BHZQG4H1
   source: link
+  cover: https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1179297492i/900959.jpg
 - id: "0140447644"
-  title: "The red and the black"
+  title: "The Red and the Black"
   author: "Stendhal"
   date: 2026-11-03
   status: to-read
   links:
     amazon: https://www.amazon.com/dp/0140447644
     goodreads: https://www.goodreads.com/book/show/14662.The_Red_and_the_Black
-    audible: https://www.amazon.com/dp/B004M9ZOBA
+    audible: https://www.audible.com/pd/The-Red-and-the-Black-Audiobook/B002V5GU42
   source: amazon
   cover: https://m.media-amazon.com/images/I/81l4PIdMwTL._SY300_.jpg

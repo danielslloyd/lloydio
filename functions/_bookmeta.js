@@ -61,7 +61,6 @@ export async function lookupAmazon(rawUrl) {
     }
     if (!out.author && page.author) out.author = page.author;
     if (page.cover) out.cover = page.cover;
-    if (page.audible) out.audible = page.audible;
   }
 
   // 3) URL slug → Google Books search.
@@ -81,6 +80,8 @@ export async function lookupAmazon(rawUrl) {
 
   if (!out.cover) out.cover = await amazonCover(asin);
   out.goodreads = await goodreadsPage(asin);
+  // Low-confidence titles (URL slug guesses) could match the wrong audiobook.
+  if (out.confidence === 'high') out.audible = await audiblePage(out.title, out.author);
   return out;
 }
 
@@ -203,15 +204,46 @@ async function scrapeAmazon(asin) {
   // Normalize to the thumbnail size the rest of books.yaml uses.
   cover = cover.replace(/\._[^/]*_\.(jpg|png)$/i, '._SY300_.$1');
 
-  // Audiobook edition: the format swatch tagged tmm_aud. If this page *is*
-  // the audiobook, the swatch has no link, so fall back to the page's ASIN.
-  let audible = '';
-  const aud = html.match(/\/dp\/([A-Z0-9]{10})\/ref=tmm_aud_swatch/);
-  if (aud) audible = `https://www.amazon.com/dp/${aud[1]}`;
-  else if (/Listening Length/.test(html)) audible = `https://www.amazon.com/dp/${asin}`;
-
   if (!title) return null;
-  return { title, author: authors.join(', '), cover, audible };
+  return { title, author: authors.join(', '), cover };
+}
+
+// Audible product page for a title/author, via Audible's public catalog API.
+// (Amazon's "Audible Audio Edition" ASIN often isn't Audible's, so an Amazon
+// audiobook link can't be turned into an audible.com one.) Only a match on
+// both the main title and the first author's surname counts; '' otherwise.
+export async function audiblePage(title, author) {
+  const norm = (s) =>
+    String(s || '').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '')
+      .replace(/&/g, 'and').replace(/[^a-z0-9]+/g, ' ').replace(/^(the|a|an) /, '').trim();
+  // Drop series tags like "(Hyperion Cantos, #1)"; keep "Targeted: Beirut"-style
+  // short titles whole, otherwise compare the part before the subtitle.
+  const full = String(title || '').replace(/\s*\([^)]*#[^)]*\)\s*/g, ' ').trim();
+  const firstAuthor = String(author || '').split(/,| and /)[0].replace(/[’‘]/g, "'").trim();
+  const last = norm(firstAuthor).split(' ').pop();
+  if (!full) return '';
+  const q = new URLSearchParams({
+    title: full.split(/[:;]/)[0].trim(),
+    num_results: '10',
+    response_groups: 'contributors,product_desc',
+    products_sort_by: 'Relevance',
+  });
+  if (firstAuthor) q.set('author', firstAuthor);
+  const data = await getJson(`https://api.audible.com/1.0/catalog/products?${q}`);
+  const want = norm(full);
+  const head = norm(full.split(/[:;]/)[0]);
+  // Prefer the longest title that matches, so "Targeted: Beirut" beats "Targeted: Pan Am 103".
+  const hit = (data?.products || [])
+    .filter((p) => {
+      const pt = norm(p.title);
+      // Exact, a shorter form of the full title, or the bare main title — never
+      // a different book that merely shares the first word ("The Quartet Murders").
+      const titleOk = pt === want || pt === head || want.startsWith(pt + ' ');
+      const authorOk = !last || (p.authors || []).some((a) => norm(a.name).includes(last));
+      return titleOk && authorOk;
+    })
+    .sort((a, b) => b.title.length - a.title.length)[0];
+  return hit ? `https://www.audible.com/pd/${hit.asin}` : '';
 }
 
 // Amazon's ASIN-addressed image endpoint. Missing images come back as a tiny
