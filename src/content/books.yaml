@@ -5916,16 +5916,6 @@
     amazon: https://www.amazon.com/dp/B08ZJRPCH9
   source: amazon
   cover: https://m.media-amazon.com/images/I/91sRJXMmwfL._SY300_.jpg
-- id: "0736962131"
-  title: "The Complete Illustrated Children's Bible"
-  author: Janice Emmerson
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0736962131
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81ZUF8-SfAL._SY300_.jpg
 - id: "0842326316"
   title: The One Year Bible Story Book
   author: Virginia Muir
