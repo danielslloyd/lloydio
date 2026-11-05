@@ -15,8 +15,8 @@ interface Props {
     amazon?: string;
     audible?: string;
   };
-  // Owner-mode drafts table: render an extra cell with publish/edit/delete
-  // controls (wired client-side in books.astro). `editHref` deep-links to the
+  // Owner-mode drafts table: render an extra cell with publish/clean up/edit/
+  // delete controls (wired client-side in books.astro). `editHref` deep-links to the
   // GitHub web editor for books.yaml.
   actions?: boolean;
   editHref?: string | null;
@@ -176,6 +176,12 @@ const stateValue =
         <option value="finished:5" selected={stateValue === 'finished:5'}>read ★★★★★</option>
       </select>
       <button type="button" class="act publish" data-act="publish">publish</button>
+      <button
+        type="button"
+        class="act cleanup"
+        data-cleanup
+        title="Wrong title/author/edition? Search listings and pick the right one"
+      >clean up</button>
       {editHref && <a class="act edit" href={editHref} target="_blank" rel="noopener">edit</a>}
       <button type="button" class="act delete" data-act="delete" aria-label="Delete draft" title="Delete draft (shift-click to skip confirm)">✕</button>
     </td>

@@ -43,12 +43,12 @@ main {
 }
 
 /* ---- header / footer ---- */
+/* A thin, full-width bar pinned to the top of the viewport: one row, never
+   wrapping. On narrow screens the links scroll sideways instead. */
+html { scroll-padding-top: 3.5rem; } /* anchor jumps clear the bar */
 .site-header {
-  max-width: var(--content-width);
-  margin: 0 auto 2rem;
-  padding: 1rem;
+  margin: 0 0 2rem;
   border-bottom: 1px solid var(--border);
-  /* Keep the nav pinned to the top of the viewport while scrolling. */
   position: sticky;
   top: 0;
   z-index: 20;
@@ -56,24 +56,38 @@ main {
 }
 .site-header nav {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 1rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.45rem 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.site-header nav::-webkit-scrollbar { display: none; }
+.site-brand {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
 }
 .site-title {
-  margin-right: auto;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
 }
 .wordmark {
-  height: 1.35rem;
+  height: 1.2rem;
   width: auto;
   display: block;
 }
 .site-header nav a {
   color: var(--fg);
   text-decoration: none;
+  flex-shrink: 0;
 }
 .site-header nav a:hover { text-decoration: underline; }
 .site-header nav a.active {
@@ -97,11 +111,10 @@ main {
   padding: 0;
 }
 .draft-banner {
-  margin: 0.5rem 0 0;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
   color: var(--bg);
   background: var(--fg);
-  display: inline-block;
   padding: 0 0.5em;
   font-variant: small-caps;
 }

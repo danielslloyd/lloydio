@@ -89,10 +89,13 @@ export async function lookupAmazon(rawUrl) {
 
 // Title of the entry that already lists this ASIN (as its id or inside any
 // link), '' if it has no title, or null when the ASIN isn't in the file.
-export function findDuplicate(text, asin) {
+// `exceptId` skips one entry (the one being rewritten by a clean-up).
+export function findDuplicate(text, asin, exceptId) {
   const blocks = text.split(/\r?\n(?=- )/);
   const idRe = new RegExp(`^- id:\\s*"?${asin}"?\\s*$`, 'm');
+  const skipRe = exceptId ? new RegExp(`^- id:\\s*"?${exceptId}"?\\s*$`, 'm') : null;
   for (const b of blocks) {
+    if (skipRe && skipRe.test(b)) continue;
     if (idRe.test(b) || b.includes(`/${asin}`)) {
       const t = b.match(/^\s+title:\s*(.*)$/m);
       return t ? t[1].trim().replace(/^"|"$/g, '') : '';
@@ -246,9 +249,185 @@ export async function audiblePage(title, author) {
   return hit ? `https://www.audible.com/pd/${hit.asin}` : '';
 }
 
+// ---- clean-up search: title (+ author) → up to 10 candidate listings -------
+//
+// Backs the owner-mode "clean up" picker on /books drafts. Amazon blocks
+// automated search, so listings come from two open catalogs, each mapped to
+// an ASIN Amazon/Audible understand:
+//   - Open Library: print editions; the ISBN-10 *is* the Amazon ASIN.
+//   - Audible's catalog API: audiobooks; authors and narrators are separate,
+//     which is exactly what fixes "narrator listed as author" drafts.
+// Audible gets title + author as free keywords (so a narrator's name still
+// finds the right audiobook); Open Library gets them as fields, retrying on
+// title alone when the "author" was really a narrator.
+//
+// Each candidate: { asin, format: 'print'|'audiobook', title, author,
+// narrators, year, edition, cover, url, source }.
+export async function searchListings({ title, author = '', prefer = 'audiobook', limit = 10 }) {
+  title = String(title || '').trim();
+  author = String(author || '').trim();
+  if (!title) return [];
+  const [audio, print] = await Promise.all([
+    audibleSearch(`${title} ${author}`.trim()),
+    openLibrarySearch(title, author),
+  ]);
+  // Rank by how well the title matches, then interleave the two sources so
+  // both formats show up near the top; the entry's current format (ISBN id →
+  // print) leads within a tier.
+  const want = normTitle(title);
+  const score = (c) => {
+    const t = normTitle(c.title);
+    if (t === want) return 3;
+    if (t.startsWith(want + ' ') || want.startsWith(t + ' ')) return 2;
+    return t.includes(want) || want.includes(t) ? 1 : 0;
+  };
+  const tag = (list, lead) => list.map((c, i) => ({ c, s: score(c), i, lead }));
+  const ranked = [...tag(audio, prefer !== 'print'), ...tag(print, prefer === 'print')]
+    .sort((x, y) => y.s - x.s || x.i - y.i || y.lead - x.lead);
+  const out = [];
+  const seen = new Set();
+  for (const { c } of ranked) {
+    if (out.length >= limit) break;
+    if (seen.has(c.asin)) continue;
+    seen.add(c.asin);
+    out.push(c);
+  }
+  return out;
+}
+
+// Main title only, lowercased, no articles/punctuation: "The Battle of
+// Arnhem: The Deadliest…" → "battle of arnhem".
+function normTitle(s) {
+  return String(s || '')
+    .split(/[:;([]/)[0]
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+    .replace(/^(the|a|an) /, '');
+}
+
+async function audibleSearch(keywords) {
+  const q = new URLSearchParams({
+    keywords,
+    num_results: '10',
+    products_sort_by: 'Relevance',
+    response_groups: 'contributors,product_desc,product_attrs,media',
+    image_sizes: '500',
+  });
+  const data = await getJson(`https://api.audible.com/1.0/catalog/products?${q}`);
+  const people = (list) => (list || []).map((p) => String(p.name || '').trim()).filter(Boolean);
+  return (data?.products || [])
+    // Books only — not podcasts, episodes or "[Review]" stubs.
+    .filter((p) => /^(Single|Multi)PartBook$/.test(p.content_delivery_type || '') && p.title)
+    .map((p) => {
+      let authors = people(p.authors);
+      // Contributor roles ride along in the name ("X - translator",
+      // "Y (Foreword By)"); "The Great Courses" is the publisher. Keep the
+      // real authors when there are any.
+      const real = authors.filter((n) => !/\s[-–—]\s|\(|^the great courses$/i.test(n));
+      if (real.length) authors = real;
+      const narrators = people(p.narrators);
+      return {
+        asin: p.asin,
+        format: 'audiobook',
+        title: p.subtitle ? `${p.title}: ${p.subtitle}` : p.title,
+        author: authors.slice(0, 3).join(', '),
+        narrators: narrators.slice(0, 3).join(', ') + (narrators.length > 3 ? ', …' : ''),
+        year: String(p.release_date || '').slice(0, 4),
+        edition: [p.publisher_name, p.format_type].filter(Boolean).join(' · '),
+        cover: (p.product_images && (p.product_images['500'] || Object.values(p.product_images)[0])) || '',
+        url: `https://www.audible.com/pd/${p.asin}`,
+        source: 'Audible',
+      };
+    });
+}
+
+async function openLibrarySearch(title, author) {
+  const fields = [
+    'key', 'title', 'subtitle', 'author_name', 'first_publish_year', 'cover_i',
+    'editions', 'editions.key', 'editions.isbn', 'editions.cover_i',
+    'editions.publish_date', 'editions.publisher',
+  ].join(',');
+  const run = async (withAuthor) => {
+    const q = new URLSearchParams({ title, limit: '10', lang: 'en', fields });
+    if (withAuthor) q.set('author', withAuthor);
+    const data = await getJson(`https://openlibrary.org/search.json?${q}`);
+    return data?.docs || [];
+  };
+  let works = author ? await run(author) : [];
+  if (works.length < 3) {
+    const more = await run('');
+    const have = new Set(works.map((w) => w.key));
+    works = works.concat(more.filter((w) => !have.has(w.key)));
+  }
+  works = works.slice(0, 10);
+
+  // The edition Open Library matched may predate ISBNs; then look through the
+  // work's other editions for one Amazon can address.
+  const picked = await Promise.all(
+    works.map(async (w) => {
+      const ed = (w.editions?.docs || [])[0] || {};
+      let isbn = isbn10Of(ed.isbn);
+      let edition = ed;
+      if (!isbn && w.key) {
+        const all = await getJson(`https://openlibrary.org${w.key}/editions.json?limit=50`);
+        const withIsbn = (all?.entries || [])
+          .map((e) => ({ e, isbn: isbn10Of([...(e.isbn_10 || []), ...(e.isbn_13 || [])]) }))
+          .filter((x) => x.isbn)
+          // English first, then newest.
+          .sort((x, y) => english(y.e) - english(x.e) || yearOf(y.e.publish_date) - yearOf(x.e.publish_date))[0];
+        if (withIsbn) {
+          isbn = withIsbn.isbn;
+          edition = {
+            publish_date: withIsbn.e.publish_date,
+            publisher: withIsbn.e.publishers,
+            cover_i: (withIsbn.e.covers || [])[0],
+          };
+        }
+      }
+      if (!isbn) return null;
+      const coverId = edition.cover_i || w.cover_i;
+      const published = Array.isArray(edition.publish_date) ? edition.publish_date[0] : edition.publish_date;
+      return {
+        asin: isbn,
+        format: 'print',
+        title: w.subtitle ? `${w.title}: ${w.subtitle}` : w.title,
+        author: (w.author_name || []).slice(0, 3).join(', '),
+        narrators: '',
+        year: w.first_publish_year ? String(w.first_publish_year) : '',
+        edition: [(edition.publisher || [])[0], published].filter(Boolean).join(' · '),
+        cover: coverId && coverId > 0 ? `https://covers.openlibrary.org/b/id/${coverId}-M.jpg` : '',
+        url: `https://www.amazon.com/dp/${isbn}`,
+        source: 'Open Library',
+      };
+    })
+  );
+  return picked.filter(Boolean);
+}
+
+// First ISBN-10 in a list, converting a 978- ISBN-13 when that's all there is.
+function isbn10Of(list) {
+  const ids = (list || []).map((s) => String(s).replace(/[^0-9X]/gi, '').toUpperCase());
+  const ten = ids.find((s) => /^\d{9}[\dX]$/.test(s));
+  if (ten) return ten;
+  const thirteen = ids.find((s) => /^978\d{10}$/.test(s));
+  if (!thirteen) return '';
+  const core = thirteen.slice(3, 12);
+  let sum = 0;
+  for (let i = 0; i < 9; i++) sum += (10 - i) * Number(core[i]);
+  const check = (11 - (sum % 11)) % 11;
+  return core + (check === 10 ? 'X' : String(check));
+}
+
+const english = (e) => ((e.languages || []).some((l) => l.key === '/languages/eng') ? 1 : 0);
+const yearOf = (d) => Number((String(d || '').match(/\d{4}/) || [0])[0]);
+
 // Amazon's ASIN-addressed image endpoint. Missing images come back as a tiny
 // placeholder gif, so require a real payload.
-async function amazonCover(asin) {
+export async function amazonCover(asin) {
   const url = `https://m.media-amazon.com/images/P/${asin}.01._SCLZZZZZZZ_.jpg`;
   try {
     const res = await fetch(url, { signal: AbortSignal.timeout(4000) });
@@ -262,7 +441,7 @@ async function amazonCover(asin) {
 
 // Goodreads resolves ISBNs and Amazon ASINs (Kindle too) at /book/isbn/<id>,
 // redirecting to the book's page. '' when it doesn't know the id.
-async function goodreadsPage(asin) {
+export async function goodreadsPage(asin) {
   try {
     const res = await fetch(`https://www.goodreads.com/book/isbn/${asin}`, {
       redirect: 'manual',

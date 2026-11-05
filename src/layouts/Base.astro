@@ -45,7 +45,10 @@ const getNavLabel = (href: string) => {
   <body>
     <header class="site-header">
       <nav>
-        <a href="/" class="site-title" aria-label={SITE_TITLE}><Wordmark /></a>
+        <span class="site-brand">
+          <a href="/" class="site-title" aria-label={SITE_TITLE}><Wordmark /></a>
+          {SHOW_DRAFTS && <span class="draft-banner" title="owner mode — drafts visible">owner mode</span>}
+        </span>
         {/* Disabled (route lives at pages/_notes): <a href="/notes" class:list={{ active: getNavLabel('/notes') }}>notes</a> */}
         <a href="/reading" class:list={{ active: getNavLabel('/reading') }}>reading</a>
         <a href="/books" class:list={{ active: getNavLabel('/books') }}>books</a>
@@ -74,7 +77,6 @@ const getNavLabel = (href: string) => {
         </a>
         <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">◐</button>
       </nav>
-      {SHOW_DRAFTS && <p class="draft-banner">owner mode — drafts visible</p>}
     </header>
     <main class:list={[{ article }]}>
       <slot />

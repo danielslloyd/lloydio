@@ -37,6 +37,9 @@ content stays **per-file**.
   writes, incl. `add` (Amazon link → entry). Unreadable links are queued as
   draft inbox notes tagged `book` + a status; `.github/workflows/book-links.yml`
   (Claude job, needs `ANTHROPIC_API_KEY`) resolves them into `books.yaml`.
+  Draft rows also get **clean up** (`search` → pick one → `replace`): up to 10
+  listings from Open Library (print; ISBN-10 = ASIN) + Audible's catalog API
+  (audiobooks; authors vs narrators), since Amazon blocks automated search.
 - `scripts/ingest-keep.mjs`, `scripts/inbox.mjs` — ingestion + inbox listing.
 
 ## Commands

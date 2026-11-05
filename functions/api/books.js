@@ -3,10 +3,12 @@
 // Owner-only endpoint for acting on books in src/content/books.yaml. Used by
 // the owner-mode ("DRAFTS=1") /books page: it can publish a draft (drop
 // `draft: true`, optionally set status/rating), update an already-published
-// book's status/rating, delete an entry outright, or add a new book from an
-// Amazon link (`add`, see addFromLink below), committing the change to
-// GitHub — which triggers a rebuild. Edits are line-scoped so the diff stays
-// minimal and the rest of the hand-authored file is preserved verbatim.
+// book's status/rating, delete an entry outright, add a new book from an
+// Amazon link (`add`, see addFromLink below), or clean up a wrong entry
+// (`search` for candidate listings, then `replace` it with the one picked),
+// committing the change to GitHub — which triggers a rebuild. Edits are
+// line-scoped so the diff stays minimal and the rest of the hand-authored
+// file is preserved verbatim.
 //
 // Auth: the owner-mode site (DRAFTS=1) sits behind Cloudflare Zero Trust
 // Access, so a request that arrives already carries a signed Access JWT —
@@ -22,7 +24,16 @@
 //   GH_BRANCH             — e.g. "main"
 //   CAPTURE_TOKEN         — optional shared secret fallback (`Bearer <token>`)
 
-import { lookupAmazon, findDuplicate, bookLinks, appendEntry } from '../_bookmeta.js';
+import {
+  lookupAmazon,
+  findDuplicate,
+  bookLinks,
+  appendEntry,
+  searchListings,
+  amazonCover,
+  goodreadsPage,
+  audiblePage,
+} from '../_bookmeta.js';
 import { githubGetFile, githubPutFile } from '../_owner.js';
 
 const FILE = 'src/content/books.yaml';
@@ -55,6 +66,10 @@ export async function onRequestPost(context) {
 
   // `add` has no id yet — it's a link to turn into a new entry.
   if (body.action === 'add') return addFromLink(body, env);
+  // Clean-up picker: list candidate listings (read-only), then rewrite the
+  // entry as the one the owner chose.
+  if (body.action === 'search') return searchCandidates(body);
+  if (body.action === 'replace') return replaceEntry(body, env);
 
   // Accept a single op ({ action, id, ... }) or a batch ({ ops: [...] }).
   const ops = Array.isArray(body.ops) ? body.ops : [body];
@@ -192,6 +207,125 @@ async function queueLink(env, url, status) {
   ].join('\n');
   await githubPutFile(env, path, fm, undefined, `capture: book link ${full}`);
   return path;
+}
+
+// ---- clean up: search → pick → replace -----------------------------------
+//
+// For drafts whose metadata is wrong (a narrator or foreword writer as the
+// author, an SEO-stuffed title, the wrong edition). `search` returns up to 10
+// listings (functions/_bookmeta.js searchListings); the owner picks at most
+// one and `replace` makes it the canonical entry: id → the listing's ASIN,
+// plus its title, author, cover and links. Date, status, rating, review,
+// source and the draft flag are kept as they were.
+async function searchCandidates(body) {
+  const title = clip(body.title, 300);
+  const author = clip(body.author, 200);
+  if (!title) return json({ error: 'missing title' }, 400);
+  // An ISBN id means the entry is a print edition; list those first.
+  const prefer = /^\d{9}[\dX]$/.test(String(body.id || '')) ? 'print' : 'audiobook';
+  try {
+    const results = await searchListings({ title, author, prefer, limit: 10 });
+    return json({ ok: true, results });
+  } catch (e) {
+    return json({ error: String(e.message || e) }, 502);
+  }
+}
+
+const COVER_HOSTS = /^https:\/\/(m\.media-amazon\.com|images-na\.ssl-images-amazon\.com|covers\.openlibrary\.org)\//;
+
+async function replaceEntry(body, env) {
+  const id = typeof body.id === 'string' ? body.id.trim() : '';
+  const pick = body.pick || {};
+  const asin = String(pick.asin || '').trim().toUpperCase();
+  const format = pick.format === 'print' ? 'print' : 'audiobook';
+  const title = clip(pick.title, 300);
+  const author = clip(pick.author, 200);
+  if (!/^[A-Za-z0-9_-]+$/.test(id)) return json({ error: 'missing id' }, 400);
+  if (!/^[A-Z0-9]{10}$/.test(asin)) return json({ error: 'bad asin' }, 400);
+  if (!title) return json({ error: 'missing title' }, 400);
+  const pickedCover = COVER_HOSTS.test(pick.cover || '') ? pick.cover : '';
+
+  try {
+    const { text, sha } = await githubGetFile(env, FILE);
+    if (!new RegExp(`^- id:\\s*"?${id}"?\\s*$`, 'm').test(text)) {
+      return json({ error: 'id not found', missing: [id] }, 404);
+    }
+    if (asin !== id) {
+      const dupe = findDuplicate(text, asin, id);
+      if (dupe !== null) return json({ ok: true, result: 'duplicate', title: dupe || asin });
+    }
+
+    // Links: the listing's own store is the specific link. A print ISBN is an
+    // Amazon ASIN; an Audible ASIN often isn't, so Amazon stays a search there.
+    const [goodreads, audible, cover] = await Promise.all([
+      goodreadsPage(asin),
+      format === 'audiobook' ? `https://www.audible.com/pd/${asin}` : audiblePage(title, author),
+      format === 'print' ? amazonCover(asin).then((c) => c || pickedCover) : pickedCover,
+    ]);
+    const links = bookLinks({ asin, title, author, goodreads, audible });
+    if (format === 'audiobook') {
+      const q = encodeURIComponent([title.replace(/:.*$/, ''), author.split(',')[0]].filter(Boolean).join(' '));
+      links.amazon = `https://www.amazon.com/s?k=${q}&i=audible`;
+    }
+    const entry = { id: asin, title, author, cover, links };
+
+    const next = rewriteEntry(text, id, entry);
+    if (next === null) return json({ error: 'id not found', missing: [id] }, 404);
+    if (next === text) return json({ ok: true, result: 'unchanged', entry });
+    const message = asin === id ? `books: clean up ${id}` : `books: clean up ${id} -> ${asin}`;
+    await githubPutFile(env, FILE, next, sha, message);
+    return json({ ok: true, result: 'replaced', entry });
+  } catch (e) {
+    return json({ error: String(e.message || e) }, 502);
+  }
+}
+
+// Rewrite one entry's id/title/author/cover/links in place; every other line
+// (date, status, rating, review, source, draft…) is kept verbatim. Returns the
+// new text, or null if the id isn't in the file.
+function rewriteEntry(text, id, e) {
+  const eol = text.includes('\r\n') ? '\r\n' : '\n';
+  const lines = text.split(/\r?\n/);
+  const starts = [];
+  for (let i = 0; i < lines.length; i++) if (/^- /.test(lines[i])) starts.push(i);
+  const s = starts.findIndex((i) => (lines[i].match(/^- id:\s*"?([^"\s]+)"?\s*$/) || [])[1] === id);
+  if (s === -1) return null;
+  const from = starts[s];
+  const to = s + 1 < starts.length ? starts[s + 1] : lines.length;
+  // Keep trailing blank lines outside the block so the spacing survives.
+  let end = to;
+  while (end > from + 1 && lines[end - 1].trim() === '') end--;
+  const block = lines.slice(from, end);
+
+  // A field runs from its "  key:" line through any deeper-indented lines
+  // (wrapped scalars, block scalars, the links map).
+  const span = (key) => {
+    const i = block.findIndex((l) => l.startsWith(`  ${key}:`));
+    if (i === -1) return null;
+    let j = i + 1;
+    while (j < block.length && (/^ {3,}\S/.test(block[j]) || block[j].trim() === '')) j++;
+    return [i, j];
+  };
+  const set = (key, newLines, after) => {
+    const at = span(key);
+    if (at) block.splice(at[0], at[1] - at[0], ...newLines);
+    else if (newLines.length) {
+      const prev = after ? span(after) : null;
+      block.splice(prev ? prev[1] : block.length, 0, ...newLines);
+    }
+  };
+
+  block[0] = `- id: ${JSON.stringify(e.id)}`;
+  set('title', [`  title: ${JSON.stringify(e.title)}`]);
+  set('author', e.author ? [`  author: ${JSON.stringify(e.author)}`] : [], 'title');
+  set('links', ['  links:', ...Object.entries(e.links).map(([k, v]) => `    ${k}: ${v}`)], 'status');
+  set('cover', e.cover ? [`  cover: ${e.cover}`] : []);
+
+  return [...lines.slice(0, from), ...block, ...lines.slice(end)].join(eol);
+}
+
+function clip(v, max) {
+  return typeof v === 'string' ? v.replace(/\s+/g, ' ').trim().slice(0, max) : '';
 }
 
 // Apply one op to the YAML text via line-scoped edits. Returns the new text,
