@@ -5333,16 +5333,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/911eKRbG6lL._SY300_.jpg
-- id: "B09DTGQHKJ"
-  title: "Remarkably Bright Creatures: A Novel"
-  author: Shelby Van Pelt
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B09DTGQHKJ
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91Uc0UzW5HL._SY300_.jpg
 - id: "B00DTO5054"
   title: Living the French Revolution and the Age of Napoleon
   author: Suzanne M. Desan
