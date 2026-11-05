@@ -5,7 +5,7 @@ author: "Amanda Metskas"
 source: "Clearer Thinking"
 published: "2022-07-27"
 date: 2026-10-27T13:26:42.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/understanding-the-two-most-common-mental-health-pr-42f7f0.mp3"
 audio_bytes: 3808269
 duration: 952
