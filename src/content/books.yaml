@@ -6114,16 +6114,6 @@
     audible: https://www.audible.com/pd/The-Anglo-Saxons-Audiobook/1713608073
   source: amazon
   cover: https://m.media-amazon.com/images/I/A1C8vmsDNNL._SY300_.jpg
-- id: "0241471664"
-  title: Q is for Quokka (The Animal Alphabet Library)
-  author: DK
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0241471664
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/71wT5QKgghL._SY300_.jpg
 - id: "B08JY2T245"
   title: "The Jane Austen Collection: An Audible Original Drama"
   author: Jane Austen
