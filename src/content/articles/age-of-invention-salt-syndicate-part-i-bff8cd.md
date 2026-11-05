@@ -4,10 +4,14 @@ url: "https://www.ageofinvention.xyz/p/age-of-invention-salt-syndicate-part"
 author: "Anton Howes"
 source: "Age of Invention"
 published: "2026-09-28"
-date: 2026-09-28T07:31:16.000Z
+date: 2026-11-05T05:11:04.000Z
 status: ready
 draft: true
+audio: "https://media.lloyd.studio/episodes/age-of-invention-salt-syndicate-part-i-bff8cd.mp3"
+audio_bytes: 9695661
+duration: 2423
 ---
+
 # Age of Invention: Salt Syndicate, Part I
 
 *The story of one of the most important inventions of the sixteenth century that nobody has ever heard of, and the multi-national syndicate that promoted it*
