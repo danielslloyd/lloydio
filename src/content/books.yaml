@@ -5766,16 +5766,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/91KHIbTttwL._SY300_.jpg
-- id: "B003NUQQC0"
-  title: The Death of Ivan Ilych
-  author: Leo Tolstoy
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B003NUQQC0
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81y0oyRZkwL._SY300_.jpg
 - id: "B08VW949N2"
   title: The Complete Works of Jane Austen (Sense and Sensibility, Pride and Prejudice, Mansfield Park, Emma, Northanger Abbey, Persuasion, Lady Susan)
   author: Jane Austen
@@ -6166,16 +6156,6 @@
     audible: https://www.audible.com/pd/Love-Thy-Body-Audiobook/B078NG97HN
   source: amazon
   cover: https://m.media-amazon.com/images/I/81c0Cs6UvmL._SY300_.jpg
-- id: "B0721TLZKT"
-  title: "Hue 1968: A Turning Point of the American War in Vietnam"
-  author: Mark Bowden
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B0721TLZKT
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81IZHp5+rqL._SY300_.jpg
 - id: "193318597X"
   title: The Story of Marriage
   author: John Bevere
@@ -6328,26 +6308,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/91xklUwr4uL._SY300_.jpg
-- id: "B0009NS97E"
-  title: Mere Christianity
-  author: "C. S. Lewis"
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B0009NS97E
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/5129kEDYLjL._SY300_.jpg
-- id: "B000ICM1G6"
-  title: The Screwtape Letters
-  author: "C. S. Lewis"
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B000ICM1G6
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/51DZ1yRBjnL._SY300_.jpg
 - id: "0736979441"
   title: "Jesus Heals: An Anatomy Primer (Baby Believer)"
   author: Danielle Hitchen
