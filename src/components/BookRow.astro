@@ -99,7 +99,9 @@ const stateValue =
     )}
   </td>
   <td class="book-title-author">
-    <div class="title" title={title}>{truncateTitle(title)}</div>
+    {/* Published tables are fixed-width, so CSS clips the title to the
+        column; the auto-width drafts table still gets a character cap. */}
+    <div class="title" title={title}>{actions ? truncateTitle(title) : title}</div>
     <div class="author">{author}</div>
     {review && (
       <details class="book-review">
@@ -193,6 +195,9 @@ const stateValue =
 <style>
   .book-cover {
     width: 44px;
+    /* Acts as the row's min height (border-box): a row whose cover is
+       missing or fails to load stays as tall as one with a cover. */
+    height: calc(54px + 0.6em);
     padding: 0.3em !important;
     text-align: center;
   }
@@ -218,6 +223,13 @@ const stateValue =
     color: var(--muted);
     font-size: 0.9em;
     margin-top: 0.1em;
+  }
+  /* One line each, ellipsis when too long, so every row is the same height. */
+  .title,
+  .author {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .book-review {
     margin: 0.35em 0 0;
