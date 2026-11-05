@@ -4,7 +4,7 @@ url: "https://www.aaronrenn.com/p/post-protestant-post-literate"
 author: "Aaron M. Renn"
 published: "2026-04-22"
 date: 2026-11-05T08:22:05.000Z
-status: ready
+status: read
 draft: true
 audio: "https://media.lloyd.studio/episodes/post-protestant-post-literate-69cea8.mp3"
 audio_bytes: 3380397
