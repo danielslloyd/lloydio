@@ -5313,16 +5313,6 @@
     audible: https://www.audible.com/pd/The-Odyssey-Audiobook/B07GLN33S8
   source: amazon
   cover: https://m.media-amazon.com/images/I/61wo4Z4sPFL._SY300_.jpg
-- id: "B001P93GME"
-  title: "Long Obedience in the Same Direction: Discipleship in an Instant Society"
-  author: Eugene H. Peterson
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B001P93GME
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/510ObkSqVSL._SY300_.jpg
 - id: "B00DTO5054"
   title: Living the French Revolution and the Age of Napoleon
   author: Suzanne M. Desan
