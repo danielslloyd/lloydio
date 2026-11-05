@@ -4825,16 +4825,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81d0dfPZt8L._SY300_.jpg
-- id: "0395329205"
-  title: "Castle: By the Author of The Way Things Work"
-  author: David Macaulay
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0395329205
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81bSj3IO5PL._SY300_.jpg
 - id: "B0B1QBTJZH"
   title: "The Complete Strategy Collection: The Art of War, The Prince, The Book of Five Rings, On War and Arthashastra"
   author: Sun Tzu
