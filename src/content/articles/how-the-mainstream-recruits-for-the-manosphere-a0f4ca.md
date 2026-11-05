@@ -3,10 +3,14 @@ title: "How the Mainstream Recruits for the Manosphere"
 url: "https://www.aaronrenn.com/p/how-the-mainstream-recruits-for-the-manosphere"
 author: "Aaron M. Renn"
 published: "2026-10-28"
-date: 2026-10-28T13:04:20.000Z
+date: 2026-11-05T05:32:32.000Z
 status: ready
 draft: true
+audio: "https://media.lloyd.studio/episodes/how-the-mainstream-recruits-for-the-manosphere-a0f4ca.mp3"
+audio_bytes: 2994093
+duration: 748
 ---
+
 # How the Mainstream Recruits for the Manosphere
 
 *Asymmetric blame, hectoring lectures, and selectively revived norms are driving young men to the influencers the mainstream condemns*
