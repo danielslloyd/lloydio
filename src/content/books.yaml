@@ -4934,11 +4934,10 @@
   title: "The Battle of Arnhem: The Deadliest Airborne Operation of World War II"
   author: "Antony Beevor"
   date: 2026-07-10
-  status: to-read
+  status: reading
   links:
     amazon: https://www.amazon.com/dp/B07G2R62L2
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/81wFyvXRmUL._SY300_.jpg
 - id: "B07RQ1KGFZ"
   title: "Fire and Fortitude: The US Army in the Pacific War, 1941-1943"
