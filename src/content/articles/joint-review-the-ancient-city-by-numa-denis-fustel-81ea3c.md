@@ -5,7 +5,7 @@ author: "Jane Psmith and John Psmith"
 source: "Mr. and Mrs. Psmith's Bookshelf"
 published: "2023-02-20"
 date: 2026-10-21T21:01:24.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/joint-review-the-ancient-city-by-numa-denis-fustel-81ea3c.mp3"
 audio_bytes: 12836445
 duration: 1674
