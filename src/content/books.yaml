@@ -4660,16 +4660,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/91t2r+mVVaL._SY300_.jpg
-- id: "0744052270"
-  title: Eyewitness American Revolution
-  author: DK
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0744052270
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81OI6IWHK4L._SY300_.jpg
 - id: "B0CD8V9SHD"
   title: "Going Infinite: The Rise and Fall of a New Tycoon"
   author: Michael Lewis
