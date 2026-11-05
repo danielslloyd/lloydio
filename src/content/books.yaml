@@ -4747,16 +4747,6 @@
     audible: https://www.audible.com/pd/The-Bright-Ages-Audiobook/0062980920
   source: amazon
   cover: https://m.media-amazon.com/images/I/A1+Y-VQgzaL._SY300_.jpg
-- id: "B0FQLJFWZH"
-  title: "The Ultimate Book of Interesting Facts for Kids: An Epic Collection of Fun, Weird, and Awesome Trivia for Curious Kids Who Love to Learn Cool Stuff"
-  author: Jordan Strong
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B0FQLJFWZH
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81an2mKvJPL._SY300_.jpg
 - id: "B07NDKL114"
   title: My Experiments with Truth
   author: Mohandas K. Gandhi
