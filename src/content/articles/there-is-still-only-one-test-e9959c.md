@@ -5,7 +5,7 @@ author: "Allen Downey"
 source: "Probably Overthinking It"
 published: "2016-06-07"
 date: 2026-10-21T19:54:54.000Z
-status: ready
+status: read
 ---
 
 # There is still only one test
