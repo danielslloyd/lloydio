@@ -2,6 +2,13 @@
 title: Quotes
 ---
 
+> Socialists discovered that corporations have too much power and proposed merging your employer, landlord and grocery store into one institution with a police force and military.
+
+<p class="quote-src">— @sigmahamster2, October 11, 2026<br>
+<a href="https://x.com/sigmahamster2/status/2109343276948218155">https://x.com/sigmahamster2/status/2109343276948218155</a></p>
+
+---
+
 > The age of Instagram and TikTok favors Catholicism. An earlier era of the internet, that of the blogosphere, was congenial to Protestantism, with its biblical and exegetical basis. The result was the Young, Restless and Reformed movement — mostly male Protestants reading one another’s blogs and finding their way from seeker-sensitive evangelicalism to high-proof Calvinism. Today’s internet, by contrast, is image-forward and postliterate. This helps to explain why today’s online Christians tend to be Young, Restless and Roman.
 
 <p class="quote-src">— Julia Yost, “<a class="src-title" href="https://www.washingtonpost.com/opinions/2026/04/10/catholic-converts-young-tiktok-instagram/">Why Catholic converts are surging with an unexpected demographic</a>”, The Washington Post, April 10, 2026</p>
