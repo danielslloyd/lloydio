@@ -6564,16 +6564,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81201IEJO4L._SY300_.jpg
-- id: "B07T1F3PY3"
-  title: The Man Who Knew the Way to the Moon
-  author: Todd Zwillich
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B07T1F3PY3
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/812JpGOHVhL._SY300_.jpg
 - id: "B00DTNW3QY"
   title: "A History of Russia: From Peter the Great to Gorbachev"
   author: Mark Steinberg
