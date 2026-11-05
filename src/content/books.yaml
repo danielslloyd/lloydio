@@ -4818,16 +4818,6 @@
     audible: https://www.audible.com/pd/The-Only-Plane-in-the-Sky-Audiobook/1508295824
   source: amazon
   cover: https://m.media-amazon.com/images/I/71KX3Z-3zoL._SY300_.jpg
-- id: "B0FYRFT3WV"
-  title: Tiny Tina Super Ballerina
-  author: Jordan Reed M.Ed.
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B0FYRFT3WV
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61jt3S4d-FL._SY300_.jpg
 - id: "0736976159"
   title: "Mama Bear Apologetics: Empowering Your Kids to Challenge Cultural Lies"
   author: Hillary Morgan Ferrer
