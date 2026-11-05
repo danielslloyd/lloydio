@@ -5706,16 +5706,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/91Ge3UG7GkL._SY300_.jpg
-- id: "0746008481"
-  title: "Who's Making That Mess? (Usborne Lift-The-Flap Book)"
-  author: Philip Hawthorn
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0746008481
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/51AataZZZXL._SY300_.jpg
 - id: "B0046A01KY"
   title: The Weight of Glory
   author: C. S. Lewis
