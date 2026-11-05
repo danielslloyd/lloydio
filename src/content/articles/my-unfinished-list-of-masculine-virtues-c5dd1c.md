@@ -5,7 +5,7 @@ author: "Jayson Fritz-Stibbe"
 source: "Modern Shakers"
 published: "2026-06-18"
 date: 2026-10-23T07:22:37.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/my-unfinished-list-of-masculine-virtues-c5dd1c.mp3"
 audio_bytes: 4474605
 duration: 1118
