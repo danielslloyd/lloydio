@@ -3,10 +3,14 @@ title: "Suburbs and Sacred Space"
 url: "https://www.aaronrenn.com/p/suburbs-and-sacred-space"
 author: "Aaron M. Renn"
 published: "2026-06-25"
-date: 2026-06-25T13:38:11.000Z
+date: 2026-11-05T06:49:31.000Z
 status: ready
 draft: true
+audio: "https://media.lloyd.studio/episodes/suburbs-and-sacred-space-1a6b8a.mp3"
+audio_bytes: 2190285
+duration: 547
 ---
+
 # Suburbs and Sacred Space
 
 *War memorials, cathedrals, and the anti-human scale: why the transcendent still lives downtown*
