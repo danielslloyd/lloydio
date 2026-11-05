@@ -5,7 +5,7 @@ author: "Soren Kierkegaard"
 source: "Christian Classics Ethereal Library"
 published: "2010-01-01"
 date: 2026-10-27T13:55:17.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/the-crowd-is-untruth-67db8e.mp3"
 audio_bytes: 4159245
 duration: 1039
