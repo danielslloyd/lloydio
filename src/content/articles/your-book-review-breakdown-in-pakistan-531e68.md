@@ -4,10 +4,14 @@ url: "https://www.astralcodexten.com/p/breakdown-in-pakistan"
 author: "Anonymous (ACX book review contest finalist)"
 source: "Astral Codex Ten"
 published: "2026-07-24"
-date: 2026-07-24T15:04:42.000Z
+date: 2026-11-05T06:07:08.000Z
 status: ready
 draft: true
+audio: "https://media.lloyd.studio/episodes/your-book-review-breakdown-in-pakistan-531e68.mp3"
+audio_bytes: 11667117
+duration: 2916
 ---
+
 # Your Book Review: Breakdown In Pakistan
 
 *Finalist #3 in the Book Review Contest*
