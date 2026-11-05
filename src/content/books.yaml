@@ -6297,16 +6297,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/91xklUwr4uL._SY300_.jpg
-- id: "B08KTV7N2M"
-  title: "White Sand: Volume One [Dramatized Adaptation]: White Sand, Book 1"
-  author: Brandon Sanderson
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/B08KTV7N2M
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91qfu24S+xL._SY300_.jpg
 - id: "B08C8XFQMN"
   title: The Hobbit
   author: J. R. R. Tolkien
