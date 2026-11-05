@@ -4573,16 +4573,6 @@
     audible: https://www.audible.com/pd/When-the-Sea-Came-Alive-Audiobook/B0CLFFHSG3
   source: amazon
   cover: https://m.media-amazon.com/images/I/91S1I9OKWAL._SY300_.jpg
-- id: "1523500387"
-  title: "Paint by Sticker Kids (Official): Under the Sea: Create 10 Pictures One Sticker at a Time!"
-  author: Workman Publishing
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1523500387
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81MTtdRobJL._SY300_.jpg
 - id: "0195069056"
   title: "Albion's Seed: Four British Folkways in America (America: a cultural history) (VOLUME I)"
   author: David Hackett Fischer
