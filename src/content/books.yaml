@@ -5296,11 +5296,11 @@
   title: "Meditations by Marcus Aurelius: the New Translation"
   author: Marcus Aurelius
   date: 2026-07-10
-  status: to-read
+  status: finished
+  rating: 3
   links:
     amazon: https://www.amazon.com/dp/B0CQ71WHDH
   source: amazon
-  draft: true
   cover: https://m.media-amazon.com/images/I/7159plC1UrL._SY300_.jpg
 - id: "B002CJ1FAG"
   title: The Odyssey
