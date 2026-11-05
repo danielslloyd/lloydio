@@ -5,7 +5,7 @@ author: "LastBlueDog"
 source: "LastBlueDog"
 published: "2026-05-29"
 date: 2026-10-27T15:20:57.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/progressives-don-t-understand-masculinity-86b2fe.mp3"
 audio_bytes: 4407501
 duration: 1101
