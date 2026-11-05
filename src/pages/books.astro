@@ -107,7 +107,8 @@ const sections = [
       <p class="drafts-help">
         Owner-only. Imported from Goodreads/Amazon and hidden from the public site.
         Pick a status (and optional rating), then <strong>publish</strong> to add it to the
-        list — or <strong>edit</strong> the raw entry, or <strong>✕</strong> to discard.
+        list. If the title, author or edition is wrong, <strong>clean up</strong> searches
+        for the right listing; or <strong>edit</strong> the raw entry, or <strong>✕</strong> to discard.
         <button type="button" id="publish-all" class="act">publish all as-is</button>
       </p>
       <div style="overflow-x:auto">
@@ -132,6 +133,27 @@ const sections = [
         </table>
       </div>
     </details>
+  )}
+
+  {SHOW_DRAFTS && draftBooks.length > 0 && (
+    <dialog id="cleanup" aria-labelledby="cleanup-heading">
+      <form method="dialog" class="cleanup-head">
+        <h2 id="cleanup-heading">Clean up</h2>
+        <button value="cancel" class="cleanup-x" aria-label="Close">✕</button>
+      </form>
+      <p class="cleanup-current"></p>
+      <form class="cleanup-search">
+        <input name="title" placeholder="title" aria-label="Title" autocomplete="off" required />
+        <input name="author" placeholder="author (optional)" aria-label="Author" autocomplete="off" />
+        <button type="submit" class="act">search</button>
+      </form>
+      <p class="cleanup-msg" role="status"></p>
+      <ol class="cleanup-results"></ol>
+      <div class="cleanup-foot">
+        <button type="button" class="act" data-none>none of these</button>
+        <button type="button" class="act primary" data-use disabled>use selected</button>
+      </div>
+    </dialog>
   )}
 </Base>
 
@@ -230,6 +252,9 @@ const sections = [
           }
         });
       });
+
+      // Same single-line truncation as BookRow's truncateTitle (42 chars).
+      const truncTitle = (t) => (t.length > 43 ? t.slice(0, 42).trimEnd() + '…' : t);
 
       // ---- inline status/rating editor (published rows) ------------------
       // Local calendar date, not UTC: a late-evening rating shouldn't land on
@@ -389,9 +414,7 @@ const sections = [
             '<div class="author"></div></td><td class="book-status"><span class="state-label"></span></td>';
         }
         row.setAttribute('data-book-id', entry.id);
-        // Same single-line truncation as BookRow's truncateTitle (42 chars).
-        row.querySelector('.title').textContent =
-          entry.title.length > 43 ? entry.title.slice(0, 42).trimEnd() + '…' : entry.title;
+        row.querySelector('.title').textContent = truncTitle(entry.title);
         row.querySelector('.title').title = entry.title;
         row.querySelector('.author').textContent = entry.author || '';
         renderLabel(row, entry.status, null);
@@ -456,6 +479,200 @@ const sections = [
           }, 0);
         });
       });
+
+      // ---- clean up a wrong draft ----------------------------------------
+      // "clean up" opens a picker of up to 10 listings (Open Library print
+      // editions + Audible audiobooks, which name authors and narrators
+      // separately). Picking one rewrites the entry as that listing — new id,
+      // title, author, cover, links; status/date/draft are kept.
+      const dlg = document.getElementById('cleanup');
+      if (dlg) {
+        const searchForm = dlg.querySelector('.cleanup-search');
+        const titleInput = searchForm.querySelector('[name="title"]');
+        const authorInput = searchForm.querySelector('[name="author"]');
+        const list = dlg.querySelector('.cleanup-results');
+        const msg = dlg.querySelector('.cleanup-msg');
+        const useBtn = dlg.querySelector('[data-use]');
+        let row = null;
+        let results = [];
+        let searchSeq = 0;
+
+        // Main title only: drop "(Series #1)" / "[Dramatized]" tags and
+        // anything after a subtitle colon or a spaced dash.
+        const mainTitle = (t) =>
+          t.replace(/\s*[([][^)\]]*[)\]]/g, ' ').split(/:|\s[-–—―]\s/)[0].replace(/\s+/g, ' ').trim();
+
+        const say = (text) => { msg.textContent = text; };
+
+        function render() {
+          list.textContent = '';
+          results.forEach((c, i) => {
+            const li = document.createElement('li');
+            const label = document.createElement('label');
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = 'cleanup-pick';
+            radio.value = String(i);
+            radio.addEventListener('change', () => { useBtn.disabled = false; });
+
+            const thumb = document.createElement('span');
+            thumb.className = 'thumb';
+            if (c.cover) {
+              const img = document.createElement('img');
+              img.alt = '';
+              img.loading = 'lazy';
+              img.src = c.cover;
+              // Missing covers come back as 1×1 placeholders or 404s.
+              img.onload = () => { if (img.naturalWidth < 5) img.remove(); };
+              img.onerror = () => img.remove();
+              thumb.append(img);
+            }
+
+            const info = document.createElement('span');
+            info.className = 'info';
+            const t = document.createElement('strong');
+            t.textContent = c.title;
+            const by = document.createElement('span');
+            by.className = 'by';
+            by.textContent = c.author ? 'by ' + c.author : 'no author listed';
+            info.append(t, by);
+            if (c.narrators) {
+              const n = document.createElement('span');
+              n.className = 'narr';
+              n.textContent = 'narrated by ' + c.narrators;
+              info.append(n);
+            }
+            const meta = document.createElement('span');
+            meta.className = 'meta-line';
+            meta.textContent = [c.format, c.year, c.edition, c.asin].filter(Boolean).join(' · ') + ' ';
+            const view = document.createElement('a');
+            view.href = c.url;
+            view.target = '_blank';
+            view.rel = 'noopener noreferrer';
+            view.textContent = (c.format === 'print' ? 'Amazon' : 'Audible') + ' ↗';
+            meta.append(view);
+            info.append(meta);
+
+            label.append(radio, thumb, info);
+            li.append(label);
+            list.append(li);
+          });
+        }
+
+        async function runSearch() {
+          const seq = ++searchSeq;
+          const title = titleInput.value.trim();
+          const author = authorInput.value.trim();
+          if (!title) return;
+          results = [];
+          render();
+          useBtn.disabled = true;
+          say('searching…');
+          try {
+            // Read-only, so it skips the write queue.
+            const res = await send([{ action: 'search', id: row.getAttribute('data-book-id'), title, author }]);
+            if (seq !== searchSeq) return; // a newer search superseded this one
+            results = res.results || [];
+            render();
+            say(
+              results.length
+                ? results.length + ' listing' + (results.length === 1 ? '' : 's') + ' — pick one, or “none of these”.'
+                : 'No listings found. Try a shorter title, or clear the author.'
+            );
+          } catch (e) {
+            if (seq === searchSeq) say('search failed: ' + e.message);
+          }
+        }
+
+        function openCleanup(r) {
+          row = r;
+          const titleEl = row.querySelector('.title');
+          const title = titleEl.getAttribute('title') || titleEl.textContent;
+          const author = (row.querySelector('.author')?.textContent || '').trim();
+          dlg.querySelector('.cleanup-current').textContent =
+            'Now: “' + title + '”' + (author ? ' — ' + author : ' — no author');
+          // The current author may be a narrator; it still helps Audible find
+          // the exact recording, and Open Library retries without it.
+          titleInput.value = mainTitle(title) || title;
+          authorInput.value = author;
+          dlg.showModal();
+          runSearch();
+        }
+
+        // Apply the new entry to the row now, ahead of the rebuild.
+        function applyEntry(r, entry) {
+          r.setAttribute('data-book-id', entry.id);
+          const titleEl = r.querySelector('.title');
+          titleEl.textContent = truncTitle(entry.title);
+          titleEl.title = entry.title;
+          const authorEl = r.querySelector('.author');
+          if (authorEl) authorEl.textContent = entry.author || '';
+          const cell = r.querySelector('.book-cover');
+          let img = r.querySelector('.cover-image');
+          if (entry.cover) {
+            if (!img) {
+              img = document.createElement('img');
+              img.className = 'cover-image';
+              img.alt = '';
+              // Carry BookRow's scoped-style attribute over to the new node.
+              for (const a of cell.attributes) if (a.name.startsWith('data-astro-cid')) img.setAttribute(a.name, '');
+              cell.append(img);
+            }
+            img.src = entry.cover;
+          } else if (img) {
+            img.remove();
+          }
+          r.classList.add('just-added');
+          r.title = 'Cleaned up — appears for good after the site rebuilds';
+        }
+
+        searchForm.addEventListener('submit', (ev) => {
+          ev.preventDefault();
+          runSearch();
+        });
+
+        dlg.querySelector('[data-none]').addEventListener('click', () => dlg.close());
+        dlg.addEventListener('close', () => {
+          searchSeq++; // ignore any search still in flight
+          results = [];
+          list.textContent = '';
+          say('');
+        });
+
+        useBtn.addEventListener('click', async () => {
+          const checked = list.querySelector('input[name="cleanup-pick"]:checked');
+          if (!checked || !row) return;
+          const pick = results[Number(checked.value)];
+          const r = row;
+          const id = r.getAttribute('data-book-id');
+          useBtn.disabled = true;
+          say('saving…');
+          try {
+            const res = await enqueue(() => send([{ action: 'replace', id, pick }]));
+            if (res.result === 'duplicate') {
+              dlg.close();
+              if (confirm('That listing is already in your books as “' + res.title + '”. Discard this draft instead?')) {
+                setBusy(r, true);
+                await enqueue(() => send([{ action: 'delete', id }]));
+                r.style.transition = 'opacity .3s';
+                r.style.opacity = '0';
+                setTimeout(() => r.remove(), 300);
+                updateCount(-1);
+              }
+              return;
+            }
+            applyEntry(r, res.entry);
+            dlg.close();
+          } catch (e) {
+            say('save failed: ' + e.message);
+            useBtn.disabled = false;
+          }
+        });
+
+        document.querySelectorAll('.drafts-section .book-row [data-cleanup]').forEach((btn) => {
+          btn.addEventListener('click', () => openCleanup(btn.closest('.book-row')));
+        });
+      }
 
       const pubAll = document.getElementById('publish-all');
       if (pubAll) {
@@ -601,5 +818,67 @@ const sections = [
     font-size: 0.85rem;
     color: var(--muted);
     margin: 1.4rem 0 0;
+  }
+</style>
+
+<style is:global>
+  /* Owner-mode clean-up picker. Global because the result rows are built in
+     JS (dynamic nodes don't carry Astro's scoped-style attribute). */
+  #cleanup {
+    width: min(42rem, calc(100vw - 2rem));
+    max-height: 86vh;
+    padding: 0.8rem 1rem 1rem;
+    border: 1px solid var(--fg);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--fg);
+    box-shadow: 3px 3px 0 rgba(128, 128, 128, 0.35);
+  }
+  #cleanup::backdrop { background: rgba(0, 0, 0, 0.35); }
+  #cleanup .cleanup-head { display: flex; align-items: baseline; justify-content: space-between; }
+  #cleanup h2 { margin: 0; font-size: 1.15rem; font-variant: small-caps; border: none; }
+  #cleanup .cleanup-x {
+    border: none; background: none; color: var(--faint); cursor: pointer;
+    font: inherit; padding: 0 0.2em;
+  }
+  #cleanup .cleanup-x:hover { color: var(--fg); }
+  #cleanup .cleanup-current { margin: 0.3rem 0 0.6rem; font-size: 0.85rem; color: var(--muted); }
+  #cleanup .cleanup-search { display: flex; flex-wrap: wrap; gap: 0.4em; }
+  #cleanup .cleanup-search input {
+    width: auto; flex: 2 1 12rem; min-width: 0;
+    font-size: 0.85rem; padding: 0.25em 0.5em;
+  }
+  #cleanup .cleanup-search input[name='author'] { flex: 1 1 8rem; }
+  #cleanup .act {
+    font-family: inherit; font-size: 0.85rem; padding: 0.2em 0.7em;
+    border: 1px solid var(--muted); border-radius: 4px;
+    background: transparent; color: var(--fg); cursor: pointer;
+  }
+  #cleanup .act.primary { font-weight: 600; border-color: var(--fg); }
+  #cleanup .act[disabled] { opacity: 0.45; cursor: default; }
+  #cleanup .cleanup-msg { margin: 0.5rem 0 0.3rem; font-size: 0.8rem; color: var(--muted); min-height: 1.2em; }
+  #cleanup .cleanup-results { list-style: none; margin: 0; padding: 0; }
+  #cleanup .cleanup-results li { border-top: 1px dotted var(--border); }
+  #cleanup .cleanup-results label {
+    display: flex; gap: 0.6rem; align-items: flex-start;
+    margin: 0; padding: 0.45rem 0.3rem; cursor: pointer;
+    font-variant: normal; color: var(--fg);
+  }
+  #cleanup .cleanup-results label:hover { background: var(--surface); }
+  #cleanup .cleanup-results label:has(input:checked) {
+    background: color-mix(in srgb, var(--muted) 14%, transparent);
+  }
+  #cleanup .cleanup-results input[type='radio'] { width: auto; margin: 0.25rem 0 0; flex: none; }
+  #cleanup .thumb { flex: none; width: 36px; height: 54px; display: flex; align-items: center; justify-content: center; }
+  #cleanup .thumb img { max-width: 36px; max-height: 54px; border: 1px solid var(--border); }
+  #cleanup .info { display: flex; flex-direction: column; min-width: 0; font-size: 0.88rem; line-height: 1.35; }
+  #cleanup .info .by { color: var(--fg); }
+  #cleanup .info .narr { color: var(--muted); font-size: 0.92em; }
+  #cleanup .info .meta-line { color: var(--faint); font-size: 0.8em; }
+  #cleanup .info .meta-line a { color: var(--muted); }
+  #cleanup .cleanup-foot {
+    display: flex; justify-content: flex-end; gap: 0.5em;
+    margin-top: 0.7rem; padding-top: 0.6rem; border-top: 1px solid var(--border);
+    position: sticky; bottom: -1rem; background: var(--bg); padding-bottom: 0.2rem;
   }
 </style>
