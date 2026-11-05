@@ -2,6 +2,18 @@
 title: Quotes
 ---
 
+> The age of Instagram and TikTok favors Catholicism. An earlier era of the internet, that of the blogosphere, was congenial to Protestantism, with its biblical and exegetical basis. The result was the Young, Restless and Reformed movement — mostly male Protestants reading one another’s blogs and finding their way from seeker-sensitive evangelicalism to high-proof Calvinism. Today’s internet, by contrast, is image-forward and postliterate. This helps to explain why today’s online Christians tend to be Young, Restless and Roman.
+<p class="quote-src">
+— Julia Yost, in 
+
+https://substack.com/redirect/c5f4f470-13db-4b65-afdb-a183ccfa262d?j=eyJ1IjoiMnJ3emwifQ.ZjCvm4EUy34PTUl5IUIs2h6Hi0nce6KjnNgzrvkSAms
+
+quoted in
+
+https://substack.com/app-link/post?publication_id=25676&post_id=194096825&utm_source=post-email-title&utm_campaign=email-post-title&isFreemail=true&r=2rwzl&token=eyJ1c2VyX2lkIjo0NjYxNjk3LCJwb3N0X2lkIjoxOTQwOTY4MjUsImlhdCI6MTc3Njg1MjM5OCwiZXhwIjoxNzc5NDQ0Mzk4LCJpc3MiOiJwdWItMjU2NzYiLCJzdWIiOiJwb3N0LXJlYWN0aW9uIn0.PEC8GSdvGCrG39RBAmItOyL5-Mn5-c1j9tDrEiRqjfo
+
+---
+
 >A dog with two owners dies of hunger.
 <p class="quote-src">
 — Portuguese proverb
