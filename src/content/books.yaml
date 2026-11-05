@@ -5948,16 +5948,6 @@
     amazon: https://www.amazon.com/dp/0842326316
   source: amazon
   cover: https://m.media-amazon.com/images/I/51syW+0pwhL._SY300_.jpg
-- id: "1770366679"
-  title: "The Classic Children's Bible Storybook"
-  author: Christian Art Kids
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1770366679
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/81Bq0OJcljL._SY300_.jpg
 - id: "0312515820"
   title: "Lift-the-Flap Tab: Trucks: An interactive board book for little fans of trucks"
   author: Roger Priddy
