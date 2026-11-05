@@ -4,8 +4,11 @@ url: "https://www.city-journal.org/article/what-is-freedom-for-the-mentally-ill"
 author: "Freddie DeBoer"
 source: "City Journal"
 published: "2024-12-02"
-date: 2026-10-21T19:54:53.000Z
+date: 2026-11-05T04:25:54.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/what-is-freedom-for-the-mentally-ill-665816.mp3"
+audio_bytes: 1157229
+duration: 289
 ---
 
 # What Is Freedom for the Mentally Ill?
