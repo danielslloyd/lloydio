@@ -4,8 +4,11 @@ url: "https://www.mckinsey.com/mgi/our-research/dependency-and-depopulation-conf
 author: "Anu Madgavkar, Chris Bradley, Olivia White, Sven Smit, TJ Radigan"
 source: "McKinsey Global Institute"
 published: "2025-01-15"
-date: 2026-10-21T19:54:53.000Z
+date: 2026-11-05T04:20:25.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/dependency-and-depopulation-mckinsey-global-instit-36107b.mp3"
+audio_bytes: 24625101
+duration: 6156
 ---
 
 # Dependency and depopulation? Confronting the consequences of a new demographic reality
