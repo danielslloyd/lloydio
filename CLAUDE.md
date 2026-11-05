@@ -59,6 +59,9 @@ npm run backlogcast               # show the podcast queue
   docs / `books.yaml` / `drafts.yaml`, deleting each note once filed.
   Follow it exactly (no invented links, park-when-unsure in drafts.yaml).
 - `ingest-keep` — import a Google Keep export.
+- `cite-quote` — quote in → paste-ready entry for `docs/quotes.md` (newest
+  at the top): checks wording + attribution against real sources, finds a
+  missing author, flags misattributions, fullest citation the evidence allows.
 
 ## Conventions
 

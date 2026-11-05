@@ -69,7 +69,15 @@ const sections = [
           </form>
         )}
         <div style="overflow-x:auto">
-          <table>
+          {/* Fixed layout + explicit column widths, so every section's
+              columns line up exactly regardless of its contents. */}
+          <table class:list={['book-table', { owner: SHOW_DRAFTS }]}>
+            <colgroup>
+              <col class="col-cover" />
+              <col />
+              <col class="col-status" />
+              <col class="col-links" />
+            </colgroup>
             <tbody>
               {group.map((b) => (
                 <BookRow
@@ -233,8 +241,12 @@ const sections = [
         row.style.opacity = busy ? '0.5' : '';
       }
 
-      document.querySelectorAll('.drafts-section .book-row [data-act]').forEach((btn) => {
-        btn.addEventListener('click', async (ev) => {
+      // Delegated, so rows sent back to drafts this session work too.
+      const draftsSection = document.getElementById('drafts');
+      if (draftsSection) {
+        draftsSection.addEventListener('click', async (ev) => {
+          const btn = ev.target.closest('.book-row [data-act]');
+          if (!btn) return;
           const row = btn.closest('.book-row');
           const action = btn.getAttribute('data-act');
           // Shift-click skips the confirm — for clearing many drafts quickly.
@@ -242,16 +254,20 @@ const sections = [
           setBusy(row, true);
           try {
             await enqueue(() => send([opFromRow(row, action)]));
-            row.style.transition = 'opacity .3s';
-            row.style.opacity = '0';
-            setTimeout(() => row.remove(), 300);
+            fadeOut(row);
             updateCount(-1);
           } catch (e) {
             alert(action + ' failed: ' + e.message);
             setBusy(row, false);
           }
         });
-      });
+      }
+
+      function fadeOut(row) {
+        row.style.transition = 'opacity .3s';
+        row.style.opacity = '0';
+        setTimeout(() => row.remove(), 300);
+      }
 
       // Same single-line truncation as BookRow's truncateTitle (42 chars).
       const truncTitle = (t) => (t.length > 43 ? t.slice(0, 42).trimEnd() + '…' : t);
@@ -320,6 +336,7 @@ const sections = [
         sel.addEventListener('blur', () => closeEditor(row));
 
         sel.addEventListener('change', async () => {
+          if (sel.value === 'draft') return unpublish(row, sel);
           const [status, ratingVal] = sel.value.split(':');
           const rating = ratingVal ? Number(ratingVal) : null;
           const op = { action: 'update', id: row.getAttribute('data-book-id'), status, rating };
@@ -341,6 +358,48 @@ const sections = [
           }
         });
       });
+
+      // "↩ back to drafts": flag the entry `draft: true` again and move the
+      // row into the drafts table now (rebuilt as a draft row: status picker,
+      // publish, clean up, edit, ✕), ahead of the site rebuild.
+      async function unpublish(row, sel) {
+        const id = row.getAttribute('data-book-id');
+        const state = sel.dataset.saved || 'to-read';
+        row.classList.add('saving');
+        try {
+          await enqueue(() => send([{ action: 'unpublish', id }]));
+        } catch (e) {
+          alert('move to drafts failed: ' + e.message);
+          sel.value = state;
+          row.classList.remove('saving');
+          closeEditor(row);
+          return;
+        }
+        const from = row.closest('.book-section');
+        const proto = document.querySelector('#drafts .book-row');
+        bump(from, -1);
+        if (!proto) {
+          // No drafts table on this build — it shows up after the rebuild.
+          fadeOut(row);
+          return;
+        }
+        const draft = proto.cloneNode(true);
+        draft.removeAttribute('style');
+        draft.classList.remove('saving', 'editing');
+        // Keep this book's cover and title/author cells; take the action cell
+        // from the prototype draft row.
+        draft.querySelector('.book-cover').replaceWith(row.querySelector('.book-cover'));
+        draft.querySelector('.book-title-author').replaceWith(row.querySelector('.book-title-author'));
+        draft.querySelectorAll('button, select, a.act').forEach((el) => el.removeAttribute('disabled'));
+        draft.setAttribute('data-book-id', id);
+        const pick = draft.querySelector('.draft-state');
+        if (pick) pick.value = state;
+        draft.classList.add('just-added');
+        draft.title = 'Sent back to drafts — appears here for good after the site rebuilds';
+        row.remove();
+        document.querySelector('#drafts tbody').prepend(draft);
+        updateCount(1);
+      }
 
       // ---- add a book from an Amazon link ---------------------------------
       // The page-level "edit" toggle reveals one add box per section. The
@@ -669,8 +728,9 @@ const sections = [
           }
         });
 
-        document.querySelectorAll('.drafts-section .book-row [data-cleanup]').forEach((btn) => {
-          btn.addEventListener('click', () => openCleanup(btn.closest('.book-row')));
+        draftsSection.addEventListener('click', (ev) => {
+          const btn = ev.target.closest('.book-row [data-cleanup]');
+          if (btn) openCleanup(btn.closest('.book-row'));
         });
       }
 
@@ -715,6 +775,21 @@ const sections = [
   .book-section[open] > summary::before { content: '▾ '; }
   .book-section > summary .count { color: var(--faint); font-size: 0.85rem; }
   .book-section table { margin-top: 0.4rem; }
+
+  /* Public sections share one column grid. The title column takes whatever
+     the fixed columns leave. Owner mode's status column is wider: it also
+     holds the ✎ button and, while editing, the status/rating dropdown. */
+  .book-table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  .col-cover { width: 44px; }
+  .col-status { width: 5.4rem; }
+  .col-links { width: 5.6rem; }
+  .book-table.owner .col-status { width: 8.4rem; }
+  @media (max-width: 34rem) {
+    .book-table.owner .col-status { width: 6.8rem; }
+  }
 
   /* Owner-mode "edit" toggle (same look as the category docs' toggle). */
   .edit-toggle {

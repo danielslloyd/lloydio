@@ -140,6 +140,8 @@ const stateValue =
           <option value="finished:3" selected={stateValue === 'finished:3'}>read ★★★</option>
           <option value="finished:4" selected={stateValue === 'finished:4'}>read ★★★★</option>
           <option value="finished:5" selected={stateValue === 'finished:5'}>read ★★★★★</option>
+          <option disabled>──────────</option>
+          <option value="draft">↩ back to drafts</option>
         </select>
       )}
     </td>
@@ -280,8 +282,10 @@ const stateValue =
   .book-row.editing .state-edit { display: none; }
   .book-row.editing .state-label { display: none; }
   .row-state {
-    /* Override the global `width:100%` form rule. */
+    /* Override the global `width:100%` form rule, but never spill out of the
+       fixed-width status column. */
     width: auto;
+    max-width: 100%;
     font-size: 0.9em;
     padding: 0.05em 0.2em;
     vertical-align: middle;
