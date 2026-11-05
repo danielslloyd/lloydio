@@ -4,10 +4,14 @@ url: "https://becomingnoble.substack.com/p/childhood-freedom-is-a-now-luxury"
 author: "Johann Kurtz"
 source: "Becoming Noble"
 published: "2026-06-22"
-date: 2026-06-22T14:31:24.000Z
+date: 2026-11-05T06:40:01.000Z
 status: ready
 draft: true
+audio: "https://media.lloyd.studio/episodes/childhood-freedom-is-a-now-luxury-good-8aba6b.mp3"
+audio_bytes: 2919021
+duration: 729
 ---
+
 # Childhood freedom is a now luxury good
 
 *Inside the rich and radical islands of functional families*
