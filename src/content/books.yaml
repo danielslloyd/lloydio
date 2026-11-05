@@ -5716,16 +5716,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/51AataZZZXL._SY300_.jpg
-- id: "0746023030"
-  title: The Usborne First Thousand Words
-  author: Heather Amery
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0746023030
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61NNFFQ9K0L._SY300_.jpg
 - id: "B0046A01KY"
   title: The Weight of Glory
   author: C. S. Lewis
