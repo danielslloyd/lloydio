@@ -4777,16 +4777,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81jKX5BEEpL._SY300_.jpg
-- id: "0842331743"
-  title: "A Child's First Bible"
-  author: Kenneth N. Taylor
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0842331743
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/9109fQN8byL._SY300_.jpg
 - id: "B07QGGSS3S"
   title: "The Only Plane in the Sky: An Oral History of September 11, 2001"
   author: Garrett M. Graff
