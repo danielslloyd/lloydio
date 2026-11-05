@@ -6062,16 +6062,6 @@
   source: amazon
   draft: true
   cover: https://m.media-amazon.com/images/I/81F52uJXXHL._SY300_.jpg
-- id: "081184904X"
-  title: Treasured Classics
-  author: Michael Hague
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/081184904X
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/51IQ2luBf4L._SY300_.jpg
 - id: "1541697464"
   title: "The Price of Greatness: Alexander Hamilton, James Madison, and the Creation of American Oligarchy"
   author: Jay Cost
