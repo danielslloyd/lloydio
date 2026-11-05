@@ -5,7 +5,7 @@ author: "Joshua Mitchell"
 source: "American Reformer"
 published: "2026-03-27"
 date: 2026-10-23T05:16:45.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/whither-the-reformation-in-america-c01ff6.mp3"
 audio_bytes: 10239021
 duration: 2559
