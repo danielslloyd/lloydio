@@ -4,10 +4,14 @@ url: "https://www.aaronrenn.com/p/america-250"
 author: "John Seel"
 source: "Aaron M. Renn (guest post)"
 published: "2026-07-06"
-date: 2026-07-06T14:40:14.000Z
+date: 2026-11-05T06:43:21.000Z
 status: ready
 draft: true
+audio: "https://media.lloyd.studio/episodes/happy-birthday-whoever-you-are-c40c5b.mp3"
+audio_bytes: 1221549
+duration: 305
 ---
+
 # Happy Birthday, Whoever You Are
 
 *On its 250th birthday, America no longer agrees on who it is — and a nation that forgets its story cannot stay one people.*
