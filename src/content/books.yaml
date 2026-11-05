@@ -4650,16 +4650,6 @@
     audible: https://www.audible.com/pd/Last-Branch-Standing-Audiobook/B0FPZF9T1C
   source: amazon
   cover: https://m.media-amazon.com/images/I/71i9e9ib85L._SY300_.jpg
-- id: "0140556125"
-  title: "Paul Revere's Ride"
-  author: Henry Wadsworth Longfellow
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/0140556125
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/91t2r+mVVaL._SY300_.jpg
 - id: "B0CD8V9SHD"
   title: "Going Infinite: The Rise and Fall of a New Tycoon"
   author: Michael Lewis
