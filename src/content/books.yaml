@@ -6188,16 +6188,6 @@
     audible: https://www.audible.com/search?keywords=The%20Story%20of%20Marriage%20John%20Bevere
   source: amazon
   cover: https://m.media-amazon.com/images/I/61aZ+jl6ZvL._SY300_.jpg
-- id: "1426328435"
-  title: "National Geographic Kids Look & Learn: Birds"
-  author: National Geographic Kids
-  date: 2026-07-10
-  status: to-read
-  links:
-    amazon: https://www.amazon.com/dp/1426328435
-  source: amazon
-  draft: true
-  cover: https://m.media-amazon.com/images/I/61bVsBiUCyL._SY300_.jpg
 - id: "B00205YJ32"
   title: "The First Salute: A View of the American Revolution"
   author: Barbara W. Tuchman
