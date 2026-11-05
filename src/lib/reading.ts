@@ -22,6 +22,7 @@ export interface ReadingItem {
   tags: string[];
   status: 'queued' | 'ready' | 'read';
   listen: ListenState;
+  read: boolean; // finished: article `status: read`, or the note tagged `read`
   audio?: string;
   hasArticle: boolean;
   draft: boolean; // owner-only (article or note is draft: true)
@@ -33,6 +34,9 @@ export interface ReadingItem {
 // Tags that put a note on the reading list.
 export const READING_TAG = 'reading';
 export const PODCAST_TAG = 'podcast';
+// Marks a link as read on its note (for links without an article yet; once
+// the article exists its `status: read` says the same — /api/reading sets both).
+export const READ_TAG = 'read';
 
 // Deterministic slug for an article: from the title (or URL hostname),
 // suffixed with a short hash of the URL so retitling can't collide.
@@ -87,6 +91,7 @@ export async function getReadingItems(
       // Text can exist without audio; narration is wanted only while the note
       // carries the `podcast` tag.
       listen: a.data.audio ? 'ready' : note?.data.tags.includes(PODCAST_TAG) ? 'queued' : 'none',
+      read: a.data.status === 'read' || Boolean(note?.data.tags.includes(READ_TAG)),
       audio: a.data.audio,
       hasArticle: true,
       draft: a.data.draft || Boolean(note?.data.draft),
@@ -106,9 +111,10 @@ export async function getReadingItems(
       title: n.data.title ?? n.data.url!,
       url: n.data.url!,
       date: n.data.date,
-      tags: n.data.tags.filter((t) => t !== PODCAST_TAG && t !== READING_TAG),
-      status: 'queued',
+      tags: n.data.tags.filter((t) => t !== PODCAST_TAG && t !== READING_TAG && t !== READ_TAG),
+      status: n.data.tags.includes(READ_TAG) ? 'read' : 'queued',
       listen: n.data.tags.includes(PODCAST_TAG) ? 'queued' : 'none',
+      read: n.data.tags.includes(READ_TAG),
       hasArticle: false,
       draft: n.data.draft,
       articlePath: `src/content/articles/${slug}.md`,

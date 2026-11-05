@@ -18,6 +18,12 @@
 //       delete   — remove the narration (R2 mp3 + the article's audio fields;
 //                  the clean text stays) and untag, back to "+"
 //
+//   { action: 'read', on, notePath?, articlePath? }
+//     Marks a link read (or unread): tags the note `read` and sets the
+//     article's `status: read` (back to `ready` when unmarked) — whichever of
+//     the two exist. /api/episode carries a `status: read` over, so narrating
+//     a finished item later doesn't reset it. Narration state is untouched.
+//
 //   { action: 'remove', op, slug, notePath?, articlePath?, audio?, url, title? }
 //     Takes a link off the reading list. op:
 //       delete   — delete the note and the article (+ R2 mp3) outright
@@ -70,6 +76,7 @@ export async function onRequestPost(context) {
     if (body.action === 'add') return await add(context, body);
     if (body.action === 'listen') return await listen(env, body);
     if (body.action === 'remove') return await remove(env, body);
+    if (body.action === 'read') return await markRead(env, body);
   } catch (e) {
     return json({ error: e.message }, 502);
   }
@@ -179,6 +186,39 @@ async function remove(env, body) {
     await deleteIfPresent(env, articlePath, `reading: remove ${name(articlePath)}`);
   }
   return json({ ok: true, op, notePath: notePathOut });
+}
+
+async function markRead(env, body) {
+  const { notePath, articlePath } = body;
+  const on = body.on === true;
+  if (notePath && !NOTE_PATH_RE.test(notePath)) return json({ error: 'invalid notePath' }, 400);
+  if (articlePath && !ARTICLE_PATH_RE.test(articlePath)) return json({ error: 'invalid articlePath' }, 400);
+  if (!notePath && !articlePath) return json({ error: 'nothing to mark' }, 400);
+
+  const verb = on ? 'read' : 'unread';
+  const name = (p) => p.split('/').pop();
+  if (notePath) {
+    const { text, sha } = await githubGetFile(env, notePath);
+    const next = setNoteTag(text, 'read', on);
+    if (next !== text) await githubPutFile(env, notePath, next, sha, `reading: ${verb} ${name(notePath)}`);
+  }
+  if (articlePath) {
+    const { text, sha } = await githubGetFile(env, articlePath);
+    const next = setArticleStatus(text, on ? 'read' : 'ready');
+    if (next !== text) await githubPutFile(env, articlePath, next, sha, `reading: ${verb} ${name(articlePath)}`);
+  }
+  return json({ ok: true, read: on });
+}
+
+// Sets (or adds) `status:` in an article's frontmatter.
+function setArticleStatus(text, status) {
+  return text.replace(/^(---\r?\n)([\s\S]*?\r?\n)(---)/, (_, open, fm, close) => {
+    const nl = fm.includes('\r\n') ? '\r\n' : '\n';
+    const next = /^status:.*$/m.test(fm)
+      ? fm.replace(/^status:.*$/m, `status: ${status}`)
+      : fm + `status: ${status}${nl}`;
+    return open + next + close;
+  });
 }
 
 async function deleteIfPresent(env, path, message) {

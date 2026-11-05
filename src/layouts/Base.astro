@@ -46,18 +46,18 @@ const getNavLabel = (href: string) => {
     <header class="site-header">
       <nav>
         <a href="/" class="site-title" aria-label={SITE_TITLE}><Wordmark /></a>
-        <a href="/notes" class:list={{ active: getNavLabel('/notes') }}>notes</a>
+        {/* Disabled (route lives at pages/_notes): <a href="/notes" class:list={{ active: getNavLabel('/notes') }}>notes</a> */}
         <a href="/reading" class:list={{ active: getNavLabel('/reading') }}>reading</a>
         <a href="/books" class:list={{ active: getNavLabel('/books') }}>books</a>
         <a href="/commonplace" class:list={{ active: getNavLabel('/commonplace') }}>commonplace</a>
         <a href="/quotes" class:list={{ active: getNavLabel('/quotes') }}>quotes</a>
         <a href="/beautiful" class:list={{ active: getNavLabel('/beautiful') }}>beautiful</a>
         <a href="/infographics" class:list={{ active: getNavLabel('/infographics') }}>infographics</a>
-        <a href="/essays" class:list={{ active: getNavLabel('/essays') }}>essays</a>
+        {/* Disabled (route lives at pages/_essays): <a href="/essays" class:list={{ active: getNavLabel('/essays') }}>essays</a> */}
         <a href="/apps" class:list={{ active: pathname.startsWith('/apps') }}>
           {pathname.startsWith('/apps/') ? `apps > ${title?.toLowerCase()}` : 'apps'}
         </a>
-        <a href="/search" class:list={{ active: getNavLabel('/search') }}>search</a>
+        {/* Disabled (route lives at pages/_search.astro): <a href="/search" class:list={{ active: getNavLabel('/search') }}>search</a> */}
         {SHOW_DRAFTS && <a href="/inbox" class="owner-only" class:list={{ active: getNavLabel('/inbox') }}>inbox</a>}
         {SHOW_DRAFTS && <a href="/capture" class="owner-only" class:list={{ active: getNavLabel('/capture') }}>capture</a>}
         <a

@@ -4,6 +4,16 @@ import { getReadingItems } from '../../lib/reading';
 import { SHOW_DRAFTS, formatDate } from '../../lib/site';
 
 const items = await getReadingItems();
+// Sections follow BacklogCast's board; a finished item goes to "completed"
+// whatever its narration state. "In progress" is live-only, so those rows
+// sit under "queued" (the owner script moves rows as their state changes).
+const sections = [
+  { id: 'none', title: 'not queued' },
+  { id: 'queued', title: 'queued' },
+  { id: 'ready', title: 'ready to listen' },
+  { id: 'read', title: 'completed' },
+] as const;
+const sectionOf = (i: (typeof items)[number]) => (i.read ? 'read' : i.listen);
 // LISTEN column glyphs, shared with the owner-mode editor script below.
 const listenIcon = { none: '+', queued: '≡', in_progress: '⏳', ready: '▶' };
 const listenLabel = {
@@ -36,19 +46,30 @@ const listenLabel = {
   )}
 
   {items.length === 0 && <p>Nothing on the list yet.</p>}
-  {items.length > 0 && (
+  {items.length > 0 && sections.map((sec) => {
+    const rows = items.filter((i) => sectionOf(i) === sec.id);
+    // Owner mode keeps empty sections so rows can move into them.
+    if (!rows.length && !SHOW_DRAFTS) return null;
+    return (
+    <section class="reading-section" data-section={sec.id} data-empty={rows.length ? undefined : ''}>
+    <h2>{sec.title} <span class="count">{rows.length}</span></h2>
     <table class:list={['reading-table', { owner: SHOW_DRAFTS }]}>
-      <colgroup><col /><col class="col-read" /><col class="col-listen" /></colgroup>
+      <colgroup>
+        <col /><col class="col-read" /><col class="col-listen" />
+        {SHOW_DRAFTS && <col class="col-done" />}
+      </colgroup>
       <thead>
-        <tr><th>title</th><th>read</th><th>listen</th></tr>
+        <tr><th>title</th><th>read</th><th>listen</th>{SHOW_DRAFTS && <th>done</th>}</tr>
       </thead>
       <tbody>
-        {items.map((i) => (
+        {rows.map((i) => (
           <tr
             data-key={i.key}
             data-title={i.title}
             data-url={i.url}
+            data-date={i.date.valueOf()}
             data-listen={i.listen}
+            data-read={i.read ? '1' : undefined}
             data-note={i.notePath}
             data-article={i.articleFilePath}
             data-audio={i.audio}
@@ -82,11 +103,19 @@ const listenLabel = {
                 <button type="button" class="listen-btn" data-state={i.listen}>{listenIcon[i.listen]}</button>
               )}
             </td>
+            {SHOW_DRAFTS && (
+              <td class="done">
+                <button type="button" class="done-btn" aria-pressed={i.read ? 'true' : 'false'}
+                  title={i.read ? 'read — click to mark unread' : 'mark as read'}>{i.read ? '✓' : ''}</button>
+              </td>
+            )}
           </tr>
         ))}
       </tbody>
     </table>
-  )}
+    </section>
+    );
+  })}
 </Base>
 
 <script is:inline>
@@ -127,7 +156,9 @@ const listenLabel = {
       const TOKEN_KEY = 'lloydio_owner_token';
       const toggle = document.getElementById('reading-edit-toggle');
       const form = document.getElementById('add-reading');
-      const table = document.querySelector('.reading-table');
+      // One table per section; clicks are delegated from the page.
+      const tables = document.querySelectorAll('.reading-table');
+      const table = document.querySelector('main');
       if (!toggle || !form) return;
       const urlInput = form.querySelector('input[name=url]');
       const titleInput = form.querySelector('input[name=title]');
@@ -158,13 +189,47 @@ const listenLabel = {
         btn.dataset.state = state;
       }
 
+      // Moves a row into the section its state belongs to (newest first) and
+      // refreshes the section counts.
+      function placeRow(row) {
+        const id = row.dataset.read
+          ? 'read'
+          : row.dataset.listen === 'in_progress' ? 'queued' : row.dataset.listen;
+        const tbody = document.querySelector('.reading-section[data-section="' + id + '"] tbody');
+        if (!tbody) return;
+        if (row.parentElement !== tbody) {
+          const date = Number(row.dataset.date || Date.now());
+          const after = [...tbody.rows].find((r) => Number(r.dataset.date || 0) < date);
+          tbody.insertBefore(row, after || null);
+        }
+        countSections();
+      }
+      function countSections() {
+        document.querySelectorAll('.reading-section').forEach((sec) => {
+          const n = sec.querySelectorAll('tbody tr').length;
+          sec.querySelector('.count').textContent = n;
+          if (n) delete sec.dataset.empty;
+          else sec.dataset.empty = '';
+        });
+      }
+
+      function setRead(row, on) {
+        if (on) row.dataset.read = '1';
+        else delete row.dataset.read;
+        const btn = row.querySelector('.done-btn');
+        if (!btn) return;
+        btn.setAttribute('aria-pressed', String(on));
+        btn.textContent = on ? '✓' : '';
+        btn.title = on ? 'read — click to mark unread' : 'mark as read';
+      }
+
       toggle.addEventListener('click', () => {
         const on = toggle.getAttribute('aria-pressed') !== 'true';
         toggle.setAttribute('aria-pressed', String(on));
         toggle.textContent = on ? 'done' : 'edit';
         form.hidden = !on;
         // Editing also exposes the "delete episode" button on narrated rows.
-        if (table) table.classList.toggle('editing', on);
+        tables.forEach((t) => t.classList.toggle('editing', on));
         if (on) {
           overlayLiveStatus(window.readingStatus());
           urlInput.focus();
@@ -255,6 +320,7 @@ const listenLabel = {
               });
               delete row.dataset.failed;
               setListen(row, res.listen);
+              placeRow(row);
               row.title = 'Saved — the site catches up after the next rebuild';
             } catch (e) {
               alert('Could not ' + op + ': ' + e.message);
@@ -296,6 +362,7 @@ const listenLabel = {
                 title: row.dataset.title,
               });
               row.remove();
+              countSections();
             } catch (e) {
               alert('Could not ' + (op === 'delete' ? 'delete' : 'move to notes') + ': ' + e.message);
               row.classList.remove('saving');
@@ -305,10 +372,40 @@ const listenLabel = {
         });
       }
 
+      // ---- DONE column (mark read) ---------------------------------------------
+      if (table) {
+        table.addEventListener('click', (ev) => {
+          const btn = ev.target.closest('.done-btn');
+          if (!btn) return;
+          const row = btn.closest('tr');
+          const on = !row.dataset.read;
+          btn.disabled = true;
+          row.classList.add('saving');
+          enqueue(async () => {
+            try {
+              await send({
+                action: 'read',
+                on,
+                notePath: row.dataset.note || undefined,
+                articlePath: row.dataset.article || undefined,
+              });
+              setRead(row, on);
+              placeRow(row);
+              row.title = 'Saved — the site catches up after the next rebuild';
+            } catch (e) {
+              alert('Could not mark ' + (on ? 'read' : 'unread') + ': ' + e.message);
+            } finally {
+              btn.disabled = false;
+              row.classList.remove('saving');
+            }
+          });
+        });
+      }
+
       // ---- add row ------------------------------------------------------------
       // A placeholder row until the rebuild lists it for real.
       function placeholderRow(url, title, listen) {
-        const tbody = document.querySelector('.reading-table tbody');
+        const tbody = document.querySelector('.reading-section[data-section="' + listen + '"] tbody');
         if (!tbody) return;
         const tr = document.createElement('tr');
         tr.className = 'just-added';
@@ -328,8 +425,9 @@ const listenLabel = {
         const listenTd = document.createElement('td');
         listenTd.className = 'listen';
         listenTd.textContent = listenIcon[listen];
-        tr.append(titleTd, readTd, listenTd);
+        tr.append(titleTd, readTd, listenTd, document.createElement('td'));
         tbody.prepend(tr);
+        countSections();
       }
 
       form.addEventListener('submit', (ev) => {
@@ -435,6 +533,33 @@ const listenLabel = {
   }
   .reading-table .col-read { width: 4.6em; }
   .reading-table .col-listen { width: 4.6em; }
+  .reading-table .col-done { width: 3.4em; }
+
+  /* One section per board column. Empty ones (owner mode only) keep their
+     heading so rows have somewhere to move to. */
+  .reading-section { margin-top: 1.6rem; }
+  .reading-section h2 { font-size: 1.05rem; margin: 0 0 0.3rem; }
+  .reading-section .count { font-size: 0.8em; font-weight: normal; color: var(--muted); }
+  .reading-section[data-empty] table { display: none; }
+  .reading-section[data-empty] h2 { color: var(--muted); }
+
+  .done { text-align: center; }
+  .done-btn {
+    font-family: inherit;
+    font-size: 0.85rem;
+    line-height: 1;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--fg);
+    cursor: pointer;
+  }
+  .done-btn:hover { border-color: var(--muted); }
+  .done-btn[aria-pressed='true'] { border-color: var(--muted); }
+  .done-btn:disabled { opacity: 0.5; cursor: progress; }
   .reading-table th:not(:first-child) { text-align: center; }
   .reading-table th { font-size: 0.85em; padding-left: 0.2em; padding-right: 0.2em; }
   .reading-table td { vertical-align: top; }
