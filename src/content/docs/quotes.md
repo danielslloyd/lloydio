@@ -2,6 +2,12 @@
 title: Quotes
 ---
 
+> The purpose of a tax policy is not to pursue fairness, morality, social justice, or anything like that: The purpose of tax policy is to raise sufficient revenue while minimizing the inevitable damage and distortion that all taxes impose on an economy.
+
+<p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://thedispatch.com/newsletter/wanderland/democrats-donald-trump-congress-midterms/#:~:text=The%20purpose%20of%20a%20tax%20policy%20is%20not%20to%20pursue,that%20all%20taxes%20impose%20on%20an%20economy">Democrats’ Simple Midterms Mandate: Don’t Be Donald Trump</a>”, Wanderland (The Dispatch), November 2, 2026</p>
+
+---
+
 > Socialists discovered that corporations have too much power and proposed merging your employer, landlord and grocery store into one institution with a police force and military.
 
 <p class="quote-src">— @sigmahamster2, October 11, 2026<br>
