@@ -4,7 +4,7 @@ url: "https://www.astralcodexten.com/p/book-review-the-dialectical-imagination"
 source: "Astral Codex Ten"
 published: "2026-05-29"
 date: 2026-11-05T08:12:26.000Z
-status: ready
+status: read
 draft: true
 audio: "https://media.lloyd.studio/episodes/book-review-the-dialectical-imagination-b45adf.mp3"
 audio_bytes: 11480109
