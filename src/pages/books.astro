@@ -269,7 +269,7 @@ const sections = [
         setTimeout(() => row.remove(), 300);
       }
 
-      // Same single-line truncation as BookRow's truncateTitle (42 chars).
+      // BookRow's truncateTitle (42 chars), for the auto-width drafts table.
       const truncTitle = (t) => (t.length > 43 ? t.slice(0, 42).trimEnd() + '…' : t);
 
       // ---- inline status/rating editor (published rows) ------------------
@@ -390,6 +390,10 @@ const sections = [
         // from the prototype draft row.
         draft.querySelector('.book-cover').replaceWith(row.querySelector('.book-cover'));
         draft.querySelector('.book-title-author').replaceWith(row.querySelector('.book-title-author'));
+        // The drafts table sizes to its content, so cap the title like
+        // BookRow does there.
+        const t = draft.querySelector('.title');
+        if (t) t.textContent = truncTitle(t.title || t.textContent);
         draft.querySelectorAll('button, select, a.act').forEach((el) => el.removeAttribute('disabled'));
         draft.setAttribute('data-book-id', id);
         const pick = draft.querySelector('.draft-state');
@@ -473,7 +477,7 @@ const sections = [
             '<div class="author"></div></td><td class="book-status"><span class="state-label"></span></td>';
         }
         row.setAttribute('data-book-id', entry.id);
-        row.querySelector('.title').textContent = truncTitle(entry.title);
+        row.querySelector('.title').textContent = entry.title;
         row.querySelector('.title').title = entry.title;
         row.querySelector('.author').textContent = entry.author || '';
         renderLabel(row, entry.status, null);
@@ -777,19 +781,16 @@ const sections = [
   .book-section table { margin-top: 0.4rem; }
 
   /* Public sections share one column grid. The title column takes whatever
-     the fixed columns leave. Owner mode's status column is wider: it also
-     holds the ✎ button and, while editing, the status/rating dropdown. */
+     the fixed columns leave. Status fits five stars (owner mode: plus the ✎
+     button); the edit dropdown shrinks to fit rather than widening it. */
   .book-table {
     width: 100%;
     table-layout: fixed;
   }
   .col-cover { width: 44px; }
-  .col-status { width: 5.4rem; }
+  .col-status { width: 5.2rem; }
   .col-links { width: 5.6rem; }
-  .book-table.owner .col-status { width: 8.4rem; }
-  @media (max-width: 34rem) {
-    .book-table.owner .col-status { width: 6.8rem; }
-  }
+  .book-table.owner .col-status { width: 6.6rem; }
 
   /* Owner-mode "edit" toggle (same look as the category docs' toggle). */
   .edit-toggle {
