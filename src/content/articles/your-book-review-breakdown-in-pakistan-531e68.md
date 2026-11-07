@@ -5,7 +5,7 @@ author: "Anonymous (ACX book review contest finalist)"
 source: "Astral Codex Ten"
 published: "2026-07-24"
 date: 2026-11-05T06:07:08.000Z
-status: ready
+status: read
 draft: true
 audio: "https://media.lloyd.studio/episodes/your-book-review-breakdown-in-pakistan-531e68.mp3"
 audio_bytes: 11667117
