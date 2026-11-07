@@ -5,7 +5,7 @@ author: "John Psmith"
 source: "Mr. and Mrs. Psmith’s Bookshelf"
 published: "2026-06-01"
 date: 2026-10-21T21:51:34.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/www-thepsmiths-com-p-review-anabasis-by-xenophon-204b0b.mp3"
 audio_bytes: 16907349
 duration: 2206
