@@ -7248,3 +7248,63 @@
     audible: https://www.audible.com/pd/B0HGGGCZP9
   source: amazon
   cover: https://m.media-amazon.com/images/I/812XmefjpxL._SY300_.jpg
+- id: "0827606222"
+  title: "The Zionist Idea: A Historical Analysis and Reader"
+  author: "Arthur Hertzberg"
+  date: 2026-11-07
+  status: to-read
+  links:
+    amazon: https://www.amazon.com/dp/0827606222
+  source: amazon
+  cover: https://m.media-amazon.com/images/P/0827606222.01._SCLZZZZZZZ_.jpg
+  draft: true
+- id: "0312535015"
+  title: "Palestine and the Arab-Israeli Conflict: A History with Documents"
+  author: "Charles D. Smith"
+  date: 2026-11-07
+  status: to-read
+  links:
+    amazon: https://www.amazon.com/dp/0312535015
+  source: amazon
+  cover: https://m.media-amazon.com/images/P/0312535015.01._SCLZZZZZZZ_.jpg
+  draft: true
+- id: "0679744754"
+  title: "Righteous Victims: A History of the Zionist-Arab Conflict, 1881-2001"
+  author: "Benny Morris"
+  date: 2026-11-07
+  status: to-read
+  links:
+    amazon: https://www.amazon.com/dp/0679744754
+  source: amazon
+  cover: https://m.media-amazon.com/images/P/0679744754.01._SCLZZZZZZZ_.jpg
+  draft: true
+- id: "0807003085"
+  title: "The Iron Cage: The Story of the Palestinian Struggle for Statehood"
+  author: "Rashid Khalidi"
+  date: 2026-11-07
+  status: to-read
+  links:
+    amazon: https://www.amazon.com/dp/0807003085
+  source: amazon
+  cover: https://m.media-amazon.com/images/P/0807003085.01._SCLZZZZZZZ_.jpg
+  draft: true
+- id: "0521009677"
+  title: "The Birth of the Palestinian Refugee Problem Revisited"
+  author: "Benny Morris"
+  date: 2026-11-07
+  status: to-read
+  links:
+    amazon: https://www.amazon.com/dp/0521009677
+  source: amazon
+  cover: https://m.media-amazon.com/images/P/0521009677.01._SCLZZZZZZZ_.jpg
+  draft: true
+- id: "1560258020"
+  title: "A Quiet Revolution: The First Palestinian Intifada and Nonviolent Resistance"
+  author: "Mary Elizabeth King"
+  date: 2026-11-07
+  status: to-read
+  links:
+    amazon: https://www.amazon.com/dp/1560258020
+  source: amazon
+  cover: https://m.media-amazon.com/images/P/1560258020.01._SCLZZZZZZZ_.jpg
+  draft: true
