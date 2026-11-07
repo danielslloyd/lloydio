@@ -4,7 +4,7 @@ url: "https://www.aaronrenn.com/p/suburbs-and-sacred-space"
 author: "Aaron M. Renn"
 published: "2026-06-25"
 date: 2026-11-05T06:49:31.000Z
-status: ready
+status: read
 draft: true
 audio: "https://media.lloyd.studio/episodes/suburbs-and-sacred-space-1a6b8a.mp3"
 audio_bytes: 2190285
