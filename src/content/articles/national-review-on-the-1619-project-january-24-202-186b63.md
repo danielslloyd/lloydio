@@ -4,8 +4,11 @@ url: "https://www.nationalreview.com/magazine/2022/01/24/"
 author: "Dan McLaughlin, Charles C. W. Cooke, Phillip Magness, Wilfred Reilly, Richard Brookhiser"
 source: "National Review"
 published: "2022-01-24"
-date: 2026-11-07T12:39:25.611Z
+date: 2026-11-07T15:59:48.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/national-review-on-the-1619-project-january-24-202-186b63.mp3"
+audio_bytes: 20159085
+duration: 5039
 ---
 
 # National Review on the 1619 Project (January 24, 2022)
