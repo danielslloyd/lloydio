@@ -5,7 +5,7 @@ author: "Johann Kurtz"
 source: "Becoming Noble"
 published: "2026-06-22"
 date: 2026-11-05T06:40:01.000Z
-status: ready
+status: read
 draft: true
 audio: "https://media.lloyd.studio/episodes/childhood-freedom-is-a-now-luxury-good-8aba6b.mp3"
 audio_bytes: 2919021
