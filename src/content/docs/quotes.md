@@ -2,6 +2,24 @@
 title: Quotes
 ---
 
+> The philosophers of the Frankfurt School practiced a technique called negative dialectics, where concepts are defined as much by what you can’t say about them as what you can. Appropriately, the Frankfurt School has ended up almost entirely defined by what you can’t say about them.
+>
+> You can’t say that they invented a new form of left-wing thought called Cultural Marxism. This would be (according to Wikipedia) the Cultural Marxism conspiracy theory, a “far right anti-Semitic conspiracy theory that misinterprets Western Marxism, especially the Frankfurt School, as being responsible for modern progressive movements, identity politics, and political correctness”. You’re not supposed to dub them a transitional stage between Communism and postmodernism. You’re not allowed to speculate that a lot of the academic humanities, as they’re practiced today, descend from the Frankfurt School’s brand of critical theory. You’re not supposed to think of them as the point where the muscular pro-technology leftism of the early 1900s shattered into the pessimistic degrowth leftism of the present.
+>
+> Art is long, life is short. Most of us only manage to not do a few things in our limited span on Earth. But the Frankfurt School managed to not invent so many movements - to not be involved in so many of the crucial ideological shifts of the past century - that they caught my attention. Who were these people? What other aspects of our culture might we be unable to say they were involved in?
+>
+> ...
+> 
+> On the surface, communism is a simple and practical philosophy. Some people are hoarding all the stuff. Let’s rise up and take it from them. A+ pitch. But dig deeper, and it becomes much stranger, even mystical.
+>
+> Communism aims at the free and equal society without oppression or class divisions. What else is like this? What about feminism? The feminists aim for a free and equal society without gender-based oppression gender division. An orthodox Marxist might say their problem is fully downstream of capitalism: in a populace governed by the repressive logic of capitalist production, men must force women into a subservient role to produce their babies and household goods - but under communism, these divisions would naturally melt away. The superstructure-curious Frankfurter might posit that gender-based oppression is partly downstream of capitalism, but also partly upstream of it. They’re two interlocking forms of oppression; you can unjam the wheels of history by working on both.
+> 
+> But once you start saying things are like other things, where do you stop? Divisions between bourgeois and proletariat, between men and women, between whites and blacks all naturally fit into this framework. But what about the divisions between ego and superego, between man and nature, between reason and emotion, between subject and object? There is, thought the Frankfurters, a single wound in the world that runs through all of these.
+
+<p class="quote-src">— Scott Alexander, “<a class="src-title" href="https://www.astralcodexten.com/p/book-review-the-dialectical-imagination#:~:text=The%20philosophers%20of%20the%20Frankfurt%20School%20practiced%20a%20technique">Book Review: The Dialectical Imagination</a>”, Astral Codex Ten, May 29, 2026</p>
+
+---
+
 > The purpose of a tax policy is not to pursue fairness, morality, social justice, or anything like that: The purpose of tax policy is to raise sufficient revenue while minimizing the inevitable damage and distortion that all taxes impose on an economy.
 
 <p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://thedispatch.com/newsletter/wanderland/democrats-donald-trump-congress-midterms/#:~:text=The%20purpose%20of%20a%20tax%20policy%20is%20not%20to%20pursue,that%20all%20taxes%20impose%20on%20an%20economy">Democrats’ Simple Midterms Mandate: Don’t Be Donald Trump</a>”, Wanderland (The Dispatch), November 2, 2026</p>
