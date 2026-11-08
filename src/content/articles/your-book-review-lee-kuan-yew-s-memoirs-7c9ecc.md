@@ -5,7 +5,7 @@ author: "Anonymous (ACX book review contest finalist)"
 source: "Astral Codex Ten"
 published: "2026-09-25"
 date: 2026-11-05T06:29:46.000Z
-status: ready
+status: read
 draft: true
 audio: "https://media.lloyd.studio/episodes/your-book-review-lee-kuan-yew-s-memoirs-7c9ecc.mp3"
 audio_bytes: 8187021
