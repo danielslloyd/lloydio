@@ -5,7 +5,7 @@ author: "Chris Arnade"
 source: "Chris Arnade Walks the World"
 published: "2026-07-10"
 date: 2026-11-05T07:19:30.000Z
-status: ready
+status: read
 draft: true
 audio: "https://media.lloyd.studio/episodes/two-interviews-an-author-and-a-painter-7b243e.mp3"
 audio_bytes: 9801741
