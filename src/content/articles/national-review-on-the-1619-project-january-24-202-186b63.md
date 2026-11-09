@@ -5,7 +5,7 @@ author: "Dan McLaughlin, Charles C. W. Cooke, Phillip Magness, Wilfred Reilly, R
 source: "National Review"
 published: "2022-01-24"
 date: 2026-11-07T15:59:48.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/national-review-on-the-1619-project-january-24-202-186b63.mp3"
 audio_bytes: 20159085
 duration: 5039
