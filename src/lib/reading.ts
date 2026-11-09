@@ -26,8 +26,10 @@ export interface ReadingItem {
   audio?: string;
   audioBytes?: number; // mp3 size in R2 (counts toward the storage limit)
   duration?: number; // seconds
+  feedDate?: Date; // the episode's pubDate in the podcast feed
   hasArticle: boolean;
   draft: boolean; // owner-only (article or note is draft: true)
+  articleDraft: boolean; // the article itself is a draft — left out of the podcast feed
   articlePath: string; // repo path where the article file lives / should live
   articleFilePath?: string; // actual path if the article exists
   notePath?: string; // the reading/podcast note for this URL, if any
@@ -50,6 +52,20 @@ export const FEED_STORAGE_LIMIT = 10e9;
 // The public podcast feed (see src/pages/podcast/[token].xml.ts). The owner
 // build shows the public URL too, so it needs the same FEED_TOKEN to be right.
 export const FEED_URL = `${PUBLIC_ORIGIN}/podcast/${process.env.FEED_TOKEN || 'feed'}.xml`;
+
+export function fmtBytes(b: number): string {
+  if (b >= 1e9) return `${(b / 1e9).toFixed(2)} GB`;
+  return `${(b / 1e6).toFixed(b >= 1e8 ? 0 : 1)} MB`;
+}
+
+// Seconds → m:ss or h:mm:ss.
+export function fmtLength(s?: number): string {
+  if (!s) return '—';
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = String(Math.round(s % 60)).padStart(2, '0');
+  return h ? `${h}:${String(m).padStart(2, '0')}:${sec}` : `${m}:${sec}`;
+}
 
 export function articleSlug(title: string | undefined, url: string): string {
   const base =
@@ -105,8 +121,10 @@ export async function getReadingItems(
       audio: a.data.audio,
       audioBytes: a.data.audio_bytes,
       duration: a.data.duration,
+      feedDate: a.data.audio ? (a.data.feed_date ?? a.data.date) : undefined,
       hasArticle: true,
       draft: a.data.draft || Boolean(note?.data.draft),
+      articleDraft: a.data.draft,
       articlePath: a.filePath ?? `src/content/articles/${a.id}.md`,
       articleFilePath: a.filePath,
       notePath: note?.filePath,
@@ -129,6 +147,7 @@ export async function getReadingItems(
       read: n.data.tags.includes(READ_TAG),
       hasArticle: false,
       draft: n.data.draft,
+      articleDraft: false,
       articlePath: `src/content/articles/${slug}.md`,
       notePath: n.filePath,
     });

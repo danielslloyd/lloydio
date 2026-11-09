@@ -20,7 +20,7 @@ export const GET: APIRoute = async (context) => {
   const articles = (
     await getCollection('articles', (e) => Boolean(e.data.audio) && !e.data.draft)
   ).sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+    (a, b) => (b.data.feed_date ?? b.data.date).valueOf() - (a.data.feed_date ?? a.data.date).valueOf()
   );
 
   const items = articles
@@ -37,7 +37,7 @@ export const GET: APIRoute = async (context) => {
       <title>${esc(a.data.title)}</title>
       <link>${esc(a.data.url)}</link>
       <guid isPermaLink="false">${esc(audioUrl)}</guid>
-      <pubDate>${a.data.date.toUTCString()}</pubDate>
+      <pubDate>${(a.data.feed_date ?? a.data.date).toUTCString()}</pubDate>
       <description>${esc(`Narration of ${a.data.url}`)}</description>
       <enclosure url="${esc(audioUrl)}" length="${length}" type="${type}" />
       <itunes:explicit>false</itunes:explicit>${

@@ -45,6 +45,12 @@ site rebuilds automatically
 - Enclosures point at R2 (`audio_bytes` / `duration` frontmatter give the
   length and `itunes:duration`). R2's public domain serves range requests, so
   podcast apps can stream and resume.
+- Only published episodes are in the feed: narrated articles with
+  `draft: true` stay out (they wait in the owner page's hopper under
+  "narrated · not published"). The publish button on `/feed` sets
+  `draft: false` and stamps `feed_date`, which is the episode's `pubDate`
+  (falls back to `date`); unpublish sets `draft: true` again. `/api/episode`
+  carries both keys over when it re-writes an article.
 
 ## Configuration (Cloudflare)
 

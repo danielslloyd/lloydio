@@ -1,0 +1,97 @@
+---
+// One row of a /feed table. `cols` picks the cells (and must match the
+// table's header); see src/pages/feed/index.astro.
+import { type ReadingItem, fmtBytes, fmtLength } from '../lib/reading';
+import { SHOW_DRAFTS, formatDate } from '../lib/site';
+
+export type FeedCol = 'title' | 'added' | 'published' | 'read' | 'length' | 'size' | 'actions' | 'listen';
+
+interface Props {
+  item: ReadingItem;
+  cols: FeedCol[];
+  biggest?: number; // largest episode in bytes, scales the size bars
+}
+const { item: i, cols, biggest = 1 } = Astro.props;
+const isEpisode = i.listen === 'ready';
+const published = isEpisode && !i.articleDraft;
+const bytes = i.audioBytes ?? 0;
+// Sorts on the words, not leading quotes/punctuation.
+const sortTitle = i.title.toLowerCase().replace(/^[^\p{L}\p{N}]+/u, '');
+const listenIcon = { none: '+', queued: '≡', in_progress: '⏳', ready: '▶' };
+---
+<tr
+  data-key={i.key}
+  data-title={i.title}
+  data-url={i.url}
+  data-date={i.date.valueOf()}
+  data-listen={i.listen}
+  data-note={i.notePath}
+  data-article={i.articleFilePath}
+  data-audio={i.audio}
+  data-bytes={isEpisode ? bytes : undefined}
+  data-published={published ? '1' : undefined}
+  data-s-title={sortTitle}
+  data-s-added={i.date.valueOf()}
+  data-s-published={published && i.feedDate ? i.feedDate.valueOf() : 0}
+  data-s-length={i.duration ?? 0}
+  data-s-size={bytes}
+>
+  {cols.map((c) => {
+    if (c === 'title') return (
+      <td class="title">
+        {i.title}
+        {SHOW_DRAFTS && (
+          <span class="row-ops">
+            <button type="button" class="row-op" data-op="to-notes" title="Move to notes (off the list)">→ note</button>
+            <button type="button" class="row-op danger" data-op="delete" title="Delete the link, its text and any episode">✕</button>
+          </span>
+        )}
+      </td>
+    );
+    if (c === 'added') return <td class="date">{formatDate(i.date)}</td>;
+    if (c === 'published') return (
+      <td class="date published-date">{published && i.feedDate ? formatDate(i.feedDate) : '—'}</td>
+    );
+    if (c === 'read') return (
+      <td class="read">
+        <a href={i.url}>original</a>
+        {i.hasArticle ? (
+          <a href={`/feed/${i.slug}`}>md</a>
+        ) : (
+          <span class="pending" title="clean text not generated yet — queued">md</span>
+        )}
+      </td>
+    );
+    if (c === 'length') return <td class="length">{fmtLength(i.duration)}</td>;
+    if (c === 'size') return (
+      <td class="size" title={fmtBytes(bytes)}>
+        <span class="size-bar" style={`width:${(bytes / biggest) * 100}%`}></span>
+        <span class="size-num">{(bytes / 1e6).toFixed(1)}</span>
+      </td>
+    );
+    if (c === 'actions') return (
+      <td class="actions">
+        <button type="button" class="icon-btn publish-btn" data-on={published ? '1' : undefined}
+          title={published ? 'Unpublish — take it out of the podcast feed' : 'Publish to the podcast feed'}
+          aria-label={published ? 'Unpublish' : 'Publish'}>
+          <span class="material-symbols-outlined" aria-hidden="true">{published ? 'cloud_off' : 'cloud_upload'}</span>
+        </button>
+        <button type="button" class="icon-btn danger delete-episode-btn"
+          title="Delete the episode (mp3 + narrated text) — the link goes back to the hopper"
+          aria-label="Delete episode">
+          <span class="material-symbols-outlined" aria-hidden="true">delete</span>
+        </button>
+      </td>
+    );
+    if (c === 'listen') return (
+      <td class="listen">
+        {isEpisode ? (
+          <a class="listen-view" href={i.audio} title="listen">▶</a>
+        ) : (
+          <button type="button" class="listen-btn" data-state={i.listen}>{listenIcon[i.listen]}</button>
+        )}
+      </td>
+    );
+    return null;
+  })}
+</tr>

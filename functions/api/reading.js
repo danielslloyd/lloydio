@@ -1,6 +1,6 @@
 // Cloudflare Pages Function: POST /api/reading
 //
-// Owner-only edits for the /reading page (the edit button in DRAFTS=1 builds).
+// Owner-only edits for the /feed page (the edit button in DRAFTS=1 builds).
 //
 //   { action: 'add', url, title?, podcast? }
 //     Commits a note tagged `reading` (plus `podcast` when podcast is true,
@@ -23,6 +23,12 @@
 //     article's `status: read` (back to `ready` when unmarked) — whichever of
 //     the two exist. /api/episode carries a `status: read` over, so narrating
 //     a finished item later doesn't reset it. Narration state is untouched.
+//
+//   { action: 'publish', on, articlePath }
+//     Puts a narrated episode in the podcast feed (or takes it out): sets the
+//     article's `draft: false` and stamps `feed_date` (the episode's pubDate)
+//     with the current time; unpublishing sets `draft: true` and keeps the
+//     stamp. Drafts are left out of /podcast/<FEED_TOKEN>.xml.
 //
 //   { action: 'remove', op, slug, notePath?, articlePath?, audio?, url, title? }
 //     Takes a link off the reading list. op:
@@ -77,6 +83,7 @@ export async function onRequestPost(context) {
     if (body.action === 'listen') return await listen(env, body);
     if (body.action === 'remove') return await remove(env, body);
     if (body.action === 'read') return await markRead(env, body);
+    if (body.action === 'publish') return await publish(env, body);
   } catch (e) {
     return json({ error: e.message }, 502);
   }
@@ -210,15 +217,35 @@ async function markRead(env, body) {
   return json({ ok: true, read: on });
 }
 
-// Sets (or adds) `status:` in an article's frontmatter.
-function setArticleStatus(text, status) {
+async function publish(env, body) {
+  const { articlePath } = body;
+  const on = body.on === true;
+  if (!articlePath || !ARTICLE_PATH_RE.test(articlePath)) return json({ error: 'invalid articlePath' }, 400);
+  const { text, sha } = await githubGetFile(env, articlePath);
+  const fm = (text.match(/^---\r?\n([\s\S]*?)\r?\n---/) || [])[1] || '';
+  if (!/^audio:/m.test(fm)) return json({ error: 'not narrated yet' }, 400);
+  const feedDate = new Date().toISOString();
+  let next = setFrontmatter(text, 'draft', on ? 'false' : 'true');
+  if (on) next = setFrontmatter(next, 'feed_date', feedDate);
+  if (next !== text) {
+    await githubPutFile(env, articlePath, next, sha,
+      `reading: ${on ? 'publish' : 'unpublish'} ${articlePath.split('/').pop()}`);
+  }
+  return json({ ok: true, published: on, feedDate: on ? feedDate : undefined });
+}
+
+// Sets (or adds) a top-level `key: value` in an article's frontmatter.
+function setFrontmatter(text, key, value) {
   return text.replace(/^(---\r?\n)([\s\S]*?\r?\n)(---)/, (_, open, fm, close) => {
     const nl = fm.includes('\r\n') ? '\r\n' : '\n';
-    const next = /^status:.*$/m.test(fm)
-      ? fm.replace(/^status:.*$/m, `status: ${status}`)
-      : fm + `status: ${status}${nl}`;
+    const re = new RegExp(`^${key}:.*$`, 'm');
+    const next = re.test(fm) ? fm.replace(re, `${key}: ${value}`) : fm + `${key}: ${value}${nl}`;
     return open + next + close;
   });
+}
+
+function setArticleStatus(text, status) {
+  return setFrontmatter(text, 'status', status);
 }
 
 async function deleteIfPresent(env, path, message) {
