@@ -1,6 +1,6 @@
 // Cloudflare Pages Function: /api/episode-status
 //
-// Live listen state for the /reading LISTEN column (see functions/_episodes.js).
+// Live listen state for the /feed LISTEN column (see functions/_episodes.js).
 //   GET                 → { statuses: { slug: { state, updated } },
 //                           text: { slug: { state, reason?, updated } } }
 //   GET ?slug=<slug>    → { slug, state|null }   (BacklogCast's cancel check)
@@ -10,7 +10,7 @@
 //
 // BacklogCast reports progress here with `Bearer EPISODE_TOKEN`; the owner page
 // reads it with its Access cookie (owner auth via _owner.js `authorized`).
-// Unauthenticated GETs get only `text`, which the public /reading page uses to
+// Unauthenticated GETs get only `text`, which the public /feed page uses to
 // mark "md" links that are coming vs. failed.
 
 import { authorized, json, CORS } from '../_owner.js';

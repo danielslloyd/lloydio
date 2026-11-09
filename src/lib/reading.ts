@@ -1,9 +1,9 @@
-// Shared logic for the article reading list. The /reading page and the
+// Shared logic for the article reading list. The /feed page and the
 // /api/podcast-queue.json endpoint both use this, so the human view and
 // the machine view (what BacklogCast consumes) can never disagree.
 
 import { getCollection } from 'astro:content';
-import { SHOW_DRAFTS } from './site';
+import { SHOW_DRAFTS, PUBLIC_ORIGIN } from './site';
 
 // Listen state, from the repo alone: `ready` = narrated (article has audio),
 // `queued` = note tagged `podcast` (BacklogCast will narrate it), `none` =
@@ -12,7 +12,7 @@ import { SHOW_DRAFTS } from './site';
 export type ListenState = 'none' | 'queued' | 'ready';
 
 export interface ReadingItem {
-  slug: string; // /reading/<slug> page (derived from the article title)
+  slug: string; // /feed/<slug> page (derived from the article title)
   // Stable id BacklogCast tracks the item by: the queue slug and the live-status
   // key. It is the article's filename once the clean text exists.
   key: string;
@@ -24,6 +24,8 @@ export interface ReadingItem {
   listen: ListenState;
   read: boolean; // finished: article `status: read`, or the note tagged `read`
   audio?: string;
+  audioBytes?: number; // mp3 size in R2 (counts toward the storage limit)
+  duration?: number; // seconds
   hasArticle: boolean;
   draft: boolean; // owner-only (article or note is draft: true)
   articlePath: string; // repo path where the article file lives / should live
@@ -41,6 +43,14 @@ export const READ_TAG = 'read';
 // Deterministic slug for an article: from the title (or URL hostname),
 // suffixed with a short hash of the URL so retitling can't collide.
 // Duplicated in pipeline/backlogcast.mjs and functions/_episodes.js.
+// What the episode mp3s can occupy in R2 before storage is billed: the free
+// tier is 10 GB-month (decimal GB, the conservative reading).
+export const FEED_STORAGE_LIMIT = 10e9;
+
+// The public podcast feed (see src/pages/podcast/[token].xml.ts). The owner
+// build shows the public URL too, so it needs the same FEED_TOKEN to be right.
+export const FEED_URL = `${PUBLIC_ORIGIN}/podcast/${process.env.FEED_TOKEN || 'feed'}.xml`;
+
 export function articleSlug(title: string | undefined, url: string): string {
   const base =
     (title || new URL(url).hostname + new URL(url).pathname)
@@ -93,6 +103,8 @@ export async function getReadingItems(
       listen: a.data.audio ? 'ready' : note?.data.tags.includes(PODCAST_TAG) ? 'queued' : 'none',
       read: a.data.status === 'read' || Boolean(note?.data.tags.includes(READ_TAG)),
       audio: a.data.audio,
+      audioBytes: a.data.audio_bytes,
+      duration: a.data.duration,
       hasArticle: true,
       draft: a.data.draft || Boolean(note?.data.draft),
       articlePath: a.filePath ?? `src/content/articles/${a.id}.md`,

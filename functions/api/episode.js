@@ -14,7 +14,7 @@
 //   duration_seconds  episode length          — narration only
 //
 // Text only: commits src/content/articles/<slug>.md with the clean text, so
-// /reading gets its "md" link. With audio: also stores the mp3 in R2 (served
+// /feed gets its "md" link. With audio: also stores the mp3 in R2 (served
 // at AUDIO_BASE_URL) and adds audio/audio_bytes/duration, which puts it in
 // /podcast/<FEED_TOKEN>.xml. The commit triggers a rebuild. Re-POSTing a slug
 // overwrites (idempotent); a text-only POST keeps any audio already recorded,

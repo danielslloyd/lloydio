@@ -30,7 +30,7 @@ content stays **per-file**.
 - `pipeline/backlogcast.mjs` — podcast queue viewer. Narration runs on the
   owner's desktop (BacklogCast + Henty), which writes back through
   `functions/api/episode.js` (mp3 → R2 `AUDIO` binding, article → git).
-- `functions/api/reading.js` — owner-mode "add URL" for `/reading`; commits a
+- `functions/api/reading.js` — owner-mode "add URL" for `/feed`; commits a
   podcast-tagged note (shared note builder: `functions/_note.js`).
 - `functions/api/capture.js` — Cloudflare Pages Function; commits captures.
 - `functions/api/books.js` + `functions/_bookmeta.js` — owner-mode book

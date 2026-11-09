@@ -50,7 +50,7 @@ const getNavLabel = (href: string) => {
           {SHOW_DRAFTS && <span class="draft-banner" title="owner mode — drafts visible">owner mode</span>}
         </span>
         {/* Disabled (route lives at pages/_notes): <a href="/notes" class:list={{ active: getNavLabel('/notes') }}>notes</a> */}
-        <a href="/reading" class:list={{ active: getNavLabel('/reading') }}>reading</a>
+        <a href="/feed" class:list={{ active: getNavLabel('/feed') }}>feed</a>
         <a href="/books" class:list={{ active: getNavLabel('/books') }}>books</a>
         <a href="/commonplace" class:list={{ active: getNavLabel('/commonplace') }}>commonplace</a>
         <a href="/quotes" class:list={{ active: getNavLabel('/quotes') }}>quotes</a>

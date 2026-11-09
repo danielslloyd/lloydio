@@ -15,7 +15,11 @@ export function getStaticPaths() {
 
 export const GET: APIRoute = async (context) => {
   const site = context.site ?? new URL('http://localhost:4321');
-  const articles = (await getCollection('articles', (e) => Boolean(e.data.audio))).sort(
+  // Drafts stay out of the feed in every build — the feed URL is shown on the
+  // public /feed page, so it must list exactly what that page lists.
+  const articles = (
+    await getCollection('articles', (e) => Boolean(e.data.audio) && !e.data.draft)
+  ).sort(
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
   );
 
@@ -51,14 +55,14 @@ export const GET: APIRoute = async (context) => {
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${esc(SITE_TITLE)} backlog</title>
-    <link>${esc(new URL('/reading', site).href)}</link>
+    <link>${esc(new URL('/feed', site).href)}</link>
     <atom:link href="${esc(selfUrl)}" rel="self" type="application/rss+xml" />
     <description>Narrated versions of articles from the reading list.</description>
     <language>en</language>
     <itunes:author>Daniel Lloyd</itunes:author>
     <itunes:summary>Narrated versions of articles from the reading list.</itunes:summary>
     <itunes:image href="${esc(cover)}" />
-    <image><url>${esc(cover)}</url><title>${esc(SITE_TITLE)} backlog</title><link>${esc(new URL('/reading', site).href)}</link></image>
+    <image><url>${esc(cover)}</url><title>${esc(SITE_TITLE)} backlog</title><link>${esc(new URL('/feed', site).href)}</link></image>
     <itunes:category text="Education" />
     <itunes:explicit>false</itunes:explicit>
     <itunes:type>episodic</itunes:type>

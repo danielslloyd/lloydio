@@ -1,10 +1,10 @@
 // Shared note builder for Pages Functions that commit to src/content/notes/
 // (files prefixed with `_` are not routed by Cloudflare Pages).
 // Used by /api/capture (phone/extension captures) and /api/reading (owner-mode
-// "add URL" on /reading).
+// "add URL" on /feed).
 
 // Builds the repo path + markdown for one note. `inbox: true` puts it in the
-// process-inbox triage queue; podcast-only adds from /reading skip that.
+// process-inbox triage queue; podcast-only adds from /feed skip that.
 export function buildNote({
   url,
   title,
