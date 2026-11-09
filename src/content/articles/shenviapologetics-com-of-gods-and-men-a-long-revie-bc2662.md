@@ -5,7 +5,7 @@ author: "Neil Shenvi"
 source: "Neil Shenvi - Apologetics"
 published: "2022-11-22"
 date: 2026-11-08T03:27:31.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/shenviapologetics-com-of-gods-and-men-a-long-revie-bc2662.mp3"
 audio_bytes: 2789997
 duration: 697
