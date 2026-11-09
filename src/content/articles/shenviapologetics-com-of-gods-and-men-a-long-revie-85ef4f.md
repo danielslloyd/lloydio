@@ -6,9 +6,6 @@ source: "Neil Shenvi - Apologetics"
 published: "2022-11-22"
 date: 2026-11-08T03:17:56.000Z
 status: read
-audio: "https://media.lloyd.studio/episodes/shenviapologetics-com-of-gods-and-men-a-long-revie-85ef4f.mp3"
-audio_bytes: 7999245
-duration: 1999
 ---
 
 # Of Gods and Men: A Long Review of Wolfe's Case for Christian Nationalism, Part III – Objections
