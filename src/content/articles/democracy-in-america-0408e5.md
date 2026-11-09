@@ -6,10 +6,11 @@ source: "Chris Arnade Walks the World"
 published: "2026-10-20"
 date: 2026-11-09T13:01:13.000Z
 status: ready
-draft: true
+draft: false
 audio: "https://media.lloyd.studio/episodes/democracy-in-america-0408e5.mp3"
 audio_bytes: 5451213
 duration: 1362
+feed_date: 2026-11-09T19:42:35.917Z
 ---
 
 # Democracy in America
