@@ -4,10 +4,14 @@ url: "https://www.astralcodexten.com/p/your-book-review-storm-of-steel"
 author: "Anonymous (ACX book review contest finalist)"
 source: "Astral Codex Ten"
 published: "2026-10-16"
-date: 2026-10-16T23:39:56.000Z
+date: 2026-11-09T13:43:16.000Z
 status: ready
 draft: true
+audio: "https://media.lloyd.studio/episodes/your-book-review-storm-of-steel-491dff.mp3"
+audio_bytes: 10036845
+duration: 2509
 ---
+
 # Your Book Review: Storm Of Steel
 
 *Finalist #12 in the Book Review Contest*
