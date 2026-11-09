@@ -4,10 +4,14 @@ url: "https://walkingtheworld.substack.com/p/democracy-in-america"
 author: "Chris Arnade"
 source: "Chris Arnade Walks the World"
 published: "2026-10-20"
-date: 2026-10-20T14:09:26.000Z
+date: 2026-11-09T13:01:13.000Z
 status: ready
 draft: true
+audio: "https://media.lloyd.studio/episodes/democracy-in-america-0408e5.mp3"
+audio_bytes: 5451213
+duration: 1362
 ---
+
 # Democracy in America
 
 *A review of Volume one of de Tocqueville's famous work*
