@@ -3,7 +3,7 @@ title: "National Review on the 1619 Project (January 24, 2022)"
 url: "https://www.nationalreview.com/magazine/2022/01/24/"
 archive: "https://web.archive.org/web/2/https://www.nationalreview.com/magazine/2022/01/24/"
 date: 2026-11-07T12:39:25.611Z
-tags: ["reading", "podcast", "read"]
+tags: ["reading", "read"]
 source: reading
 ---
 
