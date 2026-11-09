@@ -12,12 +12,12 @@
 // Clean-text progress is tracked the same way, separately, at
 // `textstatus/<slug>.json` — { state, reason?, updated } with state
 // `in_progress` (extracting), `waiting` (failed; BacklogCast retries later) or
-// `failed` (gave up). It lets /reading tell a missing "md" link that's still
+// `failed` (gave up). It lets /feed tell a missing "md" link that's still
 // coming from one that won't. Not sensitive (slugs are in the public queue),
 // so the public page reads it too.
 //
 // Requires the AUDIO R2 binding on whichever Pages project serves the call —
-// the public site (BacklogCast's writes) and the owner site (the /reading
+// the public site (BacklogCast's writes) and the owner site (the /feed
 // editor) both need it.
 
 export const STATES = new Set(['in_progress', 'failed', 'cancelled', 'removed']);

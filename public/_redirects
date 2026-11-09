@@ -1,0 +1,2 @@
+/reading    /feed    301
+/reading/*  /feed/:splat  301

@@ -49,10 +49,10 @@ scripts/              ingest-keep (Google Keep import) + inbox lister
   deletes the note. `npm run inbox` shows what's pending; owner mode has an
   `/inbox` page.
 - **Listen**: anything captured with the podcast checkbox (or added from
-  `/reading` → edit in owner mode) is picked up by BacklogCast on the desktop,
+  `/feed` → edit in owner mode) is picked up by BacklogCast on the desktop,
   which extracts the text with Claude, narrates it with Henty, and posts the
   episode to `/api/episode` (mp3 → R2, article → `src/content/articles/`).
-  `/reading` shows the table (original ↗ · listen ▶ · clean text · status);
+  `/feed` shows the table (original ↗ · listen ▶ · clean text · status);
   the private RSS feed lives at `/podcast/<FEED_TOKEN>.xml`.
 
 ## Seeding from Google Keep

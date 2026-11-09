@@ -10,7 +10,7 @@ is on, and stay downloadable when it's off.
 ## Flow
 
 ```
-/capture with "podcast" checked, or /reading → edit → add (owner site)
+/capture with "podcast" checked, or /feed → edit → add (owner site)
       │  commits src/content/notes/<…>.md tagged `podcast`
       ▼
 /api/podcast-queue.json          (podcast notes without an article yet,
@@ -29,8 +29,8 @@ BacklogCast (desktop)
   - commits src/content/articles/<slug>.md  (status: ready, audio: <R2 URL>)
       ▼
 site rebuilds automatically
-  /reading                     table: original ↗ · ▶ listen · text · status
-  /reading/<slug>              clean text + inline player
+  /feed                     table: original ↗ · ▶ listen · text · status
+  /feed/<slug>              clean text + inline player
   /podcast/<FEED_TOKEN>.xml    private RSS feed with enclosures
 ```
 
@@ -59,7 +59,7 @@ Public Pages project (the one serving lloyd.studio — BacklogCast posts there):
 | `FEED_TOKEN`     | makes the feed URL unguessable |
 | `GH_TOKEN`, `GH_REPO`, `GH_BRANCH` | as for `/api/capture` — used to commit the article |
 
-Owner Pages project (the Access-protected `DRAFTS=1` site with the /reading
+Owner Pages project (the Access-protected `DRAFTS=1` site with the /feed
 editor): add the **same** `AUDIO` R2 binding. The LISTEN column's cancel and
 delete actions, and the live "in progress" state, read and write R2 from there.
 
@@ -86,7 +86,7 @@ Anything else can participate using the same contract:
 
 ## Reading list vs. listening
 
-A link on /reading is either just on the reading list (note tagged `reading`)
+A link on /feed is either just on the reading list (note tagged `reading`)
 or also queued for narration (tagged `podcast`). In owner mode, **edit** turns
 the LISTEN column into a control:
 
@@ -103,7 +103,7 @@ trigger rebuilds. Re-queuing a cancelled item resumes it; re-queuing a deleted
 episode re-uploads the audio BacklogCast already has.
 
 Clean-text progress works the same way at `textstatus/<slug>.json`
-(`in_progress` | `waiting` | `failed`, plus a `reason`). /reading reads it —
+(`in_progress` | `waiting` | `failed`, plus a `reason`). /feed reads it —
 the public page too, unauthenticated GETs return just this part — to pulse a
 missing "md" that's still coming and strike through one that failed.
 BacklogCast retries a failed extraction or narration up to 4 times
@@ -111,7 +111,7 @@ BacklogCast retries a failed extraction or narration up to 4 times
 
 Narration opens with a spoken byline (title, author, publication, date —
 whatever is known); the same facts land in the article frontmatter
-(`author`, `source`, `published`) and show under the title on /reading/<slug>.
+(`author`, `source`, `published`) and show under the title on /feed/<slug>.
 
 ## Article lifecycle
 

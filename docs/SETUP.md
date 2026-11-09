@@ -67,7 +67,7 @@ write**. Longest expiration; set a renewal reminder. This is `GH_TOKEN`.
    > repo.
 
 5. Deploy → you get `https://<project>.pages.dev`. Sanity-check `/`,
-   `/reading`, `/api/podcast-queue.json`.
+   `/feed`, `/api/podcast-queue.json`.
    (Before `FEED_TOKEN` is set, the feed is at `/podcast/feed.xml`; it
    moves to the secret URL after you add the token and redeploy.)
 
@@ -179,7 +179,7 @@ seconds and appear on the site after the ~1 min rebuild.
 | - | ---- | --- | ------ |
 | 1 | plain thought, no URL | extension or `/capture`, note text only | `/notes` under today; `[archive]` absent; owner mode shows an `inbox` chip |
 | 2 | any link | phone share sheet → lloydio → save | `/notes` with title + `[archive]` link to the Wayback snapshot |
-| 3 | an article, **podcast checked** | extension, tick *queue for podcast* | note tagged `#podcast`; item in `/api/podcast-queue.json`; within `LLOYDIO_POLL_SECONDS` the desktop BacklogCast narrates it and commits `backlogcast: <title>` via `/api/episode`; after rebuild `/reading` row has ▶ + text; episode in `/podcast/<FEED_TOKEN>.xml` |
+| 3 | an article, **podcast checked** | extension, tick *queue for podcast* | note tagged `#podcast`; item in `/api/podcast-queue.json`; within `LLOYDIO_POLL_SECONDS` the desktop BacklogCast narrates it and commits `backlogcast: <title>` via `/api/episode`; after rebuild `/feed` row has ▶ + text; episode in `/podcast/<FEED_TOKEN>.xml` |
 | 4 | a quote, tag `commonplace` | any capture path, tags field | appears on `/commonplace` |
 | 5 | a pretty link, tag `beautiful` | any | appears on `/beautiful` |
 | 6 | an infographic link, tag `infographics` | any | appears on `/infographics` |
