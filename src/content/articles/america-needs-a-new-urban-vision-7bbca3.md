@@ -6,9 +6,6 @@ source: "City Journal"
 published: "2026-09-20"
 date: 2026-10-27T13:44:03.000Z
 status: read
-audio: "https://media.lloyd.studio/episodes/america-needs-a-new-urban-vision-7bbca3.mp3"
-audio_bytes: 4843341
-duration: 1210
 ---
 
 # America Needs a New Urban Vision
