@@ -2,6 +2,12 @@
 title: Quotes
 ---
 
+> Perhaps, but so are most writers.
+
+<p class="quote-src">— T. S. Eliot, replying to Robert Giroux’s question whether most editors are failed writers, 1946; reported in Giroux, “<a class="src-title" href="https://www.jstor.org/stable/27541402">A Personal Memoir</a>”, Sewanee Review, Winter 1966, pp. 331–338</p>
+
+---
+
 > The philosophers of the Frankfurt School practiced a technique called negative dialectics, where concepts are defined as much by what you can’t say about them as what you can. Appropriately, the Frankfurt School has ended up almost entirely defined by what you can’t say about them.
 >
 > You can’t say that they invented a new form of left-wing thought called Cultural Marxism. This would be (according to Wikipedia) the Cultural Marxism conspiracy theory, a “far right anti-Semitic conspiracy theory that misinterprets Western Marxism, especially the Frankfurt School, as being responsible for modern progressive movements, identity politics, and political correctness”. You’re not supposed to dub them a transitional stage between Communism and postmodernism. You’re not allowed to speculate that a lot of the academic humanities, as they’re practiced today, descend from the Frankfurt School’s brand of critical theory. You’re not supposed to think of them as the point where the muscular pro-technology leftism of the early 1900s shattered into the pessimistic degrowth leftism of the present.
