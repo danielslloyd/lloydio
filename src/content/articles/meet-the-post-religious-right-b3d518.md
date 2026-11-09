@@ -3,10 +3,14 @@ title: "Meet the Post-Religious Right"
 url: "https://www.aaronrenn.com/p/whitepill-review"
 author: "Aaron M. Renn"
 published: "2026-10-20"
-date: 2026-10-20T13:45:11.000Z
+date: 2026-11-09T13:05:12.000Z
 status: ready
 draft: true
+audio: "https://media.lloyd.studio/episodes/meet-the-post-religious-right-b3d518.mp3"
+audio_bytes: 1287789
+duration: 321
 ---
+
 # Meet the Post-Religious Right
 
 *A review of Scott Greer's “Whitepill,” a new history of the online right.*
