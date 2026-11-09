@@ -3,9 +3,6 @@ title: "The Misunderstood Essence of the Crusades"
 url: "https://viamediaevalis.substack.com/p/the-misunderstood-essence-of-the?utm_campaign=posts-open-in-app&triedRedirect=true"
 date: 2026-10-21T19:20:59.000Z
 status: read
-audio: "https://media.lloyd.studio/episodes/viamediaevalis-substack-com-p-the-misunderstood-es-a9a3eb.mp3"
-audio_bytes: 8575533
-duration: 1117
 ---
 
 # The Misunderstood Essence of the Crusades
