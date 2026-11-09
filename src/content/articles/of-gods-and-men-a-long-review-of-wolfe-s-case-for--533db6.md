@@ -2,7 +2,7 @@
 title: "Of Gods and Men: A Long Review of Wolfe's Case for Christian Nationalism, Part I – Book Summary"
 url: "https://shenviapologetics.com/of-gods-and-men-a-long-review-of-wolfes-case-for-christian-nationalism-part-i-book-summary/"
 date: 2026-10-22T06:14:41.000Z
-status: ready
+status: read
 audio: "https://media.lloyd.studio/episodes/of-gods-and-men-a-long-review-of-wolfe-s-case-for--533db6.mp3"
 audio_bytes: 6718461
 duration: 910
