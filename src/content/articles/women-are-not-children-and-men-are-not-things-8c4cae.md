@@ -7,9 +7,6 @@ published: "2026-10-28"
 date: 2026-11-05T04:30:16.000Z
 status: read
 draft: true
-audio: "https://media.lloyd.studio/episodes/women-are-not-children-and-men-are-not-things-8c4cae.mp3"
-audio_bytes: 1516365
-duration: 379
 ---
 
 # Women Are Not Children and Men Are Not Things
