@@ -5,10 +5,11 @@ author: "Aaron M. Renn"
 published: "2026-10-20"
 date: 2026-11-09T13:05:12.000Z
 status: ready
-draft: true
+draft: false
 audio: "https://media.lloyd.studio/episodes/meet-the-post-religious-right-b3d518.mp3"
 audio_bytes: 1287789
 duration: 321
+feed_date: 2026-11-09T19:42:37.289Z
 ---
 
 # Meet the Post-Religious Right
