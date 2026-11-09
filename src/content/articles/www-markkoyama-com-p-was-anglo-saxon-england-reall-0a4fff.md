@@ -4,8 +4,11 @@ url: "https://www.markkoyama.com/p/was-anglo-saxon-england-really-wealthy"
 author: "Mark Koyama"
 source: "Mark Koyama"
 published: "2026-09-29"
-date: 2026-11-09T02:54:57.000Z
+date: 2026-11-09T12:39:29.000Z
 status: ready
+audio: "https://media.lloyd.studio/episodes/www-markkoyama-com-p-was-anglo-saxon-england-reall-0a4fff.mp3"
+audio_bytes: 3435213
+duration: 858
 ---
 
 # Was Anglo-Saxon England Really Wealthy?
