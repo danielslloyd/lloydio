@@ -6,9 +6,6 @@ published: "2026-07-03"
 date: 2026-11-05T07:39:43.000Z
 status: read
 draft: true
-audio: "https://media.lloyd.studio/episodes/what-a-forgotten-100-year-old-government-report-sa-372469.mp3"
-audio_bytes: 6996429
-duration: 1749
 ---
 
 # What a Forgotten 100-Year-Old Government Report Says About Who We Are
