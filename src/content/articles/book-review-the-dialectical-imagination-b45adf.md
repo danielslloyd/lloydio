@@ -5,10 +5,11 @@ source: "Astral Codex Ten"
 published: "2026-05-29"
 date: 2026-11-05T08:12:26.000Z
 status: read
-draft: true
+draft: false
 audio: "https://media.lloyd.studio/episodes/book-review-the-dialectical-imagination-b45adf.mp3"
 audio_bytes: 11480109
 duration: 2869
+feed_date: 2026-11-09T19:45:07.473Z
 ---
 
 # Book Review: The Dialectical Imagination
