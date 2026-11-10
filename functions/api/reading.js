@@ -30,6 +30,10 @@
 //     with the current time; unpublishing sets `draft: true` and keeps the
 //     stamp. Drafts are left out of /podcast/<FEED_TOKEN>.xml.
 //
+//   { action: 'schedule', articlePath, date }
+//     Sets (YYYY-MM-DD) or clears ('') `publish_on` on a narrated draft;
+//     scripts/publish-due.mjs (daily workflow) publishes it on that day.
+//
 //   { action: 'remove', op, slug, notePath?, articlePath?, audio?, url, title? }
 //     Takes a link off the reading list. op:
 //       delete   — delete the note and the article (+ R2 mp3) outright
@@ -84,6 +88,7 @@ export async function onRequestPost(context) {
     if (body.action === 'remove') return await remove(env, body);
     if (body.action === 'read') return await markRead(env, body);
     if (body.action === 'publish') return await publish(env, body);
+    if (body.action === 'schedule') return await schedule(env, body);
   } catch (e) {
     return json({ error: e.message }, 502);
   }
@@ -227,11 +232,31 @@ async function publish(env, body) {
   const feedDate = new Date().toISOString();
   let next = setFrontmatter(text, 'draft', on ? 'false' : 'true');
   if (on) next = setFrontmatter(next, 'feed_date', feedDate);
+  next = removeFrontmatter(next, 'publish_on'); // a manual publish/unpublish drops any schedule
   if (next !== text) {
     await githubPutFile(env, articlePath, next, sha,
       `reading: ${on ? 'publish' : 'unpublish'} ${articlePath.split('/').pop()}`);
   }
   return json({ ok: true, published: on, feedDate: on ? feedDate : undefined });
+}
+
+async function schedule(env, body) {
+  const { articlePath } = body;
+  const date = typeof body.date === 'string' ? body.date : '';
+  if (!articlePath || !ARTICLE_PATH_RE.test(articlePath)) return json({ error: 'invalid articlePath' }, 400);
+  if (date && !/^\d{4}-\d{2}-\d{2}$/.test(date)) return json({ error: 'date must be YYYY-MM-DD' }, 400);
+  const { text, sha } = await githubGetFile(env, articlePath);
+  const next = date ? setFrontmatter(text, 'publish_on', date) : removeFrontmatter(text, 'publish_on');
+  if (next !== text) {
+    await githubPutFile(env, articlePath, next, sha,
+      `reading: schedule ${articlePath.split('/').pop()}${date ? ' for ' + date : ''}`);
+  }
+  return json({ ok: true, publishOn: date || null });
+}
+
+function removeFrontmatter(text, key) {
+  return text.replace(/^(---\r?\n[\s\S]*?\r?\n---)/, (fm) =>
+    fm.replace(new RegExp(`^${key}:.*\\r?\\n`, 'm'), ''));
 }
 
 // Sets (or adds) a top-level `key: value` in an article's frontmatter.

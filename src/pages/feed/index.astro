@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import FeedRow, { type FeedCol } from '../../components/FeedRow.astro';
+import FeedRow, { type FeedCol, type DateMode } from '../../components/FeedRow.astro';
 import { getReadingItems, FEED_STORAGE_LIMIT, FEED_URL, fmtBytes, fmtLength } from '../../lib/reading';
 import { SHOW_DRAFTS } from '../../lib/site';
 
@@ -18,10 +18,12 @@ const waiting = items.filter((i) => i.listen !== 'ready');
 
 // "In progress" is live-only, so those rows sit under "queued" (the owner
 // script overlays the state from BacklogCast).
-const hopperSections = [
-  { id: 'queued', title: 'queued for narration', rows: waiting.filter((i) => i.listen === 'queued') },
-  { id: 'unpublished', title: 'narrated · not published', rows: unpublished },
-  { id: 'none', title: 'not queued', rows: waiting.filter((i) => i.listen === 'none') },
+const hopperSections: { id: string; title: string; dateLabel: string; dateMode: DateMode; rows: typeof items }[] = [
+  { id: 'unpublished', title: 'queued', dateLabel: 'publish on', dateMode: 'schedule', rows: unpublished },
+  { id: 'queued', title: 'narrating…', dateLabel: 'date', dateMode: 'blank',
+    rows: waiting.filter((i) => i.listen === 'queued') },
+  { id: 'none', title: 'inbox', dateLabel: 'added', dateMode: 'added',
+    rows: waiting.filter((i) => i.listen === 'none') },
 ];
 
 // R2 holds every episode's mp3, published or not.
@@ -37,21 +39,16 @@ const publishedLength = published.reduce((n, e) => n + (e.duration ?? 0), 0);
 type Col = { key: FeedCol; label: string; sort?: 'text' | 'num' };
 const C: Record<FeedCol, Col> = {
   title: { key: 'title', label: 'title', sort: 'text' },
-  added: { key: 'added', label: 'added', sort: 'num' },
-  published: { key: 'published', label: 'published', sort: 'num' },
+  date: { key: 'date', label: 'date', sort: 'num' },
   read: { key: 'read', label: 'read' },
   length: { key: 'length', label: 'length', sort: 'num' },
-  size: { key: 'size', label: 'MB', sort: 'num' },
+  size: { key: 'size', label: 'size', sort: 'num' },
   actions: { key: 'actions', label: '' },
-  listen: { key: 'listen', label: 'listen' },
 };
-const hopperCols = [C.title, C.added, C.read, C.listen];
-// The unpublished table drops the (always empty) published column; the owner
-// script adds/removes that cell as rows move between the two tables.
-const unpublishedCols = [C.title, C.read, C.length, C.size, C.actions, C.listen];
-const episodeCols = SHOW_DRAFTS
-  ? [C.title, C.published, C.read, C.length, C.size, C.actions, C.listen]
-  : [C.title, C.published, C.read, C.length, C.listen];
+// All three hopper groups share one column set; only the date header/content
+// differs. The owner script rewrites the date cell as rows move between groups.
+const hopperCols = [C.title, C.date, C.read, C.length, C.size, C.actions];
+const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.length, C.actions];
 ---
 <Base title="Feed">
   {SHOW_DRAFTS && (
@@ -62,7 +59,7 @@ const episodeCols = SHOW_DRAFTS
   <h1 class="page-title">Feed</h1>
   <p class="feed-url">
     <span class="label">podcast feed</span>
-    <code id="feed-url">{FEED_URL}</code>
+    <span id="feed-url">{FEED_URL}</span>
     <button type="button" id="copy-feed" class="chip" title="Copy the feed URL">copy</button>
   </p>
   <p class="meta">
@@ -91,7 +88,7 @@ const episodeCols = SHOW_DRAFTS
           <span class="add-msg" role="status"></span>
         </form>
         {hopperSections.map((sec) => {
-          const cols = sec.id === 'unpublished' ? unpublishedCols : hopperCols;
+          const cols = hopperCols;
           return (
             <details class="reading-section" data-section={sec.id} open
               data-empty={sec.rows.length ? undefined : ''}>
@@ -100,11 +97,13 @@ const episodeCols = SHOW_DRAFTS
                 <colgroup>{cols.map((c) => <col class={`col-${c.key}`} />)}</colgroup>
                 <thead>
                   <tr>{cols.map((c) => (
-                    <th data-sort={c.sort ? c.key : undefined} data-sort-type={c.sort}>{c.label}</th>
+                    <th data-sort={c.sort ? c.key : undefined} data-sort-type={c.sort}>
+                      {c.key === 'date' ? sec.dateLabel : c.label}
+                    </th>
                   ))}</tr>
                 </thead>
                 <tbody>
-                  {sec.rows.map((i) => <FeedRow item={i} cols={cols.map((c) => c.key)} biggest={biggest} />)}
+                  {sec.rows.map((i) => <FeedRow item={i} cols={cols.map((c) => c.key)} biggest={biggest} dateMode={sec.dateMode} />)}
                 </tbody>
               </table>
             </details>
@@ -147,11 +146,11 @@ const episodeCols = SHOW_DRAFTS
         <thead>
           <tr>{episodeCols.map((c) => (
             <th data-sort={c.sort ? c.key : undefined} data-sort-type={c.sort}
-              aria-sort={c.key === 'published' ? 'descending' : undefined}>{c.label}</th>
+              aria-sort={c.key === 'date' ? 'descending' : undefined}>{c.key === 'date' ? 'published' : c.label}</th>
           ))}</tr>
         </thead>
         <tbody>
-          {published.map((i) => <FeedRow item={i} cols={episodeCols.map((c) => c.key)} biggest={biggest} />)}
+          {published.map((i) => <FeedRow item={i} cols={episodeCols.map((c) => c.key)} biggest={biggest} dateMode="published" />)}
         </tbody>
       </table>
       {published.length === 0 && <p>No episodes yet.</p>}
@@ -281,6 +280,38 @@ const episodeCols = SHOW_DRAFTS
         btn.textContent = listenIcon[state];
         btn.title = (titles[state] || '') + failed;
         btn.dataset.state = state;
+      }
+
+      // The date cell depends on the group: added (inbox), blank (narrating),
+      // an editable publish-on day (queued), or the publish date (feed).
+      const iso = (ms) => new Date(Number(ms)).toISOString().slice(0, 10);
+      const modeOf = { unpublished: 'schedule', queued: 'blank', none: 'added' };
+      function setDate(row, mode) {
+        const td = row.querySelector('td.date');
+        if (!td) return;
+        td.replaceChildren();
+        let sort = 0;
+        if (mode === 'added') {
+          td.textContent = iso(row.dataset.date);
+          sort = row.dataset.date;
+        } else if (mode === 'published') {
+          const ms = Number(row.dataset.feed) || Date.now();
+          td.textContent = iso(ms);
+          sort = ms;
+        } else if (mode === 'schedule') {
+          const input = document.createElement('input');
+          input.type = 'date';
+          input.className = 'publish-on';
+          input.min = iso(Date.now());
+          input.setAttribute('aria-label', 'Scheduled publish date');
+          input.title = 'Publish on this day (blank = stays unpublished until you publish it)';
+          if (row.dataset.publishOn) {
+            input.value = iso(row.dataset.publishOn);
+            sort = row.dataset.publishOn;
+          }
+          td.append(input);
+        }
+        row.dataset.sDate = sort;
       }
 
       // Puts a row at the top of a tbody, or in date order when `byDate`.
@@ -451,7 +482,9 @@ const episodeCols = SHOW_DRAFTS
             { action: 'listen', op, ...ids }, (res) => {
               delete row.dataset.failed;
               setListen(row, res.listen);
-              moveTo(row, tbodyOf(res.listen === 'in_progress' ? 'queued' : res.listen), true);
+              const target = res.listen === 'in_progress' ? 'queued' : res.listen;
+              setDate(row, modeOf[target]);
+              moveTo(row, tbodyOf(target), true);
               recount();
             }, op);
           return;
@@ -462,19 +495,15 @@ const episodeCols = SHOW_DRAFTS
           const on = !row.dataset.published;
           act(row, btn, null, { action: 'publish', on, articlePath: ids.articlePath }, (res) => {
             const icon = btn.querySelector('.material-symbols-outlined');
-            const date = row.querySelector('.published-date');
             if (on) {
               row.dataset.published = '1';
-              row.dataset.sPublished = Date.parse(res.feedDate) || Date.now();
-              const td = date || document.createElement('td');
-              td.className = 'date published-date';
-              td.textContent = (res.feedDate || new Date().toISOString()).slice(0, 10);
-              row.cells[0].after(td);
+              row.dataset.feed = Date.parse(res.feedDate) || Date.now();
+              delete row.dataset.publishOn;
+              setDate(row, 'published');
               moveTo(row, feedBody, false);
             } else {
               delete row.dataset.published;
-              row.dataset.sPublished = 0;
-              if (date) date.remove();
+              setDate(row, 'schedule');
               moveTo(row, tbodyOf('unpublished'), true);
             }
             btn.dataset.on = on ? '1' : '';
@@ -486,14 +515,17 @@ const episodeCols = SHOW_DRAFTS
           return;
         }
 
-        // ---- delete episode (mp3 + narration; link back to the hopper) ----
-        if (btn.matches('.delete-episode-btn')) {
-          act(row, btn,
-            'Delete the episode for “' + title + '”?\n\nThis removes the audio and the narrated text; the link goes back to the hopper.',
-            { action: 'listen', op: 'delete', ...ids }, () => {
+        // ---- delete: removes the link, its text and any episode audio ----
+        if (btn.matches('.delete-btn')) {
+          const extra = row.dataset.article
+            ? '\n\nIts clean text' + (row.dataset.audio ? ' and episode audio' : '') + ' will be deleted too.'
+            : '';
+          act(row, btn, 'Delete “' + title + '” completely?' + extra,
+            { action: 'remove', op: 'delete', url: row.dataset.url, title: row.dataset.title, ...ids },
+            () => {
               row.remove();
               recount();
-            }, 'delete the episode');
+            }, 'delete');
           return;
         }
 
@@ -514,6 +546,20 @@ const episodeCols = SHOW_DRAFTS
         }
       });
 
+      // ---- scheduled publish day (queued group) ----
+      page.addEventListener('change', (ev) => {
+        const input = ev.target.closest('.publish-on');
+        if (!input) return;
+        const row = input.closest('tr');
+        if (!row.dataset.article) return;
+        const date = input.value;
+        act(row, input, null, { action: 'schedule', articlePath: row.dataset.article, date }, () => {
+          if (date) row.dataset.publishOn = Date.parse(date);
+          else delete row.dataset.publishOn;
+          row.dataset.sDate = row.dataset.publishOn || 0;
+        }, 'schedule');
+      });
+
       // ---- add row ------------------------------------------------------------
       // A placeholder row until the rebuild lists it for real.
       function placeholderRow(url, title, listen) {
@@ -523,7 +569,7 @@ const episodeCols = SHOW_DRAFTS
         tr.className = 'just-added';
         tr.title = 'Added — appears for good after the site rebuilds';
         tr.dataset.sTitle = (title || url).toLowerCase();
-        tr.dataset.sAdded = Date.now();
+        tr.dataset.sDate = listen === 'none' ? Date.now() : 0;
         const td = (cls, text) => {
           const el = document.createElement('td');
           el.className = cls;
@@ -538,8 +584,9 @@ const episodeCols = SHOW_DRAFTS
         md.className = 'pending';
         md.textContent = 'md';
         readTd.append(orig, md);
-        tr.append(td('title', title || url), td('date', new Date().toISOString().slice(0, 10)),
-          readTd, td('listen', listenIcon[listen]));
+        tr.append(td('title', title || url),
+          td('date', listen === 'none' ? new Date().toISOString().slice(0, 10) : ''),
+          readTd, td('length'), td('size'), td('actions', listenIcon[listen]));
         tbody.prepend(tr);
         recount();
       }
@@ -608,14 +655,7 @@ const episodeCols = SHOW_DRAFTS
     font-size: 0.9rem;
   }
   .feed-page .feed-url .label { font-variant: small-caps; color: var(--muted); }
-  .feed-page .feed-url code {
-    overflow-wrap: anywhere;
-    padding: 0.1em 0.4em;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    font-size: 0.85em;
-    user-select: all;
-  }
+  .feed-page .feed-url #feed-url { overflow-wrap: anywhere; user-select: all; }
 
   .feed-page .chip {
     font-family: inherit;
@@ -750,13 +790,11 @@ const episodeCols = SHOW_DRAFTS
   /* Fits the column width: no horizontal scroll. The title column takes the
      rest and wraps (long untitled URLs break anywhere). */
   .feed-page .reading-table { width: 100%; table-layout: fixed; border-collapse: collapse; }
-  .feed-page .col-added,
-  .feed-page .col-published { width: 6.2em; }
+  .feed-page .col-date { width: 6.8em; }
   .feed-page .col-read { width: 4.4em; }
   .feed-page .col-length { width: 4.6em; }
   .feed-page .col-size { width: 4.4em; }
-  .feed-page .col-actions { width: 4.4em; }
-  .feed-page .col-listen { width: 3.4em; }
+  .feed-page .col-actions { width: 6.6em; }
   .feed-page .reading-table th:not(:first-child) { text-align: center; }
   .feed-page .reading-table th {
     font-size: 0.85em;
@@ -771,6 +809,22 @@ const episodeCols = SHOW_DRAFTS
   .feed-page th[aria-sort='descending']::after { content: '▼'; }
   .feed-page .reading-table td { vertical-align: top; }
   .feed-page .reading-table td.title { overflow-wrap: anywhere; }
+  /* Titles cap at two lines, then "…". */
+  .feed-page .title-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+  .feed-page input.publish-on {
+    width: 100%;
+    box-sizing: border-box;
+    font: inherit;
+    font-size: 0.8rem;
+    padding: 0.05em 0.1em;
+    color: var(--fg);
+  }
   .feed-page .episode-table tr.hot { background: color-mix(in srgb, #c8102e 8%, transparent); }
   .feed-page .reading-table tr.saving { opacity: 0.6; }
   .feed-page .reading-table tr.just-added {
@@ -830,7 +884,6 @@ const episodeCols = SHOW_DRAFTS
   }
 
   /* ---- buttons ---- */
-  .feed-page .listen { text-align: center; white-space: nowrap; }
   .feed-page a.listen-view { color: inherit; text-decoration: none; }
   .feed-page .listen-btn {
     font-family: inherit;
@@ -850,6 +903,7 @@ const episodeCols = SHOW_DRAFTS
   .feed-page .listen-btn:disabled { opacity: 0.5; cursor: progress; }
 
   .feed-page .actions { text-align: center; white-space: nowrap; }
+  .feed-page .actions > * { vertical-align: middle; }
   .feed-page .icon-btn {
     display: inline-flex;
     align-items: center;

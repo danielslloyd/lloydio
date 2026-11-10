@@ -71,7 +71,7 @@ npm run backlogcast               # show the podcast queue
   writers at the consolidated files — they'd conflict.
 - Slug logic for articles is duplicated in `src/lib/reading.ts`,
   `pipeline/backlogcast.mjs` and `functions/_episodes.js` — keep them in sync.
-- Commit messages: `capture:` (machine), `backlogcast:` (machine),
+- Commit messages: `capture:` (machine), `backlogcast:` (machine), `publish:` (scheduled episodes),
   `process:` (inbox triage), `ingest:` (bulk imports).
 - Never commit secrets; tokens live in Cloudflare/GitHub settings.
 - Owner-mode write endpoints (Pages Functions that back the `DRAFTS=1`

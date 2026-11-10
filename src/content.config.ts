@@ -58,6 +58,9 @@ const articles = defineCollection({
     // When the episode was published to the podcast feed (owner "publish"
     // button); the feed's pubDate. Falls back to `date`.
     feed_date: z.coerce.date().optional(),
+    // Scheduled publish day (owner "queued" date); scripts/publish-due.mjs
+    // publishes the draft on/after it. Cleared once published.
+    publish_on: z.coerce.date().optional(),
     status: z.enum(['queued', 'ready', 'read']).default('queued'),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),

@@ -27,6 +27,7 @@ export interface ReadingItem {
   audioBytes?: number; // mp3 size in R2 (counts toward the storage limit)
   duration?: number; // seconds
   feedDate?: Date; // the episode's pubDate in the podcast feed
+  publishOn?: Date; // scheduled auto-publish day (narrated drafts only)
   hasArticle: boolean;
   draft: boolean; // owner-only (article or note is draft: true)
   articleDraft: boolean; // the article itself is a draft — left out of the podcast feed
@@ -122,6 +123,7 @@ export async function getReadingItems(
       audioBytes: a.data.audio_bytes,
       duration: a.data.duration,
       feedDate: a.data.audio ? (a.data.feed_date ?? a.data.date) : undefined,
+      publishOn: a.data.audio && a.data.draft ? a.data.publish_on : undefined,
       hasArticle: true,
       draft: a.data.draft || Boolean(note?.data.draft),
       articleDraft: a.data.draft,

@@ -34,7 +34,7 @@ import { audioBase, clearStatus, clearTextStatus, getStatus } from '../_episodes
 const SLUG_RE = /^[a-z0-9-]{1,120}$/;
 const AUDIO_KEYS = ['audio', 'audio_bytes', 'duration'];
 const BYLINE_KEYS = ['author', 'source', 'published'];
-const OWNER_KEYS = ['draft', 'tags', 'feed_date']; // set by hand on the article; never overwritten here
+const OWNER_KEYS = ['draft', 'tags', 'feed_date', 'publish_on']; // set by hand on the article; never overwritten here
 
 export async function onRequestOptions() {
   return new Response(null, { headers: CORS });

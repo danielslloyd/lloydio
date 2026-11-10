@@ -47,10 +47,14 @@ site rebuilds automatically
   podcast apps can stream and resume.
 - Only published episodes are in the feed: narrated articles with
   `draft: true` stay out (they wait in the owner page's hopper under
-  "narrated · not published"). The publish button on `/feed` sets
+  "queued"). The publish button on `/feed` sets
   `draft: false` and stamps `feed_date`, which is the episode's `pubDate`
   (falls back to `date`); unpublish sets `draft: true` again. `/api/episode`
   carries both keys over when it re-writes an article.
+  A queued episode can also get a `publish_on: YYYY-MM-DD` (date box in the
+  queued group); the daily `publish-due` workflow (`scripts/publish-due.mjs`)
+  then publishes it and drops the field. Deleting an episode on `/feed`
+  removes it entirely (note, article, mp3) — it does not return to the inbox.
 
 ## Configuration (Cloudflare)
 

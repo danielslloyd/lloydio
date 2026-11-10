@@ -4,19 +4,29 @@
 import { type ReadingItem, fmtBytes, fmtLength } from '../lib/reading';
 import { SHOW_DRAFTS, formatDate } from '../lib/site';
 
-export type FeedCol = 'title' | 'added' | 'published' | 'read' | 'length' | 'size' | 'actions' | 'listen';
+export type FeedCol = 'title' | 'date' | 'read' | 'length' | 'size' | 'actions';
+// What the date cell holds: when added, when published, an editable scheduled
+// publish day (owner), or nothing.
+export type DateMode = 'added' | 'published' | 'schedule' | 'blank';
 
 interface Props {
   item: ReadingItem;
   cols: FeedCol[];
   biggest?: number; // largest episode in bytes, scales the size bars
+  dateMode?: DateMode;
 }
-const { item: i, cols, biggest = 1 } = Astro.props;
+const { item: i, cols, biggest = 1, dateMode = 'added' } = Astro.props;
 const isEpisode = i.listen === 'ready';
 const published = isEpisode && !i.articleDraft;
 const bytes = i.audioBytes ?? 0;
 // Sorts on the words, not leading quotes/punctuation.
 const sortTitle = i.title.toLowerCase().replace(/^[^\p{L}\p{N}]+/u, '');
+const iso = (d?: Date) => (d ? d.toISOString().slice(0, 10) : '');
+const sortDate =
+  dateMode === 'added' ? i.date.valueOf()
+  : dateMode === 'published' ? (published && i.feedDate ? i.feedDate.valueOf() : 0)
+  : dateMode === 'schedule' ? (i.publishOn?.valueOf() ?? 0)
+  : 0;
 const listenIcon = { none: '+', queued: '≡', in_progress: '⏳', ready: '▶' };
 ---
 <tr
@@ -31,26 +41,33 @@ const listenIcon = { none: '+', queued: '≡', in_progress: '⏳', ready: '▶' 
   data-bytes={isEpisode ? bytes : undefined}
   data-published={published ? '1' : undefined}
   data-s-title={sortTitle}
-  data-s-added={i.date.valueOf()}
-  data-s-published={published && i.feedDate ? i.feedDate.valueOf() : 0}
+  data-feed={i.feedDate?.valueOf()}
+  data-publish-on={i.publishOn?.valueOf()}
+  data-s-date={sortDate}
   data-s-length={i.duration ?? 0}
   data-s-size={bytes}
 >
   {cols.map((c) => {
     if (c === 'title') return (
-      <td class="title">
-        {i.title}
+      <td class="title" title={i.title}>
+        <div class="title-text">{i.title}</div>
         {SHOW_DRAFTS && (
           <span class="row-ops">
             <button type="button" class="row-op" data-op="to-notes" title="Move to notes (off the list)">→ note</button>
-            <button type="button" class="row-op danger" data-op="delete" title="Delete the link, its text and any episode">✕</button>
           </span>
         )}
       </td>
     );
-    if (c === 'added') return <td class="date">{formatDate(i.date)}</td>;
-    if (c === 'published') return (
-      <td class="date published-date">{published && i.feedDate ? formatDate(i.feedDate) : '—'}</td>
+    if (c === 'date') return (
+      <td class="date">
+        {dateMode === 'added' && formatDate(i.date)}
+        {dateMode === 'published' && (published && i.feedDate ? formatDate(i.feedDate) : '')}
+        {dateMode === 'schedule' && SHOW_DRAFTS && (
+          <input type="date" class="publish-on" value={iso(i.publishOn)} min={iso(new Date())}
+            title="Publish on this day (blank = stays unpublished until you publish it)"
+            aria-label="Scheduled publish date" />
+        )}
+      </td>
     );
     if (c === 'read') return (
       <td class="read">
@@ -65,30 +82,29 @@ const listenIcon = { none: '+', queued: '≡', in_progress: '⏳', ready: '▶' 
     if (c === 'length') return <td class="length">{fmtLength(i.duration)}</td>;
     if (c === 'size') return (
       <td class="size" title={fmtBytes(bytes)}>
-        <span class="size-bar" style={`width:${(bytes / biggest) * 100}%`}></span>
-        <span class="size-num">{(bytes / 1e6).toFixed(1)}</span>
+        {isEpisode && <span class="size-bar" style={`width:${(bytes / biggest) * 100}%`}></span>}
+        <span class="size-num">{isEpisode ? (bytes / 1e6).toFixed(1) : ''}</span>
       </td>
     );
     if (c === 'actions') return (
       <td class="actions">
-        <button type="button" class="icon-btn publish-btn" data-on={published ? '1' : undefined}
-          title={published ? 'Unpublish — take it out of the podcast feed' : 'Publish to the podcast feed'}
-          aria-label={published ? 'Unpublish' : 'Publish'}>
-          <span class="material-symbols-outlined" aria-hidden="true">{published ? 'cloud_off' : 'cloud_upload'}</span>
-        </button>
-        <button type="button" class="icon-btn danger delete-episode-btn"
-          title="Delete the episode (mp3 + narrated text) — the link goes back to the hopper"
-          aria-label="Delete episode">
-          <span class="material-symbols-outlined" aria-hidden="true">delete</span>
-        </button>
-      </td>
-    );
-    if (c === 'listen') return (
-      <td class="listen">
         {isEpisode ? (
           <a class="listen-view" href={i.audio} title="listen">▶</a>
-        ) : (
+        ) : SHOW_DRAFTS ? (
           <button type="button" class="listen-btn" data-state={i.listen}>{listenIcon[i.listen]}</button>
+        ) : null}
+        {SHOW_DRAFTS && isEpisode && (
+          <button type="button" class="icon-btn publish-btn" data-on={published ? '1' : undefined}
+            title={published ? 'Unpublish — take it out of the podcast feed' : 'Publish to the podcast feed'}
+            aria-label={published ? 'Unpublish' : 'Publish'}>
+            <span class="material-symbols-outlined" aria-hidden="true">{published ? 'cloud_off' : 'cloud_upload'}</span>
+          </button>
+        )}
+        {SHOW_DRAFTS && (
+          <button type="button" class="icon-btn danger delete-btn"
+            title="Delete completely (link, text and any episode audio)" aria-label="Delete">
+            <span class="material-symbols-outlined" aria-hidden="true">delete</span>
+          </button>
         )}
       </td>
     );
