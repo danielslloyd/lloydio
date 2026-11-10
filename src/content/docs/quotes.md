@@ -2,6 +2,22 @@
 title: Quotes
 ---
 
+> It seems to me that only Christianity can love people as they really are. Only Christianity offers both the verdict that we know is true and the mercy our lives depend on. Christianity knows what to expect when it reads the headlines or opens the feed. It knows where human bodies go, how they decay and rot and are sown in dishonor. Christianity knows that the human heart wants more than this earth has ever or will ever give it.
+
+<p class="quote-src">— Samuel D. James, “<a class="src-title" href="https://www.digitalliturgies.net/p/our-alien-righteousness#:~:text=only%20Christianity%20can%20love%20people,ever%20or%20will%20ever%20give%20it">Our Alien Righteousness</a>”, Digital Liturgies, June 16, 2026</p>
+
+---
+> Success is never so interesting as struggle…
+
+<p class="quote-src">— Willa Cather, preface (written 1932) to the revised edition of “The Song of the Lark”
+
+---
+
+> Do not be saddened if people remember you only when they need you. Feel the privilege of being like a candle that comes to their mind in their darkest moments.
+
+<p class="quote-src">— attributed to Saint Nectarios of Aegina</p>
+
+---
 > Too much evangelical political theology is about helping the church keep pace with the world by lifting the cross off its shoulders.
 
 <p class="quote-src">— Samuel D. James (@samueldjames), Substack Notes, November 9, 2026<br>
