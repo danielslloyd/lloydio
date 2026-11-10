@@ -2,6 +2,12 @@
 title: Quotes
 ---
 
+> Too much evangelical political theology is about helping the church keep pace with the world by lifting the cross off its shoulders.
+
+<p class="quote-src">— Samuel D. James (@samueldjames), Substack Notes, November 9, 2026<br>
+<a href="https://substack.com/@samueldjames/note/c-382860516">https://substack.com/@samueldjames/note/c-382860516</a></p>
+
+---
 > Perhaps, but so are most writers.
 
 <p class="quote-src">— T. S. Eliot, replying to Robert Giroux’s question whether most editors are failed writers, 1946; reported in Giroux, “<a class="src-title" href="https://www.jstor.org/stable/27541402">A Personal Memoir</a>”, Sewanee Review, Winter 1966, pp. 331–338</p>
