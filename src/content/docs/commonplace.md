@@ -82,6 +82,10 @@ The **crack spread** is the price gap between crude oil and its refined products
 
 ---
 
+A 42-gallon barrel of crude typically yields about 20 gallons of gasoline, 12–13 gallons of diesel and heating oil, and 4–5 gallons of jet fuel. The rest is asphalt, lubricating oils, LPG, and petrochemical feedstocks. The exact split depends on the crude’s quality and the refinery’s complexity, and refiners can adjust it basesd on demand. Refineries produce more volume than they take in because most refined products are less dense than the crude they come from, so cracking heavy molecules into lighter ones expands the volume. At U.S. refineries it runs about 6%, so 42 gallons of crude becomes roughly 45 gallons of product.
+
+---
+
 The stock of Welsh surnames is unusually small, largely because the pool of baptismal names narrowed after the Protestant Reformation, just as Wales was shifting from patronymics (ap Hywel, ap Siôn) to fixed English-style surnames under the Laws in Wales Acts. Native Welsh personal names gave way to a handful of biblical and English ones — John, William, David, Richard, Evan — which then froze into Jones, Williams, Davies, Richards, and Evans. 
 
 The redundancy created a practical need for distinction, and in the 19th century Welsh families began adopting double surnames — prefixing the name of a house, parish, or the mother's maiden name to the paternal surname. Hyphens were often added later, producing forms like Griffith-Jones.
