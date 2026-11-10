@@ -6,9 +6,6 @@ published: "2026-10-28"
 date: 2026-11-05T05:32:32.000Z
 status: read
 draft: true
-audio: "https://media.lloyd.studio/episodes/how-the-mainstream-recruits-for-the-manosphere-a0f4ca.mp3"
-audio_bytes: 2994093
-duration: 748
 ---
 
 # How the Mainstream Recruits for the Manosphere
