@@ -2,6 +2,12 @@
 title: Quotes
 ---
 
+> If it means anything, then “America First” means Americans first, even Americans as dotty and useless as Joe Biden, a contemptible and grubby little grasper who did not have much of a working brain back when he had something of a working brain. If you are a nationalist in any genuine sense, then your people are your people. But, of course, Trump is not a nationalist in any meaningful sense, for the same reason he isn’t really much of a patriot or a racist or a Christian—Trump is his own god, and he recognizes no loyalty at odds with his interests and no good that is not in accord with his appetites and desires.
+
+<p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://thedispatch.com/newsletter/wanderland/trump-netanyahu-unstatesmanlike-statesmen/">Unstatesmanlike Statesmen</a>”, Wanderland (The Dispatch), September 28, 2026</p>
+
+---
+
 > It seems to me that only Christianity can love people as they really are. Only Christianity offers both the verdict that we know is true and the mercy our lives depend on. Christianity knows what to expect when it reads the headlines or opens the feed. It knows where human bodies go, how they decay and rot and are sown in dishonor. Christianity knows that the human heart wants more than this earth has ever or will ever give it.
 
 <p class="quote-src">— Samuel D. James, “<a class="src-title" href="https://www.digitalliturgies.net/p/our-alien-righteousness#:~:text=only%20Christianity%20can%20love%20people,ever%20or%20will%20ever%20give%20it">Our Alien Righteousness</a>”, Digital Liturgies, June 16, 2026</p>
