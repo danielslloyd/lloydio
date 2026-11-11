@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import FeedRow, { type FeedCol, type DateMode } from '../../components/FeedRow.astro';
-import { getReadingItems, FEED_STORAGE_LIMIT, FEED_URL, fmtBytes, fmtLength } from '../../lib/reading';
+import { getReadingItems, FEED_STORAGE_LIMIT, FEED_URL, fmtBytes, fmtLength, estimate } from '../../lib/reading';
 import { SHOW_DRAFTS } from '../../lib/site';
 
 const items = await getReadingItems();
@@ -20,11 +20,17 @@ const waiting = items.filter((i) => i.listen !== 'ready');
 // script overlays the state from BacklogCast).
 const hopperSections: { id: string; title: string; dateLabel: string; dateMode: DateMode; rows: typeof items }[] = [
   { id: 'unpublished', title: 'queued', dateLabel: 'publish on', dateMode: 'schedule', rows: unpublished },
-  { id: 'queued', title: 'narrating…', dateLabel: 'date', dateMode: 'blank',
+  { id: 'queued', title: 'narrating', dateLabel: 'date', dateMode: 'blank',
     rows: waiting.filter((i) => i.listen === 'queued') },
   { id: 'none', title: 'inbox', dateLabel: 'added', dateMode: 'added',
     rows: waiting.filter((i) => i.listen === 'none') },
 ];
+
+// Estimated totals for sections that aren't narrated yet (from clean-text size).
+const estTotals = (rows: typeof items) => {
+  const e = rows.map((r) => estimate(r.chars)).filter((x) => x);
+  return { secs: e.reduce((n, x) => n + x!.secs, 0), bytes: e.reduce((n, x) => n + x!.bytes, 0) };
+};
 
 // R2 holds every episode's mp3, published or not.
 const bytesOf = (list: typeof items) => list.reduce((n, e) => n + (e.audioBytes ?? 0), 0);
@@ -55,44 +61,47 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cloud_off,cloud_upload,delete&display=block" />
   )}
-  <div class:list={['feed-page', { owner: SHOW_DRAFTS }]}>
+  <div class:list={['feed-page', { owner: SHOW_DRAFTS, editing: SHOW_DRAFTS }]}>
   <h1 class="page-title">Feed</h1>
   <p class="feed-url">
     <span class="label">podcast feed</span>
     <span id="feed-url">{FEED_URL}</span>
     <button type="button" id="copy-feed" class="chip" title="Copy the feed URL">copy</button>
   </p>
-  <p class="meta">
-    articles narrated into a private podcast — subscribe with the URL above in any podcast app ·
-    <span data-count="feed">{published.length}</span> episodes · {fmtLength(publishedLength)}
-    {SHOW_DRAFTS && (
-      <>
-        · <a href="/api/podcast-queue.json">queue.json</a>
-        <button id="feed-edit-toggle" class="chip edit-toggle" type="button" aria-pressed="false">edit</button>
-      </>
-    )}
-  </p>
+  {SHOW_DRAFTS ? (
+    <p class="meta"><a href="/api/podcast-queue.json">queue.json</a></p>
+  ) : (
+    <p class="meta"><span data-count="feed">{published.length}</span> episodes · {fmtLength(publishedLength)}</p>
+  )}
 
   <div class="feed-grid">
     {SHOW_DRAFTS && (
-      <section class="hopper" aria-labelledby="hopper-h">
-        <h2 id="hopper-h">hopper</h2>
-        <p class="col-help">links waiting to be narrated or published — BacklogCast takes the queued ones</p>
-        <form id="add-reading" class="add-reading" hidden>
-          <input type="url" name="url" placeholder="paste a URL (article or PDF)"
-            aria-label="URL to add" autocomplete="off" required />
-          <input type="text" name="title" placeholder="title (optional)" aria-label="Title (optional)"
-            autocomplete="off" class="title-input" />
-          <label class="listen-opt"><input type="checkbox" name="podcast" checked /> queue</label>
-          <button type="submit" class="act">add</button>
-          <span class="add-msg" role="status"></span>
-        </form>
+      <section class="hopper">
         {hopperSections.map((sec) => {
           const cols = hopperCols;
+          const est = sec.id === 'unpublished' ? undefined : estTotals(sec.rows);
           return (
             <details class="reading-section" data-section={sec.id} open
               data-empty={sec.rows.length ? undefined : ''}>
-              <summary><h3>{sec.title} <span class="count">{sec.rows.length}</span></h3></summary>
+              <summary>
+                <h2>{sec.title} <span class="count">{sec.rows.length}</span></h2>
+                {est && (
+                  <span class="est-total" data-est-total>
+                    {est.secs > 0 ? `~${fmtLength(est.secs)} · ~${fmtBytes(est.bytes)}` : ''}
+                  </span>
+                )}
+              </summary>
+              {sec.id === 'none' && (
+                <form id="add-reading" class="add-reading">
+                  <input type="url" name="url" placeholder="paste a URL (article or PDF)"
+                    aria-label="URL to add" autocomplete="off" required />
+                  <input type="text" name="title" placeholder="title (optional)" aria-label="Title (optional)"
+                    autocomplete="off" class="title-input" />
+                  <label class="listen-opt"><input type="checkbox" name="podcast" checked /> queue</label>
+                  <button type="submit" class="act">add</button>
+                  <span class="add-msg" role="status"></span>
+                </form>
+              )}
               <table class:list={['reading-table', sec.id === 'unpublished' ? 'episode-table' : 'hopper-table']}>
                 <colgroup>{cols.map((c) => <col class={`col-${c.key}`} />)}</colgroup>
                 <thead>
@@ -112,10 +121,9 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
       </section>
     )}
 
-    <section class="feed-col" aria-labelledby={SHOW_DRAFTS ? 'feed-h' : undefined}>
+    <section class="feed-col">
       {SHOW_DRAFTS && (
         <>
-          <h2 id="feed-h">feed <span class="count" data-count="feed">{published.length}</span></h2>
           <div class="storage" data-limit={FEED_STORAGE_LIMIT}>
             <div class="meter" role="img"
               aria-label={`${fmtBytes(used)} of ${fmtBytes(FEED_STORAGE_LIMIT)} used`}>
@@ -127,9 +135,9 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
               <b data-storage="left">{fmtBytes(left)}</b> left
               {avg > 0 && <> · room for ~<span data-storage="more">{Math.floor(left / avg)}</span> more episodes</>}
             </p>
-            <p class="zoom-label">used space by episode
-              <span class="key"><i class="sw published"></i>published <span data-storage="pub">{fmtBytes(usedPublished)}</span></span>
-              <span class="key"><i class="sw unpublished"></i>not published <span data-storage="unpub">{fmtBytes(used - usedPublished)}</span></span>
+            <p class="zoom-label">
+              <span class="key"><i class="sw published"></i>published (<span data-count="feed">{published.length}</span>) <span data-storage="pub">{fmtBytes(usedPublished)}</span></span>
+              <span class="key"><i class="sw unpublished"></i>not published (<span data-count="unpub">{unpublished.length}</span>) <span data-storage="unpub">{fmtBytes(used - usedPublished)}</span></span>
             </p>
             <div class="zoom" aria-hidden="true">
               {[...published, ...unpublished].map((e) => (
@@ -248,17 +256,16 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
 {SHOW_DRAFTS && (
   <script is:inline>
     (function () {
-      // Owner-mode editing: the add row, the hopper's LISTEN buttons, publish /
+      // Owner-mode editing: the add box, the hopper's LISTEN buttons, publish /
       // unpublish, and deleting episodes. Same auth pattern as the /books add
       // box — the Access cookie rides along; the shared token is only a 401
       // fallback.
       const API = '/api/reading';
       const TOKEN_KEY = 'lloydio_owner_token';
       const listenIcon = { none: '+', queued: '≡', in_progress: '⏳', ready: '▶' };
-      const toggle = document.getElementById('feed-edit-toggle');
       const form = document.getElementById('add-reading');
       const page = document.querySelector('.feed-page');
-      if (!toggle || !form || !page) return;
+      if (!form || !page) return;
       const urlInput = form.querySelector('input[name=url]');
       const titleInput = form.querySelector('input[name=title]');
       const podcastInput = form.querySelector('input[name=podcast]');
@@ -334,6 +341,21 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
         const pub = [...feedBody.rows];
         const unpub = [...tbodyOf('unpublished').rows];
         document.querySelectorAll('[data-count="feed"]').forEach((el) => (el.textContent = pub.length));
+        document.querySelectorAll('[data-count="unpub"]').forEach((el) => (el.textContent = unpub.length));
+        // Estimated length/size totals for the not-yet-narrated sections.
+        document.querySelectorAll('.reading-section').forEach((sec) => {
+          const out = sec.querySelector('[data-est-total]');
+          if (!out) return;
+          let secs = 0, bytes = 0;
+          sec.querySelectorAll('tbody tr').forEach((r) => {
+            secs += Number(r.dataset.estSecs || 0);
+            bytes += Number(r.dataset.estBytes || 0);
+          });
+          const h = Math.floor(secs / 3600), m = Math.floor((secs % 3600) / 60);
+          const sc = String(Math.round(secs % 60)).padStart(2, '0');
+          const len = h ? h + ':' + String(m).padStart(2, '0') + ':' + sc : m + ':' + sc;
+          out.textContent = secs ? '~' + len + ' · ~' + fmtBytes(bytes) : '';
+        });
         // Storage follows the episode rows (published or not — R2 holds both).
         const storage = document.querySelector('.storage');
         const limit = Number(storage.dataset.limit);
@@ -371,18 +393,6 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
         document.querySelectorAll('[data-key="' + CSS.escape(el.dataset.key) + '"]').forEach((x) => {
           if (x.matches('.seg, .episode-table tr')) x.classList.add('hot');
         });
-      });
-
-      toggle.addEventListener('click', () => {
-        const on = toggle.getAttribute('aria-pressed') !== 'true';
-        toggle.setAttribute('aria-pressed', String(on));
-        toggle.textContent = on ? 'done' : 'edit';
-        form.hidden = !on;
-        page.classList.toggle('editing', on);
-        if (on) {
-          overlayLiveStatus(window.readingStatus());
-          urlInput.focus();
-        }
       });
 
       // "In progress" isn't in the repo — BacklogCast reports it live.
@@ -642,9 +652,8 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
   .feed-page.owner .feed-col { margin-top: 1.6rem; }
   @media (min-width: 60rem) { .feed-page.owner .feed-col { margin-top: 0; } }
 
-  .feed-page h2 { font-size: 1.2rem; margin: 0.4rem 0 0.2rem; }
+  .feed-page h2 { font-size: 1.4rem; margin: 0.4rem 0 0.2rem; border-bottom: 0; padding-bottom: 0; }
   .feed-page .count { font-size: 0.8em; font-weight: normal; color: var(--muted); }
-  .feed-page .col-help { font-size: 0.85rem; color: var(--muted); margin: 0 0 0.4rem; }
 
   .feed-page .feed-url {
     display: flex;
@@ -671,7 +680,6 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
   }
   .feed-page .chip:hover,
   .feed-page .chip[aria-pressed='true'] { border-color: var(--muted); color: var(--fg); }
-  .feed-page .edit-toggle { margin-left: 0.6em; }
 
   /* ---- storage: true-scale meter, then the used part zoomed by episode ---- */
   .feed-page .storage { margin: 0.3rem 0 0.9rem; }
@@ -731,7 +739,6 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
     gap: 0.4em;
     margin: 0.5rem 0 0.8rem;
   }
-  .feed-page .add-reading[hidden] { display: none; }
   .feed-page .add-reading input[type='url'],
   .feed-page .add-reading input[type='text'] {
     /* Override the global `width:100%` form rule; flex sizes it instead. */
@@ -767,13 +774,18 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
   .feed-page .add-msg[data-kind='err'] { color: #b00020; }
 
   /* ---- hopper sections (collapsible) ---- */
-  .feed-page .reading-section { margin-top: 1.1rem; }
+  /* No dotted box (overrides the global `details` look); still collapsible. */
+  .feed-page .reading-section { margin-top: 1.1rem; border: 0; padding: 0; }
   .feed-page .reading-section > summary {
     cursor: pointer;
     list-style: none;
+    font-variant: normal;
+    color: inherit;
+    border-bottom: 0;
   }
+  .feed-page .est-total { margin-left: 0.6em; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
   .feed-page .reading-section > summary::-webkit-details-marker { display: none; }
-  .feed-page .reading-section h3 { display: inline; font-size: 1rem; margin: 0; }
+  .feed-page .reading-section h2 { display: inline; margin: 0; }
   .feed-page .reading-section > summary::before {
     content: '▸';
     display: inline-block;
@@ -782,9 +794,9 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
     transition: transform 0.15s;
   }
   .feed-page .reading-section[open] > summary::before { transform: rotate(90deg); }
-  .feed-page .reading-section[open] > summary { margin-bottom: 0.3rem; }
+  .feed-page .reading-section[open] > summary { margin-bottom: 0.3rem; border-bottom: 0; }
   .feed-page .reading-section[data-empty] table { display: none; }
-  .feed-page .reading-section[data-empty] h3 { color: var(--muted); }
+  .feed-page .reading-section[data-empty] h2 { color: var(--muted); }
 
   /* ---- tables ---- */
   /* Fits the column width: no horizontal scroll. The title column takes the

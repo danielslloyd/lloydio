@@ -26,6 +26,7 @@ export interface ReadingItem {
   audio?: string;
   audioBytes?: number; // mp3 size in R2 (counts toward the storage limit)
   duration?: number; // seconds
+  chars?: number; // clean-text (markdown body) length; basis for the estimates below
   feedDate?: Date; // the episode's pubDate in the podcast feed
   publishOn?: Date; // scheduled auto-publish day (narrated drafts only)
   hasArticle: boolean;
@@ -53,6 +54,15 @@ export const FEED_STORAGE_LIMIT = 10e9;
 // The public podcast feed (see src/pages/podcast/[token].xml.ts). The owner
 // build shows the public URL too, so it needs the same FEED_TOKEN to be right.
 export const FEED_URL = `${PUBLIC_ORIGIN}/podcast/${process.env.FEED_TOKEN || 'feed'}.xml`;
+
+// Narration length/size are ~linear in the clean text's character count.
+// Ratios fixed from the 41 published episodes (2,051,121 chars → 35:48:44,
+// 593.9 MB); hard-coded so the page doesn't need re-fitting. Estimates only.
+export const SECS_PER_CHAR = 0.06286;
+export const BYTES_PER_CHAR = 289.55;
+export function estimate(chars?: number): { secs: number; bytes: number } | undefined {
+  return chars ? { secs: chars * SECS_PER_CHAR, bytes: chars * BYTES_PER_CHAR } : undefined;
+}
 
 export function fmtBytes(b: number): string {
   if (b >= 1e9) return `${(b / 1e9).toFixed(2)} GB`;
@@ -122,6 +132,7 @@ export async function getReadingItems(
       audio: a.data.audio,
       audioBytes: a.data.audio_bytes,
       duration: a.data.duration,
+      chars: a.body?.trim().length || undefined,
       feedDate: a.data.audio ? (a.data.feed_date ?? a.data.date) : undefined,
       publishOn: a.data.audio && a.data.draft ? a.data.publish_on : undefined,
       hasArticle: true,

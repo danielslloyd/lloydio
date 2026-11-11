@@ -1,7 +1,7 @@
 ---
 // One row of a /feed table. `cols` picks the cells (and must match the
 // table's header); see src/pages/feed/index.astro.
-import { type ReadingItem, fmtBytes, fmtLength } from '../lib/reading';
+import { type ReadingItem, fmtBytes, fmtLength, estimate } from '../lib/reading';
 import { SHOW_DRAFTS, formatDate } from '../lib/site';
 
 export type FeedCol = 'title' | 'date' | 'read' | 'length' | 'size' | 'actions';
@@ -19,6 +19,8 @@ const { item: i, cols, biggest = 1, dateMode = 'added' } = Astro.props;
 const isEpisode = i.listen === 'ready';
 const published = isEpisode && !i.articleDraft;
 const bytes = i.audioBytes ?? 0;
+// Not narrated yet: estimate length/size from the clean text (shown with "~").
+const est = isEpisode ? undefined : estimate(i.chars);
 // Sorts on the words, not leading quotes/punctuation.
 const sortTitle = i.title.toLowerCase().replace(/^[^\p{L}\p{N}]+/u, '');
 const iso = (d?: Date) => (d ? d.toISOString().slice(0, 10) : '');
@@ -44,8 +46,10 @@ const listenIcon = { none: '+', queued: '≡', in_progress: '⏳', ready: '▶' 
   data-feed={i.feedDate?.valueOf()}
   data-publish-on={i.publishOn?.valueOf()}
   data-s-date={sortDate}
-  data-s-length={i.duration ?? 0}
-  data-s-size={bytes}
+  data-est-secs={est?.secs}
+  data-est-bytes={est?.bytes}
+  data-s-length={i.duration ?? est?.secs ?? 0}
+  data-s-size={bytes || est?.bytes || 0}
 >
   {cols.map((c) => {
     if (c === 'title') return (
@@ -79,11 +83,11 @@ const listenIcon = { none: '+', queued: '≡', in_progress: '⏳', ready: '▶' 
         )}
       </td>
     );
-    if (c === 'length') return <td class="length">{fmtLength(i.duration)}</td>;
+    if (c === 'length') return <td class="length" title={est ? 'estimated from the clean text' : undefined}>{est ? `~${fmtLength(est.secs)}` : fmtLength(i.duration)}</td>;
     if (c === 'size') return (
-      <td class="size" title={fmtBytes(bytes)}>
+      <td class="size" title={est ? `~${fmtBytes(est.bytes)} (estimated)` : fmtBytes(bytes)}>
         {isEpisode && <span class="size-bar" style={`width:${(bytes / biggest) * 100}%`}></span>}
-        <span class="size-num">{isEpisode ? (bytes / 1e6).toFixed(1) : ''}</span>
+        <span class="size-num">{isEpisode ? (bytes / 1e6).toFixed(1) : est ? `~${(est.bytes / 1e6).toFixed(1)}` : ''}</span>
       </td>
     );
     if (c === 'actions') return (
