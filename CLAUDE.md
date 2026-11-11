@@ -83,3 +83,8 @@ npm run backlogcast               # show the podcast queue
   a fallback (the public `/api/capture` endpoint isn't behind Access, so it
   still uses the token). Client code shouldn't prompt for a token up front —
   rely on the Access cookie and only fall back on a 401.
+
+## Workflow
+
+- Default to merging finished changes into `main` (open a PR from the working
+  branch and merge it) rather than leaving them on a branch, unless told otherwise.
