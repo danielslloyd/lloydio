@@ -144,7 +144,7 @@ export async function onRequestPost(context) {
   return json({ ok: true, applied });
 }
 
-// ---- add: Amazon link → new entry ---------------------------------------
+// ---- add: book link → new entry ---------------------------------------
 //
 // Looks the book up right away (functions/_bookmeta.js). A confident hit is
 // appended as a published entry; a guess from the URL slug lands as a draft
@@ -158,7 +158,7 @@ async function addFromLink(body, env) {
   try {
     const meta = await lookupAmazon(url);
     if (!meta || meta.confidence === 'none') {
-      const path = await queueLink(env, url, status);
+      const path = await queueLink(env, url, status, body.draft === true);
       return json({ ok: true, result: 'queued', path });
     }
 
@@ -166,7 +166,7 @@ async function addFromLink(body, env) {
     const dupe = findDuplicate(text, meta.asin);
     if (dupe !== null) return json({ ok: true, result: 'duplicate', title: dupe || meta.asin });
 
-    const draft = meta.confidence !== 'high';
+    const draft = body.draft === true || meta.confidence !== 'high';
     const entry = {
       id: meta.asin,
       title: meta.title,
@@ -186,7 +186,7 @@ async function addFromLink(body, env) {
 
 // One note per queued link (per-file, like /api/capture) so the Claude job
 // never races the hand-edited books.yaml.
-async function queueLink(env, url, status) {
+async function queueLink(env, url, status, asDraft = false) {
   const now = new Date();
   const stamp = now.toISOString().replace(/[-:]/g, '').replace(/\..+/, '');
   const path = `src/content/notes/${now.toISOString().slice(0, 10)}-${stamp.slice(9)}-book-link.md`;
@@ -196,7 +196,7 @@ async function queueLink(env, url, status) {
     'title: "Book link"',
     `url: ${JSON.stringify(full)}`,
     `date: ${now.toISOString()}`,
-    `tags: ["book", ${JSON.stringify(status)}]`,
+    `tags: ["book", ${JSON.stringify(status)}${asDraft ? ', "draft"' : ''}]`,
     // A bare queued link isn't public content; owner-mode builds only.
     'draft: true',
     'inbox: true',

@@ -1,4 +1,4 @@
-# Book links: turn queued Amazon links into books.yaml entries.
+# Book links: turn queued book links into books.yaml entries.
 #
 # The owner-mode /books page posts pasted Amazon links to /api/books, which
 # adds them instantly when it can. Links it can't read are queued as inbox
@@ -64,19 +64,33 @@ jobs:
             "book" (queued from the /books page). Ignore every other note.
 
             For each one:
-            1. The `url` is an Amazon (or other bookseller) link. Its second tag is
-               the status: to-read | reading | finished.
-            2. Work out the real title, author, and Amazon ASIN using WebFetch /
-               WebSearch (Open Library and Google Books APIs work well; Amazon
-               pages may be blocked). Prefer the exact edition linked.
-            3. If the ASIN or a link to it is already in src/content/books.yaml,
-               it's a duplicate: just delete the note.
+            1. The `url` is usually a Goodreads, Amazon or Audible link, but may be
+               from any other site (publisher, library, blog, bookstore…): grab
+               what you can from it. Its second tag is the status:
+               to-read | reading | finished. A further "draft" tag means the owner
+               wants it filed as a draft (`draft: true`) whatever your confidence.
+            2. Work out the real title, author, and (if one exists) Amazon ASIN
+               using WebFetch / WebSearch (Open Library and Google Books APIs work
+               well; Amazon pages may be blocked). Prefer the exact edition linked.
+               Goodreads: /book/show/<id> pages and `/book/isbn/<id>` give title,
+               author and ISBN. Audible: /pd/<asin> pages (or the public catalog
+               API api.audible.com/1.0/catalog/products/<asin>) give title, author
+               and narrator — the author is not the narrator. Any other site:
+               read the page for title/author/ISBN and resolve the rest via search.
+            3. If the ASIN (or ISBN, or Goodreads/Audible id) or a link to it is
+               already in src/content/books.yaml, it's a duplicate: just delete
+               the note.
             4. Otherwise append one entry to the END of src/content/books.yaml in
                the shape the existing `source: amazon` entries use:
-               id (the ASIN, quoted), title, author, date (today), status, links
-               (amazon: https://www.amazon.com/dp/<ASIN>; goodreads/audible as
-               search URLs unless you verified a direct page), source: amazon,
-               and cover only if you found a real m.media-amazon.com image URL.
+               id (the ASIN, quoted; if there is no ASIN use the ISBN, else the
+               Goodreads or Audible id, quoted), title, author, date (today),
+               status, links (amazon: https://www.amazon.com/dp/<ASIN> when you
+               have an ASIN, else an amazon.com search URL; goodreads/audible as
+               the pasted direct page if that is where the link came from, else
+               search URLs unless you verified a direct page), source: amazon (or
+               goodreads / audible / manual to match where the link came from), and
+               cover only if you found a real m.media-amazon.com (or Goodreads /
+               Audible CDN) image URL.
                If you could not confidently identify the book, still add what you
                know but with `draft: true` so the owner reviews it. Never invent
                titles, authors, ASINs or URLs.
