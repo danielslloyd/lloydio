@@ -68,9 +68,7 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
     <span id="feed-url">{FEED_URL}</span>
     <button type="button" id="copy-feed" class="chip" title="Copy the feed URL">copy</button>
   </p>
-  {SHOW_DRAFTS ? (
-    <p class="meta"><a href="/api/podcast-queue.json">queue.json</a></p>
-  ) : (
+  {!SHOW_DRAFTS && (
     <p class="meta"><span data-count="feed">{published.length}</span> episodes · {fmtLength(publishedLength)}</p>
   )}
 
@@ -124,6 +122,7 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
     <section class="feed-col">
       {SHOW_DRAFTS && (
         <>
+          <h2>feed</h2>
           <div class="storage" data-limit={FEED_STORAGE_LIMIT}>
             <div class="meter" role="img"
               aria-label={`${fmtBytes(used)} of ${fmtBytes(FEED_STORAGE_LIMIT)} used`}>
@@ -653,6 +652,9 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
   @media (min-width: 60rem) { .feed-page.owner .feed-col { margin-top: 0; } }
 
   .feed-page h2 { font-size: 1.4rem; margin: 0.4rem 0 0.2rem; border-bottom: 0; padding-bottom: 0; }
+  /* Owner headers: ALL CAPS, and the first one lines up with FEED on the right. */
+  .feed-page.owner h2 { text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 0.2rem; }
+  .feed-page.owner .hopper .reading-section:first-child { margin-top: 0; }
   .feed-page .count { font-size: 0.8em; font-weight: normal; color: var(--muted); }
 
   .feed-page .feed-url {

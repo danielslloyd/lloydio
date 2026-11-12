@@ -31,14 +31,10 @@ const sections = [
 <Base title="Books">
   <h1 class="page-title">Books</h1>
   <p class="meta">
-    reading list · <span data-total="finished">{counts.finished ?? 0}</span> read ·
+    <span data-total="finished">{counts.finished ?? 0}</span> read ·
     <span data-total="to-read">{counts['to-read'] ?? 0}</span> to read
     {(counts.reading || SHOW_DRAFTS) && (
       <> · <span data-total="reading">{counts.reading ?? 0}</span> reading</>
-    )}
-    {SHOW_DRAFTS && <a class="edit-link" href={editUrl(BOOKS_FILE)}>edit books.yaml</a>}
-    {SHOW_DRAFTS && (
-      <button id="books-edit-toggle" class="edit-toggle" type="button" aria-pressed="false">edit</button>
     )}
   </p>
 
@@ -55,12 +51,12 @@ const sections = [
           {label} <span class="count">{group.length}</span>
         </summary>
         {SHOW_DRAFTS && (
-          <form class="add-book" data-status={status} hidden>
+          <form class="add-book" data-status={status}>
             <input
               type="url"
               name="url"
-              placeholder={`paste an Amazon link to add to “${label}”`}
-              aria-label={`Amazon link to add to ${label}`}
+              placeholder={`paste a Goodreads, Amazon or Audible link (or any other) to add to “${label}”`}
+              aria-label={`Book link to add to ${label}`}
               autocomplete="off"
               required
             />
@@ -107,18 +103,23 @@ const sections = [
     </p>
   )}
 
-  {SHOW_DRAFTS && draftBooks.length > 0 && (
+  {SHOW_DRAFTS && (
     <details class="book-section drafts-section" id="drafts" open>
       <summary>
         drafts <span class="count">{draftBooks.length}</span>
       </summary>
-      <p class="drafts-help">
-        Owner-only. Imported from Goodreads/Amazon and hidden from the public site.
-        Pick a status (and optional rating), then <strong>publish</strong> to add it to the
-        list. If the title, author or edition is wrong, <strong>clean up</strong> searches
-        for the right listing; or <strong>edit</strong> the raw entry, or <strong>✕</strong> to discard.
-        <button type="button" id="publish-all" class="act">publish all as-is</button>
-      </p>
+      <form class="add-book" data-status="to-read" data-draft="1">
+        <input
+          type="url"
+          name="url"
+          placeholder="paste a Goodreads, Amazon or Audible link (or any other) to add to drafts"
+          aria-label="Book link to add to drafts"
+          autocomplete="off"
+          required
+        />
+        <button type="submit" class="act">add</button>
+        <span class="add-book-msg" role="status"></span>
+      </form>
       <div style="overflow-x:auto">
         <table>
           <tbody>
@@ -227,10 +228,6 @@ const sections = [
         if (!c) return;
         const n = Math.max(0, (parseInt(c.textContent, 10) || 0) + delta);
         c.textContent = String(n);
-        if (n === 0) {
-          const help = document.querySelector('.drafts-help');
-          if (help) help.textContent = 'All drafts cleared. ';
-        }
       }
 
       function setBusy(row, busy) {
@@ -406,25 +403,11 @@ const sections = [
       }
 
       // ---- add a book from an Amazon link ---------------------------------
-      // The page-level "edit" toggle reveals one add box per section. The
+      // Every section (and drafts) has an always-visible add box. The
       // server looks the link up right away; a confident hit is committed as a
       // published entry, a guess lands in drafts, and an unreadable link is
       // queued for the book-links Claude job.
-      const editToggle = document.getElementById('books-edit-toggle');
       const addForms = Array.from(document.querySelectorAll('form.add-book'));
-      if (editToggle) {
-        editToggle.addEventListener('click', () => {
-          const on = editToggle.getAttribute('aria-pressed') !== 'true';
-          editToggle.setAttribute('aria-pressed', String(on));
-          editToggle.textContent = on ? 'done' : 'edit';
-          addForms.forEach((f) => {
-            f.hidden = !on;
-            // Adding into a collapsed section should show where it lands.
-            if (on) f.closest('details').open = true;
-          });
-          if (on && addForms[0]) addForms[0].querySelector('input').focus();
-        });
-      }
 
       // A placeholder row for a just-added book, shown until the rebuild lands.
       // Cloning a rendered row keeps BookRow's scoped styles.
@@ -511,15 +494,18 @@ const sections = [
           input.disabled = true;
           say(form, 'looking it up…');
           try {
-            const res = await enqueue(() => send([{ action: 'add', url, status }]));
+            const asDraft = form.dataset.draft === '1';
+            const res = await enqueue(() => send([{ action: 'add', url, status, draft: asDraft || undefined }]));
             if (res.result === 'added') {
               section.querySelector('tbody').prepend(placeholderRow(res.entry));
               bump(section, 1);
               say(form, 'added “' + res.entry.title + '”', 'ok');
+            } else if (res.result === 'drafted' && asDraft) {
+              say(form, 'saved “' + res.entry.title + '” to drafts — shows after the rebuild', 'ok');
             } else if (res.result === 'drafted') {
               say(form, 'saved “' + res.entry.title + '” as a draft — the lookup was a guess, check it under drafts after the rebuild', 'warn');
             } else if (res.result === 'queued') {
-              say(form, 'couldn’t read that link — queued for the Claude job', 'warn');
+              say(form, 'couldn’t read that link directly — queued for the Claude job to grab what it can', 'warn');
             } else if (res.result === 'duplicate') {
               say(form, 'already listed: ' + res.title, 'warn');
             } else {
@@ -738,22 +724,6 @@ const sections = [
         });
       }
 
-      const pubAll = document.getElementById('publish-all');
-      if (pubAll) {
-        pubAll.addEventListener('click', async () => {
-          const rows = Array.from(document.querySelectorAll('.drafts-section .book-row'));
-          if (!rows.length) return;
-          if (!confirm('Publish all ' + rows.length + ' drafts with their selected status?')) return;
-          pubAll.setAttribute('disabled', '');
-          try {
-            await enqueue(() => send(rows.map((r) => opFromRow(r, 'publish'))));
-            location.reload();
-          } catch (e) {
-            alert('publish all failed: ' + e.message);
-            pubAll.removeAttribute('disabled');
-          }
-        });
-      }
     })();
   </script>
 )}
@@ -792,24 +762,7 @@ const sections = [
   .col-links { width: 5.6rem; }
   .book-table.owner .col-status { width: 6.6rem; }
 
-  /* Owner-mode "edit" toggle (same look as the category docs' toggle). */
-  .edit-toggle {
-    font-family: inherit;
-    font-size: 0.85em;
-    font-variant: small-caps;
-    margin-left: 0.6em;
-    padding: 0.05em 0.55em;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    vertical-align: baseline;
-  }
-  .edit-toggle:hover,
-  .edit-toggle[aria-pressed='true'] { border-color: var(--muted); color: var(--fg); }
-
-  /* Per-section "add from Amazon link" box, shown while editing. */
+  /* Per-section "add from link" box. */
   .add-book {
     display: flex;
     flex-wrap: wrap;
@@ -817,7 +770,6 @@ const sections = [
     gap: 0.4em;
     margin: 0.5rem 0 0.2rem;
   }
-  .add-book[hidden] { display: none; }
   .add-book input {
     /* Override the global `width:100%` form rule; flex sizes it instead. */
     width: auto;
@@ -871,25 +823,6 @@ const sections = [
     width: auto;
   }
   .drafts-section > summary { color: var(--muted); }
-  .drafts-help {
-    font-size: 0.85rem;
-    color: var(--muted);
-    margin: 0.6rem 0 0.2rem;
-    line-height: 1.5;
-  }
-  .drafts-help .act {
-    font-family: inherit;
-    font-size: 0.9em;
-    margin-left: 0.4em;
-    padding: 0.12em 0.6em;
-    border: 1px solid var(--muted);
-    border-radius: 4px;
-    background: transparent;
-    color: var(--fg);
-    cursor: pointer;
-  }
-  .drafts-help .act[disabled] { opacity: 0.5; cursor: default; }
-
   .owner-help {
     font-size: 0.85rem;
     color: var(--muted);
