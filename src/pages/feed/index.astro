@@ -49,17 +49,19 @@ const C: Record<FeedCol, Col> = {
   read: { key: 'read', label: 'read' },
   length: { key: 'length', label: 'length', sort: 'num' },
   size: { key: 'size', label: 'size', sort: 'num' },
+  downloads: { key: 'downloads', label: 'dl', sort: 'num' },
   actions: { key: 'actions', label: '' },
 };
 // All three hopper groups share one column set; only the date header/content
 // differs. The owner script rewrites the date cell as rows move between groups.
 const hopperCols = [C.title, C.date, C.read, C.length, C.size, C.actions];
-const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.length, C.actions];
+const ownerFeedCols = [C.title, C.date, C.read, C.length, C.size, C.downloads, C.actions];
+const episodeCols = SHOW_DRAFTS ? ownerFeedCols : [C.title, C.date, C.read, C.length, C.actions];
 ---
 <Base title="Feed">
   {SHOW_DRAFTS && (
     <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cloud_off,cloud_upload,delete&display=block" />
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cloud_off,cloud_upload,delete,note_add&display=block" />
   )}
   <div class:list={['feed-page', { owner: SHOW_DRAFTS, editing: SHOW_DRAFTS }]}>
   <h1 class="page-title">Feed</h1>
@@ -411,6 +413,26 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
           // live status is a nicety; the column still works without it
         }
       }
+      // Download counts (unique IPs per day) from /api/downloads, matched to the
+      // episode rows by the mp3's file name.
+      fetch('/api/downloads', { credentials: 'include' })
+        .then((r) => r.json().then((d) => ({ ok: r.ok, d })))
+        .then(({ ok, d }) => {
+          document.querySelectorAll('.feed-table tbody tr[data-audio]').forEach((row) => {
+            const cell = row.querySelector('td.downloads');
+            if (!cell) return;
+            if (!ok) {
+              cell.title = 'download counts unavailable: ' + (d.error || 'error');
+              return;
+            }
+            const slug = row.dataset.audio.split('/').pop().replace(/\.mp3$/, '');
+            const n = d.counts[slug] || 0;
+            cell.textContent = n;
+            row.dataset.sDownloads = n;
+            cell.title = 'unique IPs per day' + (d.since ? ', since ' + d.since : '');
+          });
+        })
+        .catch(() => {});
       document.querySelectorAll('.hopper-table tbody tr').forEach((r) => setListen(r, r.dataset.listen));
       overlayLiveStatus(window.readingStatusOnce || window.readingStatus());
 
@@ -538,8 +560,8 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
           return;
         }
 
-        // ---- remove / move to notes (edit mode) ----
-        if (btn.matches('.row-op')) {
+        // ---- move to notes (keeps the link as a note) ----
+        if (btn.matches('.note-btn')) {
           const op = btn.dataset.op;
           const extra = row.dataset.article
             ? '\n\nIts clean text' + (row.dataset.audio ? ' and episode audio' : '') + ' will be deleted.'
@@ -808,7 +830,9 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
   .feed-page .col-read { width: 4.4em; }
   .feed-page .col-length { width: 4.6em; }
   .feed-page .col-size { width: 4.4em; }
+  .feed-page .col-downloads { width: 3.2em; }
   .feed-page .col-actions { width: 6.6em; }
+  .feed-page.owner .col-actions { width: 8.6em; }
   .feed-page .reading-table th:not(:first-child) { text-align: center; }
   .feed-page .reading-table th {
     font-size: 0.85em;
@@ -852,6 +876,12 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
     white-space: nowrap;
   }
   .feed-page .date { text-align: center; color: var(--muted); }
+  .feed-page .downloads {
+    text-align: right;
+    font-size: 0.85em;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums lining-nums;
+  }
   .feed-page .length { text-align: right; }
   .feed-page .size { position: relative; font-size: 0.8em; white-space: nowrap; }
   .feed-page .size-bar {
@@ -949,22 +979,4 @@ const episodeCols = SHOW_DRAFTS ? hopperCols : [C.title, C.date, C.read, C.lengt
     overflow: hidden;
     width: 1em;
   }
-
-  /* Per-row remove / move-to-notes, shown only while editing. */
-  .feed-page .row-ops { display: none; white-space: nowrap; margin-left: 0.5em; }
-  .feed-page.editing .row-ops { display: inline-flex; gap: 0.3em; vertical-align: baseline; }
-  .feed-page .row-op {
-    font-family: inherit;
-    font-size: 0.75rem;
-    line-height: 1.2;
-    padding: 0.05em 0.45em;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-  }
-  .feed-page .row-op:hover { border-color: var(--muted); color: var(--fg); }
-  .feed-page .row-op.danger:hover { border-color: #b00020; color: #b00020; }
-  .feed-page .row-op:disabled { opacity: 0.5; cursor: progress; }
 </style>
