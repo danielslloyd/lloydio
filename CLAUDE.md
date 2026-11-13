@@ -35,8 +35,9 @@ content stays **per-file**.
 - `functions/api/capture.js` — Cloudflare Pages Function; commits captures.
 - `functions/api/books.js` + `functions/_bookmeta.js` — owner-mode book
   writes, incl. `add` (Amazon link → entry). Unreadable links are queued as
-  draft inbox notes tagged `book` + a status; `.github/workflows/book-links.yml`
-  (Claude job, needs `ANTHROPIC_API_KEY`) resolves them into `books.yaml`.
+  draft inbox notes tagged `book` + a status (+ `draft` if added from the
+  drafts box); they are filed into `books.yaml` by running `process-inbox` in
+  a Claude session (no automated Claude job — it would need paid API access).
   Draft rows also get **clean up** (`search` → pick one → `replace`): up to 10
   listings from Open Library (print; ISBN-10 = ASIN) + Audible's catalog API
   (audiobooks; authors vs narrators), since Amazon blocks automated search.

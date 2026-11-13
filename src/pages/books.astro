@@ -406,7 +406,7 @@ const sections = [
       // Every section (and drafts) has an always-visible add box. The
       // server looks the link up right away; a confident hit is committed as a
       // published entry, a guess lands in drafts, and an unreadable link is
-      // queued for the book-links Claude job.
+      // queued as an inbox note for process-inbox.
       const addForms = Array.from(document.querySelectorAll('form.add-book'));
 
       // A placeholder row for a just-added book, shown until the rebuild lands.
@@ -505,7 +505,7 @@ const sections = [
             } else if (res.result === 'drafted') {
               say(form, 'saved “' + res.entry.title + '” as a draft — the lookup was a guess, check it under drafts after the rebuild', 'warn');
             } else if (res.result === 'queued') {
-              say(form, 'couldn’t read that link directly — queued for the Claude job to grab what it can', 'warn');
+              say(form, 'couldn’t read that link directly — queued as an inbox note — ask Claude to process the inbox', 'warn');
             } else if (res.result === 'duplicate') {
               say(form, 'already listed: ' + res.title, 'warn');
             } else {
