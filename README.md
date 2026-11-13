@@ -101,14 +101,13 @@ private "owner mode" site:
      (AUD) Tag**, from the app's Overview). Those let your Access login
      authorize the writes — nothing to type. Without the `CF_ACCESS_*` vars
      it falls back to prompting for `CAPTURE_TOKEN`.
-   - **Adding books by link:** hit **edit** on `/books` and paste an Amazon
-     link into a section's box. `/api/books` looks it up immediately (Open
-     Library / Google Books / the Amazon page) and commits the entry; a
-     guessed title lands in drafts. Links it can't read are queued as
-     owner-only inbox notes tagged `book`, and the `book-links` GitHub
-     workflow has Claude resolve them. That workflow needs an
-     `ANTHROPIC_API_KEY` **repository secret** (GitHub → Settings → Secrets
-     and variables → Actions).
+   - **Adding books by link:** paste a link into a section's box on
+     `/books`. `/api/books` looks Amazon links up immediately (Open Library /
+     Google Books / the Amazon page) and commits the entry; a guessed title
+     lands in drafts. Any other link (Goodreads, Audible, anything) is
+     queued as an owner-only inbox note tagged `book` + a status; ask Claude
+     to run the `process-inbox` skill in a session to file them (there is no
+     automated, API-billed job).
 3. **Custom domain** — add it to the public project, then set `site` in
    `astro.config.mjs` to match.
 

@@ -149,7 +149,7 @@ export async function onRequestPost(context) {
 // Looks the book up right away (functions/_bookmeta.js). A confident hit is
 // appended as a published entry; a guess from the URL slug lands as a draft
 // for review; a link we can't read at all is queued as an inbox note tagged
-// `book` + status, which the book-links workflow (a Claude job) picks up.
+// `book` + status, which `process-inbox` (run in a Claude session) files.
 async function addFromLink(body, env) {
   const url = typeof body.url === 'string' ? body.url.trim() : '';
   const status = STATUSES.has(body.status) ? body.status : 'to-read';
@@ -184,7 +184,7 @@ async function addFromLink(body, env) {
   }
 }
 
-// One note per queued link (per-file, like /api/capture) so the Claude job
+// One note per queued link (per-file, like /api/capture) so process-inbox
 // never races the hand-edited books.yaml.
 async function queueLink(env, url, status, asDraft = false) {
   const now = new Date();
