@@ -20,6 +20,8 @@ on:
 
 permissions:
   contents: write
+  # claude-code-action authenticates to the Claude GitHub App via an OIDC token.
+  id-token: write
 
 concurrency:
   group: book-links
