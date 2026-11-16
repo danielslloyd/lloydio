@@ -2,6 +2,26 @@
 title: Quotes
 ---
 
+> A little government and a little luck are necessary in life, but only a fool trusts either of them.
+> 
+> ...
+> 
+> When buying and selling are controlled by legislation, the first things to be bought and sold are legislators.
+> 
+> ...
+> 
+> The whole idea of our government is this: If enough people get together and act in concert, they can take something and not pay for it.
+
+<p class="quote-src">— P. J. O’Rourke, “<a class="src-title" href="https://www.amazon.com/dp/0871134551">Parliament of Whores</a>” (1991)</p>
+
+---
+
+> …the wildest hippie and the sternest member of the Politburo shared the same daydream, the daydream that underlies all Marxism: that a thing might somehow be worth other than what people will give for it.
+
+<p class="quote-src">— P. J. O’Rourke, “<a class="src-title" href="https://www.amazon.com/dp/0871135205">Give War a Chance</a>” (1992)</p>
+
+---
+
 > If it means anything, then “America First” means Americans first, even Americans as dotty and useless as Joe Biden, a contemptible and grubby little grasper who did not have much of a working brain back when he had something of a working brain. If you are a nationalist in any genuine sense, then your people are your people. But, of course, Trump is not a nationalist in any meaningful sense, for the same reason he isn’t really much of a patriot or a racist or a Christian—Trump is his own god, and he recognizes no loyalty at odds with his interests and no good that is not in accord with his appetites and desires.
 
 <p class="quote-src">— Kevin D. Williamson, “<a class="src-title" href="https://thedispatch.com/newsletter/wanderland/trump-netanyahu-unstatesmanlike-statesmen/">Unstatesmanlike Statesmen</a>”, Wanderland (The Dispatch), September 28, 2026</p>
