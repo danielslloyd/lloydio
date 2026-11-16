@@ -9,6 +9,7 @@ status: read
 audio: "https://media.lloyd.studio/episodes/idols-of-the-valley-c916cb.mp3"
 audio_bytes: 5495181
 duration: 1373
+draft: true
 ---
 
 # Idols of the Valley
