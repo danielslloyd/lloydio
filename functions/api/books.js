@@ -27,6 +27,7 @@
 
 import {
   lookupAmazon,
+  lookupGoodreads,
   findDuplicate,
   bookLinks,
   appendEntry,
@@ -156,14 +157,16 @@ async function addFromLink(body, env) {
   if (!/^(https?:\/\/)?[^\s]+\.[^\s]+$/.test(url)) return json({ error: 'not a link' }, 400);
 
   try {
-    const meta = await lookupAmazon(url);
+    const meta = (await lookupGoodreads(url)) || (await lookupAmazon(url));
     if (!meta || meta.confidence === 'none') {
       const path = await queueLink(env, url, status, body.draft === true);
       return json({ ok: true, result: 'queued', path });
     }
 
     const { text, sha } = await githubGetFile(env, FILE);
-    const dupe = findDuplicate(text, meta.asin);
+    const dupe =
+      findDuplicate(text, meta.asin) ??
+      (meta.goodreads ? findDuplicate(text, `show/${meta.goodreads.split('/').pop()}`) : null);
     if (dupe !== null) return json({ ok: true, result: 'duplicate', title: dupe || meta.asin });
 
     const draft = body.draft === true || meta.confidence !== 'high';
@@ -177,6 +180,11 @@ async function addFromLink(body, env) {
       links: bookLinks(meta),
       draft,
     };
+    // No ISBN (id is GR<n>): there's no Amazon product page to link, so search.
+    if (meta.isbn10 === '') {
+      const q = encodeURIComponent([meta.title.replace(/:.*$/, ''), meta.author.split(',')[0]].filter(Boolean).join(' '));
+      entry.links.amazon = `https://www.amazon.com/s?k=${q}&i=stripbooks`;
+    }
     await githubPutFile(env, FILE, appendEntry(text, entry), sha, `books: add ${meta.asin}`);
     return json({ ok: true, result: draft ? 'drafted' : 'added', entry });
   } catch (e) {
