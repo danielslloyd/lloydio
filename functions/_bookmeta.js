@@ -23,6 +23,49 @@ export function extractAsin(url) {
   return m ? m[1].toUpperCase() : null;
 }
 
+// Goodreads book page → metadata (schema.org Book JSON-LD). The entry id is
+// the ISBN-10 (= Amazon ASIN) when the page has an ISBN, else `GR<bookid>`.
+// Returns the same shape as lookupAmazon (plus `isbn10`), or null if the URL
+// isn't a Goodreads book link / the page can't be read.
+export async function lookupGoodreads(rawUrl) {
+  let url = String(rawUrl || '').trim();
+  if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+  const m = url.match(/^https?:\/\/(?:www\.)?goodreads\.com\/(?:[a-z]{2}\/)?book\/show\/(\d+)/i);
+  if (!m) return null;
+  const goodreads = `https://www.goodreads.com/book/show/${m[1]}`;
+  const out = { asin: `GR${m[1]}`, isbn10: '', url: goodreads, title: '', author: '', cover: '', goodreads, audible: '', confidence: 'none' };
+  let ld;
+  try {
+    const res = await fetch(goodreads, {
+      headers: { 'User-Agent': UA, 'Accept-Language': 'en-US,en;q=0.9', Accept: 'text/html' },
+      signal: AbortSignal.timeout(6000),
+    });
+    if (!res.ok) return out;
+    const html = await res.text();
+    for (const t of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      try {
+        const j = JSON.parse(t[1]);
+        if (j && j['@type'] === 'Book') { ld = j; break; }
+      } catch {}
+    }
+  } catch {
+    return out;
+  }
+  if (!ld || !ld.name) return out;
+  out.title = String(ld.name).trim();
+  out.author = (Array.isArray(ld.author) ? ld.author : ld.author ? [ld.author] : [])
+    .map((a) => String(a?.name || '').trim()).filter(Boolean).slice(0, 3).join(', ');
+  if (/^https:\/\/m\.media-amazon\.com\//.test(ld.image || '')) out.cover = ld.image;
+  out.isbn10 = isbn10Of([ld.isbn]);
+  if (out.isbn10) {
+    out.asin = out.isbn10;
+    out.cover = (await amazonCover(out.isbn10)) || out.cover;
+  }
+  out.confidence = 'high';
+  out.audible = await audiblePage(out.title, out.author);
+  return out;
+}
+
 export async function lookupAmazon(rawUrl) {
   let url = String(rawUrl || '').trim();
   if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
